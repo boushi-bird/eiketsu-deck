@@ -149,13 +149,13 @@ export const DeckTotal = memo(function Component({
         <div className="cost-graph">
           <TotalCost
             totalCost={Math.max(totalCost, deckConstraints.limitCost)}
-            costDetails={periodsCostDetails}
-            noCostLabel="時代コスト"
+            costDetails={generalColorCostDetails}
+            noCostLabel="勢力コスト"
           />
           <TotalCost
             totalCost={Math.max(totalCost, deckConstraints.limitCost)}
-            costDetails={generalColorCostDetails}
-            noCostLabel="勢力コスト"
+            costDetails={periodsCostDetails}
+            noCostLabel="時代コスト"
           />
         </div>
       </div>
