@@ -1,0 +1,19 @@
+theme: jekyll-theme-minimal
+lang: ja
+title: 英傑大戦デッキシミュレーター
+description: 英傑大戦デッキシミュレーター
+plugins:
+  - jekyll-sitemap
+defaults:
+  - scope:
+      path: dependencies.md
+    values:
+      sitemap: false
+  - scope:
+      path: buildpage_dependencies.md
+    values:
+      sitemap: false
+  - scope:
+      path: updateinfo.html
+    values:
+      sitemap: false

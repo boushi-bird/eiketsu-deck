@@ -1,0 +1,158 @@
+ - **[@cspotcode/source-map-consumer@0.8.0](https://github.com/cspotcode/source-map)**
+    - license: BSD-3-Clause
+ - **[@cspotcode/source-map-support@0.7.0](https://github.com/cspotcode/node-source-map-support)**
+    - license: MIT
+ - **[@tsconfig/node10@1.0.8](https://github.com/tsconfig/bases)**
+    - license: MIT
+ - **[@tsconfig/node12@1.0.9](https://github.com/tsconfig/bases)**
+    - license: MIT
+ - **[@tsconfig/node14@1.0.1](https://github.com/tsconfig/bases)**
+    - license: MIT
+ - **[@tsconfig/node16@1.0.2](https://github.com/tsconfig/bases)**
+    - license: MIT
+ - **[@types/js-yaml@4.0.5](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+    - license: MIT
+ - **[@types/node@16.11.33](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+    - license: MIT
+ - **[abbrev@1.1.1](https://github.com/isaacs/abbrev-js)**
+    - license: ISC
+ - **[acorn-walk@8.2.0](https://github.com/acornjs/acorn)**
+    - license: MIT
+ - **[acorn@8.7.0](https://github.com/acornjs/acorn)**
+    - license: MIT
+ - **[ansi-styles@3.2.1](https://github.com/chalk/ansi-styles)**
+    - license: MIT
+ - **[arg@4.1.3](https://github.com/zeit/arg)**
+    - license: MIT
+ - **[argparse@2.0.1](https://github.com/nodeca/argparse)**
+    - license: Python-2.0
+ - **[array-find-index@1.0.2](https://github.com/sindresorhus/array-find-index)**
+    - license: MIT
+ - **[asap@2.0.6](https://github.com/kriskowal/asap)**
+    - license: MIT
+ - **[balanced-match@1.0.2](https://github.com/juliangruber/balanced-match)**
+    - license: MIT
+ - **[brace-expansion@1.1.11](https://github.com/juliangruber/brace-expansion)**
+    - license: MIT
+ - **[chalk@2.4.2](https://github.com/chalk/chalk)**
+    - license: MIT
+ - **[color-convert@1.9.3](https://github.com/Qix-/color-convert)**
+    - license: MIT
+ - **[color-name@1.1.3](https://github.com/dfcreative/color-name)**
+    - license: MIT
+ - **[concat-map@0.0.1](https://github.com/substack/node-concat-map)**
+    - license: MIT
+ - **[create-require@1.1.1](https://github.com/nuxt-contrib/create-require)**
+    - license: MIT
+ - **[debug@3.2.7](https://github.com/visionmedia/debug)**
+    - license: MIT
+ - **[debuglog@1.0.1](https://github.com/sam-github/node-debuglog)**
+    - license: MIT
+ - **[dezalgo@1.0.3](https://github.com/npm/dezalgo)**
+    - license: ISC
+ - **[diff@4.0.2](https://github.com/kpdecker/jsdiff)**
+    - license: BSD-3-Clause
+ - **[dotenv@16.0.0](https://github.com/motdotla/dotenv)**
+    - license: BSD-2-Clause
+ - **[escape-string-regexp@1.0.5](https://github.com/sindresorhus/escape-string-regexp)**
+    - license: MIT
+ - **[fs.realpath@1.0.0](https://github.com/isaacs/fs.realpath)**
+    - license: ISC
+ - **[function-bind@1.1.1](https://github.com/Raynos/function-bind)**
+    - license: MIT
+ - **[glob@7.2.0](https://github.com/isaacs/node-glob)**
+    - license: ISC
+ - **[graceful-fs@4.2.9](https://github.com/isaacs/node-graceful-fs)**
+    - license: ISC
+ - **[has-flag@3.0.0](https://github.com/sindresorhus/has-flag)**
+    - license: MIT
+ - **[has@1.0.3](https://github.com/tarruda/has)**
+    - license: MIT
+ - **[hosted-git-info@2.8.9](https://github.com/npm/hosted-git-info)**
+    - license: ISC
+ - **[inflight@1.0.6](https://github.com/npm/inflight)**
+    - license: ISC
+ - **[inherits@2.0.4](https://github.com/isaacs/inherits)**
+    - license: ISC
+ - **[is-core-module@2.8.1](https://github.com/inspect-js/is-core-module)**
+    - license: MIT
+ - **[js-yaml@4.1.0](https://github.com/nodeca/js-yaml)**
+    - license: MIT
+ - **[json-parse-even-better-errors@2.3.1](https://github.com/npm/json-parse-even-better-errors)**
+    - license: MIT
+ - **[license-checker@25.0.1](https://github.com/davglass/license-checker)**
+    - license: BSD-3-Clause
+ - **[make-error@1.3.6](https://github.com/JsCommunity/make-error)**
+    - license: ISC
+ - **[minimatch@3.1.2](https://github.com/isaacs/minimatch)**
+    - license: ISC
+ - **[minimist@1.2.6](https://github.com/substack/minimist)**
+    - license: MIT
+ - **[mkdirp@0.5.6](https://github.com/substack/node-mkdirp)**
+    - license: MIT
+ - **[ms@2.1.3](https://github.com/vercel/ms)**
+    - license: MIT
+ - **[nopt@4.0.3](https://github.com/npm/nopt)**
+    - license: ISC
+ - **[normalize-package-data@2.5.0](https://github.com/npm/normalize-package-data)**
+    - license: BSD-2-Clause
+ - **[npm-normalize-package-bin@1.0.1](https://github.com/npm/npm-normalize-package-bin)**
+    - license: ISC
+ - **[once@1.4.0](https://github.com/isaacs/once)**
+    - license: ISC
+ - **[os-homedir@1.0.2](https://github.com/sindresorhus/os-homedir)**
+    - license: MIT
+ - **[os-tmpdir@1.0.2](https://github.com/sindresorhus/os-tmpdir)**
+    - license: MIT
+ - **[osenv@0.1.5](https://github.com/npm/osenv)**
+    - license: ISC
+ - **[path-is-absolute@1.0.1](https://github.com/sindresorhus/path-is-absolute)**
+    - license: MIT
+ - **[path-parse@1.0.7](https://github.com/jbgutierrez/path-parse)**
+    - license: MIT
+ - **[read-installed@4.0.3](https://github.com/isaacs/read-installed)**
+    - license: ISC
+ - **[read-package-json@2.1.2](https://github.com/npm/read-package-json)**
+    - license: ISC
+ - **[readdir-scoped-modules@1.1.0](https://github.com/npm/readdir-scoped-modules)**
+    - license: ISC
+ - **[resolve@1.22.0](https://github.com/browserify/resolve)**
+    - license: MIT
+ - **[semver@5.7.1](https://github.com/npm/node-semver)**
+    - license: ISC
+ - **[slide@1.1.6](https://github.com/isaacs/slide-flow-control)**
+    - license: ISC
+ - **[spdx-compare@1.0.0](https://github.com/kemitchell/spdx-compare.js)**
+    - license: MIT
+ - **[spdx-correct@3.1.1](https://github.com/jslicense/spdx-correct.js)**
+    - license: Apache-2.0
+ - **[spdx-exceptions@2.3.0](https://github.com/kemitchell/spdx-exceptions.json)**
+    - license: CC-BY-3.0
+ - **[spdx-expression-parse@3.0.1](https://github.com/jslicense/spdx-expression-parse.js)**
+    - license: MIT
+ - **[spdx-license-ids@3.0.11](https://github.com/jslicense/spdx-license-ids)**
+    - license: CC0-1.0
+ - **[spdx-ranges@2.1.1](https://github.com/kemitchell/spdx-ranges.js)**
+    - license: (MIT AND CC-BY-3.0)
+ - **[spdx-satisfies@4.0.1](https://github.com/kemitchell/spdx-satisfies.js)**
+    - license: MIT
+ - **[supports-color@5.5.0](https://github.com/chalk/supports-color)**
+    - license: MIT
+ - **[supports-preserve-symlinks-flag@1.0.0](https://github.com/inspect-js/node-supports-preserve-symlinks-flag)**
+    - license: MIT
+ - **[treeify@1.1.0](https://github.com/notatestuser/treeify)**
+    - license: MIT
+ - **[ts-node@10.7.0](https://github.com/TypeStrong/ts-node)**
+    - license: MIT
+ - **[typescript@4.6.3](https://github.com/Microsoft/TypeScript)**
+    - license: Apache-2.0
+ - **[util-extend@1.0.3](https://github.com/isaacs/util-extend)**
+    - license: MIT
+ - **[v8-compile-cache-lib@3.0.0](https://github.com/cspotcode/v8-compile-cache-lib)**
+    - license: MIT
+ - **[validate-npm-package-license@3.0.4](https://github.com/kemitchell/validate-npm-package-license.js)**
+    - license: Apache-2.0
+ - **[wrappy@1.0.2](https://github.com/npm/wrappy)**
+    - license: ISC
+ - **[yn@3.1.1](https://github.com/sindresorhus/yn)**
+    - license: MIT
