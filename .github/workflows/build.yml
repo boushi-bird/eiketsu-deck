@@ -20,14 +20,16 @@ jobs:
         with:
           ref: gh-pages
           path: dist
+      - name: Install main
+        run: npm --production=false install
+      - name: Install build-page-tools
+        working-directory: build-page-tools
+        run: npm --production=false install
       - name: Build main
-        run: |
-          npm --production=false install
-          npm run build
+        run: npm run build
       - name: Build pages
         working-directory: build-page-tools
         run: |
-          npm --production=false install
           npm run build
           npm run build:pages
       - name: Commit
