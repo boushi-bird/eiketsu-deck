@@ -56,7 +56,6 @@ const slice = createSlice({
         ...action.payload,
         key: currentDeckKey++,
       };
-      console.log(card);
       state.deckCards = [...state.deckCards, card];
     },
     setDecks(state: DeckState, action: PayloadAction<DeckCard[]>) {

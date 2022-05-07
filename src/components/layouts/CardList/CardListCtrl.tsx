@@ -97,12 +97,6 @@ export const CardListCtrl = ({ generalIdx }: Props) => {
 
   const handleAddDeckClick = useCallback(
     (targetChecked: boolean, generalIdx: number) => {
-      console.log('handleAddDeckClick', { checked, targetChecked, generalIdx });
-      if (checked === targetChecked) {
-        // 不整合の場合は何もしない
-        return;
-      }
-
       if (targetChecked) {
         dispatch(deckActions.addDeckGeneral({ generalIdx }));
       } else {
