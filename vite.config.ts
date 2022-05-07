@@ -79,6 +79,11 @@ export default defineConfig({
       workbox: {
         cleanupOutdatedCaches: true,
         clientsClaim: true,
+        // デフォルトではSPA用に全パスがindex.htmlにルーティングされるのでルーティングされるパスを絞る
+        navigateFallbackAllowlist: [
+          new RegExp(`^${APP_PATH.replace(/\//g, '\\/')}$`),
+          new RegExp(`^${APP_PATH.replace(/\//g, '\\/')}\\?.*$`),
+        ],
         globIgnores: ['_includes/**', '_layouts/**', 'updateinfo.html'],
         runtimeCaching: [
           {
