@@ -35,8 +35,8 @@ jobs:
       - name: Commit
         working-directory: dist
         run: |
-          git config user.name "boushi-bird"
-          git config user.email "boushi-bird@users.noreply.github.com"
+          git config user.name "eiketsu-taisen-data BOT"
+          git config user.email "eiketsu-taisen-data@example.com"
           git add .
           git commit -m "Built from commit $(cd .. && git log -n 1 --format=%h)"
       - name: Push
