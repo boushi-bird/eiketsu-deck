@@ -12,9 +12,9 @@ const updateSW = registerSW({
     } = store.getState();
     updateSW(autoReload);
   },
-  onOfflineReady() {
-    store.dispatch(windowActions.beOffline());
-  },
+  // onOfflineReady() {
+  //   store.dispatch(windowActions.beOffline());
+  // },
   onRegisterError(error) {
     console.error('[SW Register Error]', error);
   },
