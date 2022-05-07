@@ -1,7 +1,5 @@
 import { FC, ReactNode, useCallback, useMemo, useState } from 'react';
 
-import { faCircleXmark } from '@fortawesome/free-solid-svg-icons/faCircleXmark';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { createSelector } from '@reduxjs/toolkit';
 import classNames from 'classnames';
 
@@ -80,8 +78,11 @@ export const FilterMenu = () => {
       ></div>
       <div className="filter-menu">
         <h1 className="filter-title">絞り込みメニュー</h1>
-        <button className="filter-close" onClick={handleCloseFilter}>
-          <FontAwesomeIcon icon={faCircleXmark} />
+        <button
+          className="filter-close filter-action-button"
+          onClick={handleCloseFilter}
+        >
+          OK
         </button>
         <FilterDisplay />
         <div className="filter-buttons">
