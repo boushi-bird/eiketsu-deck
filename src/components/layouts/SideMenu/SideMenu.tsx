@@ -88,7 +88,7 @@ export const SideMenu = () => {
               />
             </a>
           </li>
-          <li className="side-menu-item" style={{display: 'none'}}>
+          <li className="side-menu-item" style={{ display: 'none' }}>
             <a onClick={handleOpenUpdateInfo}>
               更新情報
               <FontAwesomeIcon
@@ -101,7 +101,11 @@ export const SideMenu = () => {
           </li>
           {/* 更新情報モーダルが未実装なのでリンクに変更 TODO: 正式な処理入れる */}
           <li className="side-menu-item">
-            <a href="./updateinfo.html" target="_blank" rel="noopener noreferrer">
+            <a
+              href="./updateinfo.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               更新情報
               <FontAwesomeIcon
                 className="external-link-icon"

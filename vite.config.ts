@@ -13,7 +13,8 @@ const INJECT_METADATA = {
   description:
     'アーケードゲーム英傑大戦のデッキシミュレーターです。本ツールは個人が作成した非公式のツールです。',
   shortDescription: 'アーケードゲーム英傑大戦のデッキシミュレーターです。',
-  url: process.env.GH_PAGES_URL || 'https://boushi-bird.github.io/eiketsu-deck/',
+  url:
+    process.env.GH_PAGES_URL || 'https://boushi-bird.github.io/eiketsu-deck/',
   themeColor: '#003cc1',
 };
 
