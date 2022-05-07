@@ -76,6 +76,10 @@
       align-items: center;
       text-decoration: none;
 
+      &:visited {
+        color: var(--side-menu-color);
+      }
+
       &.disabled {
         color: var(--side-menu-hover-bg-color);
 

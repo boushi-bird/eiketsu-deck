@@ -145,8 +145,8 @@
 @custom-media --large-screen screen and (min-width: 1500px) and (min-height: 700px); /* 幅・高さが大きい画面表示 */
 @custom-media --modal-filter-style --middle-screen,
   --vertical-screen; /* 絞り込みメニューがモーダルの場合 */
-@custom-media --short-vertical screen and (max-height: 750px);
-@custom-media --long-vertical screen and (min-height: 1000px);
+@custom-media --short-vertical screen and (max-height: 900px);
+@custom-media --long-vertical screen and (min-height: 1080px);
 
 @keyframes rolling {
   from {
