@@ -9,10 +9,10 @@ import classNames from 'classnames';
 import { useAppDispatch, useSelector, windowSelector } from '@/hooks';
 import { windowActions } from '@/modules/window';
 
-const selector = createSelector(windowSelector, (window) => window.showNotice);
+const selector = createSelector(windowSelector, ({ showNotice, offline }) => ({showNotice, offline}));
 
 export const AppHeader = () => {
-  const showNotice = useSelector<boolean>(selector);
+  const {showNotice, offline} = useSelector(selector);
   const dispatch = useAppDispatch();
 
   const handleSideMenuButtonClick = useCallback(() => {
@@ -37,6 +37,9 @@ export const AppHeader = () => {
       <div className="app-header-title">英傑大戦デッキシミュレーター</div>
       <span className="copyright">
         <a onClick={handleCopyrightClick}>&copy;SEGA</a>
+      </span>
+      <span className={classNames("offline", { show: offline })}>
+        オフラインで実行中です
       </span>
     </div>
   );

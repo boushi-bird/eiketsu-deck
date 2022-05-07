@@ -63,6 +63,7 @@
   --cold-color: #2c82de;
   --active-color: #ff8c00;
   --dark-bg-color: #0f1111;
+  --offline-color: #07EDB9;
 
   --app-header-bg-color: var(--main-color);
   --title-color: white;
