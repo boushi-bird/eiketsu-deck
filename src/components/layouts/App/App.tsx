@@ -32,7 +32,7 @@ const AppContainer: FC<Props> = ({ children }) => {
       // 一定時間経っていた場合、Service Worker更新時のリロードはしない。
       setTimeout(() => {
         dispatch(windowActions.disableAutoReload());
-      }, 2000);
+      }, 5000);
     })();
   }, []);
 
