@@ -1,0 +1,42 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  NODE_ENV: production
+  APP_PATH: '/eiketsu-deck/'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v2
+      - name: Checkout dist
+        uses: actions/checkout@v2
+        with:
+          ref: gh-pages
+          path: dist
+      - name: Build main
+        run: |
+          npm --production=false install
+          npm run build
+      - name: Build pages
+        working-directory: build-page-tools
+        run: |
+          npm --production=false install
+          npm run build
+          npm run build:pages
+      - name: Commit
+        working-directory: dist
+        run: |
+          git config user.name "eiketsu-taisen-data BOT"
+          git config user.email "eiketsu-taisen-data@example.com"
+          git add .
+          git commit -m "Built from commit $(cd .. && git log -n 1 --format=%h)"
+      - name: Push
+        working-directory: dist
+        run: git push
