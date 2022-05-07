@@ -1,6 +1,7 @@
 import {
   MouseEventHandler,
   useCallback,
+  useDeferredValue,
   useEffect,
   useRef,
   useState,
@@ -67,6 +68,8 @@ export const CardList = () => {
   const generals = useAppSelector(selector);
   const filter = useAppSelector(filterSelector);
 
+  const deferredFilter = useDeferredValue(filter);
+
   const allCount = searchedGenerals.length;
   const { searchedOffset, hasPrev, hasNext, start, end } = page(
     currentPage,
@@ -108,7 +111,7 @@ export const CardList = () => {
       );
       setCurrentPage(1);
     });
-  }, [generals, filter]);
+  }, [generals, deferredFilter]);
 
   const handleEtcAreaClick = useCallback<MouseEventHandler<HTMLElement>>(
     (e) => {

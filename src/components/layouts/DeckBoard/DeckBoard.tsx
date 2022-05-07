@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useDeferredValue, useState } from 'react';
 
 import classNames from 'classnames';
 
@@ -23,6 +23,7 @@ export const DeckBoard = () => {
   const deckState = useAppSelector(deckSelector);
   const { generals } = datalistState;
   const { deckCards } = deckState;
+  const deferredDeckState = useDeferredValue(deckState);
 
   const handleDeckClear = useCallback(() => {
     // TODO: confirmのコンポーネント作る
@@ -123,7 +124,7 @@ export const DeckBoard = () => {
       <div className="deck-info">
         <div className="deck-info-inner">
           <div className="deck-info-main">
-            <DeckTotal {...{ datalistState, deckState }} />
+            <DeckTotal {...{ datalistState, deckState: deferredDeckState }} />
           </div>
           <div className="switch-deckboard-items">
             <button
