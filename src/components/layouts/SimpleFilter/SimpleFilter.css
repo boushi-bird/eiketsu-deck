@@ -1,0 +1,47 @@
+@import '@/defines.css';
+
+.simple-filter {
+  min-height: 80px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+
+  & .simple-filter-main {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+  }
+
+  & .simple-filter-section {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    padding: 5px;
+    background-color: var(--simple-filter-bg-color);
+
+    & .title {
+      font-size: var(--simple-filter-font-size);
+      vertical-align: middle;
+      color: var(--filter-menu-label-color);
+      margin: 5px;
+    }
+  }
+
+  & .open-filter {
+    font-size: var(--open-filter-font-size);
+    width: 56px;
+    height: 56px;
+    margin: 5px;
+    color: var(--open-filter-color);
+    background-color: var(--open-filter-bg-color);
+    border: 2px solid var(--open-filter-border-color);
+    outline: none;
+  }
+}
+
+@media (--modal-filter-style) {
+  .simple-filter {
+    display: flex;
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "build-page-tools",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run build:license",
+    "build:pages": "ts-node build-pages.ts",
+    "build:license": "npm run build:license:main && npm run build:license:build-page",
+    "build:license:main": "cd .. && license-checker --markdown --excludePrivatePackages --customPath=build-page-tools/license-checker.json --out dist/dependencies.md",
+    "build:license:build-page": "license-checker --markdown --excludePrivatePackages --customPath=license-checker.json --out ../dist/buildpage_dependencies.md"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "js-yaml": "^4.1.0",
+    "license-checker": "^25.0.1",
+    "ts-node": "^10.7.0"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.5",
+    "@types/node": "^16.11.33"
+  }
+}

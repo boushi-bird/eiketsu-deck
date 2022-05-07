@@ -1,0 +1,116 @@
+@import '@/defines.css';
+
+.side-menu-container {
+  color: var(--side-menu-color);
+  height: 100%;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--z-index-side-menu);
+
+  & .side-menu {
+    position: absolute;
+    margin-left: calc(-1 * var(--side-menu-width));
+  }
+
+  & .side-menu-bg {
+    display: none;
+  }
+
+  &.open {
+    & .side-menu {
+      margin-left: 0;
+    }
+
+    & .side-menu-bg {
+      display: block;
+    }
+  }
+
+  @nest .ready & {
+    display: block;
+  }
+}
+
+.side-menu {
+  width: var(--side-menu-width);
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: var(--side-menu-bg-color);
+  border: 1px solid var(--default-border-color);
+  transition: all 300ms 0s ease;
+
+  & .side-menu-header {
+    height: var(--app-header-size);
+  }
+
+  & .side-menu-list {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    list-style: none;
+    border: 1px solid var(--default-border-color);
+    border-left-width: 0;
+    border-right-width: 0;
+  }
+
+  & .side-menu-item {
+    width: 100%;
+    height: 80px;
+    list-style: none;
+    border: 1px solid var(--default-border-color);
+    border-left-width: 0;
+    border-right-width: 0;
+    padding-left: 10px;
+
+    &:hover {
+      background-color: var(--side-menu-hover-bg-color);
+    }
+
+    & a {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+
+      &.disabled {
+        color: var(--side-menu-hover-bg-color);
+
+        &:hover {
+          color: var(--side-menu-bg-color);
+        }
+      }
+    }
+
+    & .notice-icon {
+      margin-left: 6px;
+    }
+  }
+}
+
+@media (--large-screen) {
+  .side-menu-container {
+    position: static;
+    z-index: auto;
+
+    & .side-menu {
+      position: static;
+      margin-left: 0;
+    }
+
+    &.open {
+      & .side-menu-bg {
+        display: none;
+      }
+    }
+  }
+}
+
+@media all and (display-mode: standalone) {
+  .side-menu-item.pwa-install {
+    display: none;
+  }
+}

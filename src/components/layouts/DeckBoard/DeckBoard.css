@@ -1,0 +1,302 @@
+@import '@/defines.css';
+
+:root {
+  /* minimum */
+  --deck-board-deck-card-list-height-minimum: 142px;
+  /* small */
+  --deck-board-deck-info-height-small: 20px;
+  --deck-board-deck-info-inner-height-small: 0;
+  --deck-board-deck-info-inner-top-default: 20px;
+  /* normal */
+  --deck-board-deck-info-height-normal: 140px;
+  --deck-board-deck-info-inner-height-normal: 142px;
+  --deck-board-deck-info-inner-top-normal: 0;
+  /* large */
+  --deck-board-deck-info-inner-height-large: 240px;
+}
+
+.deck-board {
+  width: 100%;
+
+  & .deck-card-actions {
+    width: 100%;
+    height: 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    & .deck-card-action-button {
+      height: 40px;
+      font-size: var(--deck-board-action-button-font-size);
+      margin: auto 6px;
+      padding: 0 6px;
+      color: var(--ctrl-ui-color);
+      background-color: var(--ctrl-ui-bg-color);
+      border-color: var(--default-color);
+    }
+  }
+
+  & .deck-card-list {
+    width: 100%;
+    height: var(--deck-board-card-list-height);
+    padding: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    transition-property: height;
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
+
+    & .no-deck {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 12px;
+      width: 100%;
+      height: var(--deck-card-height);
+      background-color: var(--default-disabled-color);
+    }
+  }
+
+  & .deck-info {
+    width: 100%;
+    min-height: var(--deck-board-deck-info-height-small);
+    position: relative;
+    transition-property: min-height;
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
+
+    & .deck-info-inner {
+      position: absolute;
+      z-index: 1;
+      margin: 0 auto;
+      top: var(--deck-board-deck-info-inner-top-default);
+      left: 0;
+      right: 0;
+      height: 100%;
+      background-color: white;
+      height: var(--deck-board-deck-info-inner-height-small);
+      transition-property: height, top;
+      transition-duration: 0.5s;
+      transition-timing-function: ease;
+
+      & .deck-info-main {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+    }
+  }
+
+  & .switch-deckboard-items {
+    width: 160px;
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  & .switch-deckboard {
+    width: 64px;
+    height: 24px;
+    background-color: var(--ctrl-ui-bg-color);
+    visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    opacity: 0.6;
+    padding: 2px 0;
+    overflow: hidden;
+    border-style: none;
+    background-clip: content-box;
+
+    &.show-button {
+      visibility: visible;
+    }
+
+    & .up-icon,
+    & .down-icon {
+      width: 100%;
+      height: 24px;
+      display: flex;
+      justify-content: center;
+      position: relative;
+      box-sizing: border-box;
+    }
+
+    & .icon-inner {
+      width: 0;
+      height: 0;
+      position: absolute;
+      border: 24px solid transparent;
+    }
+
+    & .up-icon {
+      align-items: flex-end;
+
+      & .icon-inner {
+        border-bottom: 12px solid var(--default-color);
+        bottom: 6px;
+      }
+    }
+
+    & .down-icon {
+      align-items: flex-start;
+
+      & .icon-inner {
+        border-top: 12px solid var(--default-color);
+        top: 6px;
+      }
+    }
+  }
+}
+
+.deck-board.minimum {
+  & .deck-card-list {
+    height: var(--deck-board-deck-card-list-height-minimum);
+
+    & .deck-card {
+      height: var(--deck-card-inner-thumb-height);
+      overflow: hidden;
+
+      & .deck-card-inner-top {
+        & .shadow {
+          display: none;
+        }
+
+        & .info-area {
+          display: none;
+        }
+      }
+    }
+
+    & .no-deck {
+      height: var(--deck-card-inner-thumb-height);
+    }
+  }
+}
+
+@media (--short-vertical) {
+  /* minimumと同じ表示にする */
+  .deck-board.small {
+    & .deck-card-list {
+      height: var(--deck-board-deck-card-list-height-minimum);
+
+      & .deck-card {
+        height: var(--deck-card-inner-thumb-height);
+        overflow: hidden;
+
+        & .deck-card-inner-top {
+          & .shadow {
+            display: none;
+          }
+
+          & .info-area {
+            display: none;
+          }
+        }
+      }
+
+      & .no-deck {
+        height: var(--deck-card-inner-thumb-height);
+      }
+    }
+
+    & .switch-deckboard.show-button.switch-deckboard-up {
+      visibility: hidden;
+    }
+  }
+}
+
+.deck-board.normal {
+  & .deck-info {
+    min-height: var(--deck-board-deck-info-height-normal);
+
+    & .deck-info-inner {
+      top: var(--deck-board-deck-info-inner-top-normal);
+      height: var(--deck-board-deck-info-inner-height-normal);
+    }
+  }
+}
+
+@media (--short-vertical) {
+  /* 縦が長いときのsmallと同じ表示にする */
+  .deck-board.normal {
+    & .deck-info {
+      min-height: var(--deck-board-deck-info-height-small);
+
+      & .deck-info-inner {
+        top: var(--deck-board-deck-info-inner-top-default);
+        height: var(--deck-board-deck-info-inner-height-small);
+      }
+    }
+  }
+}
+
+.deck-board.large,
+.deck-board.ex-large {
+  & .deck-info {
+    min-height: var(--deck-board-deck-info-height-normal);
+
+    & .deck-info-inner {
+      top: var(--deck-board-deck-info-inner-top-normal);
+      height: var(--deck-board-deck-info-inner-height-large);
+    }
+  }
+
+  & .deck-total .total-params {
+    display: flex;
+  }
+
+  & .switch-deckboard.show-button.switch-deckboard-down {
+    visibility: hidden;
+  }
+}
+
+@media (--short-vertical) {
+  /* 縦が長いときのnormalと同じ表示にする */
+  .deck-board.large {
+    & .deck-info {
+      min-height: var(--deck-board-deck-info-height-normal);
+
+      & .deck-info-inner {
+        top: var(--deck-board-deck-info-inner-top-normal);
+        height: var(--deck-board-deck-info-inner-height-normal);
+      }
+    }
+
+    & .deck-total .total-params {
+      display: none;
+    }
+
+    & .switch-deckboard.show-button.switch-deckboard-down {
+      visibility: visible;
+    }
+  }
+}
+
+@media (--long-vertical) {
+  /* 縦に十分長いので単純に高さを変える */
+  .deck-board.large,
+  .deck-board.ex-large {
+    & .deck-info {
+      min-height: var(--deck-board-deck-info-inner-height-large);
+    }
+  }
+}
+
+@media (--middle-screen) {
+  .deck-board {
+    width: calc(100% - var(--app-min-width));
+  }
+}

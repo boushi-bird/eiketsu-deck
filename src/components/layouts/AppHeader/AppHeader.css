@@ -1,0 +1,52 @@
+@import '@/defines.css';
+
+.app-header {
+  position: relative;
+  height: var(--app-header-size);
+  min-height: var(--app-header-size);
+  background-color: var(--app-header-bg-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  & .copyright {
+    font-size: 20px;
+    color: white;
+    position: absolute;
+    right: 6px;
+    bottom: 0;
+  }
+
+  & .app-header-title {
+    text-align: center;
+    font-weight: normal;
+    font-size: var(--title-font-size);
+    color: var(--title-color);
+    margin: auto;
+  }
+}
+
+.side-menu-button {
+  position: relative;
+  font-size: 42px;
+  margin-left: 2px;
+  color: var(--app-header-bg-color);
+  background-color: ffeddf;
+  width: var(--side-menu-button-size);
+  height: var(--side-menu-button-size);
+  border-radius: 4px;
+  visibility: visible;
+  outline: 0;
+
+  & .notice-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
+
+@media (--large-screen) {
+  .side-menu-button {
+    visibility: hidden;
+  }
+}

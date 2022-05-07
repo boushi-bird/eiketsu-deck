@@ -1,0 +1,40 @@
+@import '@/defines.css';
+
+.checkbox {
+  cursor: pointer;
+  font-size: var(--checkbox-text-font-size);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  white-space: nowrap;
+
+  & .check-area {
+    width: var(--checkbox-check-size);
+    aspect-ratio: 1 / 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--checkbox-check-color);
+    background-color: var(--checkbox-check-bg-color);
+    border: 2px solid var(--checkbox-check-color);
+    margin-right: 4px;
+
+    & .check {
+      font-size: var(--checkbox-check-font-size);
+      visibility: hidden;
+
+      &.checked {
+        visibility: visible;
+      }
+    }
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+    color: var(--default-disabled-color);
+
+    & .check-area {
+      background-color: var(--checkbox-check-disabled-bg-color);
+    }
+  }
+}

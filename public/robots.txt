@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /google*.html
+
+Sitemap: https://boushi-bird.github.io/eiketsu-deck/sitemap.xml

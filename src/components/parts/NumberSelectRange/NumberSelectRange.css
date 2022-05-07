@@ -1,0 +1,9 @@
+@import '@/defines.css';
+
+.number-select-range {
+  color: var(--filter-menu-label-color);
+
+  & .number-select {
+    margin: 0 3px;
+  }
+}

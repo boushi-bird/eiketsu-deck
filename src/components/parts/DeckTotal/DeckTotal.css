@@ -1,0 +1,140 @@
+@import '@/defines.css';
+
+:root {
+  --deck-total-inner-min-width: 620px;
+}
+
+.deck-total {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  & .total-costs {
+    width: 100%;
+    min-width: var(--deck-total-inner-min-width);
+    display: flex;
+    justify-content: center;
+
+    & .cost {
+      min-width: 118px;
+      max-width: 118px;
+      display: flex;
+
+      & .total {
+        width: calc(100% - 4px);
+      }
+
+      & .cost-values {
+        width: 100%;
+        font-weight: bold;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+
+        & .cost-value {
+          font-weight: bold;
+        }
+
+        & .cost-remain {
+          font-size: 14px;
+
+          &.over {
+            font-size: 10px;
+            color: var(--danger-color);
+          }
+
+          &.under {
+            color: var(--cold-color);
+          }
+        }
+      }
+    }
+
+    & .cost-graph {
+      width: calc(100% - 140px);
+
+      & .total-cost {
+        margin: 2px 0;
+      }
+    }
+  }
+
+  & .total-params {
+    display: none;
+    width: calc(100% - 20px);
+    height: 100px;
+    overflow: auto;
+    min-width: var(--deck-total-inner-min-width);
+
+    & .total {
+      min-width: 56px;
+    }
+
+    & .total.total-type-counts {
+      width: 100%;
+      padding-bottom: 0;
+      align-items: flex-start;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      overflow: auto;
+    }
+
+    & .type-count {
+      font-size: 14px;
+      max-height: 22px;
+      display: flex;
+      align-items: flex-end;
+      margin: 1px 6px 1px;
+      white-space: nowrap;
+
+      &:first-child {
+        margin-left: 60px;
+      }
+
+      & .cost-label {
+        font-size: 10px;
+      }
+
+      & .skill {
+        font-size: 14px;
+        font-weight: bold;
+        margin: 0 2px;
+        width: 20px;
+        height: 20px;
+        background-color: var(--general-skill-bg-color);
+        border: solid 2px var(--general-skill-border-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: nowrap;
+      }
+
+      & .unit {
+        font-size: 16px;
+        font-weight: bold;
+        margin: 0 2px;
+      }
+    }
+  }
+
+  & .total {
+    font-size: 18px;
+    font-weight: bold;
+    border: 1px solid var(--default-color);
+    margin: 2px 1px;
+    padding: 5px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+
+    &[data-label]::before {
+      font-size: 14px;
+      font-weight: bold;
+      position: absolute;
+      top: 2px;
+      left: 2px;
+    }
+  }
+}

@@ -1,0 +1,6 @@
+@import '@/defines.css';
+
+.number-select {
+  min-width: 102px;
+  min-height: 48px;
+}

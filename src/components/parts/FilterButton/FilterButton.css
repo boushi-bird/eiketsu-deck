@@ -1,0 +1,70 @@
+@import '@/defines.css';
+
+.filter-item-wrapper {
+  position: relative;
+  margin: 3px;
+  padding: 0;
+
+  & .selected-cover {
+    display: none;
+    position: absolute;
+    background-color: var(--active-color);
+    width: calc(100% - 6px);
+    height: calc(100% - 6px);
+    border-radius: 3px;
+    margin: 3px;
+    opacity: 0.1;
+    pointer-events: none;
+
+    &.selected {
+      display: block;
+    }
+  }
+}
+
+.filter-item {
+  background-color: var(--filter-button-bg-color);
+}
+
+.button.filter-item {
+  min-width: var(--filter-button-min-width);
+  height: var(--filter-button-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: var(--filter-button-color);
+  border-style: solid;
+  border-color: var(--filter-button-border-color);
+  border-width: 3px;
+  border-radius: 6px;
+  text-shadow: 0 0 10px var(--filter-button-shadow-color);
+  -webkit-tap-highlight-color: var(--filter-button-tap-highlight-color);
+  outline: none;
+  padding: 0 6px;
+  white-space: nowrap;
+  overflow: hidden;
+
+  &.square {
+    font-size: 120%;
+    max-width: var(--filter-button-square-size);
+    min-width: var(--filter-button-square-size);
+    height: var(--filter-button-square-size);
+    padding: 0;
+  }
+
+  &.selected {
+    text-shadow: 0 0 30px var(--active-color);
+    border-color: var(--active-color);
+
+    &:disabled {
+      color: var(--filter-button-disabled-color);
+      border-color: var(--active-color);
+    }
+  }
+
+  &:disabled {
+    color: var(--filter-button-disabled-color);
+    border-color: var(--filter-button-disabled-color);
+  }
+}

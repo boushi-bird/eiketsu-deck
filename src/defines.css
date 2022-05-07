@@ -1,0 +1,171 @@
+:root {
+  --app-min-width: 650px; /* アプリケーションの最小幅 */
+  --app-min-height: 600px; /* アプリケーションの最小高さ */
+  --app-middle-screen-min-width: 1050px;
+  --app-vertical-screen-min-height: 740px;
+  --side-menu-width: 350px; /* サイドメニューの幅 */
+  --filter-menu-min-width: 400px;
+  --general-card-width: 600px;
+  --general-card-height: 92px;
+  --deck-card-width: 72px;
+  --deck-card-height: 250px;
+  --deck-card-inner-thumb-height: 118px;
+  --deck-board-card-list-height: 274px;
+
+  --checkbox-check-size: 22px;
+  --app-header-size: 66px;
+  --side-menu-button-size: 62px;
+  --filter-action-button-width: 88px;
+  --filter-action-button-height: 40px;
+  --filter-button-min-width: 90px;
+  --filter-button-height: 48px;
+  --filter-button-square-size: 58px;
+
+  --default-font-size: 24px;
+  --default-ui-font-size: 28px;
+  --checkbox-check-font-size: 18px;
+  --checkbox-text-font-size: 18px;
+  --title-font-size: 26px;
+  --deck-board-action-button-font-size: 24px;
+  --deck-board-tool-button-font-size: 20px;
+  --deck-board-default-font-size: 16px;
+  --deck-board-card-no-font-size: 12px;
+  --deck-board-rarity-font-size: 16px;
+  --deck-board-unit-type-font-size: 16px;
+  --deck-board-name-font-size: 20px;
+  --deck-board-long-name-font-size: 16px;
+  --deck-board-period-font-size: 14px;
+  --filter-tab-font-size: 18px;
+  --filter-action-button-font-size: 18px;
+  --filter-menu-title-font-size: 26px;
+  --filter-display-item-font-size: 14px;
+  --simple-filter-font-size: 18px;
+  --open-filter-font-size: 18px;
+  --general-small-font-size: 14px;
+  --general-strat-font-size: 18px;
+  --general-strat-param-font-size: 12px;
+  --general-param-font-size: 20px;
+  --general-state-color-font-size: 28px;
+  --general-rarity-font-size: 26px;
+  --general-cost-font-size: 16px;
+  --general-skill-font-size: 18px;
+
+  --z-index-side-menu: 80;
+  --z-index-filter-menu: 90;
+  --z-index-loading: 100;
+
+  --main-color: #003cc1;
+  --ctrl-ui-color: white;
+  --ctrl-ui-bg-color: #5f9cdd;
+  --ctrl-ui-active-bg-color: #2c82de;
+  --default-color: #0f1111;
+  --danger-color: #f94355;
+  --cold-color: #2c82de;
+  --active-color: #ff8c00;
+  --dark-bg-color: #0f1111;
+
+  --app-header-bg-color: var(--main-color);
+  --title-color: white;
+  --data-label-color: #777;
+  --default-disabled-color: #ccc;
+  --loading-color: white;
+  --modal-bg-color: var(--dark-bg-color);
+  --default-border-color: #ccc;
+  --side-menu-color: white;
+  --side-menu-bg-color: var(--main-color);
+  --side-menu-hover-bg-color: var(--ctrl-ui-bg-color);
+  --deck-card-default-bg-color: #ccc;
+  --deck-card-inner-top-color: white;
+  --deck-card-period-color: white;
+  --deck-card-period-bg-color: var(--dark-bg-color);
+  --deck-card-tool-box-button-color: white;
+  --deck-card-tool-box-button-bg-color: var(--ctrl-ui-bg-color);
+  --deck-total-cost-bg-color-odd: #eee;
+  --deck-total-cost-bg-color-even: #ccc;
+  --filter-tab-button-basic-color: var(--ctrl-ui-bg-color);
+  --filter-tab-button-detail-color: var(--main-color);
+  --filter-tab-button-strat-color: var(--main-color);
+  --filter-action-button-color: white;
+  --filter-action-button-bg-color: var(--ctrl-ui-active-bg-color);
+  --filter-menu-title-color: white;
+  --filter-menu-label-color: white;
+  --filter-menu-border-color: white;
+  --filter-menu-bg-color: rgba(0, 0, 0, 0.8);
+  --filter-menu-content-bg-color: var(--main-color);
+  --filter-display-item-color: white;
+  --filter-display-item-bg-color: var(--main-color);
+  --filter-display-item-border-color: white;
+  --filter-button-color: white;
+  --filter-button-no-skill-color: var(--default-color);
+  --filter-button-border-color: white;
+  --filter-button-bg-color: var(--ctrl-ui-bg-color);
+  --filter-button-shadow-color: lightslategray;
+  --filter-button-disabled-color: #ccc;
+  --filter-button-tap-highlight-color: #ccc;
+  --switch-button-color: #eee;
+  --switch-button-active-color: white;
+  --switch-button-bg-color: #ccc;
+  --switch-button-active-bg-color: var(--ctrl-ui-active-bg-color);
+  --button-tap-highlight-color: var(--ctrl-ui-active-bg-color);
+  --checkbox-check-color: var(--default-color);
+  --checkbox-check-bg-color: white;
+  --checkbox-check-disabled-bg-color: #ccc;
+  --simple-filter-bg-color: #333;
+  --open-filter-color: white;
+  --open-filter-bg-color: var(--ctrl-ui-bg-color);
+  --open-filter-border-color: var(--default-color);
+  --paging-button-color: white;
+  --paging-button-bg-color: var(--ctrl-ui-bg-color);
+  --paging-button-border-color: var(--default-color);
+  --card-list-ctrl-item-color: var(--default-color);
+  --card-list-ctrl-item-bg-color: var(--ctrl-ui-bg-color);
+  --card-list-ctrl-item-active-color: white;
+  --card-list-ctrl-item-active-bg-color: var(--ctrl-ui-active-bg-color);
+  --card-list-ctrl-item-border-color: var(--default-color);
+  --general-state-color: white;
+  --general-rarity-default-color: #333;
+  --general-rarity-default-bg-color: #ccc;
+  --general-period-block-bg-color: #e2ab04;
+  --general-period-block-border-color: var(--default-color);
+  --general-skill-bg-color: #e2ab04;
+  --general-skill-border-color: var(--default-color);
+  --general-no-skill-bg-color: rgba(0, 0, 0, 0.2);
+  --general-cost-bg-color: #e2ab04;
+  --general-cost-border-color: #333;
+  --general-cost-less-bg-color: var(--dark-bg-color);
+  --general-strat-bg-color: white;
+  --general-strat-border-color: var(--default-color);
+}
+
+@custom-media --vertical-screen-w screen and (max-width: 1050px);
+@custom-media --vertical-screen-h screen and (max-height: 620px);
+@custom-media --vertical-screen --vertical-screen-w,
+  --vertical-screen-h; /* 縦長の主にスマホ画面表示 */
+@custom-media --middle-screen screen and (min-width: 1080px) and (max-height: 620px); /* 縦が小さめ画面 */
+@custom-media --large-screen screen and (min-width: 1500px) and (min-height: 700px); /* 幅・高さが大きい画面表示 */
+@custom-media --modal-filter-style --middle-screen,
+  --vertical-screen; /* 絞り込みメニューがモーダルの場合 */
+@custom-media --short-vertical screen and (max-height: 750px);
+@custom-media --long-vertical screen and (min-height: 1000px);
+
+@keyframes rolling {
+  from {
+    transform: rotate(0);
+    transform-origin: center;
+  }
+
+  to {
+    transform: rotate(360deg);
+    transform-origin: center;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

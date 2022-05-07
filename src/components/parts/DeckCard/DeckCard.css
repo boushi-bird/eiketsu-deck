@@ -1,0 +1,357 @@
+@import '@/defines.css';
+
+:root {
+  --deck-card-margin: 4px;
+  --deck-card-move-from-x: calc(
+    var(--deck-card-width) + var(--deck-card-margin)
+  );
+  --deck-card-inner-top-height: 158px;
+  --deck-card-inner-bottom-height: calc(
+    var(--deck-card-height) - var(--deck-card-inner-top-height)
+  );
+}
+
+.deck-card {
+  margin: var(--deck-card-margin);
+  width: var(--deck-card-width);
+  min-width: var(--deck-card-width);
+  height: var(--deck-card-height);
+  cursor: pointer;
+  box-sizing: content-box;
+  position: relative;
+  background-color: var(--deck-card-default-bg-color);
+
+  &:hover {
+    margin: 0;
+    border: 4px solid var(--active-color);
+    cursor: default;
+  }
+
+  & .deck-card-inner-top {
+    width: 100%;
+    height: var(--deck-card-inner-top-height);
+    font-size: var(--deck-board-default-font-size);
+    user-select: none;
+    position: relative;
+    color: var(--deck-card-inner-top-color);
+
+    & .thumb {
+      width: 100%;
+      height: var(--deck-card-inner-thumb-height);
+      display: inline-flex;
+      align-items: flex-start;
+      justify-content: center;
+      overflow: hidden;
+
+      & .general-thumb {
+        margin: 0 -5% auto;
+        width: 110%;
+        height: auto;
+        text-align: center;
+      }
+    }
+
+    & .shadow {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+    }
+
+    & .info-area {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      animation: fadeIn 0.5s ease 0s 1 normal;
+
+      & > * {
+        position: absolute;
+      }
+
+      & .card-no {
+        min-width: 38px;
+        height: 17px;
+        padding: 1px 4px;
+        font-size: var(--deck-board-card-no-font-size);
+        background-color: var(--deck-card-default-bg-color);
+      }
+
+      & .name {
+        writing-mode: vertical-rl;
+        right: 0;
+        bottom: 4px;
+        width: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        font-size: var(--deck-board-name-font-size);
+
+        &.long {
+          font-size: var(--deck-board-long-name-font-size);
+        }
+
+        & .rarity-area {
+          writing-mode: horizontal-tb;
+          font-size: var(--deck-board-rarity-font-size);
+          font-weight: bold;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 20px;
+          height: 20px;
+          border-radius: 6px;
+          margin-bottom: 2px;
+        }
+      }
+
+      & .unit-type {
+        left: 2px;
+        bottom: 2px;
+        width: 34px;
+        height: 40px;
+
+        font-size: var(--deck-board-unit-type-font-size);
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      & .unit-type-image {
+        width: 28px;
+        height: 28px;
+      }
+
+      & *[data-label] {
+        padding-top: 12px;
+      }
+
+      & *[data-label]::before {
+        font-weight: normal;
+        color: var(--deck-card-inner-top-color);
+      }
+    }
+  }
+
+  & .deck-card-inner-bottom {
+    width: 100%;
+    height: var(--deck-card-inner-bottom-height);
+    font-size: var(--deck-board-default-font-size);
+    user-select: none;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 18px 16px 1fr 26px;
+    grid-template-areas:
+      'period period'
+      'cost   cost'
+      'strong intelligence'
+      'skills skills';
+
+    & .period {
+      grid-area: period;
+
+      font-size: var(--deck-board-period-font-size);
+      color: var(--deck-card-period-color);
+      background-color: var(--deck-card-period-bg-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    & .cost {
+      grid-area: cost;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      & .general-cost {
+        padding-left: 2px;
+
+        & .cost-circle {
+          width: 12px;
+          height: 12px;
+          margin-right: 2px;
+        }
+      }
+    }
+
+    & .skills {
+      grid-area: skills;
+
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: nowrap;
+      padding: 0 2px;
+
+      & .skill {
+        font-weight: bold;
+        margin: 0 1px;
+        width: 20px;
+        height: 20px;
+        background-color: var(--general-skill-bg-color);
+        border: 2px solid var(--general-skill-border-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: nowrap;
+      }
+
+      & .no-skill {
+        background-color: var(--general-no-skill-bg-color);
+        margin: 0 1px;
+        width: 66px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: nowrap;
+      }
+    }
+
+    & .strong {
+      grid-area: strong;
+
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    & .intelligence {
+      grid-area: intelligence;
+
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  /* 連続右移動の際にアニメーションされない現象回避のためkeyframesを交互に指定している */
+  &.from-right.odd {
+    animation: move-from-right-odd 0.5s;
+  }
+
+  &.from-right.even {
+    animation: move-from-right-even 0.5s;
+  }
+
+  &.from-left {
+    animation: move-from-left 0.5s;
+  }
+
+  & .tool-box {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    padding: 2px 0;
+    pointer-events: none;
+
+    & > * {
+      pointer-events: auto;
+    }
+
+    @nest .deck-card:hover & {
+      display: flex;
+    }
+
+    & .tool-button {
+      position: absolute;
+      cursor: pointer;
+      font-size: var(--deck-board-tool-button-font-size);
+      width: 36px;
+      height: 36px;
+      border-style: none;
+      color: var(--deck-card-tool-box-button-color);
+      background-color: var(--deck-card-tool-box-button-bg-color);
+      outline: 0;
+      background-clip: content-box;
+      padding: 2px;
+      opacity: 0.8;
+    }
+
+    & .remove {
+      position: absolute;
+      cursor: pointer;
+      font-size: var(--deck-board-tool-button-font-size);
+      width: 36px;
+      height: 36px;
+      top: -10px;
+      right: -10px;
+      color: var(--danger-color);
+      background-color: white;
+      border: 1px solid transparent;
+      border-radius: 50%;
+      background-clip: content-box;
+      outline: 0;
+      padding: 6px;
+    }
+
+    & .move-left {
+      color: white;
+      top: 50%;
+      left: -2px;
+      transform: translateY(-50%);
+      display: none;
+
+      &.enabled {
+        display: block;
+      }
+    }
+
+    & .move-right {
+      color: white;
+      top: 50%;
+      right: -2px;
+      transform: translateY(-50%);
+      display: none;
+
+      &.enabled {
+        display: block;
+      }
+    }
+  }
+}
+
+@keyframes move-from-right-odd {
+  0% {
+    transform: translateX(var(--deck-card-move-from-x));
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes move-from-right-even {
+  0% {
+    transform: translateX(var(--deck-card-move-from-x));
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes move-from-left {
+  0% {
+    transform: translateX(calc(var(--deck-card-move-from-x) * -1));
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
