@@ -3,6 +3,7 @@ import {
   useCallback,
   useDeferredValue,
   useEffect,
+  useMemo,
   useRef,
   useState,
   useTransition,
@@ -15,7 +16,12 @@ import { General } from 'eiketsu-deck';
 import { CardListCtrl } from './CardListCtrl';
 
 import { GeneralCard } from '@/components/parts/GeneralCard';
-import { datalistSelector, filterSelector, useAppSelector } from '@/hooks';
+import {
+  datalistSelector,
+  deckSelector,
+  filterSelector,
+  useAppSelector,
+} from '@/hooks';
 import { FilterState } from '@/modules/filter';
 import {
   filterMenuItems,
@@ -23,7 +29,15 @@ import {
 } from '@/services/filterMenuItems';
 import { nextTick } from '@/utils/sleep';
 
-const selector = createSelector(datalistSelector, ({ generals }) => generals);
+const selectorGeneral = createSelector(
+  datalistSelector,
+  (datalist) => datalist.generals
+);
+
+const selectorDeckCards = createSelector(
+  deckSelector,
+  ({ deckCards }) => deckCards
+);
 
 const PAGE_LIMIT = 50;
 
@@ -65,8 +79,9 @@ export const CardList = () => {
   const [readingCards, setReadingCards] = useState(0);
   const [readingCardsAll, setReadingCardsAll] = useState(0);
 
-  const generals = useAppSelector(selector);
+  const generals = useAppSelector(selectorGeneral);
   const filter = useAppSelector(filterSelector);
+  const deckCards = useAppSelector(selectorDeckCards);
 
   const deferredFilter = useDeferredValue(filter);
 
@@ -81,6 +96,19 @@ export const CardList = () => {
     searchedOffset,
     searchedOffset + PAGE_LIMIT
   );
+
+  // デッキに含まれている武将名idxと計略idxの配列を返す
+  const deckPersonals = useMemo(() => {
+    const deckGeneralIdxs = deckCards.map((v) => v.generalIdx);
+
+    return generals
+      .filter((general) => {
+        return deckGeneralIdxs.includes(general.idx);
+      })
+      .map(({ personalIdx, strat }) => {
+        return { personalIdx, stratIdx: strat.idx };
+      });
+  }, [generals, deckCards]);
 
   useEffect(() => {
     const genLen = generals.length;
@@ -120,8 +148,11 @@ export const CardList = () => {
     []
   );
 
+  const deckCardCount = deckCards.length;
+
   const generalCards = generals.slice(0, readingCards).map((general) => {
     const show = displaySearchedGenerals.includes(general.idx);
+    const deckChecked = deckCards.some((d) => d.generalIdx === general.idx);
 
     return (
       <div
@@ -131,7 +162,9 @@ export const CardList = () => {
       >
         <GeneralCard {...{ general }}>
           <div className="etc-area" onClick={handleEtcAreaClick}>
-            <CardListCtrl generalIdx={general.idx} />
+            <CardListCtrl
+              {...{ general, deckPersonals, deckChecked, deckCardCount }}
+            />
           </div>
         </GeneralCard>
       </div>

@@ -1,68 +1,52 @@
-import { useCallback, useMemo } from 'react';
+import { memo, useCallback } from 'react';
 
 import { createSelector } from '@reduxjs/toolkit';
 import classNames from 'classnames';
+import { General } from 'eiketsu-deck';
 
 import { CheckBox } from '@/components/parts/CheckBox';
-import {
-  datalistSelector,
-  deckSelector,
-  useAppDispatch,
-  useAppSelector,
-} from '@/hooks';
+import { deckSelector, useAppDispatch, useAppSelector } from '@/hooks';
 import { deckActions } from '@/modules/deck';
 
-interface Props {
-  generalIdx: number;
+// デッキに含まれている武将名idxと計略idx
+interface DeckPersonals {
+  personalIdx: number;
+  stratIdx: number;
 }
 
-const selectorGeneral = createSelector(
-  datalistSelector,
-  (datalist) => datalist.generals
-);
+interface Props {
+  general: General;
+  deckPersonals: DeckPersonals[];
+  deckChecked: boolean;
+  deckCardCount: number;
+}
 
 const selectorDeckConstraints = createSelector(
   deckSelector,
-  ({ deckCards, deckConstraints: { sameCard, generalCardLimit } }) => ({
-    deckCards,
-    deckConstraints: { sameCard, generalCardLimit },
+  ({ deckConstraints: { sameCard, generalCardLimit } }) => ({
+    sameCard,
+    generalCardLimit,
   })
 );
 
-export const CardListCtrl = ({ generalIdx }: Props) => {
+export const CardListCtrl = memo(function Component({
+  general,
+  deckPersonals,
+  deckChecked,
+  deckCardCount,
+}: Props) {
   const dispatch = useAppDispatch();
 
-  const generals = useAppSelector(selectorGeneral);
-  const { deckCards, deckConstraints } = useAppSelector(
-    selectorDeckConstraints
-  );
+  const generalIdx = general.idx;
 
-  // デッキに含まれている武将名idxと計略idxの配列を返す
-  const deckPersonals = useMemo(() => {
-    const deckGeneralIdxs = deckCards.map((v) => v.generalIdx);
-
-    return generals
-      .filter((general) => {
-        return deckGeneralIdxs.includes(general.idx);
-      })
-      .map(({ personalIdx, strat }) => {
-        return { personalIdx, stratIdx: strat.idx };
-      });
-  }, [generals, deckCards]);
-
-  const checked = deckCards.some((d) => d.generalIdx === generalIdx);
-  const cardCount = deckCards.length;
+  const deckConstraints = useAppSelector(selectorDeckConstraints);
 
   // クリック可能であるか判別
   const clickable =
-    checked ||
+    deckChecked ||
     (() => {
       // 武将カード上限枚数判別
-      if (cardCount >= deckConstraints.generalCardLimit) {
-        return '';
-      }
-      const general = generals.find((g) => g.idx === generalIdx);
-      if (!general) {
+      if (deckCardCount >= deckConstraints.generalCardLimit) {
         return '';
       }
       // 武将カードの同名カード判別
@@ -94,18 +78,20 @@ export const CardListCtrl = ({ generalIdx }: Props) => {
         dispatch(deckActions.removeDeckGeneral(generalIdx));
       }
     },
-    [checked]
+    [deckChecked]
   );
 
   return (
     <div className="card-list-ctrl">
-      <div className={classNames('card-list-ctrl-item', { checked })}>
+      <div
+        className={classNames('card-list-ctrl-item', { checked: deckChecked })}
+      >
         {disabledReason && (
           <span className="disabled-reason">{disabledReason}</span>
         )}
         <CheckBox
           value={generalIdx}
-          checked={checked}
+          checked={deckChecked}
           disabled={disabled}
           onClick={handleAddDeckClick}
         >
@@ -119,4 +105,4 @@ export const CardListCtrl = ({ generalIdx }: Props) => {
       </div>
     </div>
   );
-};
+});
