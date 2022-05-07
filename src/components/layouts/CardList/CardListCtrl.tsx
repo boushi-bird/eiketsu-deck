@@ -1,66 +1,57 @@
-import { useCallback } from 'react';
+import { useCallback, useMemo } from 'react';
 
 import { createSelector } from '@reduxjs/toolkit';
 import classNames from 'classnames';
 
 import { CheckBox } from '@/components/parts/CheckBox';
-import { deckSelector, useAppDispatch, useAppSelector } from '@/hooks';
+import {
+  datalistSelector,
+  deckSelector,
+  useAppDispatch,
+  useAppSelector,
+} from '@/hooks';
 import { deckActions } from '@/modules/deck';
-import { RootState } from '@/store';
 
 interface Props {
   generalIdx: number;
 }
 
-// デッキに含まれている武将名idxと計略idxの配列を返す
-const selectorWithDeckPersonals = createSelector(
-  ({ datalist: { generals }, deck: { deckCards } }: RootState) => ({
-    generals,
-    deckCards,
-  }),
-  ({ generals, deckCards }) => {
-    const deckGeneralIdxs = deckCards.map((v) => v.generalIdx);
-
-    return {
-      generals,
-      deckCards,
-      deckPersonals: generals
-        .filter((general) => {
-          return deckGeneralIdxs.includes(general.idx);
-        })
-        .map(({ personalIdx, strat }) => {
-          return { personalIdx, stratIdx: strat.idx };
-        }),
-    };
-  }
+const selectorGeneral = createSelector(
+  datalistSelector,
+  (datalist) => datalist.generals
 );
 
 const selectorDeckConstraints = createSelector(
   deckSelector,
-  ({ deckConstraints: { sameCard, generalCardLimit } }) => ({
-    sameCard,
-    generalCardLimit,
+  ({ deckCards, deckConstraints: { sameCard, generalCardLimit } }) => ({
+    deckCards,
+    deckConstraints: { sameCard, generalCardLimit },
   })
 );
 
 export const CardListCtrl = ({ generalIdx }: Props) => {
   const dispatch = useAppDispatch();
 
-  const { generals, deckPersonals, cardCount, checked } = useAppSelector(
-    createSelector(
-      selectorWithDeckPersonals,
-      ({ generals, deckCards, deckPersonals }) => {
-        const checked = deckCards.some((d) => d.generalIdx === generalIdx);
-        return {
-          generals,
-          deckPersonals,
-          cardCount: deckCards.length,
-          checked,
-        };
-      }
-    )
+  const generals = useAppSelector(selectorGeneral);
+  const { deckCards, deckConstraints } = useAppSelector(
+    selectorDeckConstraints
   );
-  const deckConstraints = useAppSelector(selectorDeckConstraints);
+
+  // デッキに含まれている武将名idxと計略idxの配列を返す
+  const deckPersonals = useMemo(() => {
+    const deckGeneralIdxs = deckCards.map((v) => v.generalIdx);
+
+    return generals
+      .filter((general) => {
+        return deckGeneralIdxs.includes(general.idx);
+      })
+      .map(({ personalIdx, strat }) => {
+        return { personalIdx, stratIdx: strat.idx };
+      });
+  }, [generals, deckCards]);
+
+  const checked = deckCards.some((d) => d.generalIdx === generalIdx);
+  const cardCount = deckCards.length;
 
   // クリック可能であるか判別
   const clickable =

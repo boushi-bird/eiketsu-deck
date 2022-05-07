@@ -35,14 +35,6 @@
     display: none;
     justify-content: center;
     align-items: center;
-
-    /* width: 48px;
-    height: 48px;
-    font-size: 42px;
-    cursor: pointer;
-    color: var(--filter-display-item-color);
-    background-color: transparent;
-    border-width: 0; */
   }
 
   & .filter-display {
