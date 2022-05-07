@@ -27,7 +27,7 @@ export default defineConfig({
   },
   define: {
     BASE_DATA_URL: JSON.stringify(
-      process.env.BASE_DATA_URL || '/eiketsu-taisen-data/base_data.json'
+      process.env.BASE_DATA_URL || '/eiketsu-taisen-data/eiketsu_deck_data.json'
     ),
   },
   resolve: {
