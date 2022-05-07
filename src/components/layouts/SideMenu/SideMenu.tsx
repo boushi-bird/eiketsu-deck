@@ -101,7 +101,7 @@ export const SideMenu = () => {
           </li>
           {/* 更新情報モーダルが未実装なのでリンクに変更 TODO: 正式な処理入れる */}
           <li className="side-menu-item">
-            <a href="./updateinfo.html">
+            <a href="./updateinfo.html" target="_blank" rel="noopener noreferrer">
               更新情報
               <FontAwesomeIcon
                 className="external-link-icon"
