@@ -24,7 +24,7 @@ export function CheckBox<V>({
       return;
     }
     onClick(!checked, value);
-  }, [checked, value, onClick]);
+  }, [disabled, checked, value, onClick]);
   return (
     <div className={classNames('checkbox', { disabled })} onClick={handleClick}>
       <span className="check-area">
