@@ -131,23 +131,24 @@ export const CardList = () => {
     []
   );
 
-  const generalCards = generals.slice(0, readingCards).map((general) => {
-    const show = displaySearchedGenerals.includes(general.idx);
-
-    return (
-      <div
-        className={classNames('general-card-container', { show })}
-        key={general.uniqueId}
-        onClick={() => console.log('TODO: show detail')}
-      >
-        <GeneralCard {...{ general }}>
-          <div className="etc-area" onClick={handleEtcAreaClick}>
-            <CardListCtrl {...{ general, generals }} />
-          </div>
-        </GeneralCard>
-      </div>
-    );
-  });
+  const generalCards = generals
+    .slice(0, readingCards)
+    .filter((general) => displaySearchedGenerals.includes(general.idx))
+    .map((general) => {
+      return (
+        <div
+          className={classNames('general-card-container', { show: true })}
+          key={general.uniqueId}
+          onClick={() => console.log('TODO: show detail')}
+        >
+          <GeneralCard {...{ general }}>
+            <div className="etc-area" onClick={handleEtcAreaClick}>
+              <CardListCtrl {...{ general, generals }} />
+            </div>
+          </GeneralCard>
+        </div>
+      );
+    });
 
   return (
     <div className="card-list-container">
