@@ -22,8 +22,8 @@ export const DeckBoard = () => {
   const datalistState = useAppSelector(datalistSelector);
   const deckState = useAppSelector(deckSelector);
   const { generals } = datalistState;
-  const { deckCards } = deckState;
   const deferredDeckState = useDeferredValue(deckState);
+  const { deckCards } = deferredDeckState;
 
   const handleDeckClear = useCallback(() => {
     // TODO: confirmのコンポーネント作る

@@ -24,7 +24,7 @@ import {
 import { createLazyRunner } from '@/utils/lazyRunner';
 import { nextTick } from '@/utils/sleep';
 
-const selectorGeneral = createSelector(
+const generalsSelector = createSelector(
   datalistSelector,
   (datalist) => datalist.generals
 );
@@ -72,7 +72,7 @@ export const CardList = () => {
   const [readingCards, setReadingCards] = useState(0);
   const [readingCardsAll, setReadingCardsAll] = useState(0);
 
-  const generals = useAppSelector(selectorGeneral);
+  const generals = useAppSelector(generalsSelector);
   const filter = useAppSelector(filterSelector);
 
   const deferredFilter = useDeferredValue(filter);
