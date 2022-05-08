@@ -7,7 +7,7 @@ import {
   datalistSelector,
   filterSelector,
   useAppDispatch,
-  useSelector,
+  useAppSelector,
 } from '@/hooks';
 import { filterActions } from '@/modules/filter';
 import {
@@ -18,8 +18,8 @@ import {
 export const FilterDisplay = () => {
   const dispatch = useAppDispatch();
 
-  const datalist = useSelector(datalistSelector);
-  const filter = useSelector(filterSelector);
+  const datalist = useAppSelector(datalistSelector);
+  const filter = useAppSelector(filterSelector);
 
   const items: ReactNode[] = [...filterMenuItems, ...filterMenuStratItems]
     .filter((item) => item.enabled(filter))

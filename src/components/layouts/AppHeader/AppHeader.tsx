@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { createSelector } from '@reduxjs/toolkit';
 import classNames from 'classnames';
 
-import { useAppDispatch, useSelector, windowSelector } from '@/hooks';
+import { useAppDispatch, useAppSelector, windowSelector } from '@/hooks';
 import { windowActions } from '@/modules/window';
 
 const selector = createSelector(windowSelector, ({ showNotice, offline }) => ({
@@ -15,7 +15,7 @@ const selector = createSelector(windowSelector, ({ showNotice, offline }) => ({
 }));
 
 export const AppHeader = () => {
-  const { showNotice, offline } = useSelector(selector);
+  const { showNotice, offline } = useAppSelector(selector);
   const dispatch = useAppDispatch();
 
   const handleSideMenuButtonClick = useCallback(() => {
