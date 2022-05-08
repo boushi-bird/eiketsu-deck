@@ -8,9 +8,11 @@ const createLazyRunnerDefault = (delayTime = 500) => {
       if (handleId != null) {
         cancelIdleCallback(handleId);
       }
-      handleId = requestIdleCallback(async () => {
+      handleId = requestIdleCallback(async ({ didTimeout }) => {
         await sleep(delayTime);
-        callback();
+        if (!didTimeout) {
+          callback();
+        }
         handleId = undefined;
       });
     },
