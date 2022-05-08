@@ -3,10 +3,8 @@ import {
   useCallback,
   useDeferredValue,
   useEffect,
-  useMemo,
   useRef,
   useState,
-  useTransition,
 } from 'react';
 
 import { createSelector } from '@reduxjs/toolkit';
@@ -16,17 +14,13 @@ import { General } from 'eiketsu-deck';
 import { CardListCtrl } from './CardListCtrl';
 
 import { GeneralCard } from '@/components/parts/GeneralCard';
-import {
-  datalistSelector,
-  deckSelector,
-  filterSelector,
-  useAppSelector,
-} from '@/hooks';
+import { datalistSelector, filterSelector, useAppSelector } from '@/hooks';
 import { FilterState } from '@/modules/filter';
 import {
   filterMenuItems,
   filterMenuStratItems,
 } from '@/services/filterMenuItems';
+import { createLazyRunner } from '@/utils/lazyRunner';
 import { nextTick } from '@/utils/sleep';
 
 const selectorGeneral = createSelector(
@@ -34,10 +28,7 @@ const selectorGeneral = createSelector(
   (datalist) => datalist.generals
 );
 
-const selectorDeckCards = createSelector(
-  deckSelector,
-  ({ deckCards }) => deckCards
-);
+const lazyRunner = createLazyRunner();
 
 const PAGE_LIMIT = 50;
 
@@ -70,8 +61,6 @@ function isGeneralMatchFilterCondition(
 export const CardList = () => {
   const scrollArea = useRef<HTMLDivElement>(null);
 
-  const [pending, startTransition] = useTransition();
-
   // 現在のページ
   const [currentPage, setCurrentPage] = useState(1);
   // 検索条件に合う武将のidx
@@ -81,7 +70,6 @@ export const CardList = () => {
 
   const generals = useAppSelector(selectorGeneral);
   const filter = useAppSelector(filterSelector);
-  const deckCards = useAppSelector(selectorDeckCards);
 
   const deferredFilter = useDeferredValue(filter);
 
@@ -96,19 +84,6 @@ export const CardList = () => {
     searchedOffset,
     searchedOffset + PAGE_LIMIT
   );
-
-  // デッキに含まれている武将名idxと計略idxの配列を返す
-  const deckPersonals = useMemo(() => {
-    const deckGeneralIdxs = deckCards.map((v) => v.generalIdx);
-
-    return generals
-      .filter((general) => {
-        return deckGeneralIdxs.includes(general.idx);
-      })
-      .map(({ personalIdx, strat }) => {
-        return { personalIdx, stratIdx: strat.idx };
-      });
-  }, [generals, deckCards]);
 
   useEffect(() => {
     const genLen = generals.length;
@@ -131,10 +106,12 @@ export const CardList = () => {
   }, [currentPage, allCount]);
 
   useEffect(() => {
-    startTransition(() => {
+    lazyRunner.run(() => {
       setSearchedGenerals(
         generals
-          .filter((general) => isGeneralMatchFilterCondition(general, filter))
+          .filter((general) =>
+            isGeneralMatchFilterCondition(general, deferredFilter)
+          )
           .map(({ idx }) => idx)
       );
       setCurrentPage(1);
@@ -148,11 +125,8 @@ export const CardList = () => {
     []
   );
 
-  const deckCardCount = deckCards.length;
-
   const generalCards = generals.slice(0, readingCards).map((general) => {
     const show = displaySearchedGenerals.includes(general.idx);
-    const deckChecked = deckCards.some((d) => d.generalIdx === general.idx);
 
     return (
       <div
@@ -162,9 +136,7 @@ export const CardList = () => {
       >
         <GeneralCard {...{ general }}>
           <div className="etc-area" onClick={handleEtcAreaClick}>
-            <CardListCtrl
-              {...{ general, deckPersonals, deckChecked, deckCardCount }}
-            />
+            <CardListCtrl {...{ general, generals }} />
           </div>
         </GeneralCard>
       </div>
@@ -188,7 +160,7 @@ export const CardList = () => {
           &lt; 前
         </button>
         <div className="paging-label">
-          {pending ? '検索中...' : `全${allCount}件 ${start} - ${end}件`}
+          全{allCount}件 {start} - {end}件
         </div>
         <button
           className={classNames('paging-button', 'next', { active: hasNext })}
@@ -199,7 +171,7 @@ export const CardList = () => {
           次 &gt;
         </button>
       </div>
-      <div className={classNames('card-list', { pending })} ref={scrollArea}>
+      <div className={classNames('card-list')} ref={scrollArea}>
         {generalCards}
       </div>
     </div>

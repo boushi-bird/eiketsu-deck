@@ -1,4 +1,4 @@
-import { memo, useCallback } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 
 import { createSelector } from '@reduxjs/toolkit';
 import classNames from 'classnames';
@@ -8,38 +8,44 @@ import { CheckBox } from '@/components/parts/CheckBox';
 import { deckSelector, useAppDispatch, useAppSelector } from '@/hooks';
 import { deckActions } from '@/modules/deck';
 
-// デッキに含まれている武将名idxと計略idx
-interface DeckPersonals {
-  personalIdx: number;
-  stratIdx: number;
-}
-
 interface Props {
   general: General;
-  deckPersonals: DeckPersonals[];
-  deckChecked: boolean;
-  deckCardCount: number;
+  generals: General[];
 }
 
-const selectorDeckConstraints = createSelector(
+const selectorDecks = createSelector(
   deckSelector,
-  ({ deckConstraints: { sameCard, generalCardLimit } }) => ({
-    sameCard,
-    generalCardLimit,
+  ({ deckCards, deckConstraints: { sameCard, generalCardLimit } }) => ({
+    deckCards,
+    deckConstraints: { sameCard, generalCardLimit },
   })
 );
 
 export const CardListCtrl = memo(function Component({
   general,
-  deckPersonals,
-  deckChecked,
-  deckCardCount,
+  generals,
 }: Props) {
   const dispatch = useAppDispatch();
 
   const generalIdx = general.idx;
 
-  const deckConstraints = useAppSelector(selectorDeckConstraints);
+  const { deckCards, deckConstraints } = useAppSelector(selectorDecks);
+
+  // デッキに含まれている武将名idxと計略idxの配列を返す
+  const deckPersonals = useMemo(() => {
+    const deckGeneralIdxs = deckCards.map((v) => v.generalIdx);
+
+    return generals
+      .filter((general) => {
+        return deckGeneralIdxs.includes(general.idx);
+      })
+      .map(({ personalIdx, strat }) => {
+        return { personalIdx, stratIdx: strat.idx };
+      });
+  }, [generals, deckCards]);
+
+  const deckCardCount = deckCards.length;
+  const deckChecked = deckCards.some((d) => d.generalIdx === general.idx);
 
   // クリック可能であるか判別
   const clickable =

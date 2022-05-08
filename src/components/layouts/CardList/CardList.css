@@ -7,8 +7,8 @@
   overflow: hidden;
 
   & .card-list-paging {
-    min-height: 36px;
-    max-height: 36px;
+    min-height: 50px;
+    max-height: 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -55,10 +55,6 @@
     padding: 10px 0;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
-
-    &.pending {
-      visibility: hidden;
-    }
 
     & .general-card-container {
       display: none;
