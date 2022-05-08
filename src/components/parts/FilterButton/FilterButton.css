@@ -23,7 +23,7 @@
 }
 
 .filter-item {
-  background-color: var(--filter-button-bg-color);
+  background-color: var(--ctrl-ui-bg-color);
 }
 
 .button.filter-item {
@@ -33,9 +33,9 @@
   align-items: center;
   justify-content: center;
   font-weight: bold;
-  color: var(--filter-button-color);
+  color: var(--ctrl-ui-color);
   border-style: solid;
-  border-color: var(--filter-button-border-color);
+  border-color: var(--default-light-border-color);
   border-width: 3px;
   border-radius: 6px;
   text-shadow: 0 0 10px var(--filter-button-shadow-color);

@@ -122,7 +122,7 @@
 }
 
 .button.filter-item.no-skill {
-  color: var(--filter-button-no-skill-color);
+  color: var(--default-color);
   font-weight: normal;
   text-shadow: none;
 }
@@ -174,7 +174,7 @@
     font-weight: bold;
     color: var(--filter-menu-label-color);
     margin: 0 3px;
-    background-color: var(--filter-tab-button-detail-color);
+    background-color: var(--main-color);
     border-color: var(--filter-menu-border-color);
     border-width: 3px;
     outline: none;
@@ -185,7 +185,7 @@
     &.active {
       margin-top: -10px;
       height: 60px;
-      background-color: var(--filter-tab-button-basic-color);
+      background-color: var(--ctrl-ui-bg-color);
       border-bottom-width: 0;
       border-bottom-color: var(--filter-menu-content-bg-color);
     }

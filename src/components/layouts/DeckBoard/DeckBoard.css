@@ -32,7 +32,7 @@
       padding: 0 6px;
       color: var(--ctrl-ui-color);
       background-color: var(--ctrl-ui-bg-color);
-      border-color: var(--default-color);
+      border-color: var(--default-dark-border-color);
     }
   }
 
@@ -145,7 +145,7 @@
       align-items: flex-end;
 
       & .icon-inner {
-        border-bottom: 12px solid var(--default-color);
+        border-bottom: 12px solid var(--default-dark-border-color);
         bottom: 6px;
       }
     }
@@ -154,7 +154,7 @@
       align-items: flex-start;
 
       & .icon-inner {
-        border-top: 12px solid var(--default-color);
+        border-top: 12px solid var(--default-dark-border-color);
         top: 6px;
       }
     }

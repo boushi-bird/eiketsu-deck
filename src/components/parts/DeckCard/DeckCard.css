@@ -33,7 +33,7 @@
     font-size: var(--deck-board-default-font-size);
     user-select: none;
     position: relative;
-    color: var(--deck-card-inner-top-color);
+    color: var(--default-light-color);
 
     & .thumb {
       width: 100%;
@@ -131,7 +131,7 @@
 
       & *[data-label]::before {
         font-weight: normal;
-        color: var(--deck-card-inner-top-color);
+        color: var(--default-light-color);
       }
     }
   }
@@ -154,8 +154,8 @@
       grid-area: period;
 
       font-size: var(--deck-board-period-font-size);
-      color: var(--deck-card-period-color);
-      background-color: var(--deck-card-period-bg-color);
+      color: var(--default-light-color);
+      background-color: var(--dark-bg-color);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -275,8 +275,8 @@
       width: 36px;
       height: 36px;
       border-style: none;
-      color: var(--deck-card-tool-box-button-color);
-      background-color: var(--deck-card-tool-box-button-bg-color);
+      color: var(--default-light-color);
+      background-color: var(--ctrl-ui-bg-color);
       outline: 0;
       background-clip: content-box;
       padding: 2px;

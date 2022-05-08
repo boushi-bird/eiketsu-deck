@@ -122,7 +122,7 @@
   & .total {
     font-size: 18px;
     font-weight: bold;
-    border: 1px solid var(--default-color);
+    border: 1px solid var(--default-dark-border-color);
     margin: 2px 1px;
     padding: 5px;
     display: flex;

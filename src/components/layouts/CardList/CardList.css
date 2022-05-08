@@ -23,9 +23,9 @@
     & .paging-button {
       font-size: 20px;
       margin: auto 6px;
-      color: var(--paging-button-color);
-      background-color: var(--paging-button-bg-color);
-      border-color: var(--paging-button-border-color);
+      color: var(--ctrl-ui-color);
+      background-color: var(--ctrl-ui-bg-color);
+      border-color: var(--default-dark-border-color);
       width: 80px;
       height: 32px;
       visibility: hidden;
@@ -116,15 +116,15 @@
         display: flex;
         align-items: center;
         justify-content: flex-start;
-        color: var(--card-list-ctrl-item-color);
-        background-color: var(--card-list-ctrl-item-bg-color);
-        border: 2px solid var(--card-list-ctrl-item-border-color);
+        color: var(--default-color);
+        background-color: var(--ctrl-ui-bg-color);
+        border: 2px solid var(--default-dark-border-color);
         border-radius: 4px;
         position: relative;
 
         &.checked {
-          color: var(--card-list-ctrl-item-active-color);
-          background-color: var(--card-list-ctrl-item-active-bg-color);
+          color: var(--default-light-color);
+          background-color: var(--ctrl-ui-active-bg-color);
         }
 
         & .disabled-reason {
