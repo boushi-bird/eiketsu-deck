@@ -1,10 +1,17 @@
+import { sleep } from './sleep';
+
 export const createLazyRunner = (delayTime = 500) => {
-  let handleId: NodeJS.Timeout;
+  let handleId: number | undefined;
 
   return {
     run(callback: () => void) {
-      clearTimeout(handleId);
-      handleId = setTimeout(callback, delayTime);
+      if (handleId != null) {
+        cancelIdleCallback(handleId);
+      }
+      handleId = requestIdleCallback(async () => {
+        await sleep(delayTime);
+        callback();
+      });
     },
   };
 };

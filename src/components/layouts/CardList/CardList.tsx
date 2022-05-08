@@ -5,6 +5,7 @@ import {
   useEffect,
   useRef,
   useState,
+  useTransition,
 } from 'react';
 
 import { createSelector } from '@reduxjs/toolkit';
@@ -61,6 +62,8 @@ function isGeneralMatchFilterCondition(
 export const CardList = () => {
   const scrollArea = useRef<HTMLDivElement>(null);
 
+  const [pending, startTransition] = useTransition();
+
   // 現在のページ
   const [currentPage, setCurrentPage] = useState(1);
   // 検索条件に合う武将のidx
@@ -107,14 +110,16 @@ export const CardList = () => {
 
   useEffect(() => {
     lazyRunner.run(() => {
-      setSearchedGenerals(
-        generals
-          .filter((general) =>
-            isGeneralMatchFilterCondition(general, deferredFilter)
-          )
-          .map(({ idx }) => idx)
-      );
-      setCurrentPage(1);
+      startTransition(() => {
+        setSearchedGenerals(
+          generals
+            .filter((general) =>
+              isGeneralMatchFilterCondition(general, deferredFilter)
+            )
+            .map(({ idx }) => idx)
+        );
+        setCurrentPage(1);
+      });
     });
   }, [generals, deferredFilter]);
 
@@ -160,7 +165,7 @@ export const CardList = () => {
           &lt; 前
         </button>
         <div className="paging-label">
-          全{allCount}件 {start} - {end}件
+          {pending ? '検索中...' : `全${allCount}件 ${start} - ${end}件`}
         </div>
         <button
           className={classNames('paging-button', 'next', { active: hasNext })}
@@ -171,7 +176,7 @@ export const CardList = () => {
           次 &gt;
         </button>
       </div>
-      <div className={classNames('card-list')} ref={scrollArea}>
+      <div className={classNames('card-list', { pending })} ref={scrollArea}>
         {generalCards}
       </div>
     </div>
