@@ -63,6 +63,7 @@ export const CardList = () => {
   const scrollArea = useRef<HTMLDivElement>(null);
 
   const [pending, startTransition] = useTransition();
+  const [pendingPaging, startPageingTransition] = useTransition();
 
   // 現在のページ
   const [currentPage, setCurrentPage] = useState(1);
@@ -159,7 +160,9 @@ export const CardList = () => {
         <button
           className={classNames('paging-button', 'prev', { active: hasPrev })}
           onClick={useCallback(() => {
-            setCurrentPage((prevPage) => prevPage - 1);
+            startPageingTransition(() => {
+              setCurrentPage((prevPage) => prevPage - 1);
+            });
           }, [currentPage])}
         >
           &lt; 前
@@ -170,13 +173,27 @@ export const CardList = () => {
         <button
           className={classNames('paging-button', 'next', { active: hasNext })}
           onClick={useCallback(() => {
-            setCurrentPage((prevPage) => prevPage + 1);
+            startPageingTransition(() => {
+              setCurrentPage((prevPage) => prevPage + 1);
+            });
           }, [currentPage])}
         >
           次 &gt;
         </button>
       </div>
-      <div className={classNames('card-list', { pending })} ref={scrollArea}>
+      <div
+        className={classNames('loading-list', {
+          pending: pending || pendingPaging,
+        })}
+      >
+        <div className="loading-item" />
+      </div>
+      <div
+        className={classNames('card-list', {
+          pending: pending || pendingPaging,
+        })}
+        ref={scrollArea}
+      >
         {generalCards}
       </div>
     </div>

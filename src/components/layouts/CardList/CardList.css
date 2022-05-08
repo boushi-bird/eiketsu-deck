@@ -51,6 +51,21 @@
     color: var(--active-color);
   }
 
+  & .loading-list {
+    width: 100%;
+    height: 100%;
+    display: none;
+
+    &.pending {
+      display: block;
+    }
+
+    & .loading-item {
+      border: 5px solid #ccc;
+      border-top: 5px solid white;
+    }
+  }
+
   & .card-list {
     padding: 10px 0;
     overflow: auto;

@@ -11,6 +11,7 @@ export const createLazyRunner = (delayTime = 500) => {
       handleId = requestIdleCallback(async () => {
         await sleep(delayTime);
         callback();
+        handleId = undefined;
       });
     },
   };
