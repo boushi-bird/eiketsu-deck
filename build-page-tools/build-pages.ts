@@ -14,12 +14,20 @@ const distDir = path.resolve(__dirname, '../dist');
 const srcConfigPath = path.resolve(srcDir, '_config.yml');
 const distConfigPath = path.resolve(distDir, '_config.yml');
 
+const srcRobotsPath = path.resolve(srcDir, 'robots.txt');
+const distRobotsPath = path.resolve(distDir, 'robots.txt');
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const conf = jsYaml.load(fs.readFileSync(srcConfigPath, 'utf8')) as any;
 
 if (process.env.GH_PAGES_URL) {
   conf['url'] = process.env.GH_PAGES_URL;
 }
+let robots = fs.readFileSync(srcRobotsPath, 'utf8');
+robots = robots.replace(/\${GH_PAGES_URL}/g, process.env.GH_PAGES_URL || '');
+robots = robots.replace(/\${APP_PATH}/g, process.env.APP_PATH || '/');
+fs.writeFileSync(distRobotsPath, robots, 'utf8');
+console.info(`output ${distRobotsPath}`);
 
 if (process.env.GOOGLE_TAG_MANAGER_CONTAINER_ID) {
   conf['google_tag_manager'] = process.env.GOOGLE_TAG_MANAGER_CONTAINER_ID;
@@ -33,7 +41,7 @@ if (process.env.GOOGLE_SITE_VERIFICATION) {
     `google-site-verification: ${siteVerificationFileName}`,
     'utf8'
   );
-  console.log(`output ${distSiteVerification}`);
+  console.info(`output ${distSiteVerification}`);
 
   const configDefaults: object[] = conf['defaults'] || [];
   configDefaults.push({
@@ -43,4 +51,4 @@ if (process.env.GOOGLE_SITE_VERIFICATION) {
 }
 
 fs.writeFileSync(distConfigPath, jsYaml.dump(conf), 'utf8');
-console.log(`output ${distConfigPath}`);
+console.info(`output ${distConfigPath}`);
