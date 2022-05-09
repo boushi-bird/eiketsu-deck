@@ -38,7 +38,6 @@ export default defineConfig({
   plugins: [
     react(),
     createHtmlPlugin({
-      minify: false,
       inject: {
         data: {
           title: INJECT_METADATA.appName,
