@@ -10,7 +10,7 @@ title: Licenses
 
 # 使用しているフォント
 
-- **[BIZ UDMincho](https://fonts.google.com/specimen/BIZ+UDMincho)
+- **[BIZ UDMincho](https://fonts.google.com/specimen/BIZ+UDMincho)**
     - https://fonts.google.com/specimen/BIZ+UDMincho
     - Open Font License.
 
