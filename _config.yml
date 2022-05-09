@@ -17,5 +17,5 @@ defaults:
       path: updateinfo.html
     values:
       sitemap: false
-url: https://boushi-bird.github.io/eiketsu-deck/
+url: https://boushi-bird.github.io/eiketsu-deck
 google_tag_manager: GTM-WFQ64LJ
