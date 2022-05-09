@@ -8,14 +8,13 @@ import {
   useTransition,
 } from 'react';
 
-import { createSelector } from '@reduxjs/toolkit';
 import classNames from 'classnames';
 import { General } from 'eiketsu-deck';
 
 import { CardListCtrl } from './CardListCtrl';
 
 import { GeneralCard } from '@/components/parts/GeneralCard';
-import { datalistSelector, filterSelector, useAppSelector } from '@/hooks';
+import { filterSelector, generalsSelector, useAppSelector } from '@/hooks';
 import { FilterState } from '@/modules/filter';
 import {
   filterMenuItems,
@@ -23,11 +22,6 @@ import {
 } from '@/services/filterMenuItems';
 import { createLazyRunner } from '@/utils/lazyRunner';
 import { nextTick } from '@/utils/sleep';
-
-const generalsSelector = createSelector(
-  datalistSelector,
-  (datalist) => datalist.generals
-);
 
 const lazyRunner = createLazyRunner();
 
@@ -143,7 +137,7 @@ export const CardList = () => {
         >
           <GeneralCard {...{ general }}>
             <div className="etc-area" onClick={handleEtcAreaClick}>
-              <CardListCtrl {...{ general, generals }} />
+              <CardListCtrl {...{ general }} />
             </div>
           </GeneralCard>
         </div>

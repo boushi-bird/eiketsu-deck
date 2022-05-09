@@ -1,38 +1,36 @@
-import { memo, useCallback, useMemo } from 'react';
+import { memo, useCallback } from 'react';
 
 import { createSelector } from '@reduxjs/toolkit';
 import classNames from 'classnames';
 import { General } from 'eiketsu-deck';
 
 import { CheckBox } from '@/components/parts/CheckBox';
-import { deckSelector, useAppDispatch, useAppSelector } from '@/hooks';
+import {
+  deckCardsSelector,
+  deckSelector,
+  generalsSelector,
+  useAppDispatch,
+  useAppSelector,
+} from '@/hooks';
 import { deckActions } from '@/modules/deck';
 
 interface Props {
   general: General;
-  generals: General[];
 }
 
-const selectorDecks = createSelector(
+const selectorDeckConstraints = createSelector(
   deckSelector,
-  ({ deckCards, deckConstraints: { sameCard, generalCardLimit } }) => ({
-    deckCards,
-    deckConstraints: { sameCard, generalCardLimit },
+  ({ deckConstraints: { sameCard, generalCardLimit } }) => ({
+    sameCard,
+    generalCardLimit,
   })
 );
 
-export const CardListCtrl = memo(function Component({
-  general,
-  generals,
-}: Props) {
-  const dispatch = useAppDispatch();
-
-  const generalIdx = general.idx;
-
-  const { deckCards, deckConstraints } = useAppSelector(selectorDecks);
-
-  // デッキに含まれている武将名idxと計略idxの配列を返す
-  const deckPersonals = useMemo(() => {
+// デッキに含まれている武将名idxと計略idxの配列を返す
+const selectorDeckPersonals = createSelector(
+  generalsSelector,
+  deckCardsSelector,
+  (generals, deckCards) => {
     const deckGeneralIdxs = deckCards.map((v) => v.generalIdx);
 
     return generals
@@ -42,7 +40,20 @@ export const CardListCtrl = memo(function Component({
       .map(({ personalIdx, strat }) => {
         return { personalIdx, stratIdx: strat.idx };
       });
-  }, [generals, deckCards]);
+  }
+);
+
+export const CardListCtrl = memo(function Component({ general }: Props) {
+  const dispatch = useAppDispatch();
+
+  const generalIdx = general.idx;
+
+  const { sameCard, generalCardLimit } = useAppSelector(
+    selectorDeckConstraints
+  );
+  const deckCards = useAppSelector(deckCardsSelector);
+
+  const deckPersonals = useAppSelector(selectorDeckPersonals);
 
   const deckCardCount = deckCards.length;
   const deckChecked = deckCards.some((d) => d.generalIdx === general.idx);
@@ -52,11 +63,11 @@ export const CardListCtrl = memo(function Component({
     deckChecked ||
     (() => {
       // 武将カード上限枚数判別
-      if (deckCardCount >= deckConstraints.generalCardLimit) {
+      if (deckCardCount >= generalCardLimit) {
         return '';
       }
       // 武将カードの同名カード判別
-      if (deckConstraints.sameCard === 'personal-strategy') {
+      if (sameCard === 'personal-strategy') {
         // 武将と計略が一致したときに同名カード扱い
         return (
           !deckPersonals.some(

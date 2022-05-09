@@ -1,3 +1,4 @@
+import { createSelector } from '@reduxjs/toolkit';
 import {
   TypedUseSelectorHook,
   shallowEqual,
@@ -20,3 +21,12 @@ export const datalistSelector = (state: RootState) => state.datalist;
 export const deckSelector = (state: RootState) => state.deck;
 export const filterSelector = (state: RootState) => state.filter;
 export const windowSelector = (state: RootState) => state.window;
+
+export const generalsSelector = createSelector(
+  datalistSelector,
+  (datalist) => datalist.generals
+);
+export const deckCardsSelector = createSelector(
+  deckSelector,
+  ({ deckCards }) => deckCards
+);
