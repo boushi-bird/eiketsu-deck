@@ -8,7 +8,7 @@ on:
 env:
   NODE_ENV: production
   APP_PATH: '/eiketsu-deck/'
-  GH_PAGES_URL: 'https://boushi-bird.github.io/eiketsu-deck'
+  GH_PAGES_URL: 'https://boushi-bird.github.io'
   GOOGLE_TAG_MANAGER_CONTAINER_ID: ${{secrets.GOOGLE_TAG_MANAGER_CONTAINER_ID}}
 
 jobs:

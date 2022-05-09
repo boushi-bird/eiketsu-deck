@@ -7,17 +7,19 @@ import ViteRadar from 'vite-plugin-radar';
 
 dotenv.config();
 
+const APP_PATH = process.env.APP_PATH || '/';
+
 const INJECT_METADATA = {
   appName: '英傑大戦デッキシミュレーター',
   shortAppName: '英傑deck',
   description:
     'アーケードゲーム英傑大戦のデッキシミュレーターです。本ツールは個人が作成した非公式のツールです。',
   shortDescription: 'アーケードゲーム英傑大戦のデッキシミュレーターです。',
-  url: process.env.GH_PAGES_URL || 'https://boushi-bird.github.io/eiketsu-deck',
+  url: `${
+    process.env.GH_PAGES_URL || 'https://boushi-bird.github.io'
+  }${APP_PATH}`,
   themeColor: '#003cc1',
 };
-
-const APP_PATH = process.env.APP_PATH || '/';
 
 export default defineConfig({
   base: './',
