@@ -72,10 +72,7 @@ export const FilterMenu = () => {
 
   return (
     <FilterMenuContainer>
-      <div
-        className="modal-bg filter-menu-bg"
-        onClick={handleCloseFilter}
-      ></div>
+      <div className="modal-bg filter-menu-bg" onClick={handleCloseFilter} />
       <div className="filter-menu">
         <h1 className="filter-title">絞り込みメニュー</h1>
         <button

@@ -1,0 +1,9 @@
+@import '@/defines.css';
+
+.modal {
+  z-index: var(--z-index-modal);
+
+  &.modal-none {
+    display: none;
+  }
+}

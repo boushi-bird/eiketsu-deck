@@ -7,7 +7,7 @@ interface WindowState {
   offline: boolean;
   openedSideMenu: boolean;
   openedFilter: boolean;
-  currentModel: Modal;
+  currentModal: Modal;
   showNotice: boolean;
   pendingInstallPromptEvent: boolean;
 }
@@ -17,7 +17,7 @@ const initialState: WindowState = {
   openedSideMenu: false,
   offline: false,
   openedFilter: false,
-  currentModel: 'none',
+  currentModal: 'none',
   showNotice: false,
   pendingInstallPromptEvent: false,
 };
@@ -45,10 +45,10 @@ const slice = createSlice({
       state.openedFilter = false;
     },
     openUpdateInfo: (state: WindowState) => {
-      state.currentModel = 'updateInfo';
+      state.currentModal = 'updateInfo';
     },
     openCopyright: (state: WindowState) => {
-      state.currentModel = 'copyright';
+      state.currentModal = 'copyright';
     },
     storeInstallPromptEvent: (state: WindowState) => {
       state.pendingInstallPromptEvent = true;
@@ -60,7 +60,7 @@ const slice = createSlice({
       state.showNotice = action.payload;
     },
     closeModal: (state: WindowState) => {
-      state.currentModel = 'none';
+      state.currentModal = 'none';
     },
   },
 });

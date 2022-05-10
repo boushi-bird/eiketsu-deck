@@ -16,9 +16,8 @@
     right: 6px;
     bottom: 0;
 
-    /* TODO: 未実装なので一時的にカーソル変更 */
     & a {
-      cursor: default;
+      cursor: pointer;
     }
   }
 

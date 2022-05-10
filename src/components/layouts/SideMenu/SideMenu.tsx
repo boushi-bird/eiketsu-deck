@@ -75,7 +75,7 @@ export const SideMenu = () => {
 
   return (
     <SideMenuContainer>
-      <div className="modal-bg side-menu-bg"></div>
+      <div className="modal-bg side-menu-bg" />
       <div className="side-menu">
         <div className="side-menu-header" />
         <ul className="side-menu-list">
@@ -88,7 +88,7 @@ export const SideMenu = () => {
               />
             </a>
           </li>
-          <li className="side-menu-item" style={{ display: 'none' }}>
+          <li className="side-menu-item">
             <a onClick={handleOpenUpdateInfo}>
               更新情報
               <FontAwesomeIcon
@@ -96,20 +96,6 @@ export const SideMenu = () => {
                 className={classNames('notice-icon', {
                   show: showNotice,
                 })}
-              />
-            </a>
-          </li>
-          {/* 更新情報モーダルが未実装なのでリンクに変更 TODO: 正式な処理入れる */}
-          <li className="side-menu-item">
-            <a
-              href="./updateinfo.html"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              更新情報
-              <FontAwesomeIcon
-                className="external-link-icon"
-                icon={faExternalLinkAlt}
               />
             </a>
           </li>

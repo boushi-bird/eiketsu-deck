@@ -4,6 +4,7 @@ import classNames from 'classnames';
 
 import { Loading } from '@/components/layouts/Loading/';
 import { Main } from '@/components/layouts/Main/';
+import { Modal } from '@/components/layouts/Modal';
 import { SideMenu } from '@/components/layouts/SideMenu/';
 import { useAppDispatch } from '@/hooks';
 import { datalistActions } from '@/modules/datalist';
@@ -46,6 +47,7 @@ export const App = () => {
     <AppContainer>
       <SideMenu />
       <Main />
+      <Modal />
       <Loading />
     </AppContainer>
   );

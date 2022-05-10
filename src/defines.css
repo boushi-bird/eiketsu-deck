@@ -52,7 +52,8 @@
 
   --z-index-side-menu: 80;
   --z-index-filter-menu: 90;
-  --z-index-loading: 100;
+  --z-index-modal: 100;
+  --z-index-loading: 110;
 
   --main-color: #003cc1;
   --ctrl-ui-color: #fff;
@@ -69,6 +70,8 @@
   --active-color: #ff8c00;
   --dark-bg-color: #0f1111;
   --offline-color: #07edb9;
+  --modal-title-color: #fff;
+  --modal-title-bg-color: rgba(0, 0, 0, 0.8);
 
   --app-header-bg-color: var(--main-color);
   --title-color: white;
@@ -83,10 +86,8 @@
   --deck-total-cost-bg-color-even: #ccc;
   --filter-action-button-color: white;
   --filter-action-button-bg-color: var(--ctrl-ui-active-bg-color);
-  --filter-menu-title-color: white;
   --filter-menu-label-color: white;
   --filter-menu-border-color: var(--default-light-border-color);
-  --filter-menu-bg-color: rgba(0, 0, 0, 0.8);
   --filter-menu-content-bg-color: var(--main-color);
   --filter-display-item-color: white;
   --filter-display-item-bg-color: var(--main-color);
