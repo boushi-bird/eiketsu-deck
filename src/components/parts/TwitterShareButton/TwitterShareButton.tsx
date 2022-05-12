@@ -8,7 +8,7 @@ export const TwitterShareButton = () => (
     onClick={useCallback(() => {
       const url = new URL('https://twitter.com/intent/tweet');
       url.search = new URLSearchParams({
-        button_hashtag: '英傑大戦',
+        hashtags: '英傑大戦',
         url: location.href,
       }).toString();
       window.open(url, '_blank');
