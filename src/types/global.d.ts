@@ -1,3 +1,8 @@
+declare module '*.png' {
+  const value: string;
+  export default value;
+}
+
 interface Window {
   __noticeEnabled: boolean | undefined;
 }

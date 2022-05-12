@@ -4,6 +4,7 @@ import classNames from 'classnames';
 
 import { DeckCard } from '@/components/parts/DeckCard';
 import { DeckTotal } from '@/components/parts/DeckTotal';
+import { TwitterShareButton } from '@/components/parts/TwitterShareButton';
 import {
   datalistSelector,
   deckSelector,
@@ -106,6 +107,7 @@ export const DeckBoard = () => {
   return (
     <div className={classNames('deck-board', switchStyleClasses[switchStyle])}>
       <div className="deck-card-actions">
+        <TwitterShareButton />
         <button
           className="deck-card-action-button deck-clear"
           onClick={handleDeckClear}
