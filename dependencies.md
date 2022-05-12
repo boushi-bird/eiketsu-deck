@@ -212,6 +212,8 @@
     - license: MIT
  - **[@boushi-bird/eiketsu-taisen-net-datalist@0.0.2](https://github.com/boushi-bird/eiketsu-taisen-net-datalist)**
     - license: MIT
+ - **[@csstools/selector-specificity@1.0.0](https://github.com/csstools/postcss-plugins)**
+    - license: CC0-1.0
  - **[@eslint/eslintrc@1.2.3](https://github.com/eslint/eslintrc)**
     - license: MIT
  - **[@fortawesome/fontawesome-common-types@6.1.1](https://github.com/FortAwesome/Font-Awesome)**
@@ -264,7 +266,7 @@
     - license: MIT
  - **[@types/json5@0.0.29](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
- - **[@types/node@16.11.33](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/node@16.11.34](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
  - **[@types/prop-types@15.7.5](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
@@ -280,21 +282,21 @@
     - license: MIT
  - **[@types/use-sync-external-store@0.0.3](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
- - **[@typescript-eslint/eslint-plugin@5.22.0](https://github.com/typescript-eslint/typescript-eslint)**
+ - **[@typescript-eslint/eslint-plugin@5.23.0](https://github.com/typescript-eslint/typescript-eslint)**
     - license: MIT
- - **[@typescript-eslint/parser@5.22.0](https://github.com/typescript-eslint/typescript-eslint)**
+ - **[@typescript-eslint/parser@5.23.0](https://github.com/typescript-eslint/typescript-eslint)**
     - license: BSD-2-Clause
- - **[@typescript-eslint/scope-manager@5.22.0](https://github.com/typescript-eslint/typescript-eslint)**
+ - **[@typescript-eslint/scope-manager@5.23.0](https://github.com/typescript-eslint/typescript-eslint)**
     - license: MIT
- - **[@typescript-eslint/type-utils@5.22.0](https://github.com/typescript-eslint/typescript-eslint)**
+ - **[@typescript-eslint/type-utils@5.23.0](https://github.com/typescript-eslint/typescript-eslint)**
     - license: MIT
- - **[@typescript-eslint/types@5.22.0](https://github.com/typescript-eslint/typescript-eslint)**
+ - **[@typescript-eslint/types@5.23.0](https://github.com/typescript-eslint/typescript-eslint)**
     - license: MIT
- - **[@typescript-eslint/typescript-estree@5.22.0](https://github.com/typescript-eslint/typescript-eslint)**
+ - **[@typescript-eslint/typescript-estree@5.23.0](https://github.com/typescript-eslint/typescript-eslint)**
     - license: BSD-2-Clause
- - **[@typescript-eslint/utils@5.22.0](https://github.com/typescript-eslint/typescript-eslint)**
+ - **[@typescript-eslint/utils@5.23.0](https://github.com/typescript-eslint/typescript-eslint)**
     - license: MIT
- - **[@typescript-eslint/visitor-keys@5.22.0](https://github.com/typescript-eslint/typescript-eslint)**
+ - **[@typescript-eslint/visitor-keys@5.23.0](https://github.com/typescript-eslint/typescript-eslint)**
     - license: MIT
  - **[@ungap/url-search-params@0.1.4](https://github.com/ungap/url-search-params)**
     - license: ISC
@@ -440,7 +442,7 @@
     - license: MIT
  - **[dotenv-expand@8.0.3](https://github.com/motdotla/dotenv-expand)**
     - license: BSD-2-Clause
- - **[dotenv@16.0.0](https://github.com/motdotla/dotenv)**
+ - **[dotenv@16.0.1](https://github.com/motdotla/dotenv)**
     - license: BSD-2-Clause
  - **[ejs@3.1.7](https://github.com/mde/ejs)**
     - license: Apache-2.0
@@ -806,7 +808,7 @@
     - license: MIT
  - **[postcss-import@14.1.0](https://github.com/postcss/postcss-import)**
     - license: MIT
- - **[postcss-nesting@10.1.4](https://github.com/csstools/postcss-plugins)**
+ - **[postcss-nesting@10.1.5](https://github.com/csstools/postcss-plugins)**
     - license: CC0-1.0
  - **[postcss-selector-parser@6.0.10](https://github.com/postcss/postcss-selector-parser)**
     - license: MIT
@@ -1034,7 +1036,7 @@
     - license: MIT
  - **[vite-plugin-radar@0.4.2](https://github.com/stafyniaksacha/vite-plugin-radar)**
     - license: MIT
- - **[vite@2.9.8](https://github.com/vitejs/vite)**
+ - **[vite@2.9.9](https://github.com/vitejs/vite)**
     - license: MIT
  - **[webidl-conversions@4.0.2](https://github.com/jsdom/webidl-conversions)**
     - license: BSD-2-Clause
