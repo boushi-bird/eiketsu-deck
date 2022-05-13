@@ -2,6 +2,7 @@
 
 .modal {
   z-index: var(--z-index-modal);
+  animation: fadeIn 0.5s ease 0s 1 normal;
 
   &.modal-none {
     display: none;

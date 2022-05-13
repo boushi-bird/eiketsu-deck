@@ -119,7 +119,7 @@ export const FilterTabBodyStrat = () => {
       </section>
 
       <section className="filter-section">
-        <h2 className="title">計略範囲</h2>
+        <h2 className="title">計略効果範囲</h2>
         <FilterButtonList
           itemName="generalStrategyRanges"
           addtionalClasses={useMemo(() => ['strategy-range-button'], [])}

@@ -16,8 +16,8 @@ export const GeneralCard = memo(function Component({
   general,
 }: Props) {
   const imageUrl = generalImage(general.code);
-  const skills = general.skills.map((skill) => (
-    <span className="skill" key={skill.idx} title={skill.name}>
+  const skills = general.skills.map((skill, i) => (
+    <span className="skill" key={i} title={skill.name}>
       {skill.shortName}
     </span>
   ));

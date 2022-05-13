@@ -49,6 +49,9 @@
   --general-rarity-font-size: 26px;
   --general-cost-font-size: 16px;
   --general-skill-font-size: 18px;
+  --general-creator-font-size: 18px;
+  --general-strat-title-font-size: 24px;
+  --general-strat-info-font-size: 20px;
 
   --z-index-side-menu: 80;
   --z-index-filter-menu: 90;
@@ -117,6 +120,7 @@
   --general-cost-less-bg-color: var(--dark-bg-color);
   --general-strat-bg-color: white;
   --general-strat-border-color: var(--default-dark-border-color);
+  --general-detail-bg-color: rgba(0, 0, 0, 0.2);
 }
 
 @custom-media --vertical-screen-w screen and (max-width: 1050px);

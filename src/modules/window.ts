@@ -1,6 +1,6 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
-type Modal = 'none' | 'updateInfo' | 'copyright';
+type Modal = 'none' | 'updateInfo' | 'copyright' | 'general-detail';
 
 interface WindowState {
   autoReload: boolean;
@@ -8,6 +8,7 @@ interface WindowState {
   openedSideMenu: boolean;
   openedFilter: boolean;
   currentModal: Modal;
+  generalIdxForDetail?: number;
   showNotice: boolean;
   pendingInstallPromptEvent: boolean;
 }
@@ -50,6 +51,10 @@ const slice = createSlice({
     openCopyright: (state: WindowState) => {
       state.currentModal = 'copyright';
     },
+    openGenerailDetail: (state: WindowState, action: PayloadAction<number>) => {
+      state.generalIdxForDetail = action.payload;
+      state.currentModal = 'general-detail';
+    },
     storeInstallPromptEvent: (state: WindowState) => {
       state.pendingInstallPromptEvent = true;
     },
@@ -61,6 +66,7 @@ const slice = createSlice({
     },
     closeModal: (state: WindowState) => {
       state.currentModal = 'none';
+      state.generalIdxForDetail = undefined;
     },
   },
 });

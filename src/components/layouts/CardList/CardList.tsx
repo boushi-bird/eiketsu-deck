@@ -3,6 +3,7 @@ import {
   useCallback,
   useDeferredValue,
   useEffect,
+  useMemo,
   useRef,
   useState,
   useTransition,
@@ -10,12 +11,14 @@ import {
 
 import classNames from 'classnames';
 import { General } from 'eiketsu-deck';
+import { useDispatch } from 'react-redux';
 
 import { CardListCtrl } from './CardListCtrl';
 
 import { GeneralCard } from '@/components/parts/GeneralCard';
 import { filterSelector, generalsSelector, useAppSelector } from '@/hooks';
 import { FilterState } from '@/modules/filter';
+import { windowActions } from '@/modules/window';
 import {
   filterMenuItems,
   filterMenuStratItems,
@@ -55,6 +58,7 @@ function isGeneralMatchFilterCondition(
 
 export const CardList = () => {
   const scrollArea = useRef<HTMLDivElement>(null);
+  const dispatch = useDispatch();
 
   const [pending, startTransition] = useTransition();
   const [pendingPaging, startPageingTransition] = useTransition();
@@ -125,24 +129,28 @@ export const CardList = () => {
     []
   );
 
-  const generalCards = generals
-    .slice(0, readingCards)
-    .filter((general) => displaySearchedGenerals.includes(general.idx))
-    .map((general) => {
-      return (
-        <div
-          className={classNames('general-card-container', { show: true })}
-          key={general.uniqueId}
-          onClick={() => console.log('TODO: show detail')}
-        >
-          <GeneralCard {...{ general }}>
-            <div className="etc-area" onClick={handleEtcAreaClick}>
-              <CardListCtrl {...{ general }} />
-            </div>
-          </GeneralCard>
-        </div>
-      );
-    });
+  const generalCards = useMemo(
+    () =>
+      generals
+        .slice(0, readingCards)
+        .filter((general) => displaySearchedGenerals.includes(general.idx))
+        .map((general) => (
+          <div
+            className={classNames('general-card-container', { show: true })}
+            key={general.uniqueId}
+            onClick={() => {
+              dispatch(windowActions.openGenerailDetail(general.idx));
+            }}
+          >
+            <GeneralCard {...{ general }}>
+              <div className="etc-area" onClick={handleEtcAreaClick}>
+                <CardListCtrl {...{ general }} />
+              </div>
+            </GeneralCard>
+          </div>
+        )),
+    [generals, readingCards, displaySearchedGenerals]
+  );
 
   return (
     <div className="card-list-container">
@@ -153,7 +161,9 @@ export const CardList = () => {
       )}
       <div className="card-list-paging">
         <button
-          className={classNames('paging-button', 'prev', { active: hasPrev })}
+          className={classNames('paging-button', 'prev', {
+            active: hasPrev && !pending,
+          })}
           onClick={useCallback(() => {
             startPageingTransition(() => {
               setCurrentPage((prevPage) => prevPage - 1);
@@ -166,7 +176,9 @@ export const CardList = () => {
           {pending ? '検索中...' : `全${allCount}件 ${start} - ${end}件`}
         </div>
         <button
-          className={classNames('paging-button', 'next', { active: hasNext })}
+          className={classNames('paging-button', 'next', {
+            active: hasNext && !pending,
+          })}
           onClick={useCallback(() => {
             startPageingTransition(() => {
               setCurrentPage((prevPage) => prevPage + 1);

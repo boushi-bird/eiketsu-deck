@@ -189,7 +189,15 @@ const createGeneralStrategyPropItems = (
   const generalStrategyMp = { max: 1, min: 1 };
 
   const generalStrategies = data.strat.map((strat) => {
-    const { idx, code, name, kana, mp, caption, category_idx_list } = strat;
+    const {
+      idx,
+      code,
+      name,
+      kana,
+      mp,
+      caption: rawCaption,
+      category_idx_list,
+    } = strat;
     const categories = category_idx_list
       .map((categoryIdx) =>
         generalStrategyCategories.find(({ idx }) => idx === categoryIdx)
@@ -200,6 +208,7 @@ const createGeneralStrategyPropItems = (
     if (mp > generalStrategyMp.max) {
       generalStrategyMp.max = mp;
     }
+    const caption = rawCaption.replace(/<br\s*\/?>/gi, '\n');
 
     return {
       idx,

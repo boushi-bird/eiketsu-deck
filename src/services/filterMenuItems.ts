@@ -241,7 +241,7 @@ export const filterMenuStratItems: FilterMenuStratItem[] = [
         .join(','),
   },
   {
-    name: '計略範囲',
+    name: '計略効果範囲',
     filterItemName: 'generalStrategyRanges',
     enabled: (filter) => filter.generalStrategyRanges.length > 0,
     filter: (strat, filter) =>
