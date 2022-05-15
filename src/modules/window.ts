@@ -2,6 +2,8 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 type Modal = 'none' | 'updateInfo' | 'copyright' | 'general-detail';
 
+type EditMode = 'deck' | 'belong';
+
 interface WindowState {
   autoReload: boolean;
   offline: boolean;
@@ -9,8 +11,10 @@ interface WindowState {
   openedFilter: boolean;
   currentModal: Modal;
   generalIdxForDetail?: number;
+  editMode: EditMode;
   showNotice: boolean;
   pendingInstallPromptEvent: boolean;
+  devMode: boolean;
 }
 
 const initialState: WindowState = {
@@ -19,8 +23,10 @@ const initialState: WindowState = {
   offline: false,
   openedFilter: false,
   currentModal: 'none',
+  editMode: 'deck',
   showNotice: false,
   pendingInstallPromptEvent: false,
+  devMode: false,
 };
 
 const slice = createSlice({
@@ -55,6 +61,9 @@ const slice = createSlice({
       state.generalIdxForDetail = action.payload;
       state.currentModal = 'general-detail';
     },
+    changeEditMode: (state: WindowState, action: PayloadAction<EditMode>) => {
+      state.editMode = action.payload;
+    },
     storeInstallPromptEvent: (state: WindowState) => {
       state.pendingInstallPromptEvent = true;
     },
@@ -67,6 +76,9 @@ const slice = createSlice({
     closeModal: (state: WindowState) => {
       state.currentModal = 'none';
       state.generalIdxForDetail = undefined;
+    },
+    changeDevMode: (state: WindowState, action: PayloadAction<boolean>) => {
+      state.devMode = action.payload;
     },
   },
 });

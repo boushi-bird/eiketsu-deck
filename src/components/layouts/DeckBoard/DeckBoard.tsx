@@ -1,5 +1,8 @@
 import { useCallback, useDeferredValue, useState } from 'react';
 
+import { faSuitcase } from '@fortawesome/free-solid-svg-icons/faSuitcase';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { createSelector } from '@reduxjs/toolkit';
 import classNames from 'classnames';
 
 import { DeckCard } from '@/components/parts/DeckCard';
@@ -8,20 +11,34 @@ import { TwitterShareButton } from '@/components/parts/TwitterShareButton';
 import {
   datalistSelector,
   deckSelector,
+  editModeSelector,
   useAppDispatch,
   useAppSelector,
+  windowSelector,
 } from '@/hooks';
 import { deckActions } from '@/modules/deck';
+import { windowActions } from '@/modules/window';
 import { excludeUndef } from '@/utils/excludeUndef';
+import { localStorageAvailable } from '@/utils/storageAvailable';
 
 const switchStyleClasses = ['minimum', 'small', 'normal', 'large', 'ex-large'];
+
+const editBelongAvailable = localStorageAvailable();
+
+const devModeSelector = createSelector(
+  windowSelector,
+  ({ devMode }) => devMode
+);
 
 export const DeckBoard = () => {
   const dispatch = useAppDispatch();
   const [switchStyle, setSwitchStyle] = useState(2);
 
+  const devMode = useAppSelector(devModeSelector);
   const datalistState = useAppSelector(datalistSelector);
   const deckState = useAppSelector(deckSelector);
+  const editMode = useAppSelector(editModeSelector);
+
   const { generals } = datalistState;
   const deferredDeckState = useDeferredValue(deckState);
   const { deckCards } = deferredDeckState;
@@ -104,9 +121,27 @@ export const DeckBoard = () => {
     })
     .filter(excludeUndef);
 
+  const switchStyleClass =
+    editMode === 'belong' ? 'minimum' : switchStyleClasses[switchStyle];
+  const showUpButton = switchStyle > 0 && editMode !== 'belong';
+  const showDownButton =
+    switchStyle < switchStyleClasses.length - 1 && editMode !== 'belong';
+
   return (
-    <div className={classNames('deck-board', switchStyleClasses[switchStyle])}>
+    <div className={classNames('deck-board', switchStyleClass)}>
       <div className="deck-card-actions">
+        <button
+          className="deck-card-action-button edit-belong"
+          title="所持状態編集"
+          onClick={useCallback(() => {
+            dispatch(windowActions.changeEditMode('belong'));
+          }, [])}
+          style={{
+            visibility: devMode && editBelongAvailable ? undefined : 'hidden',
+          }}
+        >
+          <FontAwesomeIcon icon={faSuitcase} />
+        </button>
         <TwitterShareButton />
         <button
           className="deck-card-action-button deck-clear"
@@ -131,7 +166,7 @@ export const DeckBoard = () => {
           <div className="switch-deckboard-items">
             <button
               className={classNames('switch-deckboard', 'switch-deckboard-up', {
-                'show-button': switchStyle > 0,
+                'show-button': showUpButton,
               })}
               onClick={handleSwitchSmaller}
             >
@@ -144,7 +179,7 @@ export const DeckBoard = () => {
                 'switch-deckboard',
                 'switch-deckboard-down',
                 {
-                  'show-button': switchStyle < switchStyleClasses.length - 1,
+                  'show-button': showDownButton,
                 }
               )}
               onClick={handleSwitchLarger}

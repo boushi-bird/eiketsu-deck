@@ -19,7 +19,7 @@
   width: 100%;
 
   & .deck-card-actions {
-    width: 200px;
+    width: 350px;
     height: 58px;
     display: flex;
     justify-content: space-between;
@@ -34,6 +34,11 @@
       color: var(--ctrl-ui-color);
       background-color: var(--ctrl-ui-bg-color);
       border-color: var(--default-dark-border-color);
+
+      &.edit-belong {
+        width: 50px;
+        font-size: 32px;
+      }
     }
   }
 

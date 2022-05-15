@@ -152,6 +152,19 @@ export const filterMenuItems: FilterMenuItem[] = [
     },
   },
   {
+    name: '所持状態',
+    filterItemName: 'belongFilter',
+    enabled: (filter) => filter.belongFilter != null,
+    // フィルター処理はダミー 参照するStateが違うのでここでは絞り込みさせない
+    filter: () => true,
+    label: (_, { belongFilter }) =>
+      belongFilter === 'all'
+        ? 'すべて'
+        : belongFilter === 'belong'
+        ? '所持'
+        : '未所持',
+  },
+  {
     name: 'レアリティ',
     filterItemName: 'generalRarities',
     enabled: (filter) => filter.generalRarities.length > 0,

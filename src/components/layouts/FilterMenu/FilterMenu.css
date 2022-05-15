@@ -103,6 +103,10 @@
       margin: 0 5px 15px;
       min-width: calc(50% - 10px);
 
+      &.hidden {
+        display: none;
+      }
+
       & .title {
         font-size: 24px;
         padding-left: 10px;

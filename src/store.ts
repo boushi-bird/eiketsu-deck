@@ -1,5 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 
+import { belongReducer } from '@/modules/belong';
 import { datalistReducer } from '@/modules/datalist';
 import { deckReducer } from '@/modules/deck';
 import { filterReducer } from '@/modules/filter';
@@ -7,6 +8,7 @@ import { windowReducer } from '@/modules/window';
 
 export const store = configureStore({
   reducer: {
+    belong: belongReducer,
     datalist: datalistReducer,
     deck: deckReducer,
     filter: filterReducer,

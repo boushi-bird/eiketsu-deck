@@ -1,6 +1,7 @@
 import reduxQuerySync, { ParamsOptions } from 'redux-query-sync';
 
 import { DeckCard, deckActions } from './deck';
+import { windowActions } from './window';
 
 import { RootState, store } from '@/store';
 import { excludeUndef } from '@/utils/excludeUndef';
@@ -54,6 +55,20 @@ const deckParam: ParamsOptions<RootState, DeckCard[]> = {
   },
 };
 
+const devModeParam: ParamsOptions<RootState, boolean> = {
+  action: windowActions.changeDevMode,
+  selector: (state) => {
+    return state.window.devMode;
+  },
+  defaultValue: false,
+  valueToString: (devMode) => {
+    return devMode ? '1' : '';
+  },
+  stringToValue: (s) => {
+    return !!s;
+  },
+};
+
 let init = false;
 
 export const querySync = () => {
@@ -64,6 +79,7 @@ export const querySync = () => {
     store,
     params: {
       deck: deckParam,
+      dev: devModeParam,
     },
     initialTruth: 'location',
   });

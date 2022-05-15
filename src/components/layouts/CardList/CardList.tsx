@@ -16,7 +16,14 @@ import { useDispatch } from 'react-redux';
 import { CardListCtrl } from './CardListCtrl';
 
 import { GeneralCard } from '@/components/parts/GeneralCard';
-import { filterSelector, generalsSelector, useAppSelector } from '@/hooks';
+import {
+  belongCardsSelector,
+  editModeSelector,
+  filterSelector,
+  generalsSelector,
+  hasBelongCardsSelector,
+  useAppSelector,
+} from '@/hooks';
 import { FilterState } from '@/modules/filter';
 import { windowActions } from '@/modules/window';
 import {
@@ -70,10 +77,25 @@ export const CardList = () => {
   const [readingCards, setReadingCards] = useState(0);
   const [readingCardsAll, setReadingCardsAll] = useState(0);
 
+  const [localBelongCards, setLocalBelongCards] = useState<
+    { [key: string]: number } | undefined
+  >(undefined);
+
   const generals = useAppSelector(generalsSelector);
   const filter = useAppSelector(filterSelector);
+  const belongCards = useAppSelector(belongCardsSelector);
+  const hasBelongCards = useAppSelector(hasBelongCardsSelector);
+  const editMode = useAppSelector(editModeSelector);
+
+  if (
+    localBelongCards == null ||
+    (editMode !== 'belong' && belongCards !== localBelongCards)
+  ) {
+    setLocalBelongCards(belongCards);
+  }
 
   const deferredFilter = useDeferredValue(filter);
+  const deferredLocalBelongCards = useDeferredValue(localBelongCards);
 
   const allCount = searchedGenerals.length;
   const { searchedOffset, hasPrev, hasNext, start, end } = page(
@@ -115,12 +137,28 @@ export const CardList = () => {
             .filter((general) =>
               isGeneralMatchFilterCondition(general, deferredFilter)
             )
+            .filter((general) => {
+              if (!hasBelongCards || !deferredLocalBelongCards) {
+                return true;
+              }
+              if (
+                deferredFilter.belongFilter == null ||
+                deferredFilter.belongFilter === 'all'
+              ) {
+                return true;
+              }
+              const value = deferredLocalBelongCards[general.uniqueId];
+              const belongGeneral = value !== null && value > 0;
+              return deferredFilter.belongFilter === 'belong'
+                ? belongGeneral
+                : !belongGeneral;
+            })
             .map(({ idx }) => idx)
         );
         setCurrentPage(1);
       });
     });
-  }, [generals, deferredFilter]);
+  }, [generals, deferredFilter, deferredLocalBelongCards]);
 
   const handleEtcAreaClick = useCallback<MouseEventHandler<HTMLElement>>(
     (e) => {
