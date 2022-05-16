@@ -1,6 +1,6 @@
 import type { PayloadAction, Store } from '@reduxjs/toolkit';
 
-import { BelongState, belongActions } from './belong';
+import { BelongCards, belongActions } from './belong';
 
 import { type RootState, store } from '@/store';
 import { excludeUndef } from '@/utils/excludeUndef';
@@ -98,8 +98,6 @@ function ReduxLocalStorageSync<S>({ store, params, storage }: Options<S>) {
   // TODO: 管理外でStorageが更新になった場合にStateに反映する
   handleStorageUpdate();
 }
-
-type BelongCards = BelongState['belongCards'];
 
 const belongParams: ParamsOptions<RootState, BelongCards> = {
   action: belongActions.setBelongCards,

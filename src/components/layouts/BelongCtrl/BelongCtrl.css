@@ -1,0 +1,7 @@
+@import '@/defines.css';
+
+.belong-ctrl {
+  width: 100%;
+  height: 100%;
+  background-color: var(--dark-transparent-bg-color);
+}

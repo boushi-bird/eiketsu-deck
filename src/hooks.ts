@@ -18,6 +18,7 @@ export const useAppSelector: TypedUseSelectorHook<RootState> = (
 };
 
 export const belongSelector = (state: RootState) => state.belong;
+export const cardlistSelector = (state: RootState) => state.cardlist;
 export const datalistSelector = (state: RootState) => state.datalist;
 export const deckSelector = (state: RootState) => state.deck;
 export const filterSelector = (state: RootState) => state.filter;
@@ -27,6 +28,7 @@ export const generalsSelector = createSelector(
   datalistSelector,
   (datalist) => datalist.generals
 );
+
 export const deckCardsSelector = createSelector(
   deckSelector,
   ({ deckCards }) => deckCards
@@ -40,6 +42,11 @@ export const editModeSelector = createSelector(
 export const belongCardsSelector = createSelector(
   belongSelector,
   ({ belongCards }) => belongCards
+);
+
+export const searchedGeneralsSelector = createSelector(
+  cardlistSelector,
+  ({ searchedGenerals }) => searchedGenerals
 );
 
 export const hasBelongCardsSelector = createSelector(

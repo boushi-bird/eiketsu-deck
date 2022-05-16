@@ -1,7 +1,11 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
+export interface BelongCards {
+  [key: string]: number;
+}
+
 export interface BelongState {
-  belongCards: { [key: string]: number };
+  belongCards: BelongCards;
 }
 
 const initialState: BelongState = {

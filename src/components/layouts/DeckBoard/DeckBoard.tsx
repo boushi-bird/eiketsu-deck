@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { createSelector } from '@reduxjs/toolkit';
 import classNames from 'classnames';
 
+import { BelongCtrl } from '@/components/layouts/BelongCtrl';
 import { DeckCard } from '@/components/parts/DeckCard';
 import { DeckTotal } from '@/components/parts/DeckTotal';
 import { TwitterShareButton } from '@/components/parts/TwitterShareButton';
@@ -190,6 +191,13 @@ export const DeckBoard = () => {
             </button>
           </div>
         </div>
+      </div>
+      <div
+        className={classNames('belong-ctrl-wrapper', {
+          show: editMode === 'belong',
+        })}
+      >
+        <BelongCtrl />
       </div>
     </div>
   );

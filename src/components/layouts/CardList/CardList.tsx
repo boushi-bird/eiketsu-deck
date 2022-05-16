@@ -22,8 +22,11 @@ import {
   filterSelector,
   generalsSelector,
   hasBelongCardsSelector,
+  searchedGeneralsSelector,
   useAppSelector,
 } from '@/hooks';
+import { BelongCards } from '@/modules/belong';
+import { cardlistActions } from '@/modules/cardlist';
 import { FilterState } from '@/modules/filter';
 import { windowActions } from '@/modules/window';
 import {
@@ -51,14 +54,20 @@ function page(currentPage: number, allCount: number, pageLimit: number) {
 
 function isGeneralMatchFilterCondition(
   general: General,
-  filter: FilterState
+  filter: FilterState,
+  {
+    hasBelongCards,
+    belongCards,
+  }: { hasBelongCards: boolean; belongCards?: BelongCards }
 ): boolean {
   return (
     filterMenuItems
-      .filter((item) => item.enabled(filter))
-      .every((item) => item.filter(general, filter)) &&
+      .filter((item) => item.enabled({ filter, hasBelongCards }))
+      .every((item) =>
+        item.filter(general, filter, { hasBelongCards, belongCards })
+      ) &&
     filterMenuStratItems
-      .filter((item) => item.enabled(filter))
+      .filter((item) => item.enabled({ filter }))
       .every((item) => item.filter(general.strat, filter))
   );
 }
@@ -72,11 +81,12 @@ export const CardList = () => {
 
   // 現在のページ
   const [currentPage, setCurrentPage] = useState(1);
-  // 検索条件に合う武将のidx
-  const [searchedGenerals, setSearchedGenerals] = useState<number[]>([]);
   const [readingCards, setReadingCards] = useState(0);
   const [readingCardsAll, setReadingCardsAll] = useState(0);
 
+  const [prevBelongFilter, setPrevBelongFilter] = useState<string | undefined>(
+    undefined
+  );
   const [localBelongCards, setLocalBelongCards] = useState<
     { [key: string]: number } | undefined
   >(undefined);
@@ -85,17 +95,25 @@ export const CardList = () => {
   const filter = useAppSelector(filterSelector);
   const belongCards = useAppSelector(belongCardsSelector);
   const hasBelongCards = useAppSelector(hasBelongCardsSelector);
+  const searchedGenerals = useAppSelector(searchedGeneralsSelector);
   const editMode = useAppSelector(editModeSelector);
+
+  const deferredFilter = useDeferredValue(filter);
+
+  const belongFilterChanged = deferredFilter.belongFilter !== prevBelongFilter;
+
+  if (belongFilterChanged) {
+    setPrevBelongFilter(deferredFilter.belongFilter);
+  }
 
   if (
     localBelongCards == null ||
-    (editMode !== 'belong' && belongCards !== localBelongCards)
+    ((belongFilterChanged || editMode !== 'belong') &&
+      belongCards !== localBelongCards)
   ) {
+    // 所持状態編集中に絞り込みが変わらないようにeditModeがbelongのときは設定しないが、所持・未所持絞り込みを変更した場合は設定する
     setLocalBelongCards(belongCards);
   }
-
-  const deferredFilter = useDeferredValue(filter);
-  const deferredLocalBelongCards = useDeferredValue(localBelongCards);
 
   const allCount = searchedGenerals.length;
   const { searchedOffset, hasPrev, hasNext, start, end } = page(
@@ -132,33 +150,22 @@ export const CardList = () => {
   useEffect(() => {
     lazyRunner.run(() => {
       startTransition(() => {
-        setSearchedGenerals(
-          generals
-            .filter((general) =>
-              isGeneralMatchFilterCondition(general, deferredFilter)
-            )
-            .filter((general) => {
-              if (!hasBelongCards || !deferredLocalBelongCards) {
-                return true;
-              }
-              if (
-                deferredFilter.belongFilter == null ||
-                deferredFilter.belongFilter === 'all'
-              ) {
-                return true;
-              }
-              const value = deferredLocalBelongCards[general.uniqueId];
-              const belongGeneral = value !== null && value > 0;
-              return deferredFilter.belongFilter === 'belong'
-                ? belongGeneral
-                : !belongGeneral;
-            })
-            .map(({ idx }) => idx)
+        dispatch(
+          cardlistActions.setSearchedGenerals(
+            generals
+              .filter((general) =>
+                isGeneralMatchFilterCondition(general, deferredFilter, {
+                  hasBelongCards,
+                  belongCards: localBelongCards,
+                })
+              )
+              .map(({ idx }) => idx)
+          )
         );
         setCurrentPage(1);
       });
     });
-  }, [generals, deferredFilter, deferredLocalBelongCards]);
+  }, [generals, deferredFilter, localBelongCards]);
 
   const handleEtcAreaClick = useCallback<MouseEventHandler<HTMLElement>>(
     (e) => {

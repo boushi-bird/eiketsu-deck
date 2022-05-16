@@ -17,6 +17,7 @@
 
 .deck-board {
   width: 100%;
+  position: relative;
 
   & .deck-card-actions {
     width: 350px;
@@ -163,6 +164,16 @@
         border-top: 12px solid var(--default-dark-border-color);
         top: 6px;
       }
+    }
+  }
+
+  & .belong-ctrl-wrapper {
+    position: absolute;
+    inset: 0;
+    display: none;
+
+    &.show {
+      display: block;
     }
   }
 }
