@@ -73,8 +73,9 @@
   --active-color: #ff8c00;
   --dark-bg-color: #0f1111;
   --offline-color: #07edb9;
+  --dark-transparent-bg-color: rgba(0, 0, 0, 0.8);
   --modal-title-color: #fff;
-  --modal-title-bg-color: rgba(0, 0, 0, 0.8);
+  --modal-title-bg-color: var(--dark-transparent-bg-color);
 
   --app-header-bg-color: var(--main-color);
   --title-color: white;
@@ -120,7 +121,7 @@
   --general-cost-less-bg-color: var(--dark-bg-color);
   --general-strat-bg-color: white;
   --general-strat-border-color: var(--default-dark-border-color);
-  --general-detail-bg-color: rgba(0, 0, 0, 0.2);
+  --general-detail-bg-color: #fcf9f3;
 }
 
 @custom-media --vertical-screen-w screen and (max-width: 1050px);

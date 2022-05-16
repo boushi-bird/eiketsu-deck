@@ -1,12 +1,11 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 declare module 'redux-query-sync' {
   import type { PayloadAction } from '@reduxjs/toolkit';
   import type { Store } from 'redux';
 
   function ReduxQuerySync<S>(options: Options<S>): () => void;
 
-  export interface ParamsOptions<S, V = any> {
-    action: (value: V) => PayloadAction<any>;
+  export interface ParamsOptions<S, V> {
+    action: (value: V) => PayloadAction<V>;
     selector: (state: S) => V;
     defaultValue?: V;
     valueToString?: (value: V) => string;
@@ -15,7 +14,8 @@ declare module 'redux-query-sync' {
 
   interface Options<S> {
     store: Store<S>;
-    params: { [key: string]: ParamsOptions<S> };
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    params: { [key: string]: ParamsOptions<S, any> };
     initialTruth: 'location' | 'store';
     replaceState?: boolean;
   }

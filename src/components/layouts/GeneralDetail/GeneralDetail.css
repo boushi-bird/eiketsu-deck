@@ -55,8 +55,9 @@
     & .skill-info {
       font-size: var(--general-strat-info-font-size);
       width: 100%;
-      padding: 28px 4px 4px;
-      border: 2px solid var(--default-border-color);
+      max-width: var(--general-card-width);
+      padding: 28px 6px 4px;
+      background-color: var(--general-detail-bg-color);
       margin: 6px 0;
 
       &[data-label]::before {
@@ -86,7 +87,7 @@
       flex-direction: column;
       align-self: flex-start;
       padding: 4px;
-      border: 2px solid var(--default-border-color);
+      background-color: var(--general-detail-bg-color);
 
       &[data-label]::before {
         left: 4px;
@@ -126,7 +127,7 @@
           height: 120px;
           margin: 4px 0;
           padding-left: 4px;
-          border: 2px solid var(--default-border-color);
+          border: 1px solid var(--default-border-color);
 
           & li {
             list-style: none;
@@ -140,7 +141,7 @@
           width: calc(30% - 8px);
           height: 120px;
           margin: 4px 0 4px 8px;
-          border: 2px solid var(--default-border-color);
+          border: 1px solid var(--default-border-color);
 
           &[data-label]::before {
             left: auto;
@@ -156,7 +157,7 @@
           white-space: pre-wrap;
           width: 100%;
           margin-bottom: 20px;
-          border: 2px solid var(--default-border-color);
+          border: 1px solid var(--default-border-color);
           margin: 4px 0;
           padding-left: 4px;
           padding-right: 4px;
