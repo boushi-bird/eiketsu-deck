@@ -1,0 +1,298 @@
+@import '@/defines.css';
+
+.belong-modal {
+  position: fixed;
+  background-color: var(--dark-transparent-bg-color);
+  width: 80%;
+  min-width: 600px;
+  max-width: 800px;
+  height: 90%;
+  max-height: 900px;
+  inset: 70px 0 auto;
+  margin: auto;
+  padding: 50px 10px 10px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  & .belong-modal-tabs {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+
+    & .belong-modal-tab {
+      width: 50%;
+      height: 60px;
+      font-size: var(--filter-tab-font-size);
+      font-weight: bold;
+      color: var(--filter-menu-label-color);
+      background-color: var(--main-color);
+      border-color: var(--filter-menu-border-color);
+      border-width: 3px;
+      outline: none;
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
+      -webkit-tap-highlight-color: transparent;
+
+      & .belong-button-icon {
+        font-size: 24px;
+        padding-right: 6px;
+      }
+
+      &.active {
+        margin-top: -10px;
+        height: 70px;
+        background-color: var(--ctrl-ui-bg-color);
+        border-bottom-width: 0;
+        border-bottom-color: var(--filter-menu-content-bg-color);
+      }
+    }
+  }
+
+  & .belong-modal-content {
+    width: 100%;
+    height: 100%;
+    background-color: var(--filter-menu-content-bg-color);
+    display: none;
+    flex-wrap: wrap;
+    overflow-y: auto;
+    animation: fadeIn 0.25s ease 0s 1 normal;
+
+    &.active {
+      display: flex;
+    }
+
+    & .belong-modal-content-inner {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      padding: 4px;
+
+      & .belong-modal-actions {
+        flex: none;
+        width: 100%;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 4px 0 0;
+
+        & .belong-modal-action {
+          flex: 1;
+          font-size: 18px;
+          height: 100%;
+          color: var(--ctrl-ui-color);
+          background-color: var(--ctrl-ui-bg-color);
+          border: 2px solid var(--default-dark-border-color);
+
+          &:disabled {
+            color: var(--default-disabled-color);
+          }
+
+          &.run-import {
+            flex: none;
+            width: 50%;
+            font-weight: bold;
+            background-color: var(--ctrl-ui-active-bg-color);
+          }
+        }
+      }
+    }
+
+    & .belong-label {
+      flex: none;
+      width: 100%;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ctrl-ui-color);
+    }
+
+    & .belong-options {
+      flex: none;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      color: var(--ctrl-ui-color);
+      padding: 4px 16px;
+      border: 1px solid var(--default-border-color);
+
+      & .title {
+        font-size: 18px;
+      }
+
+      & .checkbox {
+        margin-top: 5px;
+        margin-buttom: 5px;
+      }
+
+      & .belong-type-switch {
+        width: 420px;
+        margin-top: 5px;
+        margin-buttom: 5px;
+      }
+    }
+
+    & .belong-caption {
+      width: 100%;
+      background-color: var(--ctrl-ui-color);
+      padding: 4px 10px;
+      display: flex;
+      align-items: center;
+      margin: 4px 0;
+
+      & .belong-caption-text {
+        font-size: 14px;
+        padding: 0 6px;
+      }
+    }
+
+    & .blong-text {
+      flex: auto;
+      width: calc(100% - 8px);
+      min-height: 100px;
+      resize: none;
+      margin: 0 auto;
+      font-size: 30px;
+
+      &:read-only {
+        background-color: var(--default-disabled-color);
+      }
+    }
+  }
+
+  & .close-button {
+    position: absolute;
+    box-sizing: content-box;
+    top: 0;
+    right: 0;
+    margin-top: -5px;
+    margin-right: -5px;
+  }
+}
+
+.modal.modal-belong-import-confirm {
+  z-index: var(--z-index-belong-import-confirm-modal);
+
+  & .belong-import-confirm {
+    position: fixed;
+    color: var(--ctrl-ui-color);
+    background-color: var(--dark-transparent-bg-color);
+    width: 80%;
+    min-width: 600px;
+    max-width: 800px;
+    height: 90%;
+    max-height: 900px;
+    inset: 70px 0 auto;
+    margin: auto;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    & .title {
+      font-weight: normal;
+      text-shadow: 0 0 5px var(--ctrl-ui-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 60px;
+    }
+
+    & .belong-import-confirm-inner {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      background-color: var(--filter-menu-content-bg-color);
+      padding: 4px 0;
+
+      & .belong-list-area {
+        flex: auto;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        padding: 4px 0;
+
+        & .belong-list {
+          height: 100%;
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+
+          & .blong-text {
+            flex: auto;
+            width: calc(100% - 8px);
+            min-height: 100px;
+            height: 100%;
+            resize: none;
+            margin: 0 auto;
+            font-size: 30px;
+
+            &:read-only {
+              background-color: var(--default-disabled-color);
+            }
+          }
+        }
+      }
+
+      & .belong-modal-actions {
+        flex: none;
+        width: 100%;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 4px 0 0;
+
+        & .belong-modal-action {
+          flex: 1;
+          font-size: 18px;
+          height: 100%;
+          color: var(--ctrl-ui-color);
+          background-color: var(--ctrl-ui-bg-color);
+          border: 2px solid var(--default-dark-border-color);
+
+          &:disabled {
+            color: var(--default-disabled-color);
+          }
+
+          &.run-import {
+            font-weight: bold;
+            background-color: var(--ctrl-ui-active-bg-color);
+          }
+        }
+      }
+    }
+
+    & .close-button {
+      position: absolute;
+      box-sizing: content-box;
+      top: 0;
+      right: 0;
+      margin-top: -5px;
+      margin-right: -5px;
+    }
+  }
+}
+
+@media (--short-vertical) {
+  .belong-modal {
+    top: 0;
+    bottom: 0;
+  }
+
+  .modal.modal-belong-import-confirm {
+    & .belong-import-confirm {
+      top: 0;
+      bottom: 0;
+    }
+  }
+}

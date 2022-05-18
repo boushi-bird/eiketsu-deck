@@ -1,6 +1,12 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
-type Modal = 'none' | 'updateInfo' | 'copyright' | 'general-detail';
+type Modal =
+  | 'none'
+  | 'updateInfo'
+  | 'copyright'
+  | 'general-detail'
+  | 'belong-export'
+  | 'belong-import';
 
 type EditMode = 'deck' | 'belong';
 
@@ -13,6 +19,7 @@ interface WindowState {
   generalIdxForDetail?: number;
   editMode: EditMode;
   showNotice: boolean;
+  toastMessage?: string;
   pendingInstallPromptEvent: boolean;
   devMode: boolean;
 }
@@ -61,8 +68,20 @@ const slice = createSlice({
       state.generalIdxForDetail = action.payload;
       state.currentModal = 'general-detail';
     },
+    openBelongCtrl: (
+      state: WindowState,
+      action: PayloadAction<'belong-export' | 'belong-import'>
+    ) => {
+      state.currentModal = action.payload;
+    },
     changeEditMode: (state: WindowState, action: PayloadAction<EditMode>) => {
       state.editMode = action.payload;
+    },
+    showToast: (state: WindowState, action: PayloadAction<string>) => {
+      state.toastMessage = action.payload;
+    },
+    clearToast: (state: WindowState) => {
+      state.toastMessage = undefined;
     },
     storeInstallPromptEvent: (state: WindowState) => {
       state.pendingInstallPromptEvent = true;

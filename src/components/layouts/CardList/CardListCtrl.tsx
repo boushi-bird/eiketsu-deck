@@ -136,7 +136,11 @@ export const CardListCtrl = memo(function Component({ general }: Props) {
         </CheckBox>
       </div>
       {showBelongCards && (
-        <div className="card-list-ctrl-item">
+        <div
+          className={classNames('card-list-ctrl-item', {
+            checked: belongChecked,
+          })}
+        >
           <CheckBox
             value={general.uniqueId}
             checked={belongChecked}
