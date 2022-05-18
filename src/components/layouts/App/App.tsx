@@ -6,8 +6,10 @@ import { Loading } from '@/components/layouts/Loading/';
 import { Main } from '@/components/layouts/Main/';
 import { Modal } from '@/components/layouts/Modal';
 import { SideMenu } from '@/components/layouts/SideMenu/';
+import { Toast } from '@/components/layouts/Toast';
 import { useAppDispatch } from '@/hooks';
 import { datalistActions } from '@/modules/datalist';
+import { localStorageSync } from '@/modules/localStorageSync';
 import { querySync } from '@/modules/querySync';
 import { windowActions } from '@/modules/window';
 import { createDatalist } from '@/services/createDatalist';
@@ -28,6 +30,7 @@ const AppContainer: FC<Props> = ({ children }) => {
       const datalist = createDatalist(data);
       dispatch(datalistActions.setDatalist(datalist));
       querySync();
+      localStorageSync();
       setReady(true);
 
       // 一定時間経っていた場合、Service Worker更新時のリロードはしない。
@@ -49,6 +52,7 @@ export const App = () => {
       <Main />
       <Modal />
       <Loading />
+      <Toast />
     </AppContainer>
   );
 };

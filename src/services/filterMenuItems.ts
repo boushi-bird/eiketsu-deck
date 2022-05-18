@@ -1,5 +1,6 @@
 import { General, GeneralStrategy } from 'eiketsu-deck';
 
+import { BelongCards } from '@/modules/belong';
 import { DatalistState } from '@/modules/datalist';
 import { FilterItemName, FilterState } from '@/modules/filter';
 import { NO_SKILL } from '@/services/createDatalist';
@@ -8,15 +9,19 @@ import { excludeUndef } from '@/utils/excludeUndef';
 interface FilterMenuItem {
   name: string;
   filterItemName: FilterItemName;
-  enabled: (filter: FilterState) => boolean;
-  filter: (general: General, filter: FilterState) => boolean;
+  enabled: (args: { filter: FilterState; hasBelongCards: boolean }) => boolean;
+  filter: (
+    general: General,
+    filter: FilterState,
+    belong: { hasBelongCards: boolean; belongCards?: BelongCards }
+  ) => boolean;
   label: (datalist: DatalistState, filter: FilterState) => string;
 }
 
 interface FilterMenuStratItem {
   name: string;
   filterItemName: FilterItemName;
-  enabled: (filter: FilterState) => boolean;
+  enabled: (args: { filter: FilterState }) => boolean;
   filter: (strat: GeneralStrategy, filter: FilterState) => boolean;
   label: (datalist: DatalistState, filter: FilterState) => string;
 }
@@ -31,7 +36,7 @@ export const filterMenuItems: FilterMenuItem[] = [
   {
     name: '勢力',
     filterItemName: 'generalColors',
-    enabled: (filter) => filter.generalColors.length > 0,
+    enabled: ({ filter }) => filter.generalColors.length > 0,
     filter: (general, filter) =>
       filter.generalColors.includes(general.color.idx),
     label: ({ generalColors }, filter) =>
@@ -45,7 +50,7 @@ export const filterMenuItems: FilterMenuItem[] = [
   {
     name: 'コスト',
     filterItemName: 'generalCosts',
-    enabled: (filter) => filter.generalCosts.length > 0,
+    enabled: ({ filter }) => filter.generalCosts.length > 0,
     filter: (general, filter) => filter.generalCosts.includes(general.cost.idx),
     label: ({ generalCosts }, filter) =>
       filter.generalCosts
@@ -58,7 +63,7 @@ export const filterMenuItems: FilterMenuItem[] = [
   {
     name: '兵種',
     filterItemName: 'unitTypes',
-    enabled: (filter) => filter.unitTypes.length > 0,
+    enabled: ({ filter }) => filter.unitTypes.length > 0,
     filter: (general, filter) =>
       filter.unitTypes.includes(general.unitType.idx),
     label: ({ unitTypes }, filter) =>
@@ -72,7 +77,7 @@ export const filterMenuItems: FilterMenuItem[] = [
   {
     name: '時代',
     filterItemName: 'periods',
-    enabled: (filter) => filter.periods.length > 0,
+    enabled: ({ filter }) => filter.periods.length > 0,
     filter: (general, filter) => filter.periods.includes(general.period.idx),
     label: ({ periods }, filter) =>
       filter.periods
@@ -85,7 +90,7 @@ export const filterMenuItems: FilterMenuItem[] = [
   {
     name: '武力',
     filterItemName: 'strong',
-    enabled: (filter) => filter.strong != null,
+    enabled: ({ filter }) => filter.strong != null,
     filter: (general, filter) => {
       const max = filter.strong?.max;
       const min = filter.strong?.min;
@@ -107,7 +112,7 @@ export const filterMenuItems: FilterMenuItem[] = [
   {
     name: '知力',
     filterItemName: 'intelligence',
-    enabled: (filter) => filter.intelligence != null,
+    enabled: ({ filter }) => filter.intelligence != null,
     filter: (general, filter) => {
       const max = filter.intelligence?.max;
       const min = filter.intelligence?.min;
@@ -129,7 +134,7 @@ export const filterMenuItems: FilterMenuItem[] = [
   {
     name: '特技',
     filterItemName: 'skills',
-    enabled: (filter) => filter.skills.length > 0,
+    enabled: ({ filter }) => filter.skills.length > 0,
     filter: (general, filter) => {
       const hasSkill = (idx: number) => {
         if (NO_SKILL.idx === idx) {
@@ -152,9 +157,32 @@ export const filterMenuItems: FilterMenuItem[] = [
     },
   },
   {
+    name: '所持状態',
+    filterItemName: 'belongFilter',
+    enabled: ({ filter, hasBelongCards }) =>
+      hasBelongCards && filter.belongFilter != null,
+    filter: (general, filter, { hasBelongCards, belongCards }) => {
+      if (!hasBelongCards || !belongCards) {
+        return true;
+      }
+      if (filter.belongFilter == null || filter.belongFilter === 'all') {
+        return true;
+      }
+      const value = belongCards[general.uniqueId];
+      const belongGeneral = value !== null && value > 0;
+      return filter.belongFilter === 'belong' ? belongGeneral : !belongGeneral;
+    },
+    label: (_, { belongFilter }) =>
+      belongFilter === 'all'
+        ? 'すべて'
+        : belongFilter === 'belong'
+        ? '所持'
+        : '未所持',
+  },
+  {
     name: 'レアリティ',
     filterItemName: 'generalRarities',
-    enabled: (filter) => filter.generalRarities.length > 0,
+    enabled: ({ filter }) => filter.generalRarities.length > 0,
     filter: (general, filter) =>
       filter.generalRarities.includes(general.rarity.idx),
     label: ({ generalRarities }, filter) =>
@@ -168,7 +196,7 @@ export const filterMenuItems: FilterMenuItem[] = [
   {
     name: 'カード種別',
     filterItemName: 'cardTypes',
-    enabled: (filter) => filter.cardTypes.length > 0,
+    enabled: ({ filter }) => filter.cardTypes.length > 0,
     filter: (general, filter) =>
       filter.cardTypes.includes(general.cardType.idx),
     label: ({ cardTypes }, filter) =>
@@ -185,7 +213,7 @@ export const filterMenuStratItems: FilterMenuStratItem[] = [
   {
     name: '必要士気',
     filterItemName: 'generalStrategyMp',
-    enabled: (filter) => filter.generalStrategyMp != null,
+    enabled: ({ filter }) => filter.generalStrategyMp != null,
     filter: (strat, filter) => {
       const max = filter.generalStrategyMp?.max;
       const min = filter.generalStrategyMp?.min;
@@ -207,7 +235,7 @@ export const filterMenuStratItems: FilterMenuStratItem[] = [
   {
     name: '計略カテゴリー',
     filterItemName: 'generalStrategyCategories',
-    enabled: (filter) => filter.generalStrategyCategories.length > 0,
+    enabled: ({ filter }) => filter.generalStrategyCategories.length > 0,
     filter: (strat, filter) => {
       const has = (idx: number) => {
         return strat.categories.some((v) => v.idx === idx);
@@ -229,7 +257,7 @@ export const filterMenuStratItems: FilterMenuStratItem[] = [
   {
     name: '計略効果時間',
     filterItemName: 'generalStrategyTimes',
-    enabled: (filter) => filter.generalStrategyTimes.length > 0,
+    enabled: ({ filter }) => filter.generalStrategyTimes.length > 0,
     filter: (strat, filter) =>
       filter.generalStrategyTimes.includes(strat.time.idx),
     label: ({ generalStrategyTimes }, filter) =>
@@ -243,7 +271,7 @@ export const filterMenuStratItems: FilterMenuStratItem[] = [
   {
     name: '計略効果範囲',
     filterItemName: 'generalStrategyRanges',
-    enabled: (filter) => filter.generalStrategyRanges.length > 0,
+    enabled: ({ filter }) => filter.generalStrategyRanges.length > 0,
     filter: (strat, filter) =>
       filter.generalStrategyRanges.includes(strat.range.idx),
     label: (_, filter) => `${filter.generalStrategyRanges.length}つ選択`,

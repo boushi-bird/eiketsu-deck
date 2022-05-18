@@ -56,7 +56,9 @@
   --z-index-side-menu: 80;
   --z-index-filter-menu: 90;
   --z-index-modal: 100;
-  --z-index-loading: 110;
+  --z-index-belong-import-confirm-modal: 110;
+  --z-index-loading: 120;
+  --z-index-toast: 200;
 
   --main-color: #003cc1;
   --ctrl-ui-color: #fff;
@@ -108,6 +110,9 @@
   --checkbox-check-bg-color: white;
   --checkbox-check-disabled-bg-color: #ccc;
   --simple-filter-bg-color: #333;
+  --simple-select-switch-disable-color: #999;
+  --simple-select-switch-bg-color: #eee;
+  --simple-select-switch-border-color: #999;
   --general-state-color: white;
   --general-rarity-default-color: #333;
   --general-rarity-default-bg-color: #ccc;

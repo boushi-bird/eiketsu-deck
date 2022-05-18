@@ -4,6 +4,7 @@ import { createSelector } from '@reduxjs/toolkit';
 import classNames from 'classnames';
 import { useDispatch } from 'react-redux';
 
+import { BelongModal } from '@/components/layouts/BelongModal';
 import { CopyrightModal } from '@/components/layouts/CopyrightModal';
 import { GeneralDetail } from '@/components/layouts/GeneralDetail';
 import { UpdateInfo } from '@/components/layouts/UpdateInfo';
@@ -43,6 +44,12 @@ export const Modal = () => {
           />
         );
       }
+      break;
+    case 'belong-export':
+    case 'belong-import':
+      current = (
+        <BelongModal tab={currentModal} onClose={handleBackgroundClick} />
+      );
       break;
   }
 

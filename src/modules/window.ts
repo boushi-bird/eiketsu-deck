@@ -1,6 +1,14 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
-type Modal = 'none' | 'updateInfo' | 'copyright' | 'general-detail';
+type Modal =
+  | 'none'
+  | 'updateInfo'
+  | 'copyright'
+  | 'general-detail'
+  | 'belong-export'
+  | 'belong-import';
+
+type EditMode = 'deck' | 'belong';
 
 interface WindowState {
   autoReload: boolean;
@@ -9,8 +17,11 @@ interface WindowState {
   openedFilter: boolean;
   currentModal: Modal;
   generalIdxForDetail?: number;
+  editMode: EditMode;
   showNotice: boolean;
+  toastMessage?: string;
   pendingInstallPromptEvent: boolean;
+  devMode: boolean;
 }
 
 const initialState: WindowState = {
@@ -19,8 +30,10 @@ const initialState: WindowState = {
   offline: false,
   openedFilter: false,
   currentModal: 'none',
+  editMode: 'deck',
   showNotice: false,
   pendingInstallPromptEvent: false,
+  devMode: false,
 };
 
 const slice = createSlice({
@@ -55,6 +68,21 @@ const slice = createSlice({
       state.generalIdxForDetail = action.payload;
       state.currentModal = 'general-detail';
     },
+    openBelongCtrl: (
+      state: WindowState,
+      action: PayloadAction<'belong-export' | 'belong-import'>
+    ) => {
+      state.currentModal = action.payload;
+    },
+    changeEditMode: (state: WindowState, action: PayloadAction<EditMode>) => {
+      state.editMode = action.payload;
+    },
+    showToast: (state: WindowState, action: PayloadAction<string>) => {
+      state.toastMessage = action.payload;
+    },
+    clearToast: (state: WindowState) => {
+      state.toastMessage = undefined;
+    },
     storeInstallPromptEvent: (state: WindowState) => {
       state.pendingInstallPromptEvent = true;
     },
@@ -67,6 +95,9 @@ const slice = createSlice({
     closeModal: (state: WindowState) => {
       state.currentModal = 'none';
       state.generalIdxForDetail = undefined;
+    },
+    changeDevMode: (state: WindowState, action: PayloadAction<boolean>) => {
+      state.devMode = action.payload;
     },
   },
 });

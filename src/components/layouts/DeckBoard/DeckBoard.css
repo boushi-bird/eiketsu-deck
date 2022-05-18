@@ -17,9 +17,10 @@
 
 .deck-board {
   width: 100%;
+  position: relative;
 
   & .deck-card-actions {
-    width: 200px;
+    width: 350px;
     height: 58px;
     display: flex;
     justify-content: space-between;
@@ -34,6 +35,11 @@
       color: var(--ctrl-ui-color);
       background-color: var(--ctrl-ui-bg-color);
       border-color: var(--default-dark-border-color);
+
+      &.edit-belong {
+        width: 50px;
+        font-size: 32px;
+      }
     }
   }
 
@@ -158,6 +164,16 @@
         border-top: 12px solid var(--default-dark-border-color);
         top: 6px;
       }
+    }
+  }
+
+  & .belong-ctrl-wrapper {
+    position: absolute;
+    inset: 0;
+    display: none;
+
+    &.show {
+      display: block;
     }
   }
 }

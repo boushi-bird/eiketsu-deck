@@ -6,12 +6,16 @@ import { General } from 'eiketsu-deck';
 
 import { CheckBox } from '@/components/parts/CheckBox';
 import {
+  belongCardsSelector,
   deckCardsSelector,
   deckSelector,
+  editModeSelector,
   generalsSelector,
+  hasBelongCardsSelector,
   useAppDispatch,
   useAppSelector,
 } from '@/hooks';
+import { belongActions } from '@/modules/belong';
 import { deckActions } from '@/modules/deck';
 
 interface Props {
@@ -52,11 +56,19 @@ export const CardListCtrl = memo(function Component({ general }: Props) {
     selectorDeckConstraints
   );
   const deckCards = useAppSelector(deckCardsSelector);
+  const editMode = useAppSelector(editModeSelector);
+  const belongCards = useAppSelector(belongCardsSelector);
+  const hasBelongCards = useAppSelector(hasBelongCardsSelector);
+  const belongDisabled = editMode !== 'belong';
+  const showBelongCards = hasBelongCards || !belongDisabled;
 
   const deckPersonals = useAppSelector(selectorDeckPersonals);
 
   const deckCardCount = deckCards.length;
   const deckChecked = deckCards.some((d) => d.generalIdx === general.idx);
+
+  const belongCount = belongCards[general.uniqueId] || 0;
+  const belongChecked = belongCount > 0;
 
   // クリック可能であるか判別
   const clickable =
@@ -84,8 +96,8 @@ export const CardListCtrl = memo(function Component({ general }: Props) {
       );
     })();
 
-  const disabled = clickable !== true;
-  const disabledReason = disabled ? clickable : '';
+  const deckDisabled = editMode === 'belong' || clickable !== true;
+  const disabledReason = deckDisabled ? clickable : '';
 
   const handleAddDeckClick = useCallback(
     (targetChecked: boolean, generalIdx: number) => {
@@ -96,6 +108,14 @@ export const CardListCtrl = memo(function Component({ general }: Props) {
       }
     },
     [deckChecked]
+  );
+
+  const handleAddBelongClick = useCallback(
+    (targetChecked: boolean, generalUniqueId: string) => {
+      const count = targetChecked ? 1 : 0;
+      dispatch(belongActions.updateBelongCard({ generalUniqueId, count }));
+    },
+    [belongChecked]
   );
 
   return (
@@ -109,17 +129,28 @@ export const CardListCtrl = memo(function Component({ general }: Props) {
         <CheckBox
           value={generalIdx}
           checked={deckChecked}
-          disabled={disabled}
+          disabled={deckDisabled}
           onClick={handleAddDeckClick}
         >
           デッキ
         </CheckBox>
       </div>
-      <div className="card-list-ctrl-item" style={{ display: 'none' }}>
-        <CheckBox value={generalIdx} checked={false}>
-          所持
-        </CheckBox>
-      </div>
+      {showBelongCards && (
+        <div
+          className={classNames('card-list-ctrl-item', {
+            checked: belongChecked,
+          })}
+        >
+          <CheckBox
+            value={general.uniqueId}
+            checked={belongChecked}
+            disabled={belongDisabled}
+            onClick={handleAddBelongClick}
+          >
+            所持
+          </CheckBox>
+        </div>
+      )}
     </div>
   );
 });

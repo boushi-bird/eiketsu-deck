@@ -1,0 +1,23 @@
+@import '@/defines.css';
+
+.toast {
+  position: fixed;
+  inset: 20% 0 auto;
+  margin: auto;
+  pointer-events: none;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.5s ease 0s 1 normal;
+  z-index: var(--z-index-toast);
+
+  & .toast-message {
+    font-size: 20px;
+    height: 32px;
+    color: white;
+    background-color: var(--dark-transparent-bg-color);
+    padding: 2px 16px;
+    border-radius: 16px;
+  }
+}

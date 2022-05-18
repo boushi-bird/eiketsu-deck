@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   datalistSelector,
   filterSelector,
+  hasBelongCardsSelector,
   useAppDispatch,
   useAppSelector,
 } from '@/hooks';
@@ -20,9 +21,10 @@ export const FilterDisplay = () => {
 
   const datalist = useAppSelector(datalistSelector);
   const filter = useAppSelector(filterSelector);
+  const hasBelongCards = useAppSelector(hasBelongCardsSelector);
 
   const items: ReactNode[] = [...filterMenuItems, ...filterMenuStratItems]
-    .filter((item) => item.enabled(filter))
+    .filter((item) => item.enabled({ filter, hasBelongCards }))
     .map((item) => (
       <div className="filter-display-item" key={item.name}>
         {item.name}:{item.label(datalist, filter)}

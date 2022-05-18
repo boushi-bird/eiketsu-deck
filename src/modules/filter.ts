@@ -3,8 +3,11 @@ import { RequireAtLeastOne } from 'type-fest';
 
 export type FilterSelectionMode = 'single' | 'multiple';
 
+export type BelongFilter = 'all' | 'belong' | 'not_belong';
+
 export interface FilterState {
   selectionMode: FilterSelectionMode;
+  belongFilter?: BelongFilter;
   strong?: RequireAtLeastOne<{ max?: number; min?: number }>;
   intelligence?: RequireAtLeastOne<{ max?: number; min?: number }>;
   generalColors: number[];
@@ -43,6 +46,7 @@ export type FilterItemName = keyof FilterState;
 export type SelectionFilterItemName = Exclude<
   FilterItemName,
   | 'selectionMode'
+  | 'belongFilter'
   | 'strong'
   | 'intelligence'
   | 'skillsAnd'
@@ -81,6 +85,10 @@ const slice = createSlice({
       }
       // string
       if (itemName === 'selectionMode') {
+        state[itemName] = initialState[itemName];
+        return;
+      }
+      if (itemName === 'belongFilter') {
         state[itemName] = initialState[itemName];
         return;
       }
