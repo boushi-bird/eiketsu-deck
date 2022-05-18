@@ -1,11 +1,13 @@
 import { useCallback, useMemo } from 'react';
 
 import { createSelector } from '@reduxjs/toolkit';
+import classNames from 'classnames';
 
 import { FilterButtonList } from '@/components/parts/FilterButtonList';
 import {
   datalistSelector,
   filterSelector,
+  hasBelongCardsSelector,
   useAppDispatch,
   useAppSelector,
 } from '@/hooks';
@@ -19,15 +21,22 @@ const datalistSelectorCurrent = createSelector(
 
 const filterSelectorCurrent = createSelector(
   filterSelector,
-  ({ selectionMode, generalColors }) => ({ selectionMode, generalColors })
+  ({ selectionMode, generalColors, belongFilter }) => ({
+    selectionMode,
+    generalColors,
+    belongFilter,
+  })
 );
 
 export const SimpleFilter = () => {
   const dispatch = useAppDispatch();
   const generalColors = useAppSelector(datalistSelectorCurrent);
-  const { selectionMode, generalColors: filterdGeneralColors } = useAppSelector(
-    filterSelectorCurrent
-  );
+  const {
+    selectionMode,
+    generalColors: filterdGeneralColors,
+    belongFilter,
+  } = useAppSelector(filterSelectorCurrent);
+  const hasBelongCards = useAppSelector(hasBelongCardsSelector);
 
   const changeSelectedItem = useCallback(
     (itemName: SelectionFilterItemName, value: number[]) => {
@@ -66,6 +75,42 @@ export const SimpleFilter = () => {
             onSelectItems={changeSelectedItem}
           />
         </section>
+        <button
+          className={classNames('simple-select-switch', {
+            hidden: !hasBelongCards,
+          })}
+          onClick={useCallback(() => {
+            // 押すたびに 所持 -> 未所持 -> 選択なし になる
+            const value =
+              belongFilter == null || belongFilter == 'all'
+                ? 'belong'
+                : belongFilter === 'belong'
+                ? 'not_belong'
+                : undefined;
+
+            dispatch(
+              filterActions.setCondition({
+                itemName: 'belongFilter',
+                value,
+              })
+            );
+          }, [belongFilter])}
+        >
+          <span
+            className={classNames('select-item', {
+              active: belongFilter === 'belong',
+            })}
+          >
+            所持
+          </span>
+          <span
+            className={classNames('select-item', {
+              active: belongFilter === 'not_belong',
+            })}
+          >
+            未所持
+          </span>
+        </button>
         <button className="open-filter" onClick={openFilter}>
           絞込
         </button>
