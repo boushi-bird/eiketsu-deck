@@ -44,6 +44,7 @@ export default defineConfig({
           shortTitle: INJECT_METADATA.shortAppName,
           description: INJECT_METADATA.description,
           ogpDescription: INJECT_METADATA.shortDescription,
+          ogpImage: `${INJECT_METADATA.url}icons/icon-192.png`,
           url: INJECT_METADATA.url,
           themeColor: INJECT_METADATA.themeColor,
         },
@@ -66,12 +67,12 @@ export default defineConfig({
         orientation: 'any',
         icons: [
           {
-            src: `icons/icon-192.png`,
+            src: 'icons/icon-192.png',
             sizes: '192x192',
             type: 'image/png',
           },
           {
-            src: `icons/icon-512.png`,
+            src: 'icons/icon-512.png',
             sizes: '512x512',
             type: 'image/png',
           },
