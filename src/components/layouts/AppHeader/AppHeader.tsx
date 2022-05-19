@@ -9,13 +9,17 @@ import classNames from 'classnames';
 import { useAppDispatch, useAppSelector, windowSelector } from '@/hooks';
 import { windowActions } from '@/modules/window';
 
-const selector = createSelector(windowSelector, ({ showNotice, offline }) => ({
-  showNotice,
-  offline,
-}));
+const selector = createSelector(
+  windowSelector,
+  ({ showNotice, offline, updateReady }) => ({
+    showNotice,
+    offline,
+    updateReady,
+  })
+);
 
 export const AppHeader = () => {
-  const { showNotice, offline } = useAppSelector(selector);
+  const { showNotice, offline, updateReady } = useAppSelector(selector);
   const dispatch = useAppDispatch();
 
   const handleSideMenuButtonClick = useCallback(() => {
@@ -41,9 +45,17 @@ export const AppHeader = () => {
       <span className="copyright">
         <a onClick={handleCopyrightClick}>&copy;SEGA</a>
       </span>
-      <span className={classNames('offline', { show: offline })}>
-        オフラインで実行中です
-      </span>
+      {offline && <span className="offline">オフラインで実行中です</span>}
+      {updateReady && (
+        <button
+          className="update-ready"
+          onClick={() => {
+            location.reload();
+          }}
+        >
+          最新にアップデート
+        </button>
+      )}
     </div>
   );
 };

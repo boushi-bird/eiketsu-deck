@@ -10,7 +10,12 @@ const updateSW = registerSW({
     const {
       window: { autoReload },
     } = store.getState();
+
     updateSW(autoReload);
+
+    if (!autoReload) {
+      store.dispatch(windowActions.beUpdateReady());
+    }
   },
   // onOfflineReady() {
   //   store.dispatch(windowActions.beOffline());

@@ -13,6 +13,7 @@ type EditMode = 'deck' | 'belong';
 interface WindowState {
   autoReload: boolean;
   offline: boolean;
+  updateReady: boolean;
   openedSideMenu: boolean;
   openedFilter: boolean;
   currentModal: Modal;
@@ -28,6 +29,7 @@ const initialState: WindowState = {
   autoReload: true,
   openedSideMenu: false,
   offline: false,
+  updateReady: false,
   openedFilter: false,
   currentModal: 'none',
   editMode: 'deck',
@@ -45,6 +47,9 @@ const slice = createSlice({
     },
     beOffline(state: WindowState) {
       state.offline = true;
+    },
+    beUpdateReady(state: WindowState) {
+      state.updateReady = true;
     },
     openSideMenu: (state: WindowState) => {
       state.openedSideMenu = true;

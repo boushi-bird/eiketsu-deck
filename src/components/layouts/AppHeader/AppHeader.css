@@ -26,16 +26,25 @@
     width: 180px;
     height: 18px;
     text-align: center;
-    display: none;
     color: white;
     background-color: var(--offline-color);
     position: absolute;
     top: 0;
     right: 0;
+  }
 
-    &.show {
-      display: inline-block;
-    }
+  & .update-ready {
+    font-size: 14px;
+    width: 140px;
+    height: 26px;
+    text-align: center;
+    color: var(--ctrl-ui-color);
+    background-color: var(--ctrl-ui-bg-color);
+    border: 2px solid var(--default-dark-border-color);
+    position: absolute;
+    top: 0;
+    right: 0;
+    animation: update-ready-keyframe 1s;
   }
 
   & .app-header-title {
@@ -69,5 +78,15 @@
 @media (--large-screen) {
   .side-menu-button {
     visibility: hidden;
+  }
+}
+
+@keyframes update-ready-keyframe {
+  0% {
+    transform: translateY(-26px);
+  }
+
+  100% {
+    transform: translateY(0);
   }
 }
