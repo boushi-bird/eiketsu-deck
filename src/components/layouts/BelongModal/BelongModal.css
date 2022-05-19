@@ -27,9 +27,9 @@
       height: 60px;
       font-size: var(--filter-tab-font-size);
       font-weight: bold;
-      color: var(--filter-menu-label-color);
+      color: var(--default-light-color);
       background-color: var(--main-color);
-      border-color: var(--filter-menu-border-color);
+      border-color: var(--default-light-border-color);
       border-width: 3px;
       outline: none;
       border-top-left-radius: 6px;

@@ -2,7 +2,6 @@ import { useCallback, useDeferredValue, useState } from 'react';
 
 import { faSuitcase } from '@fortawesome/free-solid-svg-icons/faSuitcase';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { createSelector } from '@reduxjs/toolkit';
 import classNames from 'classnames';
 
 import { BelongCtrl } from '@/components/layouts/BelongCtrl';
@@ -15,7 +14,6 @@ import {
   editModeSelector,
   useAppDispatch,
   useAppSelector,
-  windowSelector,
 } from '@/hooks';
 import { deckActions } from '@/modules/deck';
 import { windowActions } from '@/modules/window';
@@ -26,16 +24,10 @@ const switchStyleClasses = ['minimum', 'small', 'normal', 'large', 'ex-large'];
 
 const editBelongAvailable = localStorageAvailable();
 
-const devModeSelector = createSelector(
-  windowSelector,
-  ({ devMode }) => devMode
-);
-
 export const DeckBoard = () => {
   const dispatch = useAppDispatch();
   const [switchStyle, setSwitchStyle] = useState(2);
 
-  const devMode = useAppSelector(devModeSelector);
   const datalistState = useAppSelector(datalistSelector);
   const deckState = useAppSelector(deckSelector);
   const editMode = useAppSelector(editModeSelector);
@@ -131,19 +123,18 @@ export const DeckBoard = () => {
   return (
     <div className={classNames('deck-board', switchStyleClass)}>
       <div className="deck-card-actions">
+        <TwitterShareButton />
         <button
-          className="deck-card-action-button edit-belong"
+          className={classNames('deck-card-action-button', 'edit-belong', {
+            unavailable: !editBelongAvailable,
+          })}
           title="所持状態編集"
           onClick={useCallback(() => {
             dispatch(windowActions.changeEditMode('belong'));
           }, [])}
-          style={{
-            visibility: devMode && editBelongAvailable ? undefined : 'hidden',
-          }}
         >
           <FontAwesomeIcon icon={faSuitcase} />
         </button>
-        <TwitterShareButton />
         <button
           className="deck-card-action-button deck-clear"
           onClick={handleDeckClear}

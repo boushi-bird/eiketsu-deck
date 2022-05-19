@@ -39,6 +39,10 @@
       &.edit-belong {
         width: 50px;
         font-size: 32px;
+
+        &.unavailable {
+          display: none;
+        }
       }
     }
   }
