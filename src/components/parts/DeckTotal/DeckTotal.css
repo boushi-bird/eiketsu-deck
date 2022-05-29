@@ -11,45 +11,15 @@
   flex-direction: column;
   align-items: center;
 
-  & .total-costs {
+  & .total-costs-area {
     width: 100%;
     min-width: var(--deck-total-inner-min-width);
     display: flex;
     justify-content: center;
 
-    & .cost {
+    & .total-cost {
       min-width: 118px;
       max-width: 118px;
-      display: flex;
-
-      & .total {
-        width: calc(100% - 4px);
-      }
-
-      & .cost-values {
-        width: 100%;
-        font-weight: bold;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-
-        & .cost-value {
-          font-weight: bold;
-        }
-
-        & .cost-remain {
-          font-size: 14px;
-
-          &.over {
-            font-size: 10px;
-            color: var(--danger-color);
-          }
-
-          &.under {
-            color: var(--cold-color);
-          }
-        }
-      }
     }
 
     & .cost-graph {

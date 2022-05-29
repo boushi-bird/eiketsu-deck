@@ -1,17 +1,19 @@
 import { memo } from 'react';
 
-import classNames from 'classnames';
 import { General } from 'eiketsu-deck';
 
 import { TotalCost } from '@/components/parts/TotalCost';
+import { TotalCostGraph } from '@/components/parts/TotalCostGraph';
 import { DatalistState } from '@/modules/datalist';
 import { DeckState } from '@/modules/deck';
 import { NO_SKILL } from '@/services/createDatalist';
 import { excludeUndef } from '@/utils/excludeUndef';
 
 interface Props {
+  deckGenerals: General[];
+  totalCost: number;
+  deckConstraints: DeckState['deckConstraints'];
   datalistState: DatalistState;
-  deckState: DeckState;
 }
 
 function totalize<K>(
@@ -75,31 +77,16 @@ function totalizeByMap<K>(
 }
 
 export const DeckTotal = memo(function Component({
-  datalistState: { generals, skills, periods, generalColors, unitTypes },
-  deckState: { deckCards, deckConstraints },
+  deckGenerals,
+  totalCost,
+  datalistState: { skills, periods, generalColors, unitTypes },
+  deckConstraints: { limitCost },
 }: Props) {
-  const deckGenerals = deckCards
-    .map((card) => generals.find((g) => g.idx === card.generalIdx))
-    .filter(excludeUndef);
-
   const totalStrong = deckGenerals.reduce((total, g) => total + g.strong, 0);
   const totalIntelligence = deckGenerals.reduce(
     (total, g) => total + g.intelligence,
     0
   );
-
-  const totalCost = deckGenerals.reduce((total, g) => total + g.cost.value, 0);
-  let costRemain = totalCost - deckConstraints.limitCost;
-  let costRemainText = '残り';
-  let over = false;
-  let under = false;
-  if (costRemain > 0) {
-    costRemainText = 'コストオーバー';
-    over = true;
-  } else if (costRemain < 0) {
-    costRemain *= -1;
-    under = true;
-  }
 
   const sumSkills = totalizeArray(
     deckGenerals,
@@ -135,25 +122,16 @@ export const DeckTotal = memo(function Component({
 
   return (
     <div className="deck-total">
-      <div className="total-costs">
-        <div className="cost">
-          <div className="total" data-label="総コスト">
-            <div className="cost-values">
-              <span className="cost-value">{(totalCost / 10).toFixed(1)}</span>
-              <span className={classNames('cost-remain', { over, under })}>
-                ({costRemainText} {(costRemain / 10).toFixed(1)})
-              </span>
-            </div>
-          </div>
-        </div>
+      <div className="total-costs-area">
+        <TotalCost {...{ totalCost, limitCost }} />
         <div className="cost-graph">
-          <TotalCost
-            totalCost={Math.max(totalCost, deckConstraints.limitCost)}
+          <TotalCostGraph
+            totalCost={Math.max(totalCost, limitCost)}
             costDetails={generalColorCostDetails}
             noCostLabel="勢力コスト"
           />
-          <TotalCost
-            totalCost={Math.max(totalCost, deckConstraints.limitCost)}
+          <TotalCostGraph
+            totalCost={Math.max(totalCost, limitCost)}
             costDetails={periodsCostDetails}
             noCostLabel="時代コスト"
           />

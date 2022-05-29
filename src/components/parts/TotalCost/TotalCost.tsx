@@ -1,62 +1,38 @@
-import classNames from 'classnames';
+import { memo } from 'react';
 
-interface CostDetail {
-  key: string;
-  name: string;
-  cost: number;
-  count: number;
-  bgColor?: string;
-}
+import classNames from 'classnames';
 
 interface Props {
   totalCost: number;
-  costDetails: CostDetail[];
-  noCostLabel?: string;
+  limitCost: number;
 }
 
-export const TotalCost = ({ totalCost, costDetails, noCostLabel }: Props) => {
+export const TotalCost = memo(function Component({
+  totalCost,
+  limitCost,
+}: Props) {
+  let costRemain = totalCost - limitCost;
+  let costRemainText = '残り';
+  let over = false;
+  let under = false;
+  if (costRemain > 0) {
+    costRemainText = 'コストオーバー';
+    over = true;
+  } else if (costRemain < 0) {
+    costRemain *= -1;
+    under = true;
+  }
+
   return (
     <div className="total-cost">
-      {costDetails.length === 0 ? (
-        <div className="total-cost-item no-cost">{noCostLabel}</div>
-      ) : (
-        <></>
-      )}
-      {costDetails.map((costDetail) => {
-        const smallArea = costDetail.cost <= 10;
-        const longName = costDetail.name.length >= 4 && smallArea;
-        const ratio = (costDetail.cost * 100) / totalCost;
-
-        return (
-          <div
-            className="total-cost-item"
-            style={{ width: `${ratio}%`, backgroundColor: costDetail.bgColor }}
-            key={costDetail.key}
-          >
-            <span
-              className={classNames('total-cost-param', 'name', {
-                long: longName,
-              })}
-            >
-              {costDetail.name}
-            </span>
-            <span
-              className={classNames('total-cost-param', 'cost', {
-                small: smallArea,
-              })}
-            >
-              {costDetail.cost / 10}コスト
-            </span>
-            <span
-              className={classNames('total-cost-param', 'count', {
-                small: smallArea,
-              })}
-            >
-              ({costDetail.count}枚)
-            </span>
-          </div>
-        );
-      })}
+      <div className="total" data-label="総コスト">
+        <div className="cost-values">
+          <span className="cost-value">{(totalCost / 10).toFixed(1)}</span>
+          <span className={classNames('cost-remain', { over, under })}>
+            ({costRemainText} {(costRemain / 10).toFixed(1)})
+          </span>
+        </div>
+      </div>
     </div>
   );
-};
+});

@@ -1,0 +1,49 @@
+@import '@/defines.css';
+
+.total-cost-graph {
+  user-select: none;
+  width: 100%;
+  font-size: 16px;
+  height: 58px;
+  display: flex;
+
+  & .total-cost-graph-item {
+    min-width: 56px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    & .total-cost-graph-param {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      font-weight: bold;
+
+      &.name.long {
+        font-size: 12px;
+      }
+
+      &.cost {
+        font-size: 12px;
+      }
+
+      &.count {
+        font-size: 12px;
+      }
+    }
+
+    &.no-cost {
+      width: 100%;
+    }
+  }
+
+  & .total-cost-graph-item:nth-child(odd) {
+    background-color: var(--deck-total-cost-bg-color-odd);
+  }
+
+  & .total-cost-graph-item:nth-child(even) {
+    background-color: var(--deck-total-cost-bg-color-even);
+  }
+}
