@@ -21,10 +21,47 @@
   position: relative;
   background-color: var(--deck-card-default-bg-color);
 
-  &:hover {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      margin: 0;
+      border: 4px solid var(--active-color);
+      cursor: default;
+
+      & .tool-box {
+        display: flex;
+      }
+    }
+
+    &.even.active,
+    &.odd.active {
+      margin: var(--deck-card-margin);
+      border: 0px none;
+      cursor: pointer;
+
+      & .tool-box {
+        display: none;
+      }
+
+      &:hover {
+        margin: 0;
+        border: 4px solid var(--active-color);
+        cursor: default;
+
+        & .tool-box {
+          display: flex;
+        }
+      }
+    }
+  }
+
+  &.active {
     margin: 0;
     border: 4px solid var(--active-color);
     cursor: default;
+
+    & .tool-box {
+      display: flex;
+    }
   }
 
   & .deck-card-inner-top {
@@ -262,10 +299,6 @@
 
     & > * {
       pointer-events: auto;
-    }
-
-    @nest .deck-card:hover & {
-      display: flex;
     }
 
     & .tool-button {
