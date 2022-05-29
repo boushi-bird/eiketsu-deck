@@ -240,7 +240,7 @@ function findOrError<T extends { idx: number }, D>(
   const targetIdx = general[idxName] as unknown;
   const result = array.find(({ idx }) => idx === targetIdx);
   if (!result) {
-    throw new Error(`${idxName}: ${targetIdx} not found.`);
+    throw new Error(`${idxName as unknown}: ${targetIdx} not found.`);
   }
   return result;
 }
