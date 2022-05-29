@@ -15,6 +15,7 @@
   --deck-board-deck-info-inner-height-large: 240px;
 
   --deck-board-deck-card-actions-area-width: 350px;
+  --deck-board-deck-card-ctrls-height: 64px;
 }
 
 .deck-board {
@@ -29,14 +30,18 @@
 
   & .simple-deck-info {
     width: calc(100% - var(--deck-board-deck-card-actions-area-width));
-    max-height: 54px;
+    min-height: var(--deck-board-deck-card-ctrls-height);
+    max-height: var(--deck-board-deck-card-ctrls-height);
     padding: 0 3px;
     overflow-y: hidden;
+    display: flex;
+    align-items: center;
   }
 
   & .deck-card-actions {
     width: var(--deck-board-deck-card-actions-area-width);
-    height: 58px;
+    min-height: var(--deck-board-deck-card-ctrls-height);
+    max-height: var(--deck-board-deck-card-ctrls-height);
     display: flex;
     justify-content: space-between;
     align-items: center;
