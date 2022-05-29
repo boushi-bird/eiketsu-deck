@@ -94,7 +94,7 @@ export const DeckTotal = memo(function Component({
     (g) => g.skills
   );
 
-  // 時代コスト集計
+  // 時代勢力コスト集計
   const periodsCostDetails = totalize(
     deckGenerals,
     periods,
@@ -133,7 +133,7 @@ export const DeckTotal = memo(function Component({
           <TotalCostGraph
             totalCost={Math.max(totalCost, limitCost)}
             costDetails={periodsCostDetails}
-            noCostLabel="時代コスト"
+            noCostLabel="時代勢力コスト"
           />
         </div>
       </div>

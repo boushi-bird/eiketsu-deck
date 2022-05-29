@@ -71,11 +71,11 @@ export const filterMenuItems: FilterMenuItem[] = [
         .map((idx) => unitTypes.find((v) => v.idx === idx))
         .filter(excludeUndef)
         .sort(sortByIdx)
-        .map((v) => v.shortName)
+        .map((v) => v.name)
         .join(','),
   },
   {
-    name: '時代',
+    name: '時代勢力',
     filterItemName: 'periods',
     enabled: ({ filter }) => filter.periods.length > 0,
     filter: (general, filter) => filter.periods.includes(general.period.idx),

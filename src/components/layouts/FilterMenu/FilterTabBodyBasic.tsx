@@ -117,7 +117,7 @@ export const FilterTabBodyBasic = () => {
       </section>
 
       <section className="filter-section">
-        <h2 className="title">時代</h2>
+        <h2 className="title">時代勢力</h2>
         <FilterButtonList
           itemName="periods"
           buttonItems={useMemo(() => {
