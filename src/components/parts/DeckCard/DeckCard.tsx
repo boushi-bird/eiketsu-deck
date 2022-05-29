@@ -15,6 +15,8 @@ interface Props {
   general: General;
   enableMoveLeft: boolean;
   enableMoveRight: boolean;
+  active: boolean;
+  onActive: (uniqueId: string) => void;
   onRemove: (index: number) => void;
   onMove: (index: number, direction: MoveDirection) => void;
 }
@@ -24,8 +26,10 @@ type MoveDirection = 'left' | 'right';
 export const DeckCard = memo(function Component({
   index,
   general,
+  active,
   enableMoveLeft,
   enableMoveRight,
+  onActive,
   onRemove,
   onMove,
 }: Props) {
@@ -85,11 +89,19 @@ export const DeckCard = memo(function Component({
   return (
     <div
       className={classNames('deck-card', indexClass, {
+        active,
         'from-right': moveFrom === 'right',
         'from-left': moveFrom === 'left',
       })}
       style={{
         backgroundColor: general.color.thincolor,
+      }}
+      onClick={(e) => {
+        e.stopPropagation();
+        if (active) {
+          return;
+        }
+        onActive(general.uniqueId);
       }}
     >
       <div

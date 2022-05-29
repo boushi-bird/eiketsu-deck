@@ -27,10 +27,19 @@ const editBelongAvailable = localStorageAvailable();
 export const DeckBoard = () => {
   const dispatch = useAppDispatch();
   const [switchStyle, setSwitchStyle] = useState(2);
+  const [selectedUniqueId, setSelectedUniqueId] = useState<string | undefined>(
+    undefined
+  );
 
   const datalistState = useAppSelector(datalistSelector);
   const deckState = useAppSelector(deckSelector);
   const editMode = useAppSelector(editModeSelector);
+  const [deckCount, setDeckCount] = useState(deckState.deckCards.length);
+
+  if (deckCount !== deckState.deckCards.length) {
+    setDeckCount(deckState.deckCards.length);
+    setSelectedUniqueId(undefined);
+  }
 
   const { generals } = datalistState;
   const deferredDeckState = useDeferredValue(deckState);
@@ -90,6 +99,10 @@ export const DeckBoard = () => {
     });
   }, []);
 
+  const handleActiveChanged = useCallback((uniqueId: string) => {
+    setSelectedUniqueId(uniqueId);
+  }, []);
+
   const cards = deckCards
     .map((card, index) => {
       const general = generals.find((g) => g.idx === card.generalIdx);
@@ -98,15 +111,18 @@ export const DeckBoard = () => {
       }
       const firstCard = index === 0;
       const lastCard = index === deckCards.length - 1;
+      const active = general.uniqueId === selectedUniqueId;
       return (
         <DeckCard
           key={card.key}
           {...{
             index,
             general,
+            active,
             enableMoveLeft: !firstCard,
             enableMoveRight: !lastCard,
           }}
+          onActive={handleActiveChanged}
           onRemove={handleRemove}
           onMove={handleMove}
         />
@@ -121,7 +137,12 @@ export const DeckBoard = () => {
     switchStyle < switchStyleClasses.length - 1 && editMode !== 'belong';
 
   return (
-    <div className={classNames('deck-board', switchStyleClass)}>
+    <div
+      className={classNames('deck-board', switchStyleClass)}
+      onClick={useCallback(() => {
+        setSelectedUniqueId(undefined);
+      }, [])}
+    >
       <div className="deck-card-actions">
         <TwitterShareButton />
         <button
