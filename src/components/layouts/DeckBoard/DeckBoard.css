@@ -13,14 +13,29 @@
   --deck-board-deck-info-inner-top-normal: 0;
   /* large */
   --deck-board-deck-info-inner-height-large: 240px;
+
+  --deck-board-deck-card-actions-area-width: 350px;
 }
 
 .deck-board {
   width: 100%;
   position: relative;
 
+  & .deck-card-ctrls {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  & .simple-deck-info {
+    width: calc(100% - var(--deck-board-deck-card-actions-area-width));
+    max-height: 54px;
+    padding: 0 3px;
+    overflow-y: hidden;
+  }
+
   & .deck-card-actions {
-    width: 350px;
+    width: var(--deck-board-deck-card-actions-area-width);
     height: 58px;
     display: flex;
     justify-content: space-between;
@@ -240,6 +255,10 @@
 }
 
 .deck-board.normal {
+  & .simple-deck-info {
+    visibility: hidden;
+  }
+
   & .deck-info {
     min-height: var(--deck-board-deck-info-height-normal);
 
@@ -253,6 +272,10 @@
 @media (--short-vertical) {
   /* 縦が長いときのsmallと同じ表示にする */
   .deck-board.normal {
+    & .simple-deck-info {
+      visibility: visible;
+    }
+
     & .deck-info {
       min-height: var(--deck-board-deck-info-height-small);
 
@@ -266,6 +289,10 @@
 
 .deck-board.large,
 .deck-board.ex-large {
+  & .simple-deck-info {
+    visibility: hidden;
+  }
+
   & .deck-info {
     min-height: var(--deck-board-deck-info-height-normal);
 
@@ -287,6 +314,10 @@
 @media (--short-vertical) {
   /* 縦が長いときのnormalと同じ表示にする */
   .deck-board.large {
+    & .simple-deck-info {
+      visibility: hidden;
+    }
+
     & .deck-info {
       min-height: var(--deck-board-deck-info-height-normal);
 
