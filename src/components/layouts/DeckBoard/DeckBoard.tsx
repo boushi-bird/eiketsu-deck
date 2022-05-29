@@ -59,6 +59,10 @@ export const DeckBoard = () => {
     [deckCards]
   );
 
+  const handleShowDetail = useCallback((generalIdx: number) => {
+    dispatch(windowActions.openGenerailDetail(generalIdx));
+  }, []);
+
   const handleMove = useCallback(
     (index: number, direction: 'left' | 'right') => {
       const leftIndex = direction === 'left' ? index - 1 : index;
@@ -123,6 +127,7 @@ export const DeckBoard = () => {
             enableMoveRight: !lastCard,
           }}
           onActive={handleActiveChanged}
+          onShowDetail={handleShowDetail}
           onRemove={handleRemove}
           onMove={handleMove}
         />
