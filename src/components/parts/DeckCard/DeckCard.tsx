@@ -3,6 +3,7 @@ import { memo, useCallback, useEffect, useRef, useState } from 'react';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons/faArrowLeft';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons/faArrowRight';
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons/faCircleXmark';
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons/faInfoCircle';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
 import { General } from 'eiketsu-deck';
@@ -17,6 +18,7 @@ interface Props {
   enableMoveRight: boolean;
   active: boolean;
   onActive: (uniqueId: string) => void;
+  onShowDetail: (generalIdx: number) => void;
   onRemove: (index: number) => void;
   onMove: (index: number, direction: MoveDirection) => void;
 }
@@ -30,6 +32,7 @@ export const DeckCard = memo(function Component({
   enableMoveLeft,
   enableMoveRight,
   onActive,
+  onShowDetail,
   onRemove,
   onMove,
 }: Props) {
@@ -45,6 +48,10 @@ export const DeckCard = memo(function Component({
   const handleRemove = useCallback(() => {
     onRemove(index);
   }, [index, onRemove]);
+
+  const handleShowDetail = useCallback(() => {
+    onShowDetail(general.idx);
+  }, [general, onShowDetail]);
 
   const handleMoveLeft = useCallback(() => {
     onMove(index, 'left');
@@ -171,6 +178,13 @@ export const DeckCard = memo(function Component({
       <div className="tool-box">
         <button className="remove" onClick={handleRemove}>
           <FontAwesomeIcon icon={faCircleXmark} className="circle-icon" />
+        </button>
+        <button
+          className="tool-button show-detail"
+          title="武将詳細"
+          onClick={handleShowDetail}
+        >
+          <FontAwesomeIcon icon={faInfoCircle} />
         </button>
         <button
           className={classNames('tool-button', 'move-left', {

@@ -333,8 +333,12 @@
       padding: 6px;
     }
 
+    & .show-detail {
+      top: 25%;
+      transform: translateY(-50%);
+    }
+
     & .move-left {
-      color: white;
       top: 50%;
       left: -2px;
       transform: translateY(-50%);
@@ -346,7 +350,6 @@
     }
 
     & .move-right {
-      color: white;
       top: 50%;
       right: -2px;
       transform: translateY(-50%);
