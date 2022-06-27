@@ -214,7 +214,7 @@
     - license: MIT
  - **[@boushi-bird/eiketsu-taisen-net-datalist@0.0.3](https://github.com/boushi-bird/eiketsu-taisen-net-datalist)**
     - license: MIT
- - **[@csstools/selector-specificity@1.0.0](https://github.com/csstools/postcss-plugins)**
+ - **[@csstools/selector-specificity@2.0.1](https://github.com/csstools/postcss-plugins)**
     - license: CC0-1.0
  - **[@eslint/eslintrc@1.3.0](https://github.com/eslint/eslintrc)**
     - license: MIT
@@ -270,13 +270,13 @@
     - license: MIT
  - **[@types/json5@0.0.29](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
- - **[@types/node@16.11.36](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/node@18.0.0](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
  - **[@types/prop-types@15.7.5](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
  - **[@types/react-dom@18.0.5](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
- - **[@types/react@18.0.9](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/react@18.0.14](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
  - **[@types/resolve@1.17.1](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
@@ -286,21 +286,21 @@
     - license: MIT
  - **[@types/use-sync-external-store@0.0.3](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
- - **[@typescript-eslint/eslint-plugin@5.26.0](https://github.com/typescript-eslint/typescript-eslint)**
+ - **[@typescript-eslint/eslint-plugin@5.29.0](https://github.com/typescript-eslint/typescript-eslint)**
     - license: MIT
- - **[@typescript-eslint/parser@5.26.0](https://github.com/typescript-eslint/typescript-eslint)**
+ - **[@typescript-eslint/parser@5.29.0](https://github.com/typescript-eslint/typescript-eslint)**
     - license: BSD-2-Clause
- - **[@typescript-eslint/scope-manager@5.26.0](https://github.com/typescript-eslint/typescript-eslint)**
+ - **[@typescript-eslint/scope-manager@5.29.0](https://github.com/typescript-eslint/typescript-eslint)**
     - license: MIT
- - **[@typescript-eslint/type-utils@5.26.0](https://github.com/typescript-eslint/typescript-eslint)**
+ - **[@typescript-eslint/type-utils@5.29.0](https://github.com/typescript-eslint/typescript-eslint)**
     - license: MIT
- - **[@typescript-eslint/types@5.26.0](https://github.com/typescript-eslint/typescript-eslint)**
+ - **[@typescript-eslint/types@5.29.0](https://github.com/typescript-eslint/typescript-eslint)**
     - license: MIT
- - **[@typescript-eslint/typescript-estree@5.26.0](https://github.com/typescript-eslint/typescript-eslint)**
+ - **[@typescript-eslint/typescript-estree@5.29.0](https://github.com/typescript-eslint/typescript-eslint)**
     - license: BSD-2-Clause
- - **[@typescript-eslint/utils@5.26.0](https://github.com/typescript-eslint/typescript-eslint)**
+ - **[@typescript-eslint/utils@5.29.0](https://github.com/typescript-eslint/typescript-eslint)**
     - license: MIT
- - **[@typescript-eslint/visitor-keys@5.26.0](https://github.com/typescript-eslint/typescript-eslint)**
+ - **[@typescript-eslint/visitor-keys@5.29.0](https://github.com/typescript-eslint/typescript-eslint)**
     - license: MIT
  - **[@ungap/url-search-params@0.1.4](https://github.com/ungap/url-search-params)**
     - license: ISC
@@ -480,7 +480,7 @@
     - license: MIT
  - **[eslint-plugin-import@2.26.0](https://github.com/import-js/eslint-plugin-import)**
     - license: MIT
- - **[eslint-plugin-react@7.30.0](https://github.com/jsx-eslint/eslint-plugin-react)**
+ - **[eslint-plugin-react@7.30.1](https://github.com/jsx-eslint/eslint-plugin-react)**
     - license: MIT
  - **[eslint-scope@5.1.1](https://github.com/eslint/eslint-scope)**
     - license: BSD-2-Clause
@@ -492,7 +492,7 @@
     - license: Apache-2.0
  - **[eslint-visitor-keys@3.3.0](https://github.com/eslint/eslint-visitor-keys)**
     - license: Apache-2.0
- - **[eslint@8.16.0](https://github.com/eslint/eslint)**
+ - **[eslint@8.18.0](https://github.com/eslint/eslint)**
     - license: MIT
  - **[espree@9.3.2](https://github.com/eslint/espree)**
     - license: BSD-2-Clause
@@ -806,13 +806,13 @@
     - license: MIT
  - **[pify@3.0.0](https://github.com/sindresorhus/pify)**
     - license: MIT
- - **[postcss-custom-media@8.0.0](https://github.com/postcss/postcss-custom-media)**
+ - **[postcss-custom-media@8.0.2](https://github.com/csstools/postcss-plugins)**
     - license: MIT
- - **[postcss-custom-properties@12.1.7](https://github.com/csstools/postcss-plugins)**
+ - **[postcss-custom-properties@12.1.8](https://github.com/csstools/postcss-plugins)**
     - license: MIT
  - **[postcss-import@14.1.0](https://github.com/postcss/postcss-import)**
     - license: MIT
- - **[postcss-nesting@10.1.7](https://github.com/csstools/postcss-plugins)**
+ - **[postcss-nesting@10.1.9](https://github.com/csstools/postcss-plugins)**
     - license: CC0-1.0
  - **[postcss-selector-parser@6.0.10](https://github.com/postcss/postcss-selector-parser)**
     - license: MIT
@@ -822,7 +822,7 @@
     - license: MIT
  - **[prelude-ls@1.2.1](https://github.com/gkz/prelude-ls)**
     - license: MIT
- - **[prettier@2.6.2](https://github.com/prettier/prettier)**
+ - **[prettier@2.7.1](https://github.com/prettier/prettier)**
     - license: MIT
  - **[pretty-bytes@5.6.0](https://github.com/sindresorhus/pretty-bytes)**
     - license: MIT
@@ -836,7 +836,7 @@
     - license: MIT
  - **[randombytes@2.1.0](https://github.com/crypto-browserify/randombytes)**
     - license: MIT
- - **[react-dom@18.1.0](https://github.com/facebook/react)**
+ - **[react-dom@18.2.0](https://github.com/facebook/react)**
     - license: MIT
  - **[react-is@16.13.1](https://github.com/facebook/react)**
     - license: MIT
@@ -846,7 +846,7 @@
     - license: MIT
  - **[react-refresh@0.13.0](https://github.com/facebook/react)**
     - license: MIT
- - **[react@18.1.0](https://github.com/facebook/react)**
+ - **[react@18.2.0](https://github.com/facebook/react)**
     - license: MIT
  - **[read-cache@1.0.0](https://github.com/TrySound/read-cache)**
     - license: MIT
@@ -902,7 +902,7 @@
     - license: MIT
  - **[safe-buffer@5.1.2](https://github.com/feross/safe-buffer)**
     - license: MIT
- - **[scheduler@0.22.0](https://github.com/facebook/react)**
+ - **[scheduler@0.23.0](https://github.com/facebook/react)**
     - license: MIT
  - **[semver@5.7.1](https://github.com/npm/node-semver)**
     - license: ISC
@@ -1002,9 +1002,9 @@
     - license: (MIT OR CC0-1.0)
  - **[type-fest@0.20.2](https://github.com/sindresorhus/type-fest)**
     - license: (MIT OR CC0-1.0)
- - **[type-fest@2.13.0](https://github.com/sindresorhus/type-fest)**
+ - **[type-fest@2.14.0](https://github.com/sindresorhus/type-fest)**
     - license: (MIT OR CC0-1.0)
- - **[typescript@4.7.2](https://github.com/Microsoft/TypeScript)**
+ - **[typescript@4.7.4](https://github.com/Microsoft/TypeScript)**
     - license: Apache-2.0
  - **[unbox-primitive@1.0.2](https://github.com/ljharb/unbox-primitive)**
     - license: MIT
@@ -1040,7 +1040,7 @@
     - license: MIT
  - **[vite-plugin-radar@0.4.2](https://github.com/stafyniaksacha/vite-plugin-radar)**
     - license: MIT
- - **[vite@2.9.9](https://github.com/vitejs/vite)**
+ - **[vite@2.9.13](https://github.com/vitejs/vite)**
     - license: MIT
  - **[webidl-conversions@4.0.2](https://github.com/jsdom/webidl-conversions)**
     - license: BSD-2-Clause
