@@ -128,13 +128,13 @@
 
       & .checkbox {
         margin-top: 5px;
-        margin-buttom: 5px;
+        margin-bottom: 5px;
       }
 
       & .belong-type-switch {
         width: 420px;
         margin-top: 5px;
-        margin-buttom: 5px;
+        margin-bottom: 5px;
       }
     }
 
