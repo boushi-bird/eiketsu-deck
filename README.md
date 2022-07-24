@@ -20,4 +20,4 @@ cp .env.defaults .env
 npm run dev
 ```
 
-ブラウザで http://localhost:3000 を開く
+ブラウザで http://localhost:5173 を開く
