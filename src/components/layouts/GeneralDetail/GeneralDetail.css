@@ -29,7 +29,12 @@
       font-size: 12px;
       display: flex;
       flex-direction: column;
-      justify-content: space-around;
+      justify-content: space-between;
+      padding-top: 12px;
+
+      &[data-label]::before {
+        top: -2px;
+      }
     }
 
     & .creator-info {
