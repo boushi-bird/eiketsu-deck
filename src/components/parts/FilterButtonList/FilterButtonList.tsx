@@ -1,7 +1,8 @@
-import { CSSProperties, ReactNode, memo } from 'react';
+import { CSSProperties, ReactNode } from 'react';
 
 import { FilterButton } from '@/components/parts/FilterButton';
 import { FilterSelectionMode } from '@/modules/filter';
+import { genericMemo } from '@/utils/genericMemo';
 
 interface ButtonItem<V> {
   key: string;
@@ -39,8 +40,6 @@ const createButtonChild = (name: string, imageUrl?: string): ReactNode => {
     />
   );
 };
-
-const genericMemo: <T>(component: T) => T = memo;
 
 export const FilterButtonList = genericMemo(function Component<
   T extends string,

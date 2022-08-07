@@ -99,38 +99,38 @@ declare module 'eiketsu-deck' {
   }
 
   interface GeneralStrategy {
-    idx: number;
-    code: string;
-    name: string;
-    kana: string;
-    mp: number;
-    caption: string;
-    categories: GeneralStrategyCategory[];
-    range: GeneralStrategyRange;
-    time: GeneralStrategyTime;
+    readonly idx: number;
+    readonly code: string;
+    readonly name: string;
+    readonly kana: string;
+    readonly mp: number;
+    readonly caption: string;
+    readonly categories: GeneralStrategyCategory[];
+    readonly range: GeneralStrategyRange;
+    readonly time: GeneralStrategyTime;
   }
 
   interface GeneralStrategyCategory {
-    idx: number;
-    code: string;
-    name: string;
+    readonly idx: number;
+    readonly code: string;
+    readonly name: string;
   }
 
   interface GeneralStrategyRange {
-    idx: number;
-    code: string;
+    readonly idx: number;
+    readonly code: string;
   }
 
   interface GeneralStrategyTime {
-    idx: number;
-    name: string;
+    readonly idx: number;
+    readonly name: string;
   }
 
   interface Illust {
-    idx: number;
-    code: string;
-    name: string;
-    displayName: string;
+    readonly idx: number;
+    readonly code: string;
+    readonly name: string;
+    readonly displayName: string;
   }
 
   interface CharacterVoice {

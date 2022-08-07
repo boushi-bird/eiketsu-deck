@@ -1,0 +1,10 @@
+@import '@/defines.css';
+
+.text-search {
+  width: 100%;
+  padding: 0 3px;
+
+  & .text {
+    width: calc(90% - 6px);
+  }
+}

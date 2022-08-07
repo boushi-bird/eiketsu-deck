@@ -23,6 +23,14 @@ export interface FilterState {
   generalStrategyCategoriesAnd: boolean;
   generalStrategyTimes: number[];
   generalStrategyRanges: number[];
+  illustrations: number[];
+  characterVoices: number[];
+  generalNameSearch: string[];
+  generalNameSearchAnd: boolean;
+  generalStrategyNameSearch: string[];
+  generalStrategyNameSearchAnd: boolean;
+  generalStrategyCaptionSearch: string[];
+  generalStrategyCaptionSearchAnd: boolean;
 }
 
 const initialState: FilterState = {
@@ -39,6 +47,14 @@ const initialState: FilterState = {
   generalStrategyCategoriesAnd: false,
   generalStrategyTimes: [],
   generalStrategyRanges: [],
+  illustrations: [],
+  characterVoices: [],
+  generalNameSearch: [],
+  generalNameSearchAnd: false,
+  generalStrategyNameSearch: [],
+  generalStrategyNameSearchAnd: false,
+  generalStrategyCaptionSearch: [],
+  generalStrategyCaptionSearchAnd: false,
 };
 
 export type FilterItemName = keyof FilterState;
@@ -52,6 +68,48 @@ export type SelectionFilterItemName = Exclude<
   | 'skillsAnd'
   | 'generalStrategyMp'
   | 'generalStrategyCategoriesAnd'
+>;
+
+const numberItemNames = [
+  'strong',
+  'intelligence',
+  'generalStrategyMp',
+] as const;
+function isNumberItem(
+  itemName: FilterItemName
+): itemName is typeof numberItemNames[number] {
+  return numberItemNames.includes(itemName as typeof numberItemNames[number]);
+}
+
+const stringArrayItemNames = [
+  'generalNameSearch',
+  'generalStrategyNameSearch',
+  'generalStrategyCaptionSearch',
+] as const;
+function isStringArrayItem(
+  itemName: FilterItemName
+): itemName is typeof stringArrayItemNames[number] {
+  return stringArrayItemNames.includes(
+    itemName as typeof stringArrayItemNames[number]
+  );
+}
+
+const booleanItemNames = [
+  'skillsAnd',
+  'generalStrategyCategoriesAnd',
+  'generalNameSearchAnd',
+  'generalStrategyNameSearchAnd',
+  'generalStrategyCaptionSearchAnd',
+] as const;
+function isBooleanItem(
+  itemName: FilterItemName
+): itemName is typeof booleanItemNames[number] {
+  return booleanItemNames.includes(itemName as typeof booleanItemNames[number]);
+}
+
+export type FilterMenuItemName = Exclude<
+  FilterItemName,
+  'selectionMode' | typeof booleanItemNames[number]
 >;
 
 const slice = createSlice({
@@ -75,15 +133,11 @@ const slice = createSlice({
     ) => {
       const itemName = payload;
       // number
-      if (
-        itemName === 'strong' ||
-        itemName === 'intelligence' ||
-        itemName === 'generalStrategyMp'
-      ) {
+      if (isNumberItem(itemName)) {
         state[itemName] = undefined;
         return;
       }
-      // string
+      // union type
       if (itemName === 'selectionMode') {
         state[itemName] = initialState[itemName];
         return;
@@ -92,11 +146,13 @@ const slice = createSlice({
         state[itemName] = initialState[itemName];
         return;
       }
+      // string
+      if (isStringArrayItem(itemName)) {
+        state[itemName] = initialState[itemName];
+        return;
+      }
       // boolean
-      if (
-        itemName === 'skillsAnd' ||
-        itemName === 'generalStrategyCategoriesAnd'
-      ) {
+      if (isBooleanItem(itemName)) {
         state[itemName] = initialState[itemName];
         return;
       }

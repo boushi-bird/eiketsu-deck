@@ -2,13 +2,12 @@ import { General, GeneralStrategy } from 'eiketsu-deck';
 
 import { BelongCards } from '@/modules/belong';
 import { DatalistState } from '@/modules/datalist';
-import { FilterItemName, FilterState } from '@/modules/filter';
+import { FilterMenuItemName, FilterState } from '@/modules/filter';
 import { NO_SKILL } from '@/services/createDatalist';
 import { excludeUndef } from '@/utils/excludeUndef';
 
 interface FilterMenuItem {
-  name: string;
-  filterItemName: FilterItemName;
+  filterItemName: FilterMenuItemName;
   enabled: (args: { filter: FilterState; hasBelongCards: boolean }) => boolean;
   filter: (
     general: General,
@@ -19,8 +18,7 @@ interface FilterMenuItem {
 }
 
 interface FilterMenuStratItem {
-  name: string;
-  filterItemName: FilterItemName;
+  filterItemName: FilterMenuItemName;
   enabled: (args: { filter: FilterState }) => boolean;
   filter: (strat: GeneralStrategy, filter: FilterState) => boolean;
   label: (datalist: DatalistState, filter: FilterState) => string;
@@ -30,11 +28,32 @@ interface HasIdx {
   idx: number;
 }
 
+export const filterMenuItemNames: { [key in FilterMenuItemName]: string } = {
+  generalColors: '勢力',
+  generalCosts: 'コスト',
+  unitTypes: '兵種',
+  periods: '時代勢力',
+  strong: '武力',
+  intelligence: '知力',
+  skills: '特技',
+  belongFilter: '所持状態',
+  generalRarities: 'レアリティ',
+  cardTypes: 'カード種別',
+  illustrations: 'イラストレーター',
+  characterVoices: '声優',
+  generalStrategyMp: '必要士気',
+  generalStrategyCategories: '計略カテゴリー',
+  generalStrategyTimes: '計略効果時間',
+  generalStrategyRanges: '計略効果範囲',
+  generalNameSearch: '武将名検索',
+  generalStrategyNameSearch: '計略名検索',
+  generalStrategyCaptionSearch: '計略説明検索',
+} as const;
+
 const sortByIdx = (a: HasIdx, b: HasIdx) => a.idx - b.idx;
 
-export const filterMenuItems: FilterMenuItem[] = [
+export const filterMenuItems: Readonly<FilterMenuItem[]> = [
   {
-    name: '勢力',
     filterItemName: 'generalColors',
     enabled: ({ filter }) => filter.generalColors.length > 0,
     filter: (general, filter) =>
@@ -48,7 +67,6 @@ export const filterMenuItems: FilterMenuItem[] = [
         .join(','),
   },
   {
-    name: 'コスト',
     filterItemName: 'generalCosts',
     enabled: ({ filter }) => filter.generalCosts.length > 0,
     filter: (general, filter) => filter.generalCosts.includes(general.cost.idx),
@@ -61,7 +79,6 @@ export const filterMenuItems: FilterMenuItem[] = [
         .join(','),
   },
   {
-    name: '兵種',
     filterItemName: 'unitTypes',
     enabled: ({ filter }) => filter.unitTypes.length > 0,
     filter: (general, filter) =>
@@ -75,7 +92,6 @@ export const filterMenuItems: FilterMenuItem[] = [
         .join(','),
   },
   {
-    name: '時代勢力',
     filterItemName: 'periods',
     enabled: ({ filter }) => filter.periods.length > 0,
     filter: (general, filter) => filter.periods.includes(general.period.idx),
@@ -88,51 +104,19 @@ export const filterMenuItems: FilterMenuItem[] = [
         .join(','),
   },
   {
-    name: '武力',
-    filterItemName: 'strong',
-    enabled: ({ filter }) => filter.strong != null,
-    filter: (general, filter) => {
-      const max = filter.strong?.max;
-      const min = filter.strong?.min;
-      if (max != null && general.strong > max) {
-        return false;
-      }
-      if (min != null && general.strong < min) {
-        return false;
-      }
-      return true;
-    },
-    label: ({ strong }, filter) => {
-      const max = filter.strong?.max ?? strong.max;
-      const min = filter.strong?.min ?? strong.min;
-
-      return `${min} - ${max}`;
-    },
+    filterItemName: 'generalRarities',
+    enabled: ({ filter }) => filter.generalRarities.length > 0,
+    filter: (general, filter) =>
+      filter.generalRarities.includes(general.rarity.idx),
+    label: ({ generalRarities }, filter) =>
+      filter.generalRarities
+        .map((idx) => generalRarities.find((v) => v.idx === idx))
+        .filter(excludeUndef)
+        .sort(sortByIdx)
+        .map((v) => v.shortName)
+        .join(','),
   },
   {
-    name: '知力',
-    filterItemName: 'intelligence',
-    enabled: ({ filter }) => filter.intelligence != null,
-    filter: (general, filter) => {
-      const max = filter.intelligence?.max;
-      const min = filter.intelligence?.min;
-      if (max != null && general.intelligence > max) {
-        return false;
-      }
-      if (min != null && general.intelligence < min) {
-        return false;
-      }
-      return true;
-    },
-    label: ({ intelligence }, filter) => {
-      const max = filter.intelligence?.max ?? intelligence.max;
-      const min = filter.intelligence?.min ?? intelligence.min;
-
-      return `${min} - ${max}`;
-    },
-  },
-  {
-    name: '特技',
     filterItemName: 'skills',
     enabled: ({ filter }) => filter.skills.length > 0,
     filter: (general, filter) => {
@@ -157,7 +141,24 @@ export const filterMenuItems: FilterMenuItem[] = [
     },
   },
   {
-    name: '所持状態',
+    filterItemName: 'generalNameSearch',
+    enabled: ({ filter }) => filter.generalNameSearch.length > 0,
+    filter: (general, filter) => {
+      const valid = (search: string) =>
+        general.name.includes(search) || general.kana.includes(search);
+      return filter.generalNameSearchAnd
+        ? filter.generalNameSearch.every(valid)
+        : filter.generalNameSearch.some(valid);
+    },
+    label: (_, filter) => {
+      if (filter.generalNameSearch.length == 1) {
+        return filter.generalNameSearch[0];
+      }
+      const tmp = filter.generalNameSearch.join(' ');
+      return filter.skillsAnd ? `And(${tmp})` : `Or(${tmp})`;
+    },
+  },
+  {
     filterItemName: 'belongFilter',
     enabled: ({ filter, hasBelongCards }) =>
       hasBelongCards && filter.belongFilter != null,
@@ -180,21 +181,48 @@ export const filterMenuItems: FilterMenuItem[] = [
         : '未所持',
   },
   {
-    name: 'レアリティ',
-    filterItemName: 'generalRarities',
-    enabled: ({ filter }) => filter.generalRarities.length > 0,
-    filter: (general, filter) =>
-      filter.generalRarities.includes(general.rarity.idx),
-    label: ({ generalRarities }, filter) =>
-      filter.generalRarities
-        .map((idx) => generalRarities.find((v) => v.idx === idx))
-        .filter(excludeUndef)
-        .sort(sortByIdx)
-        .map((v) => v.shortName)
-        .join(','),
+    filterItemName: 'strong',
+    enabled: ({ filter }) => filter.strong != null,
+    filter: (general, filter) => {
+      const max = filter.strong?.max;
+      const min = filter.strong?.min;
+      if (max != null && general.strong > max) {
+        return false;
+      }
+      if (min != null && general.strong < min) {
+        return false;
+      }
+      return true;
+    },
+    label: ({ strong }, filter) => {
+      const max = filter.strong?.max ?? strong.max;
+      const min = filter.strong?.min ?? strong.min;
+
+      return `${min} - ${max}`;
+    },
   },
   {
-    name: 'カード種別',
+    filterItemName: 'intelligence',
+    enabled: ({ filter }) => filter.intelligence != null,
+    filter: (general, filter) => {
+      const max = filter.intelligence?.max;
+      const min = filter.intelligence?.min;
+      if (max != null && general.intelligence > max) {
+        return false;
+      }
+      if (min != null && general.intelligence < min) {
+        return false;
+      }
+      return true;
+    },
+    label: ({ intelligence }, filter) => {
+      const max = filter.intelligence?.max ?? intelligence.max;
+      const min = filter.intelligence?.min ?? intelligence.min;
+
+      return `${min} - ${max}`;
+    },
+  },
+  {
     filterItemName: 'cardTypes',
     enabled: ({ filter }) => filter.cardTypes.length > 0,
     filter: (general, filter) =>
@@ -207,11 +235,24 @@ export const filterMenuItems: FilterMenuItem[] = [
         .map((v) => v.shortName)
         .join(','),
   },
+  {
+    filterItemName: 'illustrations',
+    enabled: ({ filter }) => filter.illustrations.length > 0,
+    filter: (general, filter) =>
+      filter.illustrations.includes(general.illust.idx),
+    label: (_, filter) => `${filter.illustrations.length}名 選択`,
+  },
+  {
+    filterItemName: 'characterVoices',
+    enabled: ({ filter }) => filter.characterVoices.length > 0,
+    filter: (general, filter) =>
+      filter.characterVoices.includes(general.cv.idx),
+    label: (_, filter) => `${filter.characterVoices.length}名 選択`,
+  },
 ];
 
-export const filterMenuStratItems: FilterMenuStratItem[] = [
+export const filterMenuStratItems: Readonly<FilterMenuStratItem[]> = [
   {
-    name: '必要士気',
     filterItemName: 'generalStrategyMp',
     enabled: ({ filter }) => filter.generalStrategyMp != null,
     filter: (strat, filter) => {
@@ -233,7 +274,41 @@ export const filterMenuStratItems: FilterMenuStratItem[] = [
     },
   },
   {
-    name: '計略カテゴリー',
+    filterItemName: 'generalStrategyNameSearch',
+    enabled: ({ filter }) => filter.generalStrategyNameSearch.length > 0,
+    filter: (strat, filter) => {
+      const valid = (search: string) =>
+        strat.name.includes(search) || strat.kana.includes(search);
+      return filter.generalStrategyNameSearchAnd
+        ? filter.generalStrategyNameSearch.every(valid)
+        : filter.generalStrategyNameSearch.some(valid);
+    },
+    label: (_, filter) => {
+      if (filter.generalStrategyNameSearch.length == 1) {
+        return filter.generalStrategyNameSearch[0];
+      }
+      const tmp = filter.generalStrategyNameSearch.join(' ');
+      return filter.skillsAnd ? `And(${tmp})` : `Or(${tmp})`;
+    },
+  },
+  {
+    filterItemName: 'generalStrategyCaptionSearch',
+    enabled: ({ filter }) => filter.generalStrategyCaptionSearch.length > 0,
+    filter: (strat, filter) => {
+      const valid = (search: string) => strat.caption.includes(search);
+      return filter.generalStrategyCaptionSearchAnd
+        ? filter.generalStrategyCaptionSearch.every(valid)
+        : filter.generalStrategyCaptionSearch.some(valid);
+    },
+    label: (_, filter) => {
+      if (filter.generalStrategyCaptionSearch.length == 1) {
+        return filter.generalStrategyCaptionSearch[0];
+      }
+      const tmp = filter.generalStrategyCaptionSearch.join(' ');
+      return filter.skillsAnd ? `And(${tmp})` : `Or(${tmp})`;
+    },
+  },
+  {
     filterItemName: 'generalStrategyCategories',
     enabled: ({ filter }) => filter.generalStrategyCategories.length > 0,
     filter: (strat, filter) => {
@@ -255,7 +330,6 @@ export const filterMenuStratItems: FilterMenuStratItem[] = [
     },
   },
   {
-    name: '計略効果時間',
     filterItemName: 'generalStrategyTimes',
     enabled: ({ filter }) => filter.generalStrategyTimes.length > 0,
     filter: (strat, filter) =>
@@ -269,7 +343,6 @@ export const filterMenuStratItems: FilterMenuStratItem[] = [
         .join(','),
   },
   {
-    name: '計略効果範囲',
     filterItemName: 'generalStrategyRanges',
     enabled: ({ filter }) => filter.generalStrategyRanges.length > 0,
     filter: (strat, filter) =>
@@ -277,3 +350,11 @@ export const filterMenuStratItems: FilterMenuStratItem[] = [
     label: (_, filter) => `${filter.generalStrategyRanges.length}つ選択`,
   },
 ];
+
+export const normalizeFilterValue = (value: string) =>
+  value
+    .replace(/[ァ-ン]/g, (v) => String.fromCharCode(v.charCodeAt(0) - 0x60))
+    .replace(/[０-９ａ-ｚＡ-Ｚ]/g, (v) =>
+      String.fromCharCode(v.charCodeAt(0) - 0xfee0)
+    )
+    .toLowerCase();

@@ -123,6 +123,15 @@
       }
     }
   }
+
+  & .search-caption {
+    width: 100%;
+    display: inline;
+    font-size: 16px;
+    color: var(--ctrl-ui-color);
+    padding: 3px;
+    margin-bottom: 20px;
+  }
 }
 
 .button.filter-item.no-skill {
