@@ -57,12 +57,12 @@
 
     & .selection-modal {
       width: 96%;
-      height: 96%;
+      height: calc(96% - 20px);
       max-width: 600px;
       max-height: 1000px;
       position: absolute;
       inset: 0;
-      margin: auto;
+      margin: 20px auto auto;
       background-color: var(--main-color);
       padding: 12px;
       display: flex;
