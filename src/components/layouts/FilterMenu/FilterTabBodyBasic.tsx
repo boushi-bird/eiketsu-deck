@@ -3,8 +3,8 @@ import { useCallback, useMemo } from 'react';
 import { createSelector } from '@reduxjs/toolkit';
 
 import { FilterButtonList } from '@/components/parts/FilterButtonList';
-import { NumberSelectRange } from '@/components/parts/NumberSelectRange';
 import { SwitchItem } from '@/components/parts/SwitchItem';
+import { TextSearch } from '@/components/parts/TextSearch';
 import {
   datalistSelector,
   filterSelector,
@@ -13,6 +13,7 @@ import {
 } from '@/hooks';
 import { SelectionFilterItemName, filterActions } from '@/modules/filter';
 import { NO_SKILL } from '@/services/createDatalist';
+import { filterMenuItemNames } from '@/services/filterMenuItems';
 import { unitTypeImage } from '@/utils/externalResource';
 
 const filterBasicSelector = createSelector(
@@ -23,20 +24,20 @@ const filterBasicSelector = createSelector(
     generalCosts,
     unitTypes,
     periods,
-    strong,
-    intelligence,
+    generalRarities,
     skills,
     skillsAnd,
+    generalNameSearchAnd,
   }) => ({
     selectionMode,
     generalColors,
     generalCosts,
     unitTypes,
     periods,
-    strong,
-    intelligence,
+    generalRarities,
     skills,
     skillsAnd,
+    generalNameSearchAnd,
   })
 );
 
@@ -57,10 +58,22 @@ export const FilterTabBodyBasic = () => {
     []
   );
 
+  const changeSelectedStringItem = useCallback(
+    (itemName: SelectionFilterItemName, value: string[]) => {
+      dispatch(
+        filterActions.setCondition({
+          itemName,
+          value,
+        })
+      );
+    },
+    []
+  );
+
   return (
     <div className="filter-content-inner filter-tab-body-basic">
       <section className="filter-section">
-        <h2 className="title">勢力</h2>
+        <h2 className="title">{filterMenuItemNames['generalColors']}</h2>
         <FilterButtonList
           itemName="generalColors"
           buttonItems={useMemo(() => {
@@ -79,7 +92,7 @@ export const FilterTabBodyBasic = () => {
       </section>
 
       <section className="filter-section">
-        <h2 className="title">コスト</h2>
+        <h2 className="title">{filterMenuItemNames['generalCosts']}</h2>
         <FilterButtonList
           itemName="generalCosts"
           buttonItems={useMemo(() => {
@@ -97,7 +110,7 @@ export const FilterTabBodyBasic = () => {
       </section>
 
       <section className="filter-section">
-        <h2 className="title">兵種</h2>
+        <h2 className="title">{filterMenuItemNames['unitTypes']}</h2>
         <FilterButtonList
           itemName="unitTypes"
           buttonItems={useMemo(() => {
@@ -117,7 +130,7 @@ export const FilterTabBodyBasic = () => {
       </section>
 
       <section className="filter-section">
-        <h2 className="title">時代勢力</h2>
+        <h2 className="title">{filterMenuItemNames['periods']}</h2>
         <FilterButtonList
           itemName="periods"
           buttonItems={useMemo(() => {
@@ -134,41 +147,30 @@ export const FilterTabBodyBasic = () => {
       </section>
 
       <section className="filter-section">
-        <h2 className="title">武力</h2>
-        <NumberSelectRange
-          max={datalist.strong.max}
-          min={datalist.strong.min}
-          current={filter.strong}
-          onChangeValue={useCallback((value) => {
-            dispatch(
-              filterActions.setCondition({
-                itemName: 'strong',
-                value,
-              })
-            );
-          }, [])}
+        <h2 className="title">{filterMenuItemNames['generalRarities']}</h2>
+        <FilterButtonList
+          itemName="generalRarities"
+          buttonItems={useMemo(() => {
+            return datalist.generalRarities.map((r) => ({
+              key: `${r.idx}`,
+              name: r.shortName,
+              value: r.idx,
+              tooltip: r.name,
+              addtionalClasses: [
+                'rarity-bg',
+                `rarity-bg-${r.shortName.toLocaleLowerCase()}`,
+              ],
+            }));
+          }, [datalist.generalRarities])}
+          selectionMode={filter.selectionMode}
+          selectedItems={filter.generalRarities}
+          square={true}
+          onSelectItems={changeSelectedItem}
         />
       </section>
 
       <section className="filter-section">
-        <h2 className="title">知力</h2>
-        <NumberSelectRange
-          max={datalist.intelligence.max}
-          min={datalist.intelligence.min}
-          current={filter.intelligence}
-          onChangeValue={useCallback((value) => {
-            dispatch(
-              filterActions.setCondition({
-                itemName: 'intelligence',
-                value,
-              })
-            );
-          }, [])}
-        />
-      </section>
-
-      <section className="filter-section">
-        <h2 className="title">特技</h2>
+        <h2 className="title">{filterMenuItemNames['skills']}</h2>
         <div className="title-button">
           <SwitchItem
             onChange={useCallback((value) => {
@@ -201,6 +203,33 @@ export const FilterTabBodyBasic = () => {
           square={true}
           onSelectItems={changeSelectedItem}
         />
+      </section>
+
+      <section className="filter-section">
+        <h2 className="title">{filterMenuItemNames['generalNameSearch']}</h2>
+        <div className="title-button">
+          <SwitchItem
+            onChange={useCallback((value) => {
+              dispatch(
+                filterActions.setCondition({
+                  itemName: 'generalNameSearchAnd',
+                  value,
+                })
+              );
+            }, [])}
+            isOn={filter.generalNameSearchAnd}
+            labelOff="OR"
+            labelOn="AND"
+          />
+        </div>
+        <TextSearch
+          itemName="generalNameSearch"
+          onSelectItems={changeSelectedStringItem}
+        />
+        <caption className="search-caption">
+          スペース区切りで{filter.generalNameSearchAnd ? 'AND' : 'OR'}検索
+          読み仮名対応
+        </caption>
       </section>
     </div>
   );

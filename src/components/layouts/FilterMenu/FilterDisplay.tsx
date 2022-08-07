@@ -12,6 +12,7 @@ import {
 } from '@/hooks';
 import { filterActions } from '@/modules/filter';
 import {
+  filterMenuItemNames,
   filterMenuItems,
   filterMenuStratItems,
 } from '@/services/filterMenuItems';
@@ -26,8 +27,9 @@ export const FilterDisplay = () => {
   const items: ReactNode[] = [...filterMenuItems, ...filterMenuStratItems]
     .filter((item) => item.enabled({ filter, hasBelongCards }))
     .map((item) => (
-      <div className="filter-display-item" key={item.name}>
-        {item.name}:{item.label(datalist, filter)}
+      <div className="filter-display-item" key={item.filterItemName}>
+        {filterMenuItemNames[item.filterItemName]}:
+        {item.label(datalist, filter)}
         <button
           className="filter-display-remove"
           onClick={() => {

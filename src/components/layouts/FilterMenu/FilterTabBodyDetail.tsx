@@ -4,6 +4,8 @@ import { createSelector } from '@reduxjs/toolkit';
 import classNames from 'classnames';
 
 import { FilterButtonList } from '@/components/parts/FilterButtonList';
+import { MultiSelect } from '@/components/parts/MultiSelect';
+import { NumberSelectRange } from '@/components/parts/NumberSelectRange';
 import {
   datalistSelector,
   filterSelector,
@@ -16,14 +18,29 @@ import {
   SelectionFilterItemName,
   filterActions,
 } from '@/modules/filter';
+import {
+  filterMenuItemNames,
+  normalizeFilterValue,
+} from '@/services/filterMenuItems';
 
 const filterBasicSelector = createSelector(
   filterSelector,
-  ({ selectionMode, belongFilter, generalRarities, cardTypes }) => ({
+  ({
     selectionMode,
     belongFilter,
-    generalRarities,
+    strong,
+    intelligence,
     cardTypes,
+    illustrations,
+    characterVoices,
+  }) => ({
+    selectionMode,
+    belongFilter,
+    strong,
+    intelligence,
+    cardTypes,
+    illustrations,
+    characterVoices,
   })
 );
 
@@ -50,7 +67,7 @@ export const FilterTabBodyDetail = () => {
       <section
         className={classNames('filter-section', { hidden: !hasBelongCards })}
       >
-        <h2 className="title">所持状態</h2>
+        <h2 className="title">{filterMenuItemNames['belongFilter']}</h2>
         <FilterButtonList<'belongFilter', BelongFilter>
           itemName="belongFilter"
           buttonItems={useMemo(
@@ -93,30 +110,41 @@ export const FilterTabBodyDetail = () => {
       </section>
 
       <section className="filter-section">
-        <h2 className="title">レアリティ</h2>
-        <FilterButtonList
-          itemName="generalRarities"
-          buttonItems={useMemo(() => {
-            return datalist.generalRarities.map((r) => ({
-              key: `${r.idx}`,
-              name: r.shortName,
-              value: r.idx,
-              tooltip: r.name,
-              addtionalClasses: [
-                'rarity-bg',
-                `rarity-bg-${r.shortName.toLocaleLowerCase()}`,
-              ],
-            }));
-          }, [datalist.generalRarities])}
-          selectionMode={filter.selectionMode}
-          selectedItems={filter.generalRarities}
-          square={true}
-          onSelectItems={changeSelectedItem}
+        <h2 className="title">{filterMenuItemNames['strong']}</h2>
+        <NumberSelectRange
+          max={datalist.strong.max}
+          min={datalist.strong.min}
+          current={filter.strong}
+          onChangeValue={useCallback((value) => {
+            dispatch(
+              filterActions.setCondition({
+                itemName: 'strong',
+                value,
+              })
+            );
+          }, [])}
         />
       </section>
 
       <section className="filter-section">
-        <h2 className="title">カード種別</h2>
+        <h2 className="title">{filterMenuItemNames['intelligence']}</h2>
+        <NumberSelectRange
+          max={datalist.intelligence.max}
+          min={datalist.intelligence.min}
+          current={filter.intelligence}
+          onChangeValue={useCallback((value) => {
+            dispatch(
+              filterActions.setCondition({
+                itemName: 'intelligence',
+                value,
+              })
+            );
+          }, [])}
+        />
+      </section>
+
+      <section className="filter-section">
+        <h2 className="title">{filterMenuItemNames['cardTypes']}</h2>
         <FilterButtonList
           itemName="cardTypes"
           buttonItems={useMemo(() => {
@@ -129,6 +157,42 @@ export const FilterTabBodyDetail = () => {
           }, [datalist.cardTypes])}
           selectionMode={filter.selectionMode}
           selectedItems={filter.cardTypes}
+          onSelectItems={changeSelectedItem}
+        />
+      </section>
+
+      <section className="filter-section">
+        <h2 className="title">{filterMenuItemNames['illustrations']}</h2>
+        <MultiSelect
+          itemName="illustrations"
+          items={useMemo(() => {
+            return datalist.illusts.map((r) => ({
+              key: `${r.idx}`,
+              name: r.name,
+              value: r.idx,
+              searchName: normalizeFilterValue(r.name),
+            }));
+          }, [datalist.illusts])}
+          title={filterMenuItemNames['illustrations']}
+          selectedItems={filter.illustrations}
+          onSelectItems={changeSelectedItem}
+        />
+      </section>
+
+      <section className="filter-section">
+        <h2 className="title">{filterMenuItemNames['characterVoices']}</h2>
+        <MultiSelect
+          itemName="characterVoices"
+          items={useMemo(() => {
+            return datalist.characterVoices.map((r) => ({
+              key: `${r.idx}`,
+              name: r.name,
+              value: r.idx,
+              searchName: normalizeFilterValue(r.name),
+            }));
+          }, [datalist.characterVoices])}
+          title={filterMenuItemNames['characterVoices']}
+          selectedItems={filter.characterVoices}
           onSelectItems={changeSelectedItem}
         />
       </section>

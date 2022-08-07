@@ -55,6 +55,7 @@
 
   --z-index-side-menu: 80;
   --z-index-filter-menu: 90;
+  --z-index-multi-select: 95;
   --z-index-modal: 100;
   --z-index-belong-import-confirm-modal: 110;
   --z-index-loading: 120;
