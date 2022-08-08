@@ -152,16 +152,12 @@ export const FilterTabBodyDetail = () => {
             <div className="filter-item-group-title">{name}</div>
             <FilterButtonList
               itemName="appearDetailVersions"
-              buttonItems={useMemo(
-                () =>
-                  details.map((r) => ({
-                    key: `${r.idx}`,
-                    name: r.name,
-                    value: r.idx,
-                    tooltip: r.name,
-                  })),
-                [datalist.generalAppearVersions]
-              )}
+              buttonItems={details.map((r) => ({
+                key: `${r.idx}`,
+                name: r.name,
+                value: r.idx,
+                tooltip: r.name,
+              }))}
               selectionMode={filter.selectionMode}
               selectedItems={filter.appearDetailVersions}
               onSelectItems={changeSelectedItem}
