@@ -5,6 +5,8 @@ const EIKETSU_DECK_DATA_KEYS = [
   'indexInitial',
   'cardType',
   'cost',
+  'generalAppearVer',
+  'generalAppearFilterGroup',
   'generalRarity',
   'unitType',
   'skill',
@@ -35,6 +37,7 @@ declare module 'eiketsu-deck' {
     readonly appear: string;
     readonly appearNum: number;
     readonly appearSuffix: string;
+    readonly appearDetailVersion: GeneralAppearDetailVersion;
     readonly cardType: CardType;
     readonly cost: GeneralCost;
     readonly rarity: GeneralRarity;
@@ -46,6 +49,19 @@ declare module 'eiketsu-deck' {
     readonly strat: GeneralStrategy;
     readonly illust: Illust;
     readonly cv: CharacterVoice;
+  }
+
+  interface GeneralAppearVersion {
+    readonly idx: number;
+    readonly code: string;
+    readonly name: string;
+    readonly details: GeneralAppearDetailVersion[];
+  }
+
+  interface GeneralAppearDetailVersion {
+    readonly idx: number;
+    readonly code: string;
+    readonly name: string;
   }
 
   interface GeneralColor {

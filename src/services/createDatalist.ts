@@ -1,9 +1,17 @@
-import { EiketsuDeckData, General } from 'eiketsu-deck';
+import {
+  EiketsuDeckData,
+  General,
+  GeneralAppearDetailVersion,
+  GeneralAppearVersion,
+} from 'eiketsu-deck';
 
 import { DatalistState } from '@/modules/datalist';
 import { excludeUndef } from '@/utils/excludeUndef';
 
-type PropItems = Omit<DatalistState, 'generals' | 'strong' | 'intelligence'>;
+type PropItems = Omit<
+  DatalistState,
+  'generals' | 'strong' | 'intelligence' | 'generalAppearVersions'
+>;
 type GeneralStrategyPropItems = Pick<
   PropItems,
   | 'generalStrategies'
@@ -27,10 +35,32 @@ export const createDatalist = (data: EiketsuDeckData): DatalistState => {
 
   const strongRange = { max: 1, min: 1 };
   const intelligenceRange = { max: 1, min: 1 };
+
+  const generalAppearFilterGroups: GeneralAppearDetailVersion[] =
+    data.generalAppearFilterGroup.map(({ idx, code, name }) => ({
+      idx,
+      code,
+      name,
+    }));
+  const generalAppearVersions: GeneralAppearVersion[] =
+    data.generalAppearVer.map(({ idx, code, name, child_idx_list }) => ({
+      idx,
+      code,
+      name,
+      details: generalAppearFilterGroups.filter(({ idx }) =>
+        child_idx_list.includes(idx)
+      ),
+    }));
+
   const generals = data.general.map((general): General => {
     const color = findOrError(propItems.generalColors, general, 'color_idx');
     const period = findOrError(propItems.periods, general, 'period_idx');
     const cardType = findOrError(propItems.cardTypes, general, 'card_type_idx');
+    const appearDetailVersion = findOrError(
+      generalAppearFilterGroups,
+      general,
+      'appear_filter_idx'
+    );
     const indexInitial = findOrError(
       indexInitials,
       general,
@@ -91,6 +121,7 @@ export const createDatalist = (data: EiketsuDeckData): DatalistState => {
       appear,
       appearNum,
       appearSuffix,
+      appearDetailVersion,
       cardType,
       cost,
       rarity,
@@ -107,6 +138,7 @@ export const createDatalist = (data: EiketsuDeckData): DatalistState => {
 
   return {
     ...propItems,
+    generalAppearVersions,
     generals,
     strong: strongRange,
     intelligence: intelligenceRange,

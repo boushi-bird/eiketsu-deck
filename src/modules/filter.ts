@@ -12,6 +12,7 @@ export interface FilterState {
   intelligence?: RequireAtLeastOne<{ max?: number; min?: number }>;
   generalColors: number[];
   periods: number[];
+  appearDetailVersions: number[];
   cardTypes: number[];
   generalCosts: number[];
   generalRarities: number[];
@@ -37,6 +38,7 @@ const initialState: FilterState = {
   selectionMode: 'multiple',
   generalColors: [],
   periods: [],
+  appearDetailVersions: [],
   cardTypes: [],
   generalCosts: [],
   generalRarities: [],

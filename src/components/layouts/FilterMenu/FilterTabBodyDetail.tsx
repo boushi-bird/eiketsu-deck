@@ -30,6 +30,7 @@ const filterBasicSelector = createSelector(
     belongFilter,
     strong,
     intelligence,
+    appearDetailVersions,
     cardTypes,
     illustrations,
     characterVoices,
@@ -38,6 +39,7 @@ const filterBasicSelector = createSelector(
     belongFilter,
     strong,
     intelligence,
+    appearDetailVersions,
     cardTypes,
     illustrations,
     characterVoices,
@@ -141,6 +143,31 @@ export const FilterTabBodyDetail = () => {
             );
           }, [])}
         />
+      </section>
+
+      <section className="filter-section">
+        <h2 className="title">{filterMenuItemNames['appearDetailVersions']}</h2>
+        {datalist.generalAppearVersions.map(({ idx, name, details }) => (
+          <div key={idx} className="filter-item-group">
+            <div className="filter-item-group-title">{name}</div>
+            <FilterButtonList
+              itemName="appearDetailVersions"
+              buttonItems={useMemo(
+                () =>
+                  details.map((r) => ({
+                    key: `${r.idx}`,
+                    name: r.name,
+                    value: r.idx,
+                    tooltip: r.name,
+                  })),
+                [datalist.generalAppearVersions]
+              )}
+              selectionMode={filter.selectionMode}
+              selectedItems={filter.appearDetailVersions}
+              onSelectItems={changeSelectedItem}
+            />
+          </div>
+        ))}
       </section>
 
       <section className="filter-section">

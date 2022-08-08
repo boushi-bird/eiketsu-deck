@@ -3,6 +3,7 @@ import {
   CardType,
   CharacterVoice,
   General,
+  GeneralAppearVersion,
   GeneralColor,
   GeneralCost,
   GeneralRarity,
@@ -20,6 +21,7 @@ export interface DatalistState {
   generalColors: GeneralColor[];
   periods: Period[];
   cardTypes: CardType[];
+  generalAppearVersions: GeneralAppearVersion[];
   generalCosts: GeneralCost[];
   generalRarities: GeneralRarity[];
   unitTypes: UnitType[];
@@ -49,6 +51,7 @@ const initialState: DatalistState = {
   generalColors: [],
   periods: [],
   cardTypes: [],
+  generalAppearVersions: [],
   generalCosts: [],
   generalRarities: [],
   unitTypes: [],

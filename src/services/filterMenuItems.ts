@@ -38,6 +38,7 @@ export const filterMenuItemNames: { [key in FilterMenuItemName]: string } = {
   skills: '特技',
   belongFilter: '所持状態',
   generalRarities: 'レアリティ',
+  appearDetailVersions: '登場弾',
   cardTypes: 'カード種別',
   illustrations: 'イラストレーター',
   characterVoices: '声優',
@@ -221,6 +222,23 @@ export const filterMenuItems: Readonly<FilterMenuItem[]> = [
 
       return `${min} - ${max}`;
     },
+  },
+  {
+    filterItemName: 'appearDetailVersions',
+    enabled: ({ filter }) => filter.appearDetailVersions.length > 0,
+    filter: (general, filter) =>
+      filter.appearDetailVersions.includes(general.appearDetailVersion.idx),
+    label: ({ generalAppearVersions }, filter) =>
+      filter.appearDetailVersions
+        .map((idx) =>
+          generalAppearVersions
+            .flatMap((v) => v.details)
+            .find((v) => v.idx === idx)
+        )
+        .filter(excludeUndef)
+        .sort(sortByIdx)
+        .map((v) => v.name)
+        .join(','),
   },
   {
     filterItemName: 'cardTypes',
