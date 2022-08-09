@@ -212,7 +212,7 @@
     - license: MIT
  - **[@babel/types@7.18.9](https://github.com/babel/babel)**
     - license: MIT
- - **[@boushi-bird/eiketsu-taisen-net-datalist@0.0.3](https://github.com/boushi-bird/eiketsu-taisen-net-datalist)**
+ - **[@boushi-bird/eiketsu-taisen-net-datalist@0.0.5](https://github.com/boushi-bird/eiketsu-taisen-net-datalist)**
     - license: MIT
  - **[@csstools/selector-specificity@2.0.2](https://github.com/csstools/postcss-plugins)**
     - license: CC0-1.0
