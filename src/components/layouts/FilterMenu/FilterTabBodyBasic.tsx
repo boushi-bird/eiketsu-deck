@@ -27,6 +27,7 @@ const filterBasicSelector = createSelector(
     generalRarities,
     skills,
     skillsAnd,
+    generalNameSearch,
     generalNameSearchAnd,
   }) => ({
     selectionMode,
@@ -37,6 +38,7 @@ const filterBasicSelector = createSelector(
     generalRarities,
     skills,
     skillsAnd,
+    generalNameSearch,
     generalNameSearchAnd,
   })
 );
@@ -224,12 +226,13 @@ export const FilterTabBodyBasic = () => {
         </div>
         <TextSearch
           itemName="generalNameSearch"
+          values={filter.generalNameSearch}
           onSelectItems={changeSelectedStringItem}
         />
-        <caption className="search-caption">
+        <div className="search-caption">
           スペース区切りで{filter.generalNameSearchAnd ? 'AND' : 'OR'}検索
           読み仮名対応
-        </caption>
+        </div>
       </section>
     </div>
   );

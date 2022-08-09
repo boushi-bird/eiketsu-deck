@@ -25,7 +25,9 @@ const filterBasicSelector = createSelector(
     generalStrategyCategoriesAnd,
     generalStrategyTimes,
     generalStrategyRanges,
+    generalStrategyNameSearch,
     generalStrategyNameSearchAnd,
+    generalStrategyCaptionSearch,
     generalStrategyCaptionSearchAnd,
   }) => ({
     selectionMode,
@@ -34,7 +36,9 @@ const filterBasicSelector = createSelector(
     generalStrategyCategoriesAnd,
     generalStrategyTimes,
     generalStrategyRanges,
+    generalStrategyNameSearch,
     generalStrategyNameSearchAnd,
+    generalStrategyCaptionSearch,
     generalStrategyCaptionSearchAnd,
   })
 );
@@ -108,12 +112,13 @@ export const FilterTabBodyStrat = () => {
         </div>
         <TextSearch
           itemName="generalStrategyNameSearch"
+          values={filter.generalStrategyNameSearch}
           onSelectItems={changeSelectedStringItem}
         />
-        <caption className="search-caption">
+        <div className="search-caption">
           スペース区切りで{filter.generalStrategyNameSearchAnd ? 'AND' : 'OR'}
           検索 読み仮名対応
-        </caption>
+        </div>
       </section>
 
       <section className="filter-section">
@@ -137,12 +142,13 @@ export const FilterTabBodyStrat = () => {
         </div>
         <TextSearch
           itemName="generalStrategyCaptionSearch"
+          values={filter.generalStrategyCaptionSearch}
           onSelectItems={changeSelectedStringItem}
         />
-        <caption className="search-caption">
+        <div className="search-caption">
           スペース区切りで
           {filter.generalStrategyCaptionSearchAnd ? 'AND' : 'OR'}検索
-        </caption>
+        </div>
       </section>
 
       <section className="filter-section">
