@@ -89,6 +89,7 @@ export const createDatalist = (data: EiketsuDeckData): DatalistState => {
     const {
       idx,
       code,
+      ds_code: dsCode,
       name,
       kana,
       appear_num: appearNum,
@@ -114,6 +115,7 @@ export const createDatalist = (data: EiketsuDeckData): DatalistState => {
       uniqueId,
       idx,
       code,
+      dsCode,
       name,
       kana,
       color,

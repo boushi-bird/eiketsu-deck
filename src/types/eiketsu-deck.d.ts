@@ -30,6 +30,7 @@ declare module 'eiketsu-deck' {
     readonly uniqueId: string;
     readonly idx: number;
     readonly code: string;
+    readonly dsCode: string;
     readonly name: string;
     readonly kana: string;
     readonly color: GeneralColor;
