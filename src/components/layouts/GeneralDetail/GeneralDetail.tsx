@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { GeneralCard } from '@/components/parts/GeneralCard';
 import { generalsSelector, useAppSelector } from '@/hooks';
 import {
-  generalBasicImage,
   generalCardDetailImage,
   generalOfficialPageLink,
   stratRangeImage,
@@ -52,7 +51,8 @@ export const GeneralDetail = ({ generalIdx, onClose }: Props) => {
                 icon={faExternalLinkAlt}
               />
             </a>
-            <a
+            {/* TODO: 正しいURL探す */}
+            {/* <a
               href={generalBasicImage(general)}
               target="_blank"
               rel="noopener noreferrer"
@@ -62,7 +62,7 @@ export const GeneralDetail = ({ generalIdx, onClose }: Props) => {
                 className="external-link-icon"
                 icon={faExternalLinkAlt}
               />
-            </a>
+            </a> */}
           </span>
         </GeneralCard>
         <div className="creator-info">
