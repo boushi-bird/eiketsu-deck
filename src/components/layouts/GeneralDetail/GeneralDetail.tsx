@@ -31,7 +31,7 @@ export const GeneralDetail = ({ generalIdx, onClose }: Props) => {
         <GeneralCard {...{ general }}>
           <span className="official-links" data-label="公式リンク">
             <a
-              href={generalOfficialPageLink(general.code)}
+              href={generalOfficialPageLink(general)}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -42,7 +42,7 @@ export const GeneralDetail = ({ generalIdx, onClose }: Props) => {
               />
             </a>
             <a
-              href={generalCardDetailImage(general.code)}
+              href={generalCardDetailImage(general)}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -53,7 +53,7 @@ export const GeneralDetail = ({ generalIdx, onClose }: Props) => {
               />
             </a>
             <a
-              href={generalBasicImage(general.code)}
+              href={generalBasicImage(general)}
               target="_blank"
               rel="noopener noreferrer"
             >
