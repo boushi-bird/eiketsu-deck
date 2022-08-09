@@ -4,8 +4,6 @@ export const generalImage = (code: string) =>
   `https://image.eiketsu-taisen.net/general/card_small/${code}.jpg`;
 export const generalCardDetailImage = (general: General) =>
   `https://image.eiketsu-taisen.net/general/card_ds/${general.dsCode}.jpg`;
-export const generalBasicImage = (general: General) =>
-  `https://image.eiketsu-taisen.net/general/basic/${general.dsCode}.png`;
 export const generalOfficialPageLink = (general: General) =>
   `https://eiketsu-taisen.net/datalist/?v=general&s=general&c=${general.code}`;
 export const unitTypeImage = (code: string) =>
