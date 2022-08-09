@@ -6,6 +6,7 @@ import { GeneralCard } from '@/components/parts/GeneralCard';
 import { generalsSelector, useAppSelector } from '@/hooks';
 import {
   generalCardDetailImage,
+  generalImage,
   generalOfficialPageLink,
   stratRangeImage,
 } from '@/utils/externalResource';
@@ -28,13 +29,24 @@ export const GeneralDetail = ({ generalIdx, onClose }: Props) => {
     <div className="general-detail">
       <div className="general-detail-inner">
         <GeneralCard {...{ general }}>
-          <span className="official-links" data-label="公式リンク">
+          <span className="official-links" data-label="公式サイトリンク">
             <a
               href={generalOfficialPageLink(general)}
               target="_blank"
               rel="noopener noreferrer"
             >
               武将情報
+              <FontAwesomeIcon
+                className="external-link-icon"
+                icon={faExternalLinkAlt}
+              />
+            </a>
+            <a
+              href={generalImage(general.code)}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              武将画像(小)
               <FontAwesomeIcon
                 className="external-link-icon"
                 icon={faExternalLinkAlt}
@@ -51,18 +63,6 @@ export const GeneralDetail = ({ generalIdx, onClose }: Props) => {
                 icon={faExternalLinkAlt}
               />
             </a>
-            {/* TODO: 正しいURL探す */}
-            {/* <a
-              href={generalBasicImage(general)}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              武将画像
-              <FontAwesomeIcon
-                className="external-link-icon"
-                icon={faExternalLinkAlt}
-              />
-            </a> */}
           </span>
         </GeneralCard>
         <div className="creator-info">
