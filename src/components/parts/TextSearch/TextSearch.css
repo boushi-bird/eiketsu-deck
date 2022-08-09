@@ -5,6 +5,9 @@
   padding: 0 3px;
 
   & .text {
+    font-size: 32px;
+    -webkit-appearance: none;
     width: calc(90% - 6px);
+    height: 48px;
   }
 }
