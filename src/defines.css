@@ -1,5 +1,5 @@
 :root {
-  --app-min-width: 650px; /* アプリケーションの最小幅 */
+  --app-min-width: 640px; /* アプリケーションの最小幅 */
   --app-min-height: 600px; /* アプリケーションの最小高さ */
   --app-middle-screen-min-width: 1050px;
   --app-vertical-screen-min-height: 740px;
