@@ -218,12 +218,13 @@ export const CardList = () => {
           &lt; 前
         </button>
         <div className="paging-label">
-          {pending ? '検索中...' : `全${allCount}件 ${start} - ${end}件`}
+          全{allCount}件 {start} - {end}件
         </div>
         <button
           className={classNames('paging-button', 'next', {
             active: hasNext && !pending,
           })}
+          disabled={pending || pendingPaging}
           onClick={useCallback(() => {
             startPageingTransition(() => {
               setCurrentPage((prevPage) => prevPage + 1);
@@ -232,17 +233,24 @@ export const CardList = () => {
         >
           次 &gt;
         </button>
+        <div
+          className={classNames('loading-page', {
+            pending: pending,
+          })}
+        >
+          <div className="loading-item" />
+        </div>
       </div>
       <div
         className={classNames('loading-list', {
-          pending: pending || pendingPaging,
+          pending: pendingPaging,
         })}
       >
         <div className="loading-item" />
       </div>
       <div
         className={classNames('card-list', {
-          pending: pending || pendingPaging,
+          pending: pendingPaging,
         })}
         ref={scrollArea}
       >
