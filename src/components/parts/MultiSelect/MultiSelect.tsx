@@ -102,7 +102,7 @@ export const MultiSelect = genericMemo(function Component<N extends string, V>({
 
   return (
     <div className="multi-select">
-      <button className="filter-action-button" onClick={openModal}>
+      <button className="action-button" onClick={openModal}>
         選択
       </button>
       <MultiSelectedItems {...{ items, selectedItems, onRemoveSelectItem }} />
@@ -152,7 +152,7 @@ export const MultiSelect = genericMemo(function Component<N extends string, V>({
                 onChangePendingSelectItem(false, value);
               }}
             />
-            <button className="filter-action-button" onClick={closeModal}>
+            <button className="action-button" onClick={closeModal}>
               OK
             </button>
           </div>

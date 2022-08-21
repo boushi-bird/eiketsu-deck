@@ -116,6 +116,19 @@ button {
   border-style: none;
 }
 
+.action-button {
+  margin: 3px;
+  font-size: var(--action-button-font-size);
+  width: 88px;
+  height: 40px;
+  font-weight: bold;
+  color: var(--ctrl-ui-color);
+  background-color: var(--ctrl-ui-active-bg-color);
+  border: 2px solid var(--default-light-border-color);
+  border-radius: 6px;
+  outline: none;
+}
+
 *[data-label] {
   position: relative;
   padding-top: 10px;

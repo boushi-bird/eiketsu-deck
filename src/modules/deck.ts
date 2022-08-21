@@ -1,5 +1,7 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
+import { DECK_COST_LIMIT, DECK_GENERAL_CARD_COUNT } from '@/consts';
+
 // デッキのユニークIDとして使う揮発的な数値
 let currentDeckKey = 0;
 
@@ -35,14 +37,19 @@ export interface DeckState {
 // personal: 同名武将不可(通常ルール)
 // personal-strategy: 同名武将かつ同計略不可
 const sameCardConstraints = ['personal', 'personal-strategy'] as const;
-type SameCardConstraint = typeof sameCardConstraints[number];
+export type SameCardConstraint = typeof sameCardConstraints[number];
+
+export const isSameCardConstraints = (
+  value: string
+): value is SameCardConstraint =>
+  sameCardConstraints.includes(value as SameCardConstraint);
 
 /**
- * デッキ成約
+ * デッキ制約
  */
-interface DeckConstraints {
+export interface DeckConstraints {
   /** コスト上限(×10) */
-  limitCost: number;
+  costLimit: number;
   /** 武将カード上限枚数 */
   generalCardLimit: number;
   /** 同名武将制限 */
@@ -51,9 +58,11 @@ interface DeckConstraints {
   exchange: boolean;
 }
 
+export type DeckConstraintNames = keyof DeckConstraints;
+
 export const DEFAULT_DECK_CONSTRAINTS: Readonly<DeckConstraints> = {
-  limitCost: 90,
-  generalCardLimit: 8,
+  costLimit: DECK_COST_LIMIT.defaultValue,
+  generalCardLimit: DECK_GENERAL_CARD_COUNT.defaultValue,
   sameCard: 'personal',
   exchange: false,
 };
@@ -154,14 +163,17 @@ const slice = createSlice({
       state.activeTabIndex = state.deckTabs.length > tabIndex ? tabIndex : 0;
     },
     addDeckTab(state: DeckState) {
+      const current = state.deckTabs[state.activeTabIndex];
+      // 現在の制約を引き継ぐ
+      const constraints = current?.constraints || {
+        ...DEFAULT_DECK_CONSTRAINTS,
+      };
       state.deckTabs = [
         ...state.deckTabs,
         {
           name: createDeckTabNams(),
           cards: [],
-          constraints: {
-            ...DEFAULT_DECK_CONSTRAINTS,
-          },
+          constraints,
           cardsSaved: true,
           cardsConstraints: true,
         },
@@ -181,6 +193,45 @@ const slice = createSlice({
         return;
       }
       current.cards = [];
+    },
+    setConstraintCostLimit(
+      state: DeckState,
+      { payload }: PayloadAction<number>
+    ) {
+      const current = state.deckTabs[state.activeTabIndex];
+      if (!current) {
+        return;
+      }
+      current.constraints['costLimit'] = payload;
+    },
+    setConstraintGeneralCardLimit(
+      state: DeckState,
+      { payload }: PayloadAction<number>
+    ) {
+      const current = state.deckTabs[state.activeTabIndex];
+      if (!current) {
+        return;
+      }
+      current.constraints['generalCardLimit'] = payload;
+    },
+    setConstraintSameCard(
+      state: DeckState,
+      { payload }: PayloadAction<SameCardConstraint>
+    ) {
+      const current = state.deckTabs[state.activeTabIndex];
+      if (!current) {
+        return;
+      }
+      current.constraints['sameCard'] = payload;
+    },
+    resetConstraints(state: DeckState) {
+      const current = state.deckTabs[state.activeTabIndex];
+      if (!current) {
+        return;
+      }
+      current.constraints = {
+        ...DEFAULT_DECK_CONSTRAINTS,
+      };
     },
   },
 });

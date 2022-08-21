@@ -1,6 +1,7 @@
 import { useCallback, useDeferredValue, useMemo, useState } from 'react';
 
-import { faSuitcase } from '@fortawesome/free-solid-svg-icons/faSuitcase';
+import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons/faEllipsisVertical';
+import { faGear } from '@fortawesome/free-solid-svg-icons/faGear';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
 
@@ -29,6 +30,8 @@ const editBelongAvailable = localStorageAvailable();
 export const DeckBoard = () => {
   const dispatch = useAppDispatch();
   const [switchStyle, setSwitchStyle] = useState(2);
+  const [showOtherDeckCardActions, setShowOtherDeckCardActions] =
+    useState(false);
   const [selectedUniqueId, setSelectedUniqueId] = useState<string | undefined>(
     undefined
   );
@@ -47,6 +50,17 @@ export const DeckBoard = () => {
   const { generals } = datalistState;
   const { cards: deckCards, constraints: deckConstraints } =
     useDeferredValue(deckCurrent);
+
+  const handleOpenDeckConfig = useCallback(() => {
+    dispatch(windowActions.openDeckConfig());
+  }, []);
+
+  const handleOpenBelongCtrl = useCallback(() => {
+    if (!editBelongAvailable) {
+      return;
+    }
+    dispatch(windowActions.changeEditMode('belong'));
+  }, [editBelongAvailable]);
 
   const handleDeckClear = useCallback(() => {
     // TODO: confirmのコンポーネント作る
@@ -150,19 +164,20 @@ export const DeckBoard = () => {
 
   const switchStyleClass =
     editMode === 'belong' ? 'minimum' : switchStyleClasses[switchStyle];
-  const showUpButton = switchStyle > 0 && editMode !== 'belong';
-  const showDownButton =
-    switchStyle < switchStyleClasses.length - 1 && editMode !== 'belong';
+  const showSwitchDeckboardItems =
+    editMode !== 'belong' && !showOtherDeckCardActions;
+  const showUpButton = switchStyle > 0;
+  const showDownButton = switchStyle < switchStyleClasses.length - 1;
 
-  const { deckGenerals, totalCost } = useMemo(() => {
+  const { deckGenerals, costTotal } = useMemo(() => {
     const deckGenerals = deckCards
       .map((card) => generals.find((g) => g.idx === card.generalIdx))
       .filter(excludeUndef);
-    const totalCost = deckGenerals.reduce(
+    const costTotal = deckGenerals.reduce(
       (total, g) => total + g.cost.value,
       0
     );
-    return { deckGenerals, totalCost };
+    return { deckGenerals, costTotal };
   }, [deckCards, generals]);
 
   return (
@@ -174,26 +189,26 @@ export const DeckBoard = () => {
     >
       <div className="deck-card-ctrls">
         <div className="simple-deck-info">
-          <TotalCost {...{ totalCost, limitCost: deckConstraints.limitCost }} />
+          <TotalCost {...{ costTotal, costLimit: deckConstraints.costLimit }} />
         </div>
         <div className="deck-card-actions">
+          <button
+            className="deck-card-action-button square-button"
+            title="デッキ設定"
+            onClick={handleOpenDeckConfig}
+          >
+            <FontAwesomeIcon icon={faGear} />
+          </button>
           <TwitterShareButton />
           <button
-            className={classNames('deck-card-action-button', 'edit-belong', {
-              unavailable: !editBelongAvailable,
+            className={classNames('open-other-deck-card-actions', {
+              opened: showOtherDeckCardActions,
             })}
-            title="所持状態編集"
-            onClick={useCallback(() => {
-              dispatch(windowActions.changeEditMode('belong'));
-            }, [])}
+            onClick={() => {
+              setShowOtherDeckCardActions(!showOtherDeckCardActions);
+            }}
           >
-            <FontAwesomeIcon icon={faSuitcase} />
-          </button>
-          <button
-            className="deck-card-action-button deck-clear"
-            onClick={handleDeckClear}
-          >
-            クリア
+            <FontAwesomeIcon icon={faEllipsisVertical} />
           </button>
         </div>
       </div>
@@ -209,10 +224,14 @@ export const DeckBoard = () => {
         <div className="deck-info-inner">
           <div className="deck-info-main">
             <DeckTotal
-              {...{ deckGenerals, totalCost, deckConstraints, datalistState }}
+              {...{ deckGenerals, costTotal, deckConstraints, datalistState }}
             />
           </div>
-          <div className="switch-deckboard-items">
+          <div
+            className={classNames('switch-deckboard-items', {
+              show: showSwitchDeckboardItems,
+            })}
+          >
             <button
               className={classNames('switch-deckboard', 'switch-deckboard-up', {
                 'show-button': showUpButton,
@@ -237,6 +256,40 @@ export const DeckBoard = () => {
                 <span className="icon-inner" />
               </span>
             </button>
+          </div>
+          <div
+            className={classNames('deck-info-mask', {
+              show: showOtherDeckCardActions,
+            })}
+            onClick={() => {
+              setShowOtherDeckCardActions(false);
+            }}
+          />
+        </div>
+      </div>
+      <div
+        className={classNames('other-deck-card-actions', {
+          show: showOtherDeckCardActions,
+        })}
+        onClick={() => {
+          setShowOtherDeckCardActions(false);
+        }}
+      >
+        <div className="other-deck-card-actions-bg" />
+        <div className="other-deck-card-actions-items">
+          <div
+            className={classNames('other-deck-card-actions-item', {
+              disabled: !editBelongAvailable,
+            })}
+            onClick={handleOpenBelongCtrl}
+          >
+            所持状態編集
+          </div>
+          <div
+            className="other-deck-card-actions-item"
+            onClick={handleDeckClear}
+          >
+            デッキクリア
           </div>
         </div>
       </div>

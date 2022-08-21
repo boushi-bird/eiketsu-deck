@@ -1,0 +1,26 @@
+@import '@/defines.css';
+
+.radio-button {
+  cursor: pointer;
+  margin: 0 3px;
+}
+
+.radio-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1%;
+  margin: 3% 3px;
+  background-color: var(--default-light-bg-color);
+  border: solid 2px var(--default-color);
+  border-radius: 50%;
+
+  & .radio-icon {
+    color: var(--ctrl-ui-color);
+    font-size: 60%;
+
+    &.checked {
+      color: var(--default-color);
+    }
+  }
+}

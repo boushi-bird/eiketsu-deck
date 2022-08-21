@@ -1,8 +1,15 @@
 import reduxQuerySync, { ParamsOptions } from 'redux-query-sync';
 
-import { DeckCard, deckActions } from './deck';
+import {
+  DEFAULT_DECK_CONSTRAINTS,
+  DeckCard,
+  SameCardConstraint,
+  deckActions,
+  isSameCardConstraints,
+} from './deck';
 import { windowActions } from './window';
 
+import { DECK_COST_LIMIT, DECK_GENERAL_CARD_COUNT } from '@/consts';
 import { RootState, store } from '@/store';
 import { excludeUndef } from '@/utils/excludeUndef';
 
@@ -70,6 +77,72 @@ const devModeParam: ParamsOptions<RootState, boolean> = {
   },
 };
 
+function numberParamsOptions(
+  options: Pick<ParamsOptions<RootState, number>, 'action' | 'selector'>,
+  {
+    min = 0,
+    max,
+    defaultValue,
+    step = 1,
+  }: {
+    min?: number;
+    max: number;
+    defaultValue: number;
+    step?: number;
+  }
+): ParamsOptions<RootState, number> {
+  return {
+    ...options,
+    defaultValue,
+    valueToString: (value) => `${value}`,
+    stringToValue: (s) => {
+      const v = parseInt(s);
+      if (v >= min && v <= max && v % step === 0) {
+        return v;
+      }
+      return defaultValue;
+    },
+  };
+}
+
+const costParam: ParamsOptions<RootState, number> = numberParamsOptions(
+  {
+    action: deckActions.setConstraintCostLimit,
+    selector: (state) => {
+      const { deckTabs, activeTabIndex } = state.deck;
+      const constraints = deckTabs[activeTabIndex]?.constraints || {};
+      return constraints.costLimit || DECK_COST_LIMIT.defaultValue;
+    },
+  },
+  DECK_COST_LIMIT
+);
+
+const generalLimitParam: ParamsOptions<RootState, number> = numberParamsOptions(
+  {
+    action: deckActions.setConstraintGeneralCardLimit,
+    selector: (state) => {
+      const { deckTabs, activeTabIndex } = state.deck;
+      const constraints = deckTabs[activeTabIndex]?.constraints || {};
+      return (
+        constraints.generalCardLimit || DECK_GENERAL_CARD_COUNT.defaultValue
+      );
+    },
+  },
+  DECK_GENERAL_CARD_COUNT
+);
+
+const sameCardParam: ParamsOptions<RootState, SameCardConstraint> = {
+  action: deckActions.setConstraintSameCard,
+  selector: (state) => {
+    const { deckTabs, activeTabIndex } = state.deck;
+    const constraints = deckTabs[activeTabIndex]?.constraints || {};
+    return constraints.sameCard || DEFAULT_DECK_CONSTRAINTS.sameCard;
+  },
+  defaultValue: DEFAULT_DECK_CONSTRAINTS.sameCard,
+  stringToValue: (s) =>
+    isSameCardConstraints(s) ? s : DEFAULT_DECK_CONSTRAINTS.sameCard,
+};
+
 let init = false;
 
 export const querySync = () => {
@@ -79,8 +152,11 @@ export const querySync = () => {
   reduxQuerySync<RootState>({
     store,
     params: {
+      cost: costParam,
       deck: deckParam,
       dev: devModeParam,
+      ['general_limit']: generalLimitParam,
+      ['same_card']: sameCardParam,
     },
     initialTruth: 'location',
     replaceState: true,

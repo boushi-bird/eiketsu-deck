@@ -15,8 +15,6 @@
   --checkbox-check-size: 22px;
   --app-header-size: 66px;
   --side-menu-button-size: 62px;
-  --filter-action-button-width: 88px;
-  --filter-action-button-height: 40px;
   --filter-button-min-width: 90px;
   --filter-button-height: 48px;
   --filter-button-square-size: 58px;
@@ -26,6 +24,7 @@
   --checkbox-check-font-size: 18px;
   --checkbox-text-font-size: 18px;
   --title-font-size: 26px;
+  --action-button-font-size: 18px;
   --deck-board-action-button-font-size: 24px;
   --deck-board-tool-button-font-size: 20px;
   --deck-board-default-font-size: 16px;
@@ -36,7 +35,6 @@
   --deck-board-long-name-font-size: 16px;
   --deck-board-period-font-size: 14px;
   --filter-tab-font-size: 18px;
-  --filter-action-button-font-size: 18px;
   --filter-menu-title-font-size: 26px;
   --filter-display-item-font-size: 14px;
   --simple-filter-font-size: 18px;
@@ -66,11 +64,13 @@
   --ctrl-ui-bg-color: #5f9cdd;
   --ctrl-ui-active-bg-color: #2c82de;
   --default-color: #0f1111;
+  --default-sub-color: #999;
   --default-light-color: #fff;
   --default-disabled-color: #ccc;
   --default-border-color: #ccc;
   --default-light-border-color: #fff;
   --default-dark-border-color: #0f1111;
+  --default-light-bg-color: #fff;
   --danger-color: #f94355;
   --cold-color: #2c82de;
   --active-color: #ff8c00;
@@ -91,8 +91,6 @@
   --deck-card-default-bg-color: #ccc;
   --deck-total-cost-bg-color-odd: #eee;
   --deck-total-cost-bg-color-even: #ccc;
-  --filter-action-button-color: white;
-  --filter-action-button-bg-color: var(--ctrl-ui-active-bg-color);
   --filter-menu-label-color: white;
   --filter-menu-border-color: var(--default-light-border-color);
   --filter-menu-content-bg-color: var(--main-color);
