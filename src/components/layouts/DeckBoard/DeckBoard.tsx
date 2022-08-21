@@ -10,8 +10,9 @@ import { DeckTotal } from '@/components/parts/DeckTotal';
 import { TotalCost } from '@/components/parts/TotalCost';
 import { TwitterShareButton } from '@/components/parts/TwitterShareButton';
 import {
+  activeDeckTabIndexSelector,
   datalistSelector,
-  deckSelector,
+  deckCurrentSelector,
   editModeSelector,
   useAppDispatch,
   useAppSelector,
@@ -33,30 +34,37 @@ export const DeckBoard = () => {
   );
 
   const datalistState = useAppSelector(datalistSelector);
-  const deckState = useAppSelector(deckSelector);
+  const activeDeckTabIndex = useAppSelector(activeDeckTabIndexSelector);
+  const deckCurrent = useAppSelector(deckCurrentSelector);
   const editMode = useAppSelector(editModeSelector);
-  const [deckCount, setDeckCount] = useState(deckState.deckCards.length);
+  const [deckCount, setDeckCount] = useState(deckCurrent.cards.length);
 
-  if (deckCount !== deckState.deckCards.length) {
-    setDeckCount(deckState.deckCards.length);
+  if (deckCount !== deckCurrent.cards.length) {
+    setDeckCount(deckCurrent.cards.length);
     setSelectedUniqueId(undefined);
   }
 
   const { generals } = datalistState;
-  const { deckCards, deckConstraints } = useDeferredValue(deckState);
+  const { cards: deckCards, constraints: deckConstraints } =
+    useDeferredValue(deckCurrent);
 
   const handleDeckClear = useCallback(() => {
     // TODO: confirmのコンポーネント作る
     if (window.confirm('現在デッキに選択中のカードをすべてクリアします。')) {
-      dispatch(deckActions.clearDeck());
+      dispatch(deckActions.clearDeck(activeDeckTabIndex));
     }
-  }, []);
+  }, [activeDeckTabIndex]);
 
   const handleRemove = useCallback(
     (index: number) => {
-      dispatch(deckActions.removeDeckGeneral(deckCards[index].generalIdx));
+      dispatch(
+        deckActions.removeDeckGeneral({
+          generalIdx: deckCards[index].generalIdx,
+          tabIndex: activeDeckTabIndex,
+        })
+      );
     },
-    [deckCards]
+    [deckCards, activeDeckTabIndex]
   );
 
   const handleShowDetail = useCallback((generalIdx: number) => {
@@ -80,9 +88,14 @@ export const DeckBoard = () => {
       const right = deckCards[rightIndex];
       const left = deckCards[leftIndex];
       newDeckCards.splice(leftIndex, 2, right, left);
-      dispatch(deckActions.setDecksWithKey(newDeckCards));
+      dispatch(
+        deckActions.setDecksWithKey({
+          cards: newDeckCards,
+          tabIndex: activeDeckTabIndex,
+        })
+      );
     },
-    [deckCards]
+    [deckCards, activeDeckTabIndex]
   );
 
   const handleSwitchSmaller = useCallback(() => {

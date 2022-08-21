@@ -14,7 +14,7 @@
   /* large */
   --deck-board-deck-info-inner-height-large: 240px;
 
-  --deck-board-deck-card-actions-area-width: 350px;
+  --deck-board-simple-deck-info-width: 180px;
   --deck-board-deck-card-ctrls-height: 64px;
 }
 
@@ -29,7 +29,7 @@
   }
 
   & .simple-deck-info {
-    width: calc(100% - var(--deck-board-deck-card-actions-area-width));
+    width: var(--deck-board-simple-deck-info-width);
     min-height: var(--deck-board-deck-card-ctrls-height);
     max-height: var(--deck-board-deck-card-ctrls-height);
     padding: 0 3px;
@@ -39,7 +39,7 @@
   }
 
   & .deck-card-actions {
-    width: var(--deck-board-deck-card-actions-area-width);
+    width: calc(100% - var(--deck-board-simple-deck-info-width));
     min-height: var(--deck-board-deck-card-ctrls-height);
     max-height: var(--deck-board-deck-card-ctrls-height);
     display: flex;

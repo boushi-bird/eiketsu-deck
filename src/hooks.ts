@@ -6,6 +6,8 @@ import {
   useSelector as useReduxSelector,
 } from 'react-redux';
 
+import { DEFAULT_DECK_CONSTRAINTS } from './modules/deck';
+
 import type { AppDispatch, RootState } from '@/store';
 
 export const useAppDispatch = () => useDispatch<AppDispatch>();
@@ -29,9 +31,24 @@ export const generalsSelector = createSelector(
   (datalist) => datalist.generals
 );
 
-export const deckCardsSelector = createSelector(
+export const activeDeckTabIndexSelector = createSelector(
   deckSelector,
-  ({ deckCards }) => deckCards
+  ({ activeTabIndex }) => activeTabIndex
+);
+
+export const deckCurrentSelector = createSelector(
+  deckSelector,
+  ({ deckTabs, activeTabIndex }) =>
+    deckTabs[activeTabIndex] || {
+      name: '',
+      cards: [],
+      constraints: { ...DEFAULT_DECK_CONSTRAINTS },
+    }
+);
+
+export const deckCardsSelector = createSelector(
+  deckCurrentSelector,
+  (current) => current.cards
 );
 
 export const editModeSelector = createSelector(

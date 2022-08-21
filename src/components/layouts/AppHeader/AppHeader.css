@@ -54,6 +54,77 @@
     color: var(--title-color);
     margin: auto;
   }
+
+  & .deck-tabs {
+    position: absolute;
+    bottom: 0;
+    left: calc(var(--side-menu-button-size) + 4px);
+    min-width: 510px;
+    width: calc(100% - 130px);
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+
+    & .deck-tab {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 40px;
+      flex-grow: 1;
+      font-size: 18px;
+      font-weight: bold;
+      color: var(--ctrl-ui-color);
+      margin: 0;
+      background-color: var(--ctrl-ui-bg-color);
+      border: 3px solid var(--default-light-border-color);
+      border-right-color: var(--default-border-color);
+      border-bottom-color: var(--default-border-color);
+      outline: none;
+      cursor: pointer;
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
+      -webkit-tap-highlight-color: transparent;
+
+      &.active {
+        font-size: 20px;
+        height: 50px;
+        margin-top: -10px;
+        background-color: var(--ctrl-ui-active-bg-color);
+        border-bottom-width: 0;
+      }
+
+      & .deck-tab-close {
+        position: absolute;
+        right: 4px;
+        cursor: pointer;
+        font-size: 18px;
+        color: var(--ctrl-ui-color);
+        background-color: transparent;
+        border: 1px solid transparent;
+        border-radius: 50%;
+        outline: 0;
+      }
+    }
+  }
+  & .add-new-deck-tab {
+    width: 40px;
+    height: 40px;
+    visibility: hidden;
+    color: var(--ctrl-ui-color);
+    margin: 0;
+    background-color: var(--ctrl-ui-active-bg-color);
+    border: 1px solid var(--default-light-border-color);
+    outline: none;
+    cursor: pointer;
+    border-radius: 2px;
+    -webkit-tap-highlight-color: transparent;
+
+    &.active {
+      visibility: visible;
+    }
+  }
 }
 
 .side-menu-button {

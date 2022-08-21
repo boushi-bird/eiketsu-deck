@@ -34,6 +34,19 @@ window.addEventListener('beforeinstallprompt', {
   },
 });
 
+window.addEventListener('beforeunload', (ev) => {
+  const { deckTabs, activeTabIndex } = store.getState().deck;
+  const hasNotSave =
+    deckTabs.length > 1 &&
+    deckTabs.some(
+      (d, i) => activeTabIndex !== i && d.cards.length !== 0 && !d.cardsSaved
+    );
+  if (hasNotSave) {
+    ev.preventDefault();
+    ev.returnValue = '';
+  }
+});
+
 // タグマネージャー等他の要素からイベントを発行させる
 const receiveNoticeChanged = (noticeEnabled?: boolean) => {
   store.dispatch(windowActions.changeShowNotice(!!noticeEnabled));

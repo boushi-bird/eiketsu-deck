@@ -10,9 +10,10 @@ import { excludeUndef } from '@/utils/excludeUndef';
 const emptyDecks: DeckCard[] = [];
 
 const deckParam: ParamsOptions<RootState, DeckCard[]> = {
-  action: deckActions.setDecks,
+  action: deckActions.setCurrentDecks,
   selector: (state) => {
-    const deckCards = state.deck.deckCards;
+    const { deckTabs, activeTabIndex } = state.deck;
+    const deckCards = deckTabs[activeTabIndex]?.cards || [];
     if (deckCards.length === 0) {
       return emptyDecks;
     }
@@ -82,6 +83,7 @@ export const querySync = () => {
       dev: devModeParam,
     },
     initialTruth: 'location',
+    replaceState: true,
   });
   init = true;
 };

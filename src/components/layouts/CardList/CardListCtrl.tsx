@@ -6,9 +6,10 @@ import { General } from 'eiketsu-deck';
 
 import { CheckBox } from '@/components/parts/CheckBox';
 import {
+  activeDeckTabIndexSelector,
   belongCardsSelector,
   deckCardsSelector,
-  deckSelector,
+  deckCurrentSelector,
   editModeSelector,
   generalsSelector,
   hasBelongCardsSelector,
@@ -23,8 +24,8 @@ interface Props {
 }
 
 const selectorDeckConstraints = createSelector(
-  deckSelector,
-  ({ deckConstraints: { sameCard, generalCardLimit } }) => ({
+  deckCurrentSelector,
+  ({ constraints: { sameCard, generalCardLimit } }) => ({
     sameCard,
     generalCardLimit,
   })
@@ -55,6 +56,7 @@ export const CardListCtrl = memo(function Component({ general }: Props) {
   const { sameCard, generalCardLimit } = useAppSelector(
     selectorDeckConstraints
   );
+  const activeDeckTabIndex = useAppSelector(activeDeckTabIndexSelector);
   const deckCards = useAppSelector(deckCardsSelector);
   const editMode = useAppSelector(editModeSelector);
   const belongCards = useAppSelector(belongCardsSelector);
@@ -102,12 +104,22 @@ export const CardListCtrl = memo(function Component({ general }: Props) {
   const handleAddDeckClick = useCallback(
     (targetChecked: boolean, generalIdx: number) => {
       if (targetChecked) {
-        dispatch(deckActions.addDeckGeneral({ generalIdx }));
+        dispatch(
+          deckActions.addDeckGeneral({
+            card: { generalIdx },
+            tabIndex: activeDeckTabIndex,
+          })
+        );
       } else {
-        dispatch(deckActions.removeDeckGeneral(generalIdx));
+        dispatch(
+          deckActions.removeDeckGeneral({
+            generalIdx,
+            tabIndex: activeDeckTabIndex,
+          })
+        );
       }
     },
-    [deckChecked]
+    [deckChecked, activeDeckTabIndex]
   );
 
   const handleAddBelongClick = useCallback(

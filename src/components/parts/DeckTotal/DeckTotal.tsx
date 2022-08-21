@@ -5,14 +5,14 @@ import { General } from 'eiketsu-deck';
 import { TotalCost } from '@/components/parts/TotalCost';
 import { TotalCostGraph } from '@/components/parts/TotalCostGraph';
 import { DatalistState } from '@/modules/datalist';
-import { DeckState } from '@/modules/deck';
+import { Deck } from '@/modules/deck';
 import { NO_SKILL } from '@/services/createDatalist';
 import { excludeUndef } from '@/utils/excludeUndef';
 
 interface Props {
   deckGenerals: General[];
   totalCost: number;
-  deckConstraints: DeckState['deckConstraints'];
+  deckConstraints: Deck['constraints'];
   datalistState: DatalistState;
 }
 
