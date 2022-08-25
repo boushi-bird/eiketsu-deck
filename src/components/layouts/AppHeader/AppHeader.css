@@ -62,9 +62,13 @@
     min-width: 510px;
     width: calc(100% - 130px);
     height: 100%;
-    display: flex;
+    display: none;
     justify-content: flex-start;
     align-items: flex-end;
+
+    &.show {
+      display: flex;
+    }
 
     & .deck-tab {
       position: relative;

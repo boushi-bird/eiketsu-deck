@@ -14,6 +14,7 @@ import { MAX_DECK_TABS } from '@/consts';
 import {
   activeDeckTabIndexSelector,
   deckSelector,
+  editModeSelector,
   generalsSelector,
   useAppDispatch,
   useAppSelector,
@@ -55,6 +56,7 @@ const createTabName = (generals: General[], cards: DeckCard[]) => {
 
 export const AppHeader = () => {
   const generals = useAppSelector(generalsSelector);
+  const editMode = useAppSelector(editModeSelector);
   const { showNotice, offline, updateReady } = useAppSelector(selector);
   const activeDeckTabIndex = useAppSelector(activeDeckTabIndexSelector);
   const deckTabs = useAppSelector(selectorDeckTabs, (a, b) => {
@@ -105,7 +107,11 @@ export const AppHeader = () => {
           最新にアップデート
         </button>
       )}
-      <div className="deck-tabs">
+      <div
+        className={classNames('deck-tabs', {
+          show: editMode === 'deck',
+        })}
+      >
         {displayDeckTabs.map((deckTab, index) => (
           <div
             key={deckTab.key}

@@ -14,11 +14,14 @@ import {
 } from '@/hooks';
 import { windowActions } from '@/modules/window';
 import { unmanagedStore } from '@/store';
+import { localStorageAvailable } from '@/utils/storageAvailable';
 
 const selectorContainer = createSelector(
   windowSelector,
   (window) => window.openedSideMenu
 );
+
+const lsAvailable = localStorageAvailable();
 
 interface Props {
   children?: ReactNode;
@@ -56,23 +59,6 @@ export const SideMenu = () => {
   const { pwaInstallEnabled, showNotice } = useAppSelector<Selectors>(selector);
   const dispatch = useAppDispatch();
 
-  const handleOpenUpdateInfo = useCallback(() => {
-    dispatch(windowActions.openUpdateInfo());
-  }, []);
-
-  const handleInstallPrompt = useCallback<React.MouseEventHandler>(
-    async (e) => {
-      if (pwaInstallEnabled) {
-        await unmanagedStore.installPromptEvent?.prompt();
-        unmanagedStore.installPromptEvent = null;
-      } else {
-        e.stopPropagation();
-      }
-      dispatch(windowActions.clearInstallPromptEvent());
-    },
-    [pwaInstallEnabled]
-  );
-
   return (
     <SideMenuContainer>
       <div className="modal-bg side-menu-bg" />
@@ -89,7 +75,11 @@ export const SideMenu = () => {
             </a>
           </li>
           <li className="side-menu-item">
-            <a onClick={handleOpenUpdateInfo}>
+            <a
+              onClick={useCallback(() => {
+                dispatch(windowActions.openUpdateInfo());
+              }, [])}
+            >
               更新情報
               <FontAwesomeIcon
                 icon={faExclamationCircle}
@@ -99,9 +89,33 @@ export const SideMenu = () => {
               />
             </a>
           </li>
+          <li className="side-menu-item">
+            <a
+              className={classNames({ disabled: !lsAvailable })}
+              onClick={useCallback(() => {
+                if (!lsAvailable) {
+                  return;
+                }
+                dispatch(dispatch(windowActions.changeEditMode('belong')));
+              }, [])}
+            >
+              所持状態編集
+            </a>
+          </li>
           <li className="side-menu-item pwa-install">
             <a
-              onClick={handleInstallPrompt}
+              onClick={useCallback<React.MouseEventHandler>(
+                async (e) => {
+                  if (pwaInstallEnabled) {
+                    await unmanagedStore.installPromptEvent?.prompt();
+                    unmanagedStore.installPromptEvent = null;
+                  } else {
+                    e.stopPropagation();
+                  }
+                  dispatch(windowActions.clearInstallPromptEvent());
+                },
+                [pwaInstallEnabled]
+              )}
               className={classNames({
                 disabled: !pwaInstallEnabled,
               })}
