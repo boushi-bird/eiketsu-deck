@@ -76,7 +76,7 @@ export const FilterMenu = () => {
       <div className="filter-menu">
         <h1 className="filter-title">絞り込みメニュー</h1>
         <button
-          className="filter-close filter-action-button"
+          className="filter-close action-button"
           onClick={handleCloseFilter}
         >
           OK
@@ -103,10 +103,7 @@ export const FilterMenu = () => {
               labelOff="複数選択"
               labelOn="単数選択"
             />
-            <button
-              className="filter-action-button"
-              onClick={handleResetConditions}
-            >
+            <button className="action-button" onClick={handleResetConditions}>
               リセット
             </button>
           </div>

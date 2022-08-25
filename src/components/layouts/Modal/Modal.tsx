@@ -6,6 +6,8 @@ import { useDispatch } from 'react-redux';
 
 import { BelongModal } from '@/components/layouts/BelongModal';
 import { CopyrightModal } from '@/components/layouts/CopyrightModal';
+import { DeckConfigModal } from '@/components/layouts/DeckConfigModal';
+import { DeckSaveLoadModal } from '@/components/layouts/DeckSaveLoadModal';
 import { GeneralDetail } from '@/components/layouts/GeneralDetail';
 import { UpdateInfo } from '@/components/layouts/UpdateInfo';
 import { useAppSelector, windowSelector } from '@/hooks';
@@ -44,6 +46,15 @@ export const Modal = () => {
           />
         );
       }
+      break;
+    case 'deck-config':
+      current = <DeckConfigModal onClose={handleBackgroundClick} />;
+      break;
+    case 'deck-save':
+    case 'deck-load':
+      current = (
+        <DeckSaveLoadModal tab={currentModal} onClose={handleBackgroundClick} />
+      );
       break;
     case 'belong-export':
     case 'belong-import':

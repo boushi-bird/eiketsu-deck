@@ -11,11 +11,13 @@ export const TwitterShareButton = memo(function Component() {
       className="share-button"
       onClick={useCallback(() => {
         const {
-          deck: { deckCards },
+          deck: { deckTabs, activeTabIndex },
           datalist: { generals },
         } = store.getState();
 
-        const deckGenerals = deckCards
+        const cards = deckTabs[activeTabIndex]?.cards || [];
+
+        const deckGenerals = cards
           .map((d) => generals.find((g) => g.idx === d.generalIdx))
           .filter(excludeUndef);
 

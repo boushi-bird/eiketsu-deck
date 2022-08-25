@@ -2,7 +2,9 @@ declare module 'redux-query-sync' {
   import type { PayloadAction } from '@reduxjs/toolkit';
   import type { Store } from 'redux';
 
-  function ReduxQuerySync<S>(options: Options<S>): () => void;
+  export type ReduxQuerySyncUnsubscribe = () => void;
+
+  function ReduxQuerySync<S>(options: Options<S>): ReduxQuerySyncUnsubscribe;
 
   export interface ParamsOptions<S, V> {
     action: (value: V) => PayloadAction<V>;

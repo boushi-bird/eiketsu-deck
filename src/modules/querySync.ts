@@ -1,18 +1,29 @@
-import reduxQuerySync, { ParamsOptions } from 'redux-query-sync';
+import reduxQuerySync, {
+  ParamsOptions,
+  type ReduxQuerySyncUnsubscribe,
+} from 'redux-query-sync';
 
-import { DeckCard, deckActions } from './deck';
+import {
+  DEFAULT_DECK_CONSTRAINTS,
+  DeckCard,
+  SameCardConstraint,
+  deckActions,
+  isSameCardConstraints,
+} from './deck';
 import { windowActions } from './window';
 
+import { DECK_COST_LIMIT } from '@/consts';
 import { RootState, store } from '@/store';
 import { excludeUndef } from '@/utils/excludeUndef';
 
 // defaultValue と=== 比較で一致する場合にparameterがなくなるので空を同一インスタンスに
 const emptyDecks: DeckCard[] = [];
 
-const deckParam: ParamsOptions<RootState, DeckCard[]> = {
-  action: deckActions.setDecks,
+const deckParam: Required<ParamsOptions<RootState, DeckCard[]>> = {
+  action: deckActions.setCurrentDecks,
   selector: (state) => {
-    const deckCards = state.deck.deckCards;
+    const { deckTabs, activeTabIndex } = state.deck;
+    const deckCards = deckTabs[activeTabIndex]?.cards || [];
     if (deckCards.length === 0) {
       return emptyDecks;
     }
@@ -69,19 +80,83 @@ const devModeParam: ParamsOptions<RootState, boolean> = {
   },
 };
 
-let init = false;
+function numberParamsOptions(
+  options: Pick<ParamsOptions<RootState, number>, 'action' | 'selector'>,
+  {
+    min = 0,
+    max,
+    defaultValue,
+    step = 1,
+  }: {
+    min?: number;
+    max: number;
+    defaultValue: number;
+    step?: number;
+  }
+): ParamsOptions<RootState, number> {
+  return {
+    ...options,
+    defaultValue,
+    valueToString: (value) => `${value}`,
+    stringToValue: (s) => {
+      const v = parseInt(s);
+      if (v >= min && v <= max && v % step === 0) {
+        return v;
+      }
+      return defaultValue;
+    },
+  };
+}
+
+const costParam: ParamsOptions<RootState, number> = numberParamsOptions(
+  {
+    action: deckActions.setConstraintCostLimit,
+    selector: (state) => {
+      const { deckTabs, activeTabIndex } = state.deck;
+      const constraints = deckTabs[activeTabIndex]?.constraints || {};
+      return constraints.costLimit || DECK_COST_LIMIT.defaultValue;
+    },
+  },
+  DECK_COST_LIMIT
+);
+
+const sameCardParam: ParamsOptions<RootState, SameCardConstraint> = {
+  action: deckActions.setConstraintSameCard,
+  selector: (state) => {
+    const { deckTabs, activeTabIndex } = state.deck;
+    const constraints = deckTabs[activeTabIndex]?.constraints || {};
+    return constraints.sameCard || DEFAULT_DECK_CONSTRAINTS.sameCard;
+  },
+  defaultValue: DEFAULT_DECK_CONSTRAINTS.sameCard,
+  stringToValue: (s) =>
+    isSameCardConstraints(s) ? s : DEFAULT_DECK_CONSTRAINTS.sameCard,
+};
+
+export const queryParamsOptions = {
+  cost: costParam,
+  deck: deckParam,
+  dev: devModeParam,
+  ['same_card']: sameCardParam,
+};
+
+let unsubscribe: ReduxQuerySyncUnsubscribe | null = null;
 
 export const querySync = () => {
-  if (init) {
+  if (unsubscribe) {
     return;
   }
-  reduxQuerySync<RootState>({
+  unsubscribe = reduxQuerySync<RootState>({
     store,
-    params: {
-      deck: deckParam,
-      dev: devModeParam,
-    },
+    params: queryParamsOptions,
     initialTruth: 'location',
+    replaceState: true,
   });
-  init = true;
+};
+
+export const queryResync = () => {
+  if (unsubscribe) {
+    unsubscribe();
+    unsubscribe = null;
+  }
+  querySync();
 };

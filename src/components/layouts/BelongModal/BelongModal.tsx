@@ -50,7 +50,7 @@ export const BelongModal = ({ tab, onClose }: Props) => {
           }, [tab])}
         >
           <FontAwesomeIcon className="belong-button-icon" icon={faFileExport} />
-          エクスポート
+          {TAB_NAMES['belong-export']}
         </button>
         <button
           className={classNames('belong-modal-tab', {
@@ -64,7 +64,7 @@ export const BelongModal = ({ tab, onClose }: Props) => {
           }, [tab])}
         >
           <FontAwesomeIcon className="belong-button-icon" icon={faFileImport} />
-          インポート
+          {TAB_NAMES['belong-import']}
         </button>
       </div>
       <div

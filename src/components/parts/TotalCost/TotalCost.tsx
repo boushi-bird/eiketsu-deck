@@ -3,15 +3,15 @@ import { memo } from 'react';
 import classNames from 'classnames';
 
 interface Props {
-  totalCost: number;
-  limitCost: number;
+  costTotal: number;
+  costLimit: number;
 }
 
 export const TotalCost = memo(function Component({
-  totalCost,
-  limitCost,
+  costTotal,
+  costLimit,
 }: Props) {
-  let costRemain = totalCost - limitCost;
+  let costRemain = costTotal - costLimit;
   let costRemainText = '残り';
   let over = false;
   let under = false;
@@ -27,7 +27,7 @@ export const TotalCost = memo(function Component({
     <div className="total-cost">
       <div className="total" data-label="総コスト">
         <div className="cost-values">
-          <span className="cost-value">{(totalCost / 10).toFixed(1)}</span>
+          <span className="cost-value">{(costTotal / 10).toFixed(1)}</span>
           <span className={classNames('cost-remain', { over, under })}>
             ({costRemainText} {(costRemain / 10).toFixed(1)})
           </span>

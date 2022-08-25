@@ -9,13 +9,13 @@ interface CostDetail {
 }
 
 interface Props {
-  totalCost: number;
+  costTotal: number;
   costDetails: CostDetail[];
   noCostLabel?: string;
 }
 
 export const TotalCostGraph = ({
-  totalCost,
+  costTotal,
   costDetails,
   noCostLabel,
 }: Props) => {
@@ -29,7 +29,7 @@ export const TotalCostGraph = ({
       {costDetails.map((costDetail) => {
         const smallArea = costDetail.cost <= 10;
         const longName = costDetail.name.length >= 4 && smallArea;
-        const ratio = (costDetail.cost * 100) / totalCost;
+        const ratio = (costDetail.cost * 100) / costTotal;
 
         return (
           <div

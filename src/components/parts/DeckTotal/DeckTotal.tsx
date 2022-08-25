@@ -5,14 +5,14 @@ import { General } from 'eiketsu-deck';
 import { TotalCost } from '@/components/parts/TotalCost';
 import { TotalCostGraph } from '@/components/parts/TotalCostGraph';
 import { DatalistState } from '@/modules/datalist';
-import { DeckState } from '@/modules/deck';
+import { Deck } from '@/modules/deck';
 import { NO_SKILL } from '@/services/createDatalist';
 import { excludeUndef } from '@/utils/excludeUndef';
 
 interface Props {
   deckGenerals: General[];
-  totalCost: number;
-  deckConstraints: DeckState['deckConstraints'];
+  costTotal: number;
+  deckConstraints: Deck['constraints'];
   datalistState: DatalistState;
 }
 
@@ -78,9 +78,9 @@ function totalizeByMap<K>(
 
 export const DeckTotal = memo(function Component({
   deckGenerals,
-  totalCost,
+  costTotal,
   datalistState: { skills, periods, generalColors, unitTypes },
-  deckConstraints: { limitCost },
+  deckConstraints: { costLimit },
 }: Props) {
   const totalStrong = deckGenerals.reduce((total, g) => total + g.strong, 0);
   const totalIntelligence = deckGenerals.reduce(
@@ -123,15 +123,15 @@ export const DeckTotal = memo(function Component({
   return (
     <div className="deck-total">
       <div className="total-costs-area">
-        <TotalCost {...{ totalCost, limitCost }} />
+        <TotalCost {...{ costTotal, costLimit }} />
         <div className="cost-graph">
           <TotalCostGraph
-            totalCost={Math.max(totalCost, limitCost)}
+            costTotal={Math.max(costTotal, costLimit)}
             costDetails={generalColorCostDetails}
             noCostLabel="勢力コスト"
           />
           <TotalCostGraph
-            totalCost={Math.max(totalCost, limitCost)}
+            costTotal={Math.max(costTotal, costLimit)}
             costDetails={periodsCostDetails}
             noCostLabel="時代勢力コスト"
           />

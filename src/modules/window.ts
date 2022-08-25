@@ -5,6 +5,9 @@ type Modal =
   | 'updateInfo'
   | 'copyright'
   | 'general-detail'
+  | 'deck-config'
+  | 'deck-save'
+  | 'deck-load'
   | 'belong-export'
   | 'belong-import';
 
@@ -72,6 +75,15 @@ const slice = createSlice({
     openGenerailDetail: (state: WindowState, action: PayloadAction<number>) => {
       state.generalIdxForDetail = action.payload;
       state.currentModal = 'general-detail';
+    },
+    openDeckConfig: (state: WindowState) => {
+      state.currentModal = 'deck-config';
+    },
+    openDeckSave: (state: WindowState) => {
+      state.currentModal = 'deck-save';
+    },
+    openDeckLoad: (state: WindowState) => {
+      state.currentModal = 'deck-load';
     },
     openBelongCtrl: (
       state: WindowState,

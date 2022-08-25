@@ -1,6 +1,7 @@
 import { useCallback, useDeferredValue, useMemo, useState } from 'react';
 
-import { faSuitcase } from '@fortawesome/free-solid-svg-icons/faSuitcase';
+import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons/faEllipsisVertical';
+import { faGear } from '@fortawesome/free-solid-svg-icons/faGear';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
 
@@ -10,8 +11,9 @@ import { DeckTotal } from '@/components/parts/DeckTotal';
 import { TotalCost } from '@/components/parts/TotalCost';
 import { TwitterShareButton } from '@/components/parts/TwitterShareButton';
 import {
+  activeDeckTabIndexSelector,
   datalistSelector,
-  deckSelector,
+  deckCurrentSelector,
   editModeSelector,
   useAppDispatch,
   useAppSelector,
@@ -23,40 +25,60 @@ import { localStorageAvailable } from '@/utils/storageAvailable';
 
 const switchStyleClasses = ['minimum', 'small', 'normal', 'large', 'ex-large'];
 
-const editBelongAvailable = localStorageAvailable();
+const lsAvailable = localStorageAvailable();
 
 export const DeckBoard = () => {
   const dispatch = useAppDispatch();
   const [switchStyle, setSwitchStyle] = useState(2);
+  const [showOtherDeckCardActions, setShowOtherDeckCardActions] =
+    useState(false);
   const [selectedUniqueId, setSelectedUniqueId] = useState<string | undefined>(
     undefined
   );
 
   const datalistState = useAppSelector(datalistSelector);
-  const deckState = useAppSelector(deckSelector);
+  const activeDeckTabIndex = useAppSelector(activeDeckTabIndexSelector);
+  const deckCurrent = useAppSelector(deckCurrentSelector);
   const editMode = useAppSelector(editModeSelector);
-  const [deckCount, setDeckCount] = useState(deckState.deckCards.length);
+  const [deckCount, setDeckCount] = useState(deckCurrent.cards.length);
 
-  if (deckCount !== deckState.deckCards.length) {
-    setDeckCount(deckState.deckCards.length);
+  if (deckCount !== deckCurrent.cards.length) {
+    setDeckCount(deckCurrent.cards.length);
     setSelectedUniqueId(undefined);
   }
 
   const { generals } = datalistState;
-  const { deckCards, deckConstraints } = useDeferredValue(deckState);
+  const { cards: deckCards, constraints: deckConstraints } =
+    useDeferredValue(deckCurrent);
+
+  const handleOpenDeckConfig = useCallback(() => {
+    dispatch(windowActions.openDeckConfig());
+  }, []);
+
+  const handleOpenBelongCtrl = useCallback(() => {
+    if (!lsAvailable) {
+      return;
+    }
+    dispatch(windowActions.changeEditMode('belong'));
+  }, [lsAvailable]);
 
   const handleDeckClear = useCallback(() => {
     // TODO: confirmのコンポーネント作る
     if (window.confirm('現在デッキに選択中のカードをすべてクリアします。')) {
-      dispatch(deckActions.clearDeck());
+      dispatch(deckActions.clearDeck(activeDeckTabIndex));
     }
-  }, []);
+  }, [activeDeckTabIndex]);
 
   const handleRemove = useCallback(
     (index: number) => {
-      dispatch(deckActions.removeDeckGeneral(deckCards[index].generalIdx));
+      dispatch(
+        deckActions.removeDeckGeneral({
+          generalIdx: deckCards[index].generalIdx,
+          tabIndex: activeDeckTabIndex,
+        })
+      );
     },
-    [deckCards]
+    [deckCards, activeDeckTabIndex]
   );
 
   const handleShowDetail = useCallback((generalIdx: number) => {
@@ -80,9 +102,14 @@ export const DeckBoard = () => {
       const right = deckCards[rightIndex];
       const left = deckCards[leftIndex];
       newDeckCards.splice(leftIndex, 2, right, left);
-      dispatch(deckActions.setDecksWithKey(newDeckCards));
+      dispatch(
+        deckActions.setDecksWithKey({
+          cards: newDeckCards,
+          tabIndex: activeDeckTabIndex,
+        })
+      );
     },
-    [deckCards]
+    [deckCards, activeDeckTabIndex]
   );
 
   const handleSwitchSmaller = useCallback(() => {
@@ -137,19 +164,20 @@ export const DeckBoard = () => {
 
   const switchStyleClass =
     editMode === 'belong' ? 'minimum' : switchStyleClasses[switchStyle];
-  const showUpButton = switchStyle > 0 && editMode !== 'belong';
-  const showDownButton =
-    switchStyle < switchStyleClasses.length - 1 && editMode !== 'belong';
+  const showSwitchDeckboardItems =
+    editMode !== 'belong' && !showOtherDeckCardActions;
+  const showUpButton = switchStyle > 0;
+  const showDownButton = switchStyle < switchStyleClasses.length - 1;
 
-  const { deckGenerals, totalCost } = useMemo(() => {
+  const { deckGenerals, costTotal } = useMemo(() => {
     const deckGenerals = deckCards
       .map((card) => generals.find((g) => g.idx === card.generalIdx))
       .filter(excludeUndef);
-    const totalCost = deckGenerals.reduce(
+    const costTotal = deckGenerals.reduce(
       (total, g) => total + g.cost.value,
       0
     );
-    return { deckGenerals, totalCost };
+    return { deckGenerals, costTotal };
   }, [deckCards, generals]);
 
   return (
@@ -161,26 +189,36 @@ export const DeckBoard = () => {
     >
       <div className="deck-card-ctrls">
         <div className="simple-deck-info">
-          <TotalCost {...{ totalCost, limitCost: deckConstraints.limitCost }} />
+          <TotalCost {...{ costTotal, costLimit: deckConstraints.costLimit }} />
         </div>
         <div className="deck-card-actions">
+          <button
+            className="deck-card-action-button square-button"
+            title="デッキ設定"
+            onClick={handleOpenDeckConfig}
+          >
+            <FontAwesomeIcon icon={faGear} />
+          </button>
           <TwitterShareButton />
           <button
-            className={classNames('deck-card-action-button', 'edit-belong', {
-              unavailable: !editBelongAvailable,
+            className={classNames('deck-card-action-button', {
+              unavailable: !lsAvailable,
             })}
-            title="所持状態編集"
             onClick={useCallback(() => {
-              dispatch(windowActions.changeEditMode('belong'));
+              dispatch(windowActions.openDeckSave());
             }, [])}
           >
-            <FontAwesomeIcon icon={faSuitcase} />
+            セーブ
           </button>
           <button
-            className="deck-card-action-button deck-clear"
-            onClick={handleDeckClear}
+            className={classNames('open-other-deck-card-actions', {
+              opened: showOtherDeckCardActions,
+            })}
+            onClick={() => {
+              setShowOtherDeckCardActions(!showOtherDeckCardActions);
+            }}
           >
-            クリア
+            <FontAwesomeIcon icon={faEllipsisVertical} />
           </button>
         </div>
       </div>
@@ -196,10 +234,14 @@ export const DeckBoard = () => {
         <div className="deck-info-inner">
           <div className="deck-info-main">
             <DeckTotal
-              {...{ deckGenerals, totalCost, deckConstraints, datalistState }}
+              {...{ deckGenerals, costTotal, deckConstraints, datalistState }}
             />
           </div>
-          <div className="switch-deckboard-items">
+          <div
+            className={classNames('switch-deckboard-items', {
+              show: showSwitchDeckboardItems,
+            })}
+          >
             <button
               className={classNames('switch-deckboard', 'switch-deckboard-up', {
                 'show-button': showUpButton,
@@ -224,6 +266,50 @@ export const DeckBoard = () => {
                 <span className="icon-inner" />
               </span>
             </button>
+          </div>
+          <div
+            className={classNames('deck-info-mask', {
+              show: showOtherDeckCardActions,
+            })}
+            onClick={() => {
+              setShowOtherDeckCardActions(false);
+            }}
+          />
+        </div>
+      </div>
+      <div
+        className={classNames('other-deck-card-actions', {
+          show: showOtherDeckCardActions,
+        })}
+        onClick={() => {
+          setShowOtherDeckCardActions(false);
+        }}
+      >
+        <div className="other-deck-card-actions-bg" />
+        <div className="other-deck-card-actions-items">
+          <div
+            className={classNames('other-deck-card-actions-item', {
+              disabled: !lsAvailable,
+            })}
+            onClick={useCallback(() => {
+              dispatch(windowActions.openDeckLoad());
+            }, [])}
+          >
+            ロード
+          </div>
+          <div
+            className={classNames('other-deck-card-actions-item', {
+              disabled: !lsAvailable,
+            })}
+            onClick={handleOpenBelongCtrl}
+          >
+            所持状態編集
+          </div>
+          <div
+            className="other-deck-card-actions-item"
+            onClick={handleDeckClear}
+          >
+            デッキクリア
           </div>
         </div>
       </div>

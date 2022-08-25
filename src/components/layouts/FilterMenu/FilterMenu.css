@@ -230,19 +230,6 @@
   }
 }
 
-.filter-action-button {
-  margin: 3px;
-  font-size: var(--filter-action-button-font-size);
-  width: var(--filter-action-button-width);
-  height: var(--filter-action-button-height);
-  font-weight: bold;
-  color: var(--filter-action-button-color);
-  background-color: var(--filter-action-button-bg-color);
-  border: 2px solid var(--filter-menu-border-color);
-  border-radius: 6px;
-  outline: none;
-}
-
 @media (--modal-filter-style) {
   .filter-menu .filter-close {
     display: flex;
