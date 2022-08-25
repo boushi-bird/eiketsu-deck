@@ -117,6 +117,7 @@ export const AppHeader = () => {
             }}
           >
             {createTabName(generals, deckTab.cards)}
+            {deckTab.saved ? '' : ' *'}
             <button
               className="deck-tab-close"
               onClick={(e) => {
