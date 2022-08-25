@@ -5,8 +5,8 @@ import { DECK_COST_LIMIT, DECK_GENERAL_CARD_COUNT } from '@/consts';
 // デッキのユニークIDとして使う揮発的な数値
 let currentDeckKey = 0;
 
-// デッキタブの名前に利用するindex番号
-let deckTabNameIndex = 1;
+// デッキタブのユニークIDとして使う揮発的な数値
+let deckTabKey = 1;
 
 interface DeckCardGeneralWithKey {
   key: number;
@@ -23,7 +23,7 @@ export interface Deck {
 }
 
 interface DeckTab extends Deck {
-  name: string;
+  key: number;
   cardsSaved: boolean;
   cardsConstraints: boolean;
 }
@@ -67,13 +67,11 @@ export const DEFAULT_DECK_CONSTRAINTS: Readonly<DeckConstraints> = {
   exchange: false,
 };
 
-const createDeckTabNams = () => `デッキ${deckTabNameIndex++}`;
-
 const initialState: DeckState = {
   activeTabIndex: 0,
   deckTabs: [
     {
-      name: createDeckTabNams(),
+      key: deckTabKey++,
       cards: [],
       constraints: {
         ...DEFAULT_DECK_CONSTRAINTS,
@@ -117,20 +115,12 @@ const slice = createSlice({
       current.cards = deckCards;
       current.cardsSaved = false;
     },
-    setDecks(
-      state: DeckState,
-      action: PayloadAction<{ cards: DeckCard[]; tabIndex: number }>
-    ) {
-      const current = state.deckTabs[action.payload.tabIndex];
+    currentDeckToSaved(state: DeckState) {
+      const current = state.deckTabs[state.activeTabIndex];
       if (!current) {
         return;
       }
-      const deckCards = action.payload.cards.map((deckCard) => ({
-        ...deckCard,
-        key: currentDeckKey++,
-      }));
-      current.cards = deckCards;
-      current.cardsSaved = false;
+      current.cardsSaved = true;
     },
     setDecksWithKey(
       state: DeckState,
@@ -162,7 +152,8 @@ const slice = createSlice({
       const tabIndex = action.payload;
       state.activeTabIndex = state.deckTabs.length > tabIndex ? tabIndex : 0;
     },
-    addDeckTab(state: DeckState) {
+    addDeckTab(state: DeckState, action: PayloadAction<boolean>) {
+      const changeNewTab = action.payload;
       const current = state.deckTabs[state.activeTabIndex];
       // 現在の制約を引き継ぐ
       const constraints = current?.constraints || {
@@ -171,20 +162,21 @@ const slice = createSlice({
       state.deckTabs = [
         ...state.deckTabs,
         {
-          name: createDeckTabNams(),
+          key: currentDeckKey++,
           cards: [],
           constraints,
           cardsSaved: true,
           cardsConstraints: true,
         },
       ];
+      if (changeNewTab) {
+        state.activeTabIndex = state.deckTabs.length - 1;
+      }
     },
     removeDeckTab(state: DeckState, action: PayloadAction<number>) {
       const tabIndex = action.payload;
-      const current = state.deckTabs[tabIndex];
       state.deckTabs = state.deckTabs.filter((_, i) => i !== tabIndex);
-      const activeTabIndex = state.deckTabs.indexOf(current);
-      state.activeTabIndex = activeTabIndex >= 0 ? activeTabIndex : 0;
+      state.activeTabIndex = 0;
     },
     clearDeck(state: DeckState, action: PayloadAction<number>) {
       const tabIndex = action.payload;

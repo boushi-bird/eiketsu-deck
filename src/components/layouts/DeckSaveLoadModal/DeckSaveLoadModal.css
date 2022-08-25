@@ -1,0 +1,128 @@
+@import '@/defines.css';
+
+.deck-save-load-modal {
+  position: fixed;
+  background-color: var(--dark-transparent-bg-color);
+  width: 80%;
+  min-width: 600px;
+  max-width: 600px;
+  height: 90%;
+  max-height: 900px;
+  inset: 70px 0 auto;
+  margin: auto;
+  padding: 50px 10px 10px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  & .deck-save-load-modal-tabs {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+
+    & .deck-save-load-modal-tab {
+      width: 50%;
+      height: 60px;
+      font-size: 18px;
+      font-weight: bold;
+      color: var(--default-light-color);
+      background-color: var(--main-color);
+      border-color: var(--default-light-border-color);
+      border-width: 3px;
+      outline: none;
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
+      -webkit-tap-highlight-color: transparent;
+
+      &.active {
+        margin-top: -10px;
+        height: 70px;
+        background-color: var(--ctrl-ui-bg-color);
+        border-bottom-width: 0;
+        border-bottom-color: var(--main-color);
+      }
+    }
+  }
+
+  & .deck-save-load-modal-content {
+    width: 100%;
+    height: calc(100% - 60px);
+    background-color: var(--main-color);
+    display: none;
+    flex-direction: column;
+    animation: fadeIn 0.25s ease 0s 1 normal;
+
+    &.active {
+      display: flex;
+    }
+
+    & .deck-save-load-modal-caption {
+      width: calc(100% - 4px);
+      height: 86px;
+      font-size: 28px;
+      background-color: var(--default-light-bg-color);
+      display: flex;
+      align-items: center;
+      margin: 2px;
+      padding: 4px 10px;
+
+      &.warning {
+        color: var(--danger-color);
+      }
+
+      & .deck-save-load-modal-caption-text {
+        font-size: 20px;
+        padding: 0 6px;
+      }
+    }
+
+    & .deck-save-load-modal-content-inner {
+      width: 100%;
+      height: calc(100% - 90px);
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+
+      & .saved-deck-record {
+        width: calc(100% - 40px);
+        min-height: 150px;
+        max-height: 150px;
+        margin: 10px 20px;
+        background-color: var(--default-light-bg-color);
+
+        &.disabled .saved-deck .data-area {
+          cursor: not-allowed;
+        }
+      }
+
+      & .new-saved-deck-record {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+
+        &.disabled {
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+
+  & .close-button {
+    position: absolute;
+    box-sizing: content-box;
+    top: 0;
+    right: 0;
+    margin-top: -5px;
+    margin-right: -5px;
+  }
+}
+
+@media (--short-vertical) {
+  .deck-save-load-modal {
+    top: 0;
+    bottom: 0;
+  }
+}

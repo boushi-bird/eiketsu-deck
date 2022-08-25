@@ -25,7 +25,7 @@
     & .belong-modal-tab {
       width: 50%;
       height: 60px;
-      font-size: var(--filter-tab-font-size);
+      font-size: 18px;
       font-weight: bold;
       color: var(--default-light-color);
       background-color: var(--main-color);
@@ -46,7 +46,7 @@
         height: 70px;
         background-color: var(--ctrl-ui-bg-color);
         border-bottom-width: 0;
-        border-bottom-color: var(--filter-menu-content-bg-color);
+        border-bottom-color: var(--main-color);
       }
     }
   }

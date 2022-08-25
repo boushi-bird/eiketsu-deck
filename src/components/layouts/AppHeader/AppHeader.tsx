@@ -7,18 +7,21 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons/faPlus';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { createSelector } from '@reduxjs/toolkit';
 import classNames from 'classnames';
+import { General } from 'eiketsu-deck';
 import { shallowEqual } from 'react-redux';
 
 import { MAX_DECK_TABS } from '@/consts';
 import {
   activeDeckTabIndexSelector,
   deckSelector,
+  generalsSelector,
   useAppDispatch,
   useAppSelector,
   windowSelector,
 } from '@/hooks';
-import { deckActions } from '@/modules/deck';
+import { DeckCard, deckActions } from '@/modules/deck';
 import { windowActions } from '@/modules/window';
+import { excludeUndef } from '@/utils/excludeUndef';
 
 const selector = createSelector(
   windowSelector,
@@ -31,12 +34,27 @@ const selector = createSelector(
 
 const selectorDeckTabs = createSelector(deckSelector, ({ deckTabs }) =>
   deckTabs.map((deckTab) => ({
-    name: deckTab.name,
+    key: deckTab.key,
+    cards: deckTab.cards,
     saved: deckTab.cards.length === 0 || deckTab.cardsSaved,
   }))
 );
 
+const createTabName = (generals: General[], cards: DeckCard[]) => {
+  const deckCards = cards
+    .map((card) => generals.find((g) => g.idx === card.generalIdx))
+    .filter(excludeUndef);
+  if (deckCards.length === 0) {
+    return '[空]';
+  }
+  const colors = [...new Set(deckCards.map((g) => g.color.name))];
+  const colorLabel =
+    colors.length <= 2 ? colors.join('') : `${colors.length}色`;
+  return `${colorLabel}${deckCards.length}枚`;
+};
+
 export const AppHeader = () => {
+  const generals = useAppSelector(generalsSelector);
   const { showNotice, offline, updateReady } = useAppSelector(selector);
   const activeDeckTabIndex = useAppSelector(activeDeckTabIndexSelector);
   const deckTabs = useAppSelector(selectorDeckTabs, (a, b) => {
@@ -56,7 +74,7 @@ export const AppHeader = () => {
   }, []);
 
   const handleAddNewDeckTabClick = useCallback(() => {
-    dispatch(deckActions.addDeckTab());
+    dispatch(deckActions.addDeckTab(false));
   }, []);
 
   const displayDeckTabs = deckTabs.length > 1 ? deckTabs : [];
@@ -90,7 +108,7 @@ export const AppHeader = () => {
       <div className="deck-tabs">
         {displayDeckTabs.map((deckTab, index) => (
           <div
-            key={deckTab.name}
+            key={deckTab.key}
             className={classNames('deck-tab', {
               active: activeDeckTabIndex === index,
             })}
@@ -98,16 +116,13 @@ export const AppHeader = () => {
               dispatch(deckActions.changeDeckTab(index));
             }}
           >
-            {deckTab.name}
+            {createTabName(generals, deckTab.cards)}
             <button
               className="deck-tab-close"
               onClick={(e) => {
                 e.stopPropagation();
                 // TODO: confirmのコンポーネント作る
-                if (
-                  deckTab.saved ||
-                  window.confirm(`${deckTab.name}を削除します。`)
-                ) {
+                if (deckTab.saved || window.confirm('デッキを削除します。')) {
                   dispatch(deckActions.removeDeckTab(index));
                 }
               }}

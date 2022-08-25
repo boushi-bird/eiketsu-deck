@@ -25,7 +25,7 @@ import { localStorageAvailable } from '@/utils/storageAvailable';
 
 const switchStyleClasses = ['minimum', 'small', 'normal', 'large', 'ex-large'];
 
-const editBelongAvailable = localStorageAvailable();
+const lsAvailable = localStorageAvailable();
 
 export const DeckBoard = () => {
   const dispatch = useAppDispatch();
@@ -56,11 +56,11 @@ export const DeckBoard = () => {
   }, []);
 
   const handleOpenBelongCtrl = useCallback(() => {
-    if (!editBelongAvailable) {
+    if (!lsAvailable) {
       return;
     }
     dispatch(windowActions.changeEditMode('belong'));
-  }, [editBelongAvailable]);
+  }, [lsAvailable]);
 
   const handleDeckClear = useCallback(() => {
     // TODO: confirmのコンポーネント作る
@@ -199,6 +199,16 @@ export const DeckBoard = () => {
           >
             <FontAwesomeIcon icon={faGear} />
           </button>
+          <button
+            className={classNames('deck-card-action-button', {
+              unavailable: !lsAvailable,
+            })}
+            onClick={useCallback(() => {
+              dispatch(windowActions.openDeckSave());
+            }, [])}
+          >
+            セーブ
+          </button>
           <TwitterShareButton />
           <button
             className={classNames('open-other-deck-card-actions', {
@@ -279,7 +289,17 @@ export const DeckBoard = () => {
         <div className="other-deck-card-actions-items">
           <div
             className={classNames('other-deck-card-actions-item', {
-              disabled: !editBelongAvailable,
+              disabled: !lsAvailable,
+            })}
+            onClick={useCallback(() => {
+              dispatch(windowActions.openDeckLoad());
+            }, [])}
+          >
+            ロード
+          </div>
+          <div
+            className={classNames('other-deck-card-actions-item', {
+              disabled: !lsAvailable,
             })}
             onClick={handleOpenBelongCtrl}
           >

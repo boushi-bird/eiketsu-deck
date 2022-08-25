@@ -11,7 +11,12 @@ type RangeValue = Readonly<{
 }>;
 
 export const baseDataUrl = BASE_DATA_URL;
+
+/** デッキ最大タブ数 */
 export const MAX_DECK_TABS = 3 as const;
+
+/** デッキ最大保存数 */
+export const MAX_SAVED_DECK = 20 as const;
 
 /** デッキのコスト */
 export const DECK_COST_LIMIT: RangeValue = {

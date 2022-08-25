@@ -6,6 +6,8 @@ type Modal =
   | 'copyright'
   | 'general-detail'
   | 'deck-config'
+  | 'deck-save'
+  | 'deck-load'
   | 'belong-export'
   | 'belong-import';
 
@@ -76,6 +78,12 @@ const slice = createSlice({
     },
     openDeckConfig: (state: WindowState) => {
       state.currentModal = 'deck-config';
+    },
+    openDeckSave: (state: WindowState) => {
+      state.currentModal = 'deck-save';
+    },
+    openDeckLoad: (state: WindowState) => {
+      state.currentModal = 'deck-load';
     },
     openBelongCtrl: (
       state: WindowState,

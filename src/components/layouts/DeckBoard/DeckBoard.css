@@ -59,10 +59,10 @@
       &.square-button {
         width: 50px;
         font-size: 32px;
+      }
 
-        &.unavailable {
-          display: none;
-        }
+      &.unavailable {
+        display: none;
       }
     }
 
@@ -243,7 +243,7 @@
     & .other-deck-card-actions-items {
       background-color: white;
       width: 180px;
-      min-height: 120px;
+      min-height: 160px;
       max-height: calc(100% - 60px);
       position: absolute;
       top: 58px;

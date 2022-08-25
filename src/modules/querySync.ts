@@ -1,4 +1,7 @@
-import reduxQuerySync, { ParamsOptions } from 'redux-query-sync';
+import reduxQuerySync, {
+  ParamsOptions,
+  type ReduxQuerySyncUnsubscribe,
+} from 'redux-query-sync';
 
 import {
   DEFAULT_DECK_CONSTRAINTS,
@@ -16,7 +19,7 @@ import { excludeUndef } from '@/utils/excludeUndef';
 // defaultValue と=== 比較で一致する場合にparameterがなくなるので空を同一インスタンスに
 const emptyDecks: DeckCard[] = [];
 
-const deckParam: ParamsOptions<RootState, DeckCard[]> = {
+const deckParam: Required<ParamsOptions<RootState, DeckCard[]>> = {
   action: deckActions.setCurrentDecks,
   selector: (state) => {
     const { deckTabs, activeTabIndex } = state.deck;
@@ -143,23 +146,32 @@ const sameCardParam: ParamsOptions<RootState, SameCardConstraint> = {
     isSameCardConstraints(s) ? s : DEFAULT_DECK_CONSTRAINTS.sameCard,
 };
 
-let init = false;
+export const queryParamsOptions = {
+  cost: costParam,
+  deck: deckParam,
+  dev: devModeParam,
+  ['general_limit']: generalLimitParam,
+  ['same_card']: sameCardParam,
+};
+
+let unsubscribe: ReduxQuerySyncUnsubscribe | null = null;
 
 export const querySync = () => {
-  if (init) {
+  if (unsubscribe) {
     return;
   }
-  reduxQuerySync<RootState>({
+  unsubscribe = reduxQuerySync<RootState>({
     store,
-    params: {
-      cost: costParam,
-      deck: deckParam,
-      dev: devModeParam,
-      ['general_limit']: generalLimitParam,
-      ['same_card']: sameCardParam,
-    },
+    params: queryParamsOptions,
     initialTruth: 'location',
     replaceState: true,
   });
-  init = true;
+};
+
+export const queryResync = () => {
+  if (unsubscribe) {
+    unsubscribe();
+    unsubscribe = null;
+  }
+  querySync();
 };
