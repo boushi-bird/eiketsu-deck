@@ -199,6 +199,7 @@ export const DeckBoard = () => {
           >
             <FontAwesomeIcon icon={faGear} />
           </button>
+          <TwitterShareButton />
           <button
             className={classNames('deck-card-action-button', {
               unavailable: !lsAvailable,
@@ -209,7 +210,6 @@ export const DeckBoard = () => {
           >
             セーブ
           </button>
-          <TwitterShareButton />
           <button
             className={classNames('open-other-deck-card-actions', {
               opened: showOtherDeckCardActions,

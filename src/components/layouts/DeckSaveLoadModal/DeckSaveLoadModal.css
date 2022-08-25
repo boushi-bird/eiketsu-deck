@@ -92,18 +92,36 @@
         margin: 10px 20px;
         background-color: var(--default-light-bg-color);
 
-        &.disabled .saved-deck .data-area {
-          cursor: not-allowed;
+        &:hover {
+          background-color: var(--ctrl-ui-active-bg-color);
+        }
+
+        &.disabled {
+          background-color: var(--default-disabled-color);
+
+          &:hover {
+            background-color: var(--default-disabled-color);
+          }
+
+          & .saved-deck .data-area {
+            cursor: not-allowed;
+          }
         }
       }
 
       & .new-saved-deck-record {
+        font-size: 32px;
         display: flex;
         justify-content: center;
         align-items: center;
         cursor: pointer;
 
+        &:hover {
+          color: var(--default-light-color);
+        }
+
         &.disabled {
+          color: var(--default-light-color);
           cursor: not-allowed;
         }
       }

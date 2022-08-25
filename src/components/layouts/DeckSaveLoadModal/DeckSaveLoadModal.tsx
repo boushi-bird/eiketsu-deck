@@ -244,7 +244,12 @@ export const DeckSaveLoadModal = ({ tab, onClose }: Props) => {
         </div>
         <div className="deck-save-load-modal-content-inner">
           {savedDecks.map((savedDeck) => (
-            <div className="saved-deck-record" key={savedDeck.key}>
+            <div
+              className={classNames('saved-deck-record', {
+                disabled: !enableLoad,
+              })}
+              key={savedDeck.key}
+            >
               <SavedDeck
                 cards={savedDeck.cards}
                 costLimit={savedDeck.costLimit}
