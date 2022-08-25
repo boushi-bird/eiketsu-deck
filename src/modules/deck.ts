@@ -196,16 +196,6 @@ const slice = createSlice({
       }
       current.constraints['costLimit'] = payload;
     },
-    setConstraintGeneralCardLimit(
-      state: DeckState,
-      { payload }: PayloadAction<number>
-    ) {
-      const current = state.deckTabs[state.activeTabIndex];
-      if (!current) {
-        return;
-      }
-      current.constraints['generalCardLimit'] = payload;
-    },
     setConstraintSameCard(
       state: DeckState,
       { payload }: PayloadAction<SameCardConstraint>

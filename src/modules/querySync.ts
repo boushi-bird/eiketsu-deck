@@ -12,7 +12,7 @@ import {
 } from './deck';
 import { windowActions } from './window';
 
-import { DECK_COST_LIMIT, DECK_GENERAL_CARD_COUNT } from '@/consts';
+import { DECK_COST_LIMIT } from '@/consts';
 import { RootState, store } from '@/store';
 import { excludeUndef } from '@/utils/excludeUndef';
 
@@ -120,20 +120,6 @@ const costParam: ParamsOptions<RootState, number> = numberParamsOptions(
   DECK_COST_LIMIT
 );
 
-const generalLimitParam: ParamsOptions<RootState, number> = numberParamsOptions(
-  {
-    action: deckActions.setConstraintGeneralCardLimit,
-    selector: (state) => {
-      const { deckTabs, activeTabIndex } = state.deck;
-      const constraints = deckTabs[activeTabIndex]?.constraints || {};
-      return (
-        constraints.generalCardLimit || DECK_GENERAL_CARD_COUNT.defaultValue
-      );
-    },
-  },
-  DECK_GENERAL_CARD_COUNT
-);
-
 const sameCardParam: ParamsOptions<RootState, SameCardConstraint> = {
   action: deckActions.setConstraintSameCard,
   selector: (state) => {
@@ -150,7 +136,6 @@ export const queryParamsOptions = {
   cost: costParam,
   deck: deckParam,
   dev: devModeParam,
-  ['general_limit']: generalLimitParam,
   ['same_card']: sameCardParam,
 };
 

@@ -2,7 +2,7 @@ import { useCallback } from 'react';
 
 import { NumberSelect } from '@/components/parts/NumberSelect';
 import { RadioButton } from '@/components/parts/RadioButton';
-import { DECK_COST_LIMIT, DECK_GENERAL_CARD_COUNT } from '@/consts';
+import { DECK_COST_LIMIT } from '@/consts';
 import { deckCurrentSelector, useAppDispatch, useAppSelector } from '@/hooks';
 import { SameCardConstraint, deckActions } from '@/modules/deck';
 
@@ -56,28 +56,6 @@ export const DeckConfigModal = ({ onClose }: Props) => {
               onChangeValue={useCallback((currentValue?: number) => {
                 const value = currentValue || DECK_COST_LIMIT.defaultValue;
                 dispatch(deckActions.setConstraintCostLimit(value));
-              }, [])}
-            />
-          </div>
-        </section>
-        <section className="deck-config-section">
-          <h2 className="title">武将カード最大枚数</h2>
-          <div className="content">
-            <NumberSelect
-              max={DECK_GENERAL_CARD_COUNT.max}
-              min={DECK_GENERAL_CARD_COUNT.min}
-              step={DECK_GENERAL_CARD_COUNT.step}
-              defaultValue={DECK_GENERAL_CARD_COUNT.defaultValue}
-              currentValue={constraints.generalCardLimit}
-              displayText={useCallback(
-                (i: number, defaultValue: boolean) =>
-                  `${i}枚${defaultValue ? '(通常ルール)' : ''}`,
-                []
-              )}
-              onChangeValue={useCallback((currentValue?: number) => {
-                const value =
-                  currentValue || DECK_GENERAL_CARD_COUNT.defaultValue;
-                dispatch(deckActions.setConstraintGeneralCardLimit(value));
               }, [])}
             />
           </div>
