@@ -95,8 +95,18 @@ function ReduxLocalStorageSync<S>({ store, params, storage }: Options<S>) {
   }
 
   store.subscribe(handleStateUpdate);
-  // TODO: 管理外でStorageが更新になった場合にStateに反映する
+
   handleStorageUpdate();
+  // 現在のタブ以外で更新された場合の処理
+  window.addEventListener('storage', function (e) {
+    if (!e.isTrusted || !e.key) {
+      return;
+    }
+    if (!Object.keys(params).includes(e.key)) {
+      return;
+    }
+    handleStorageUpdate();
+  });
 }
 
 const belongParams: ParamsOptions<RootState, BelongCards> = {
