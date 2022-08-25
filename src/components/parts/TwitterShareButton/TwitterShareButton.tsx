@@ -29,7 +29,7 @@ export const TwitterShareButton = memo(function Component() {
         const url = new URL('https://twitter.com/intent/tweet');
         url.search = new URLSearchParams({
           text,
-          hashtags: '英傑大戦',
+          hashtags: '英傑大戦デッキ',
           url: location.href,
         }).toString();
         window.open(url, '_blank');
