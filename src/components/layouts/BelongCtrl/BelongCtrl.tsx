@@ -4,19 +4,19 @@ import { faCircleXmark } from '@fortawesome/free-solid-svg-icons/faCircleXmark';
 import { faFileExport } from '@fortawesome/free-solid-svg-icons/faFileExport';
 import { faFileImport } from '@fortawesome/free-solid-svg-icons/faFileImport';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useDispatch } from 'react-redux';
 
 import {
   belongCardsSelector,
   generalsSelector,
   searchedGeneralsSelector,
+  useAppDispatch,
   useAppSelector,
 } from '@/hooks';
 import { belongActions } from '@/modules/belong';
 import { windowActions } from '@/modules/window';
 
 export const BelongCtrl = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const generals = useAppSelector(generalsSelector);
   const searchedGenerals = useAppSelector(searchedGeneralsSelector);
   const belongCards = useAppSelector(belongCardsSelector);

@@ -5,7 +5,6 @@ import { faFileExport } from '@fortawesome/free-solid-svg-icons/faFileExport';
 import { faFileImport } from '@fortawesome/free-solid-svg-icons/faFileImport';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
-import { useDispatch } from 'react-redux';
 
 import { BelongExport } from './BelongExport';
 import { BelongImport } from './BelongImport';
@@ -14,6 +13,7 @@ import {
   BelongImportConfirmProps,
 } from './BelongImportConfirm';
 
+import { useAppDispatch } from '@/hooks';
 import { windowActions } from '@/modules/window';
 
 const TAB_NAMES = {
@@ -29,7 +29,7 @@ interface Props {
 }
 
 export const BelongModal = ({ tab, onClose }: Props) => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const [belongImportConfirmProps, setBelongImportConfirmProps] = useState<
     BelongImportConfirmProps | undefined
