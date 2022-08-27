@@ -47,7 +47,7 @@ export const BelongModal = ({ tab, onClose }: Props) => {
               return;
             }
             dispatch(windowActions.openBelongCtrl('belong-export'));
-          }, [tab])}
+          }, [tab, dispatch])}
         >
           <FontAwesomeIcon className="belong-button-icon" icon={faFileExport} />
           {TAB_NAMES['belong-export']}
@@ -61,7 +61,7 @@ export const BelongModal = ({ tab, onClose }: Props) => {
               return;
             }
             dispatch(windowActions.openBelongCtrl('belong-import'));
-          }, [tab])}
+          }, [tab, dispatch])}
         >
           <FontAwesomeIcon className="belong-button-icon" icon={faFileImport} />
           {TAB_NAMES['belong-import']}

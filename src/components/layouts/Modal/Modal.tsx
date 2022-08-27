@@ -27,7 +27,7 @@ export const Modal = () => {
 
   const handleBackgroundClick = useCallback(() => {
     dispatch(windowActions.closeModal());
-  }, []);
+  }, [dispatch]);
 
   let current: ReactNode = <></>;
   switch (currentModal) {

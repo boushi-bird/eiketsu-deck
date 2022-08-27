@@ -30,7 +30,7 @@ export const BelongCtrl = () => {
             className="belong-button"
             onClick={useCallback(() => {
               dispatch(windowActions.openBelongCtrl('belong-export'));
-            }, [])}
+            }, [dispatch])}
           >
             <FontAwesomeIcon
               className="belong-button-icon"
@@ -43,7 +43,7 @@ export const BelongCtrl = () => {
             className="belong-button"
             onClick={useCallback(() => {
               dispatch(windowActions.openBelongCtrl('belong-import'));
-            }, [])}
+            }, [dispatch])}
           >
             <FontAwesomeIcon
               className="belong-button-icon"
@@ -71,7 +71,7 @@ export const BelongCtrl = () => {
                     )
                     .map((g) => ({ generalUniqueId: g.uniqueId, count: 1 }));
                   dispatch(belongActions.updateBelongCards(updateBelongs));
-                }, [generals, searchedGenerals, belongCards])}
+                }, [generals, searchedGenerals, belongCards, dispatch])}
               >
                 すべて所持
               </button>
@@ -92,7 +92,7 @@ export const BelongCtrl = () => {
                     })
                   );
                   dispatch(belongActions.updateBelongCards(updateBelongs));
-                }, [belongCards])}
+                }, [belongCards, dispatch])}
               >
                 すべて未所持
               </button>
@@ -102,7 +102,7 @@ export const BelongCtrl = () => {
             className="belong-button"
             onClick={useCallback(() => {
               dispatch(windowActions.changeEditMode('deck'));
-            }, [])}
+            }, [dispatch])}
           >
             <FontAwesomeIcon
               className="belong-button-icon"

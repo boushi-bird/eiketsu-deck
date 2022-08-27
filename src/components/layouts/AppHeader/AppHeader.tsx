@@ -69,15 +69,15 @@ export const AppHeader = () => {
 
   const handleSideMenuButtonClick = useCallback(() => {
     dispatch(windowActions.openSideMenu());
-  }, []);
+  }, [dispatch]);
 
   const handleCopyrightClick = useCallback(() => {
     dispatch(windowActions.openCopyright());
-  }, []);
+  }, [dispatch]);
 
   const handleAddNewDeckTabClick = useCallback(() => {
     dispatch(deckActions.addDeckTab(false));
-  }, []);
+  }, [dispatch]);
 
   const displayDeckTabs = deckTabs.length > 1 ? deckTabs : [];
 

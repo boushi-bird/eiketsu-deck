@@ -33,7 +33,7 @@ const SideMenuContainer: FC<Props> = ({ children }) => {
 
   const handleBackgroundClick = useCallback(() => {
     dispatch(windowActions.closeSideMenu());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div
@@ -78,7 +78,7 @@ export const SideMenu = () => {
             <a
               onClick={useCallback(() => {
                 dispatch(windowActions.openUpdateInfo());
-              }, [])}
+              }, [dispatch])}
             >
               更新情報
               <FontAwesomeIcon
@@ -97,7 +97,7 @@ export const SideMenu = () => {
                   return;
                 }
                 dispatch(dispatch(windowActions.changeEditMode('belong')));
-              }, [])}
+              }, [dispatch])}
             >
               所持状態編集
             </a>
@@ -114,7 +114,7 @@ export const SideMenu = () => {
                   }
                   dispatch(windowActions.clearInstallPromptEvent());
                 },
-                [pwaInstallEnabled]
+                [pwaInstallEnabled, dispatch]
               )}
               className={classNames({
                 disabled: !pwaInstallEnabled,

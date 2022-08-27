@@ -141,7 +141,7 @@ export const DeckSaveLoadModal = ({ tab, onClose }: Props) => {
               return;
             }
             dispatch(windowActions.openDeckSave());
-          }, [tab])}
+          }, [tab, dispatch])}
         >
           {TAB_NAMES['deck-save']}
         </button>
@@ -154,7 +154,7 @@ export const DeckSaveLoadModal = ({ tab, onClose }: Props) => {
               return;
             }
             dispatch(windowActions.openDeckLoad());
-          }, [tab])}
+          }, [tab, dispatch])}
         >
           {TAB_NAMES['deck-load']}
         </button>

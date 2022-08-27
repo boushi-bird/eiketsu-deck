@@ -57,7 +57,7 @@ export const FilterTabBodyStrat = () => {
         })
       );
     },
-    []
+    [dispatch]
   );
 
   const changeSelectedStringItem = useCallback(
@@ -69,7 +69,7 @@ export const FilterTabBodyStrat = () => {
         })
       );
     },
-    []
+    [dispatch]
   );
 
   return (
@@ -80,14 +80,17 @@ export const FilterTabBodyStrat = () => {
           max={datalist.generalStrategyMp.max}
           min={datalist.generalStrategyMp.min}
           current={filter.generalStrategyMp}
-          onChangeValue={useCallback((value) => {
-            dispatch(
-              filterActions.setCondition({
-                itemName: 'generalStrategyMp',
-                value,
-              })
-            );
-          }, [])}
+          onChangeValue={useCallback(
+            (value) => {
+              dispatch(
+                filterActions.setCondition({
+                  itemName: 'generalStrategyMp',
+                  value,
+                })
+              );
+            },
+            [dispatch]
+          )}
         />
       </section>
 
@@ -97,14 +100,17 @@ export const FilterTabBodyStrat = () => {
         </h2>
         <div className="title-button">
           <SwitchItem
-            onChange={useCallback((value) => {
-              dispatch(
-                filterActions.setCondition({
-                  itemName: 'generalStrategyNameSearchAnd',
-                  value,
-                })
-              );
-            }, [])}
+            onChange={useCallback(
+              (value) => {
+                dispatch(
+                  filterActions.setCondition({
+                    itemName: 'generalStrategyNameSearchAnd',
+                    value,
+                  })
+                );
+              },
+              [dispatch]
+            )}
             isOn={filter.generalStrategyNameSearchAnd}
             labelOff="OR"
             labelOn="AND"
@@ -127,14 +133,17 @@ export const FilterTabBodyStrat = () => {
         </h2>
         <div className="title-button">
           <SwitchItem
-            onChange={useCallback((value) => {
-              dispatch(
-                filterActions.setCondition({
-                  itemName: 'generalStrategyCaptionSearchAnd',
-                  value,
-                })
-              );
-            }, [])}
+            onChange={useCallback(
+              (value) => {
+                dispatch(
+                  filterActions.setCondition({
+                    itemName: 'generalStrategyCaptionSearchAnd',
+                    value,
+                  })
+                );
+              },
+              [dispatch]
+            )}
             isOn={filter.generalStrategyCaptionSearchAnd}
             labelOff="OR"
             labelOn="AND"
@@ -157,14 +166,17 @@ export const FilterTabBodyStrat = () => {
         </h2>
         <div className="title-button">
           <SwitchItem
-            onChange={useCallback((value) => {
-              dispatch(
-                filterActions.setCondition({
-                  itemName: 'generalStrategyCategoriesAnd',
-                  value,
-                })
-              );
-            }, [])}
+            onChange={useCallback(
+              (value) => {
+                dispatch(
+                  filterActions.setCondition({
+                    itemName: 'generalStrategyCategoriesAnd',
+                    value,
+                  })
+                );
+              },
+              [dispatch]
+            )}
             isOn={filter.generalStrategyCategoriesAnd}
             labelOff="OR"
             labelOn="AND"

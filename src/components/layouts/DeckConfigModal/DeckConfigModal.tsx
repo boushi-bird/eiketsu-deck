@@ -19,7 +19,7 @@ export const DeckConfigModal = ({ onClose }: Props) => {
     (value: SameCardConstraint) => {
       dispatch(deckActions.setConstraintSameCard(value));
     },
-    []
+    [dispatch]
   );
 
   return (
@@ -33,7 +33,7 @@ export const DeckConfigModal = ({ onClose }: Props) => {
           className="action-button"
           onClick={useCallback(() => {
             dispatch(deckActions.resetConstraints());
-          }, [])}
+          }, [dispatch])}
         >
           リセット
         </button>
@@ -53,10 +53,13 @@ export const DeckConfigModal = ({ onClose }: Props) => {
                   `${i / 10}コスト${defaultValue ? '(通常ルール)' : ''}`,
                 []
               )}
-              onChangeValue={useCallback((currentValue?: number) => {
-                const value = currentValue || DECK_COST_LIMIT.defaultValue;
-                dispatch(deckActions.setConstraintCostLimit(value));
-              }, [])}
+              onChangeValue={useCallback(
+                (currentValue?: number) => {
+                  const value = currentValue || DECK_COST_LIMIT.defaultValue;
+                  dispatch(deckActions.setConstraintCostLimit(value));
+                },
+                [dispatch]
+              )}
             />
           </div>
         </section>

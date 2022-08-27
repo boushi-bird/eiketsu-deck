@@ -61,7 +61,7 @@ export const FilterTabBodyDetail = () => {
         })
       );
     },
-    []
+    [dispatch]
   );
 
   return (
@@ -97,17 +97,20 @@ export const FilterTabBodyDetail = () => {
             }
             return [filter.belongFilter];
           }, [filter.belongFilter])}
-          onSelectItems={useCallback((itemName, value) => {
-            const belongFilter =
-              value.length === 0
-                ? undefined
-                : value.length === 1
-                ? value[0]
-                : 'all';
-            dispatch(
-              filterActions.setCondition({ itemName, value: belongFilter })
-            );
-          }, [])}
+          onSelectItems={useCallback(
+            (itemName, value) => {
+              const belongFilter =
+                value.length === 0
+                  ? undefined
+                  : value.length === 1
+                  ? value[0]
+                  : 'all';
+              dispatch(
+                filterActions.setCondition({ itemName, value: belongFilter })
+              );
+            },
+            [dispatch]
+          )}
         />
       </section>
 
@@ -117,14 +120,17 @@ export const FilterTabBodyDetail = () => {
           max={datalist.strong.max}
           min={datalist.strong.min}
           current={filter.strong}
-          onChangeValue={useCallback((value) => {
-            dispatch(
-              filterActions.setCondition({
-                itemName: 'strong',
-                value,
-              })
-            );
-          }, [])}
+          onChangeValue={useCallback(
+            (value) => {
+              dispatch(
+                filterActions.setCondition({
+                  itemName: 'strong',
+                  value,
+                })
+              );
+            },
+            [dispatch]
+          )}
         />
       </section>
 
@@ -134,14 +140,17 @@ export const FilterTabBodyDetail = () => {
           max={datalist.intelligence.max}
           min={datalist.intelligence.min}
           current={filter.intelligence}
-          onChangeValue={useCallback((value) => {
-            dispatch(
-              filterActions.setCondition({
-                itemName: 'intelligence',
-                value,
-              })
-            );
-          }, [])}
+          onChangeValue={useCallback(
+            (value) => {
+              dispatch(
+                filterActions.setCondition({
+                  itemName: 'intelligence',
+                  value,
+                })
+              );
+            },
+            [dispatch]
+          )}
         />
       </section>
 
