@@ -47,12 +47,12 @@ export const SimpleFilter = () => {
         })
       );
     },
-    []
+    [dispatch]
   );
 
   const openFilter = useCallback(() => {
     dispatch(windowActions.openFilter());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="simple-filter">
@@ -94,7 +94,7 @@ export const SimpleFilter = () => {
                 value,
               })
             );
-          }, [belongFilter])}
+          }, [belongFilter, dispatch])}
         >
           <span
             className={classNames('select-item', {

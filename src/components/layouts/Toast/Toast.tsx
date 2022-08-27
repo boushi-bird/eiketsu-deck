@@ -22,7 +22,7 @@ export const Toast = () => {
     setTimeout(() => {
       dispatch(windowActions.clearToast());
     }, 2000);
-  }, [message]);
+  }, [message, dispatch]);
 
   if (message == null) {
     return <></>;

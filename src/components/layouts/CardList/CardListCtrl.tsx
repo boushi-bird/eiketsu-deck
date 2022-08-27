@@ -119,7 +119,7 @@ export const CardListCtrl = memo(function Component({ general }: Props) {
         );
       }
     },
-    [activeDeckTabIndex]
+    [activeDeckTabIndex, dispatch]
   );
 
   const handleAddBelongClick = useCallback(
@@ -127,7 +127,7 @@ export const CardListCtrl = memo(function Component({ general }: Props) {
       const count = targetChecked ? 1 : 0;
       dispatch(belongActions.updateBelongCard({ generalUniqueId, count }));
     },
-    []
+    [dispatch]
   );
 
   return (

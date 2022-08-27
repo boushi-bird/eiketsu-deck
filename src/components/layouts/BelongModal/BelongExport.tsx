@@ -88,7 +88,7 @@ export const BelongExport = () => {
           onClick={useCallback(() => {
             navigator.clipboard.writeText(exportText);
             dispatch(windowActions.showToast('クリップボードにコピーしました'));
-          }, [exportText])}
+          }, [exportText, dispatch])}
         >
           クリップボードにコピー
         </button>

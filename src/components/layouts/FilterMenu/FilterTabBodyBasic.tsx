@@ -57,7 +57,7 @@ export const FilterTabBodyBasic = () => {
         })
       );
     },
-    []
+    [dispatch]
   );
 
   const changeSelectedStringItem = useCallback(
@@ -69,7 +69,7 @@ export const FilterTabBodyBasic = () => {
         })
       );
     },
-    []
+    [dispatch]
   );
 
   return (
@@ -175,14 +175,17 @@ export const FilterTabBodyBasic = () => {
         <h2 className="title">{filterMenuItemNames['skills']}</h2>
         <div className="title-button">
           <SwitchItem
-            onChange={useCallback((value) => {
-              dispatch(
-                filterActions.setCondition({
-                  itemName: 'skillsAnd',
-                  value,
-                })
-              );
-            }, [])}
+            onChange={useCallback(
+              (value) => {
+                dispatch(
+                  filterActions.setCondition({
+                    itemName: 'skillsAnd',
+                    value,
+                  })
+                );
+              },
+              [dispatch]
+            )}
             isOn={filter.skillsAnd}
             labelOff="OR"
             labelOn="AND"
@@ -211,14 +214,17 @@ export const FilterTabBodyBasic = () => {
         <h2 className="title">{filterMenuItemNames['generalNameSearch']}</h2>
         <div className="title-button">
           <SwitchItem
-            onChange={useCallback((value) => {
-              dispatch(
-                filterActions.setCondition({
-                  itemName: 'generalNameSearchAnd',
-                  value,
-                })
-              );
-            }, [])}
+            onChange={useCallback(
+              (value) => {
+                dispatch(
+                  filterActions.setCondition({
+                    itemName: 'generalNameSearchAnd',
+                    value,
+                  })
+                );
+              },
+              [dispatch]
+            )}
             isOn={filter.generalNameSearchAnd}
             labelOff="OR"
             labelOn="AND"

@@ -53,21 +53,21 @@ export const DeckBoard = () => {
 
   const handleOpenDeckConfig = useCallback(() => {
     dispatch(windowActions.openDeckConfig());
-  }, []);
+  }, [dispatch]);
 
   const handleOpenBelongCtrl = useCallback(() => {
     if (!lsAvailable) {
       return;
     }
     dispatch(windowActions.changeEditMode('belong'));
-  }, []);
+  }, [dispatch]);
 
   const handleDeckClear = useCallback(() => {
     // TODO: confirmのコンポーネント作る
     if (window.confirm('現在デッキに選択中のカードをすべてクリアします。')) {
       dispatch(deckActions.clearDeck(activeDeckTabIndex));
     }
-  }, [activeDeckTabIndex]);
+  }, [activeDeckTabIndex, dispatch]);
 
   const handleRemove = useCallback(
     (index: number) => {
@@ -78,12 +78,15 @@ export const DeckBoard = () => {
         })
       );
     },
-    [deckCards, activeDeckTabIndex]
+    [deckCards, activeDeckTabIndex, dispatch]
   );
 
-  const handleShowDetail = useCallback((generalIdx: number) => {
-    dispatch(windowActions.openGenerailDetail(generalIdx));
-  }, []);
+  const handleShowDetail = useCallback(
+    (generalIdx: number) => {
+      dispatch(windowActions.openGenerailDetail(generalIdx));
+    },
+    [dispatch]
+  );
 
   const handleMove = useCallback(
     (index: number, direction: 'left' | 'right') => {
@@ -109,7 +112,7 @@ export const DeckBoard = () => {
         })
       );
     },
-    [deckCards, activeDeckTabIndex]
+    [deckCards, activeDeckTabIndex, dispatch]
   );
 
   const handleSwitchSmaller = useCallback(() => {
@@ -206,7 +209,7 @@ export const DeckBoard = () => {
             })}
             onClick={useCallback(() => {
               dispatch(windowActions.openDeckSave());
-            }, [])}
+            }, [dispatch])}
           >
             セーブ
           </button>
@@ -293,7 +296,7 @@ export const DeckBoard = () => {
             })}
             onClick={useCallback(() => {
               dispatch(windowActions.openDeckLoad());
-            }, [])}
+            }, [dispatch])}
           >
             ロード
           </div>

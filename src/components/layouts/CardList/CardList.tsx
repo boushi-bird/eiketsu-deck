@@ -165,7 +165,7 @@ export const CardList = () => {
         setCurrentPage(1);
       });
     });
-  }, [generals, deferredFilter, localBelongCards, hasBelongCards]);
+  }, [generals, deferredFilter, localBelongCards, hasBelongCards, dispatch]);
 
   const handleEtcAreaClick = useCallback<MouseEventHandler<HTMLElement>>(
     (e) => {
@@ -194,7 +194,13 @@ export const CardList = () => {
             </GeneralCard>
           </div>
         )),
-    [generals, readingCards, displaySearchedGenerals, handleEtcAreaClick]
+    [
+      generals,
+      readingCards,
+      displaySearchedGenerals,
+      handleEtcAreaClick,
+      dispatch,
+    ]
   );
 
   return (

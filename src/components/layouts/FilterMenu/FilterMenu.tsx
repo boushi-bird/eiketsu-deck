@@ -64,11 +64,11 @@ export const FilterMenu = () => {
 
   const handleResetConditions = useCallback(() => {
     dispatch(filterActions.resetConditions());
-  }, []);
+  }, [dispatch]);
 
   const handleCloseFilter = useCallback(() => {
     dispatch(windowActions.closeFilter());
-  }, []);
+  }, [dispatch]);
 
   return (
     <FilterMenuContainer>
@@ -90,14 +90,17 @@ export const FilterMenu = () => {
           />
           <div className="filter-actions">
             <SwitchItem
-              onChange={useCallback((isOn) => {
-                dispatch(
-                  filterActions.setCondition({
-                    itemName: 'selectionMode',
-                    value: isOn ? 'single' : 'multiple',
-                  })
-                );
-              }, [])}
+              onChange={useCallback(
+                (isOn) => {
+                  dispatch(
+                    filterActions.setCondition({
+                      itemName: 'selectionMode',
+                      value: isOn ? 'single' : 'multiple',
+                    })
+                  );
+                },
+                [dispatch]
+              )}
               addtionalClasses={useMemo(() => ['selection-mode'], [])}
               isOn={selectionMode === 'multiple' ? false : true}
               labelOff="複数選択"
