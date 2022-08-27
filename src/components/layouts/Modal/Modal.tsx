@@ -2,7 +2,6 @@ import { ReactNode, useCallback } from 'react';
 
 import { createSelector } from '@reduxjs/toolkit';
 import classNames from 'classnames';
-import { useDispatch } from 'react-redux';
 
 import { BelongModal } from '@/components/layouts/BelongModal';
 import { CopyrightModal } from '@/components/layouts/CopyrightModal';
@@ -10,7 +9,7 @@ import { DeckConfigModal } from '@/components/layouts/DeckConfigModal';
 import { DeckSaveLoadModal } from '@/components/layouts/DeckSaveLoadModal';
 import { GeneralDetail } from '@/components/layouts/GeneralDetail';
 import { UpdateInfo } from '@/components/layouts/UpdateInfo';
-import { useAppSelector, windowSelector } from '@/hooks';
+import { useAppDispatch, useAppSelector, windowSelector } from '@/hooks';
 import { windowActions } from '@/modules/window';
 
 const selector = createSelector(
@@ -22,7 +21,7 @@ const selector = createSelector(
 );
 
 export const Modal = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const { currentModal, generalIdxForDetail } = useAppSelector(selector);
 
   const handleBackgroundClick = useCallback(() => {

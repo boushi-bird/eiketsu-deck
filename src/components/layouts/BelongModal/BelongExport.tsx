@@ -2,7 +2,6 @@ import { useCallback, useMemo, useState } from 'react';
 
 import { faCircleInfo } from '@fortawesome/free-solid-svg-icons/faCircleInfo';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useDispatch } from 'react-redux';
 
 import { CheckBox } from '@/components/parts/CheckBox';
 import { SwitchItem } from '@/components/parts/SwitchItem';
@@ -10,12 +9,13 @@ import {
   belongCardsSelector,
   generalsSelector,
   searchedGeneralsSelector,
+  useAppDispatch,
   useAppSelector,
 } from '@/hooks';
 import { windowActions } from '@/modules/window';
 
 export const BelongExport = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const [useFilter, setUseFilter] = useState(true);
   const [showName, setShowName] = useState(true);

@@ -1,9 +1,8 @@
 import { useEffect } from 'react';
 
 import { createSelector } from '@reduxjs/toolkit';
-import { useDispatch } from 'react-redux';
 
-import { useAppSelector, windowSelector } from '@/hooks';
+import { useAppDispatch, useAppSelector, windowSelector } from '@/hooks';
 import { windowActions } from '@/modules/window';
 
 export const toastMessageSelector = createSelector(
@@ -12,7 +11,7 @@ export const toastMessageSelector = createSelector(
 );
 
 export const Toast = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const message = useAppSelector(toastMessageSelector);
 
   useEffect(() => {

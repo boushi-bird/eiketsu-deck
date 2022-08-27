@@ -1,9 +1,8 @@
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons/faCircleXmark';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { General } from 'eiketsu-deck';
-import { useDispatch } from 'react-redux';
 
-import { belongCardsSelector, useAppSelector } from '@/hooks';
+import { belongCardsSelector, useAppDispatch, useAppSelector } from '@/hooks';
 import { belongActions } from '@/modules/belong';
 import { windowActions } from '@/modules/window';
 
@@ -22,7 +21,7 @@ export const BelongImportConfirm = ({
   filteredGenerals,
   onClose,
 }: Props) => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const belongCards = useAppSelector(belongCardsSelector);
   const belongUniqueIds = Object.keys(belongCards);

@@ -11,7 +11,6 @@ import {
 
 import classNames from 'classnames';
 import { General } from 'eiketsu-deck';
-import { useDispatch } from 'react-redux';
 
 import { CardListCtrl } from './CardListCtrl';
 
@@ -23,6 +22,7 @@ import {
   generalsSelector,
   hasBelongCardsSelector,
   searchedGeneralsSelector,
+  useAppDispatch,
   useAppSelector,
 } from '@/hooks';
 import { BelongCards } from '@/modules/belong';
@@ -74,7 +74,7 @@ function isGeneralMatchFilterCondition(
 
 export const CardList = () => {
   const scrollArea = useRef<HTMLDivElement>(null);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const [pending, startTransition] = useTransition();
   const [pendingPaging, startPageingTransition] = useTransition();
