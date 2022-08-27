@@ -66,24 +66,18 @@ export const BelongExport = () => {
         <CheckBox
           value="only-filter"
           checked={useFilter}
-          onClick={useCallback(
-            (checked: boolean) => {
-              setUseFilter(checked);
-            },
-            [useFilter]
-          )}
+          onClick={useCallback((checked: boolean) => {
+            setUseFilter(checked);
+          }, [])}
         >
           絞り込みメニューの条件に合う武将のみエクスポート
         </CheckBox>
         <CheckBox
           value="show-name"
           checked={showName}
-          onClick={useCallback(
-            (checked: boolean) => {
-              setShowName(checked);
-            },
-            [showName]
-          )}
+          onClick={useCallback((checked: boolean) => {
+            setShowName(checked);
+          }, [])}
         >
           武将名まで表示する
         </CheckBox>
