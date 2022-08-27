@@ -60,7 +60,7 @@ export const DeckBoard = () => {
       return;
     }
     dispatch(windowActions.changeEditMode('belong'));
-  }, [lsAvailable]);
+  }, []);
 
   const handleDeckClear = useCallback(() => {
     // TODO: confirmのコンポーネント作る

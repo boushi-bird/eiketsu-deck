@@ -178,7 +178,7 @@ export const FilterTabBodyStrat = () => {
               name: r.name,
               value: r.idx,
             }));
-          }, [datalist.cardTypes])}
+          }, [datalist.generalStrategyCategories])}
           selectionMode={filter.selectionMode}
           selectedItems={filter.generalStrategyCategories}
           onSelectItems={changeSelectedItem}
@@ -195,7 +195,7 @@ export const FilterTabBodyStrat = () => {
               name: r.name,
               value: r.idx,
             }));
-          }, [datalist.cardTypes])}
+          }, [datalist.generalStrategyTimes])}
           selectionMode={filter.selectionMode}
           selectedItems={filter.generalStrategyTimes}
           onSelectItems={changeSelectedItem}
@@ -216,7 +216,7 @@ export const FilterTabBodyStrat = () => {
               value: r.idx,
               imageUrl: stratRangeImage(r.code),
             }));
-          }, [datalist.cardTypes])}
+          }, [datalist.generalStrategyRanges])}
           selectionMode={filter.selectionMode}
           selectedItems={filter.generalStrategyRanges}
           onSelectItems={changeSelectedItem}
