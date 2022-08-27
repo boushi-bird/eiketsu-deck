@@ -23,14 +23,14 @@ export const TextSearch = genericMemo(function Component<N extends string>({
         text.split(' ').filter((r) => !!r)
       );
     }
-  }, [text]);
+  }, [itemName, values, onSelectItems, text]);
 
   useEffect(() => {
     const inputedValues = text.split(' ').filter((r) => !!r);
     if (values.toString() !== inputedValues.toString()) {
       setText(values.join(' '));
     }
-  }, [values]);
+  }, [values, text]);
 
   return (
     <div className="text-search">

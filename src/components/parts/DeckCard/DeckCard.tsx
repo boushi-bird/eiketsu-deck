@@ -69,7 +69,7 @@ export const DeckCard = memo(function Component({
     if (diff !== 0) {
       setMoveFrom(diff > 0 ? 'right' : 'left');
     }
-  });
+  }, [prevIndex, index]);
 
   const long = general.name.length > 5;
 

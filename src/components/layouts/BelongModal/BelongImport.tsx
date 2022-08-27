@@ -64,12 +64,9 @@ export const BelongImport = ({ onImport }: Props) => {
         <CheckBox
           value="only-filter"
           checked={useFilter}
-          onClick={useCallback(
-            (checked: boolean) => {
-              setUseFilter(checked);
-            },
-            [useFilter]
-          )}
+          onClick={useCallback((checked: boolean) => {
+            setUseFilter(checked);
+          }, [])}
         >
           絞り込みメニューの条件に合う武将にのみ反映
         </CheckBox>
@@ -136,7 +133,7 @@ export const BelongImport = ({ onImport }: Props) => {
               importUniqueIds,
               filteredGenerals,
             });
-          }, [useFilter, importText, generals, searchedGenerals])}
+          }, [useFilter, importText, generals, searchedGenerals, onImport])}
         >
           インポート内容読み込み
         </button>

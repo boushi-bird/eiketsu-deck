@@ -165,7 +165,7 @@ export const CardList = () => {
         setCurrentPage(1);
       });
     });
-  }, [generals, deferredFilter, localBelongCards]);
+  }, [generals, deferredFilter, localBelongCards, hasBelongCards]);
 
   const handleEtcAreaClick = useCallback<MouseEventHandler<HTMLElement>>(
     (e) => {
@@ -194,7 +194,7 @@ export const CardList = () => {
             </GeneralCard>
           </div>
         )),
-    [generals, readingCards, displaySearchedGenerals]
+    [generals, readingCards, displaySearchedGenerals, handleEtcAreaClick]
   );
 
   return (
@@ -213,7 +213,7 @@ export const CardList = () => {
             startPageingTransition(() => {
               setCurrentPage((prevPage) => prevPage - 1);
             });
-          }, [currentPage])}
+          }, [])}
         >
           &lt; 前
         </button>
@@ -229,7 +229,7 @@ export const CardList = () => {
             startPageingTransition(() => {
               setCurrentPage((prevPage) => prevPage + 1);
             });
-          }, [currentPage])}
+          }, [])}
         >
           次 &gt;
         </button>

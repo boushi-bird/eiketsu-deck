@@ -96,7 +96,7 @@ export const DeckSaveLoadModal = ({ tab, onClose }: Props) => {
     const queryStrings: string[] = cached ? JSON.parse(cached) : [];
     const cachedSavedDecks = queryStrings.map(queryToSavedDeckRecord(generals));
     setSavedDecks(cachedSavedDecks);
-  }, []);
+  }, [generals]);
 
   const save = (index: number) => {
     const current = new URLSearchParams(location.search);

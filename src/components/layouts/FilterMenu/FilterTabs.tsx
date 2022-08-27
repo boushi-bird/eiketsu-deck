@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { memo } from 'react';
 
 import classNames from 'classnames';
 
@@ -8,7 +8,11 @@ interface Props {
   onTabChanged: (tab: string) => void;
 }
 
-export const FilterTabs = ({ tabs, activeTab, onTabChanged }: Props) => {
+export const FilterTabs = memo(function Component({
+  tabs,
+  activeTab,
+  onTabChanged,
+}: Props) {
   return (
     <div className="filter-tabs">
       {Object.entries(tabs).map(([key, value]) => {
@@ -16,16 +20,18 @@ export const FilterTabs = ({ tabs, activeTab, onTabChanged }: Props) => {
         const buttonClass = `tab-button-${key.toLowerCase()}`;
         const buttonClasses = classNames([buttonClass, { active }]);
 
-        const handleTabClick = useCallback(() => {
-          onTabChanged(key);
-        }, [key, onTabChanged]);
-
         return (
-          <button key={key} className={buttonClasses} onClick={handleTabClick}>
+          <button
+            key={key}
+            className={buttonClasses}
+            onClick={() => {
+              onTabChanged(key);
+            }}
+          >
             {value}
           </button>
         );
       })}
     </div>
   );
-};
+});
