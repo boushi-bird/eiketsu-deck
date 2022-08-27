@@ -488,6 +488,8 @@
     - license: MIT
  - **[eslint-plugin-import@2.26.0](https://github.com/import-js/eslint-plugin-import)**
     - license: MIT
+ - **[eslint-plugin-react-hooks@4.6.0](https://github.com/facebook/react)**
+    - license: MIT
  - **[eslint-plugin-react@7.31.1](https://github.com/jsx-eslint/eslint-plugin-react)**
     - license: MIT
  - **[eslint-scope@5.1.1](https://github.com/eslint/eslint-scope)**
