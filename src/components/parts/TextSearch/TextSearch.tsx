@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { ChangeEvent, useCallback, useEffect, useState } from 'react';
 
 import { genericMemo } from '@/utils/genericMemo';
 
@@ -15,19 +15,27 @@ export const TextSearch = genericMemo(function Component<N extends string>({
 }: Props<N>) {
   const [text, setText] = useState('');
 
+  const handleTextChanged = useCallback(
+    (e: ChangeEvent<HTMLInputElement>) => {
+      const newText = e.target.value;
+      setText(newText);
+      const inputedValues = newText.split(' ').filter((r) => !!r);
+      if (values.toString() !== inputedValues.toString()) {
+        onSelectItems(
+          itemName,
+          newText.split(' ').filter((r) => !!r)
+        );
+      }
+    },
+    [itemName, onSelectItems, values]
+  );
+
   useEffect(() => {
     const inputedValues = text.split(' ').filter((r) => !!r);
     if (values.toString() !== inputedValues.toString()) {
-      onSelectItems(
-        itemName,
-        text.split(' ').filter((r) => !!r)
-      );
+      setText(values.join(' '));
     }
-  }, [itemName, values, onSelectItems, text]);
-
-  useEffect(() => {
-    setText(values.join(' '));
-  }, [values]);
+  }, [text, values]);
 
   return (
     <div className="text-search">
@@ -35,7 +43,7 @@ export const TextSearch = genericMemo(function Component<N extends string>({
         className="text"
         type="search"
         value={text}
-        onChange={(e) => setText(e.target.value)}
+        onChange={handleTextChanged}
       />
     </div>
   );

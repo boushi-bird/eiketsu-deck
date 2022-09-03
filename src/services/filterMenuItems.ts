@@ -156,7 +156,7 @@ export const filterMenuItems: Readonly<FilterMenuItem[]> = [
         return filter.generalNameSearch[0];
       }
       const tmp = filter.generalNameSearch.join(' ');
-      return filter.skillsAnd ? `And(${tmp})` : `Or(${tmp})`;
+      return filter.generalNameSearchAnd ? `And(${tmp})` : `Or(${tmp})`;
     },
   },
   {
@@ -306,7 +306,7 @@ export const filterMenuStratItems: Readonly<FilterMenuStratItem[]> = [
         return filter.generalStrategyNameSearch[0];
       }
       const tmp = filter.generalStrategyNameSearch.join(' ');
-      return filter.skillsAnd ? `And(${tmp})` : `Or(${tmp})`;
+      return filter.generalStrategyNameSearchAnd ? `And(${tmp})` : `Or(${tmp})`;
     },
   },
   {
@@ -323,7 +323,9 @@ export const filterMenuStratItems: Readonly<FilterMenuStratItem[]> = [
         return filter.generalStrategyCaptionSearch[0];
       }
       const tmp = filter.generalStrategyCaptionSearch.join(' ');
-      return filter.skillsAnd ? `And(${tmp})` : `Or(${tmp})`;
+      return filter.generalStrategyCaptionSearchAnd
+        ? `And(${tmp})`
+        : `Or(${tmp})`;
     },
   },
   {
