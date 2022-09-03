@@ -26,11 +26,8 @@ export const TextSearch = genericMemo(function Component<N extends string>({
   }, [itemName, values, onSelectItems, text]);
 
   useEffect(() => {
-    const inputedValues = text.split(' ').filter((r) => !!r);
-    if (values.toString() !== inputedValues.toString()) {
-      setText(values.join(' '));
-    }
-  }, [values, text]);
+    setText(values.join(' '));
+  }, [values]);
 
   return (
     <div className="text-search">
