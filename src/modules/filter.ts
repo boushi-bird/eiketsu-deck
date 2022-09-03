@@ -52,11 +52,11 @@ const initialState: FilterState = {
   illustrations: [],
   characterVoices: [],
   generalNameSearch: [],
-  generalNameSearchAnd: false,
+  generalNameSearchAnd: true,
   generalStrategyNameSearch: [],
-  generalStrategyNameSearchAnd: false,
+  generalStrategyNameSearchAnd: true,
   generalStrategyCaptionSearch: [],
-  generalStrategyCaptionSearchAnd: false,
+  generalStrategyCaptionSearchAnd: true,
 };
 
 export type FilterItemName = keyof FilterState;
@@ -148,7 +148,7 @@ const slice = createSlice({
         state[itemName] = initialState[itemName];
         return;
       }
-      // string
+      // string[]
       if (isStringArrayItem(itemName)) {
         state[itemName] = initialState[itemName];
         return;
