@@ -220,11 +220,11 @@
     - license: CC0-1.0
  - **[@eslint/eslintrc@1.3.1](https://github.com/eslint/eslintrc)**
     - license: MIT
- - **[@fortawesome/fontawesome-common-types@6.1.2](https://github.com/FortAwesome/Font-Awesome)**
+ - **[@fortawesome/fontawesome-common-types@6.2.0](https://github.com/FortAwesome/Font-Awesome)**
     - license: MIT
- - **[@fortawesome/fontawesome-svg-core@6.1.2](https://github.com/FortAwesome/Font-Awesome)**
+ - **[@fortawesome/fontawesome-svg-core@6.2.0](https://github.com/FortAwesome/Font-Awesome)**
     - license: MIT
- - **[@fortawesome/free-solid-svg-icons@6.1.2](https://github.com/FortAwesome/Font-Awesome)**
+ - **[@fortawesome/free-solid-svg-icons@6.2.0](https://github.com/FortAwesome/Font-Awesome)**
     - license: (CC-BY-4.0 AND MIT)
  - **[@fortawesome/react-fontawesome@0.2.0](https://github.com/FortAwesome/react-fontawesome)**
     - license: MIT
@@ -278,13 +278,13 @@
     - license: MIT
  - **[@types/json5@0.0.29](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
- - **[@types/node@18.7.13](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/node@18.7.14](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
  - **[@types/prop-types@15.7.5](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
  - **[@types/react-dom@18.0.6](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
- - **[@types/react@18.0.17](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/react@18.0.18](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
  - **[@types/resolve@1.17.1](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
@@ -294,21 +294,21 @@
     - license: MIT
  - **[@types/use-sync-external-store@0.0.3](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
- - **[@typescript-eslint/eslint-plugin@5.35.1](https://github.com/typescript-eslint/typescript-eslint)**
+ - **[@typescript-eslint/eslint-plugin@5.36.1](https://github.com/typescript-eslint/typescript-eslint)**
     - license: MIT
- - **[@typescript-eslint/parser@5.35.1](https://github.com/typescript-eslint/typescript-eslint)**
+ - **[@typescript-eslint/parser@5.36.1](https://github.com/typescript-eslint/typescript-eslint)**
     - license: BSD-2-Clause
- - **[@typescript-eslint/scope-manager@5.35.1](https://github.com/typescript-eslint/typescript-eslint)**
+ - **[@typescript-eslint/scope-manager@5.36.1](https://github.com/typescript-eslint/typescript-eslint)**
     - license: MIT
- - **[@typescript-eslint/type-utils@5.35.1](https://github.com/typescript-eslint/typescript-eslint)**
+ - **[@typescript-eslint/type-utils@5.36.1](https://github.com/typescript-eslint/typescript-eslint)**
     - license: MIT
- - **[@typescript-eslint/types@5.35.1](https://github.com/typescript-eslint/typescript-eslint)**
+ - **[@typescript-eslint/types@5.36.1](https://github.com/typescript-eslint/typescript-eslint)**
     - license: MIT
- - **[@typescript-eslint/typescript-estree@5.35.1](https://github.com/typescript-eslint/typescript-eslint)**
+ - **[@typescript-eslint/typescript-estree@5.36.1](https://github.com/typescript-eslint/typescript-eslint)**
     - license: BSD-2-Clause
- - **[@typescript-eslint/utils@5.35.1](https://github.com/typescript-eslint/typescript-eslint)**
+ - **[@typescript-eslint/utils@5.36.1](https://github.com/typescript-eslint/typescript-eslint)**
     - license: MIT
- - **[@typescript-eslint/visitor-keys@5.35.1](https://github.com/typescript-eslint/typescript-eslint)**
+ - **[@typescript-eslint/visitor-keys@5.36.1](https://github.com/typescript-eslint/typescript-eslint)**
     - license: MIT
  - **[@ungap/url-search-params@0.1.4](https://github.com/ungap/url-search-params)**
     - license: ISC
@@ -374,7 +374,7 @@
     - license: MIT
  - **[camel-case@4.1.2](https://github.com/blakeembrey/change-case)**
     - license: MIT
- - **[caniuse-lite@1.0.30001383](https://github.com/browserslist/caniuse-lite)**
+ - **[caniuse-lite@1.0.30001388](https://github.com/browserslist/caniuse-lite)**
     - license: CC-BY-4.0
  - **[chalk@2.4.2](https://github.com/chalk/chalk)**
     - license: MIT
@@ -454,17 +454,17 @@
     - license: MIT
  - **[dotenv-expand@8.0.3](https://github.com/motdotla/dotenv-expand)**
     - license: BSD-2-Clause
- - **[dotenv@16.0.1](https://github.com/motdotla/dotenv)**
+ - **[dotenv@16.0.2](https://github.com/motdotla/dotenv)**
     - license: BSD-2-Clause
  - **[ejs@3.1.8](https://github.com/mde/ejs)**
     - license: Apache-2.0
- - **[electron-to-chromium@1.4.233](https://github.com/kilian/electron-to-chromium)**
+ - **[electron-to-chromium@1.4.241](https://github.com/kilian/electron-to-chromium)**
     - license: ISC
  - **[entities@2.2.0](https://github.com/fb55/entities)**
     - license: BSD-2-Clause
  - **[error-ex@1.3.2](https://github.com/qix-/node-error-ex)**
     - license: MIT
- - **[es-abstract@1.20.1](https://github.com/ljharb/es-abstract)**
+ - **[es-abstract@1.20.2](https://github.com/ljharb/es-abstract)**
     - license: MIT
  - **[es-shim-unscopables@1.0.0](https://github.com/ljharb/es-shim-unscopables)**
     - license: MIT
@@ -490,7 +490,7 @@
     - license: MIT
  - **[eslint-plugin-react-hooks@4.6.0](https://github.com/facebook/react)**
     - license: MIT
- - **[eslint-plugin-react@7.31.1](https://github.com/jsx-eslint/eslint-plugin-react)**
+ - **[eslint-plugin-react@7.31.4](https://github.com/jsx-eslint/eslint-plugin-react)**
     - license: MIT
  - **[eslint-scope@5.1.1](https://github.com/eslint/eslint-scope)**
     - license: BSD-2-Clause
@@ -720,7 +720,7 @@
     - license: ISC
  - **[magic-string@0.25.9](https://github.com/rich-harris/magic-string)**
     - license: MIT
- - **[magic-string@0.26.2](https://github.com/rich-harris/magic-string)**
+ - **[magic-string@0.26.3](https://github.com/rich-harris/magic-string)**
     - license: MIT
  - **[memorystream@0.3.1](https://github.com/JSBizon/node-memorystream)**
     - license: 
@@ -748,7 +748,7 @@
     - license: MIT
  - **[no-case@3.0.4](https://github.com/blakeembrey/change-case)**
     - license: MIT
- - **[node-html-parser@5.4.1](https://github.com/taoqf/node-fast-html-parser)**
+ - **[node-html-parser@5.4.2](https://github.com/taoqf/node-fast-html-parser)**
     - license: MIT
  - **[node-releases@2.0.6](https://github.com/chicoxyzzy/node-releases)**
     - license: MIT
@@ -822,7 +822,7 @@
     - license: MIT
  - **[postcss-custom-properties@12.1.8](https://github.com/csstools/postcss-plugins)**
     - license: MIT
- - **[postcss-import@14.1.0](https://github.com/postcss/postcss-import)**
+ - **[postcss-import@15.0.0](https://github.com/postcss/postcss-import)**
     - license: MIT
  - **[postcss-nesting@10.1.10](https://github.com/csstools/postcss-plugins)**
     - license: CC0-1.0
@@ -1016,7 +1016,7 @@
     - license: (MIT OR CC0-1.0)
  - **[type-fest@2.19.0](https://github.com/sindresorhus/type-fest)**
     - license: (MIT OR CC0-1.0)
- - **[typescript@4.7.4](https://github.com/Microsoft/TypeScript)**
+ - **[typescript@4.8.2](https://github.com/Microsoft/TypeScript)**
     - license: Apache-2.0
  - **[unbox-primitive@1.0.2](https://github.com/ljharb/unbox-primitive)**
     - license: MIT
@@ -1034,7 +1034,7 @@
     - license: MIT
  - **[upath@1.2.0](https://github.com/anodynos/upath)**
     - license: MIT
- - **[update-browserslist-db@1.0.5](https://github.com/browserslist/update-db)**
+ - **[update-browserslist-db@1.0.7](https://github.com/browserslist/update-db)**
     - license: MIT
  - **[uri-js@4.4.1](https://github.com/garycourt/uri-js)**
     - license: BSD-2-Clause
@@ -1048,7 +1048,7 @@
     - license: MIT
  - **[vite-plugin-html@3.2.0](https://github.com/vbenjs/vite-plugin-html)**
     - license: MIT
- - **[vite-plugin-pwa@0.12.3](https://github.com/antfu/vite-plugin-pwa)**
+ - **[vite-plugin-pwa@0.12.6](https://github.com/antfu/vite-plugin-pwa)**
     - license: MIT
  - **[vite-plugin-radar@0.5.0](https://github.com/stafyniaksacha/vite-plugin-radar)**
     - license: MIT
