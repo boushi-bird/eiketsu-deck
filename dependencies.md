@@ -254,7 +254,7 @@
     - license: MIT
  - **[@nodelib/fs.walk@1.2.8](https://github.com/nodelib/nodelib/tree/master/packages/fs/fs.walk)**
     - license: MIT
- - **[@reduxjs/toolkit@1.8.5](https://github.com/reduxjs/redux-toolkit)**
+ - **[@reduxjs/toolkit@1.8.6](https://github.com/reduxjs/redux-toolkit)**
     - license: MIT
  - **[@rollup/plugin-babel@5.3.1](https://github.com/rollup/plugins)**
     - license: MIT
@@ -378,7 +378,7 @@
     - license: MIT
  - **[chalk@4.1.2](https://github.com/chalk/chalk)**
     - license: MIT
- - **[classnames@2.3.1](https://github.com/JedWatson/classnames)**
+ - **[classnames@2.3.2](https://github.com/JedWatson/classnames)**
     - license: MIT
  - **[clean-css@5.3.1](https://github.com/clean-css/clean-css)**
     - license: MIT
@@ -852,7 +852,7 @@
     - license: MIT
  - **[react-is@18.2.0](https://github.com/facebook/react)**
     - license: MIT
- - **[react-redux@8.0.2](https://github.com/reduxjs/react-redux)**
+ - **[react-redux@8.0.4](https://github.com/reduxjs/react-redux)**
     - license: MIT
  - **[react-refresh@0.14.0](https://github.com/facebook/react)**
     - license: MIT
