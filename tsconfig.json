@@ -19,6 +19,7 @@
     "paths": {
       "@/*": ["src/*"]
     },
+    "types": ["vite-plugin-pwa/client"],
     "jsx": "react-jsx"
   },
   "exclude": ["node_modules"]
