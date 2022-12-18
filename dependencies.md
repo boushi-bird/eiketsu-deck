@@ -220,11 +220,11 @@
     - license: CC0-1.0
  - **[@eslint/eslintrc@1.4.0](https://github.com/eslint/eslintrc)**
     - license: MIT
- - **[@fortawesome/fontawesome-common-types@6.2.0](https://github.com/FortAwesome/Font-Awesome)**
+ - **[@fortawesome/fontawesome-common-types@6.2.1](https://github.com/FortAwesome/Font-Awesome)**
     - license: MIT
- - **[@fortawesome/fontawesome-svg-core@6.2.0](https://github.com/FortAwesome/Font-Awesome)**
+ - **[@fortawesome/fontawesome-svg-core@6.2.1](https://github.com/FortAwesome/Font-Awesome)**
     - license: MIT
- - **[@fortawesome/free-solid-svg-icons@6.2.0](https://github.com/FortAwesome/Font-Awesome)**
+ - **[@fortawesome/free-solid-svg-icons@6.2.1](https://github.com/FortAwesome/Font-Awesome)**
     - license: (CC-BY-4.0 AND MIT)
  - **[@fortawesome/react-fontawesome@0.2.0](https://github.com/FortAwesome/react-fontawesome)**
     - license: MIT
@@ -254,7 +254,7 @@
     - license: MIT
  - **[@nodelib/fs.walk@1.2.8](https://github.com/nodelib/nodelib/tree/master/packages/fs/fs.walk)**
     - license: MIT
- - **[@reduxjs/toolkit@1.8.6](https://github.com/reduxjs/redux-toolkit)**
+ - **[@reduxjs/toolkit@1.9.1](https://github.com/reduxjs/redux-toolkit)**
     - license: MIT
  - **[@rollup/plugin-babel@5.3.1](https://github.com/rollup/plugins)**
     - license: MIT
@@ -286,9 +286,9 @@
     - license: MIT
  - **[@types/prop-types@15.7.5](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
- - **[@types/react-dom@18.0.8](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/react-dom@18.0.9](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
- - **[@types/react@18.0.24](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/react@18.0.26](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
  - **[@types/resolve@1.17.1](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
@@ -866,7 +866,7 @@
     - license: MIT
  - **[react-is@18.2.0](https://github.com/facebook/react)**
     - license: MIT
- - **[react-redux@8.0.4](https://github.com/reduxjs/react-redux)**
+ - **[react-redux@8.0.5](https://github.com/reduxjs/react-redux)**
     - license: MIT
  - **[react-refresh@0.14.0](https://github.com/facebook/react)**
     - license: MIT
@@ -878,7 +878,7 @@
     - license: MIT
  - **[redux-query-sync@0.1.10](https://github.com/Treora/redux-query-sync)**
     - license: Unlicense
- - **[redux-thunk@2.4.1](https://github.com/reduxjs/redux-thunk)**
+ - **[redux-thunk@2.4.2](https://github.com/reduxjs/redux-thunk)**
     - license: MIT
  - **[redux@4.2.0](https://github.com/reduxjs/redux)**
     - license: MIT
@@ -904,7 +904,7 @@
     - license: MIT
  - **[require-from-string@2.0.2](https://github.com/floatdrop/require-from-string)**
     - license: MIT
- - **[reselect@4.1.6](https://github.com/reduxjs/reselect)**
+ - **[reselect@4.1.7](https://github.com/reduxjs/reselect)**
     - license: MIT
  - **[resolve-from@4.0.0](https://github.com/sindresorhus/resolve-from)**
     - license: MIT
