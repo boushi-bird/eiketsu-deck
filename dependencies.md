@@ -262,13 +262,19 @@
     - license: MIT
  - **[@rollup/plugin-replace@2.4.2](https://github.com/rollup/plugins)**
     - license: MIT
+ - **[@rollup/plugin-replace@5.0.2](https://github.com/rollup/plugins)**
+    - license: MIT
  - **[@rollup/pluginutils@3.1.0](https://github.com/rollup/plugins)**
     - license: MIT
  - **[@rollup/pluginutils@4.2.1](https://github.com/rollup/plugins)**
     - license: MIT
+ - **[@rollup/pluginutils@5.0.2](https://github.com/rollup/plugins)**
+    - license: MIT
  - **[@surma/rollup-plugin-off-main-thread@2.2.3](https://github.com/surma/rollup-plugin-off-main-thread)**
     - license: Apache-2.0
  - **[@types/estree@0.0.39](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+    - license: MIT
+ - **[@types/estree@1.0.0](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
  - **[@types/hoist-non-react-statics@3.3.1](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
@@ -724,6 +730,8 @@
     - license: MIT
  - **[magic-string@0.26.7](https://github.com/rich-harris/magic-string)**
     - license: MIT
+ - **[magic-string@0.27.0](https://github.com/rich-harris/magic-string)**
+    - license: MIT
  - **[memorystream@0.3.1](https://github.com/JSBizon/node-memorystream)**
     - license: 
  - **[merge-stream@2.0.0](https://github.com/grncdr/merge-stream)**
@@ -914,6 +922,8 @@
     - license: MIT
  - **[rollup@2.79.1](https://github.com/rollup/rollup)**
     - license: MIT
+ - **[rollup@3.7.5](https://github.com/rollup/rollup)**
+    - license: MIT
  - **[run-parallel@1.2.0](https://github.com/feross/run-parallel)**
     - license: MIT
  - **[safe-buffer@5.2.1](https://github.com/feross/safe-buffer)**
@@ -1052,11 +1062,11 @@
     - license: MIT
  - **[vite-plugin-html@3.2.0](https://github.com/vbenjs/vite-plugin-html)**
     - license: MIT
- - **[vite-plugin-pwa@0.13.1](https://github.com/antfu/vite-plugin-pwa)**
+ - **[vite-plugin-pwa@0.14.0](https://github.com/antfu/vite-plugin-pwa)**
     - license: MIT
  - **[vite-plugin-radar@0.6.0](https://github.com/stafyniaksacha/vite-plugin-radar)**
     - license: MIT
- - **[vite@3.2.1](https://github.com/vitejs/vite)**
+ - **[vite@3.2.5](https://github.com/vitejs/vite)**
     - license: MIT
  - **[webidl-conversions@4.0.2](https://github.com/jsdom/webidl-conversions)**
     - license: BSD-2-Clause
