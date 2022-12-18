@@ -6,12 +6,12 @@ import { store, unmanagedStore } from './store';
 import { windowActions } from '@/modules/window';
 
 const updateSW = registerSW({
-  onNeedRefresh() {
+  async onNeedRefresh() {
     const {
       window: { autoReload },
     } = store.getState();
 
-    updateSW(autoReload);
+    await updateSW(autoReload);
 
     if (!autoReload) {
       store.dispatch(windowActions.beUpdateReady());
