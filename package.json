@@ -4,11 +4,11 @@
   "description": "",
   "main": "src/index.ts",
   "scripts": {
-    "fmt": "prettier --write *.ts **/*.ts src/**/*.{ts,tsx}",
+    "fmt": "prettier --write '**/*.{ts,tsx}'",
     "lint": "run-s lint:*",
     "lint:ts": "tsc --noEmit",
     "lint:es": "eslint --ext .js,.ts,.tsx .",
-    "lint:fmt": "prettier --check *.ts **/*.ts **/*.tsx",
+    "lint:fmt": "prettier --check '**/*.{ts,tsx}'",
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview"
