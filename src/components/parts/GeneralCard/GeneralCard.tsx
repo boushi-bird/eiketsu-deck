@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { General } from 'eiketsu-deck';
 
 import { GeneralCost } from '@/components/parts/GeneralCost';
-import { generalImage, unitTypeImage } from '@/utils/externalResource';
+import { generalFaceImage, unitTypeImage } from '@/utils/externalResource';
 
 interface Props {
   children?: ReactNode;
@@ -15,7 +15,7 @@ export const GeneralCard = memo(function Component({
   children,
   general,
 }: Props) {
-  const imageUrl = generalImage(general.code);
+  const imageUrl = generalFaceImage(general);
   const skills = general.skills.map((skill, i) => (
     <span className="skill" key={i} title={skill.name}>
       {skill.shortName}
@@ -33,6 +33,10 @@ export const GeneralCard = memo(function Component({
       {c.name}
     </span>
   ));
+  const generalNameClasses = classNames(['name'], {
+    ['very-long']: general.name.length > 7,
+  });
+
   return (
     <div
       key={general.uniqueId}
@@ -50,7 +54,9 @@ export const GeneralCard = memo(function Component({
         {general.color.name}
       </span>
       <span className="card-no">
-        {general.uniqueId} {general.appear}
+        <span className="card-no-block">
+          {general.uniqueId} {general.appear}
+        </span>
       </span>
       <span className="rarity">
         <span
@@ -63,7 +69,7 @@ export const GeneralCard = memo(function Component({
           {general.rarity.shortName}
         </span>
       </span>
-      <span className="name">
+      <span className={generalNameClasses}>
         <ruby>
           {general.name}
           <rt>{general.kana}</rt>

@@ -4,12 +4,13 @@
   width: var(--general-card-width);
   height: var(--general-card-height);
   display: grid;
-  grid-template-columns: 40px 120px 96px 40px 38px 36px 36px 100px 1fr;
-  grid-template-rows: 36% 14% 50%;
+  grid-template-columns: 40px 120px 72px 64px 38px 36px 36px 100px 1fr;
+  grid-template-rows: 26% 10% 14% 50%;
   grid-template-areas:
-    'state-color card-no period thumb cost      strong intelligence skills etc'
-    'rarity      name    name   thumb cost      strat  strat        strat etc'
-    'rarity      name    name   thumb unit-type strat  strat        strat etc';
+    'state-color card-no period period cost      strong intelligence skills etc'
+    'state-color .       .      thumb  cost      strong intelligence skills etc'
+    'state-color .       .      thumb  cost      strat  strat        strat etc'
+    'rarity      name    name   thumb  unit-type strat  strat        strat etc';
 
   & .state-color {
     grid-area: state-color;
@@ -27,7 +28,6 @@
   & .card-no {
     grid-area: card-no;
 
-    font-size: var(--general-small-font-size);
     display: flex;
     align-items: flex-end;
     justify-content: flex-start;
@@ -61,6 +61,10 @@
     align-items: center;
     justify-content: flex-start;
     padding: 0 4px;
+
+    &.very-long {
+      font-size: 75%;
+    }
   }
 
   & .period {
@@ -69,6 +73,7 @@
     display: flex;
     align-items: flex-end;
     justify-content: center;
+    padding: 0 4px;
   }
 
   & .thumb {
@@ -214,6 +219,7 @@
   & .general-thumb {
     width: 100%;
     height: auto;
+    background-color: var(--light-transparent-bg-color);
   }
 
   & .general-cost-value {
@@ -226,13 +232,22 @@
     height: 32px;
   }
 
+  & .card-no-block {
+    font-size: var(--general-small-font-size);
+    width: 100%;
+    background-color: var(--default-light-bg-color);
+    border: 1px solid var(--default-dark-border-color);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   & .period-block {
     font-size: var(--general-small-font-size);
-    min-width: 90px;
+    width: 100%;
     background-color: var(--general-period-block-bg-color);
-    border-color: var(--general-period-block-border-color);
-    border-style: solid;
-    border-width: 1px;
+    border: 1px solid var(--default-dark-border-color);
     border-radius: 5px;
     display: flex;
     align-items: center;

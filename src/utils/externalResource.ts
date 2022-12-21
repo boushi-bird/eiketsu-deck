@@ -2,6 +2,8 @@ import { General } from 'eiketsu-deck';
 
 export const generalImage = (code: string) =>
   `https://image.eiketsu-taisen.net/general/card_small/${code}.jpg`;
+export const generalFaceImage = (general: General) =>
+  `https://image.eiketsu-taisen.net/general/avatar/${general.faceCode}.png`;
 export const generalCardDetailImage = (general: General) =>
   `https://image.eiketsu-taisen.net/general/card_ds/${general.dsCode}.jpg`;
 export const generalOfficialPageLink = (general: General) =>
