@@ -33,9 +33,12 @@ export const GeneralCard = memo(function Component({
       {c.name}
     </span>
   ));
-  const generalNameClasses = classNames(['name'], {
+  const generalNameClasses = classNames(['general-name'], {
+    short: general.name.length < 3,
+    long: general.name.length > 5,
     ['very-long']: general.name.length > 7,
   });
+  const needRuby = general.name !== general.kana;
 
   return (
     <div
@@ -69,10 +72,12 @@ export const GeneralCard = memo(function Component({
           {general.rarity.shortName}
         </span>
       </span>
-      <span className={generalNameClasses}>
+      <span className="name">
         <ruby>
-          {general.name}
-          <rt>{general.kana}</rt>
+          <span className={generalNameClasses}>{general.name}</span>
+          <rt className={classNames({ 'hide-ruby': !needRuby })}>
+            {general.kana}
+          </rt>
         </ruby>
       </span>
       <span className="period">

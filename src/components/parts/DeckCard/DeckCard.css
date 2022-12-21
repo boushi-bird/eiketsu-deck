@@ -126,11 +126,19 @@
         justify-content: flex-end;
         font-size: var(--deck-board-name-font-size);
 
-        &.long {
-          font-size: var(--deck-board-long-name-font-size);
+        & .general-name {
+          &.short {
+            white-space: nowrap;
+            letter-spacing: 8px;
+            margin-bottom: -8px;
+          }
 
-          &.very-long {
-            font-size: var(--deck-board-very-long-name-font-size);
+          &.long {
+            font-size: var(--deck-board-long-name-font-size);
+
+            &.very-long {
+              font-size: var(--deck-board-very-long-name-font-size);
+            }
           }
         }
 
