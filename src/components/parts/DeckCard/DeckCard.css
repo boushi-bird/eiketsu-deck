@@ -128,6 +128,10 @@
 
         &.long {
           font-size: var(--deck-board-long-name-font-size);
+
+          &.very-long {
+            font-size: var(--deck-board-very-long-name-font-size);
+          }
         }
 
         & .rarity-area {
@@ -139,7 +143,7 @@
           justify-content: center;
           width: 20px;
           height: 20px;
-          border-radius: 6px;
+          border-radius: 4px;
           margin-bottom: 2px;
         }
       }

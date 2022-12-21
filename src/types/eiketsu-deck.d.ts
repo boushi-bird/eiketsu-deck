@@ -31,6 +31,7 @@ declare module 'eiketsu-deck' {
     readonly idx: number;
     readonly code: string;
     readonly dsCode: string;
+    readonly faceCode: string;
     readonly name: string;
     readonly kana: string;
     readonly color: GeneralColor;

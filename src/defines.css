@@ -33,6 +33,7 @@
   --deck-board-unit-type-font-size: 16px;
   --deck-board-name-font-size: 20px;
   --deck-board-long-name-font-size: 16px;
+  --deck-board-very-long-name-font-size: 12px;
   --deck-board-period-font-size: 14px;
   --filter-tab-font-size: 18px;
   --filter-menu-title-font-size: 26px;
@@ -76,6 +77,7 @@
   --active-color: #ff8c00;
   --dark-bg-color: #0f1111;
   --offline-color: #07edb9;
+  --light-transparent-bg-color: rgba(255, 255, 255, 0.4);
   --dark-transparent-bg-color: rgba(0, 0, 0, 0.8);
   --modal-title-color: #fff;
   --modal-title-bg-color: var(--dark-transparent-bg-color);

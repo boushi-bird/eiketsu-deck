@@ -71,7 +71,10 @@ export const DeckCard = memo(function Component({
     }
   }, [prevIndex, index]);
 
-  const long = general.name.length > 5;
+  const generalNameClasses = classNames(['name'], {
+    long: general.name.length > 5,
+    ['very-long']: general.name.length > 8,
+  });
 
   const gradientBg = `linear-gradient(-60deg, ${[
     general.color.color,
@@ -139,7 +142,7 @@ export const DeckCard = memo(function Component({
           >
             {general.uniqueId}
           </span>
-          <span className={classNames('name', { long })}>
+          <span className={generalNameClasses}>
             <span
               className={classNames(
                 'rarity-area',
