@@ -4,7 +4,7 @@
   width: var(--general-card-width);
   height: var(--general-card-height);
   display: grid;
-  grid-template-columns: 40px 120px 72px 64px 38px 36px 36px 100px 1fr;
+  grid-template-columns: 40px 132px 60px 64px 38px 36px 36px 100px 1fr;
   grid-template-rows: 26% 10% 14% 50%;
   grid-template-areas:
     'state-color card-no period period cost      strong intelligence skills etc'
@@ -56,14 +56,38 @@
   & .name {
     grid-area: name;
 
-    font-weight: bold;
     display: flex;
     align-items: center;
     justify-content: flex-start;
     padding: 0 4px;
 
-    &.very-long {
-      font-size: 75%;
+    & .general-name {
+      font-weight: bold;
+      letter-spacing: 6px;
+      margin-right: -6px;
+      white-space: nowrap;
+
+      &.short {
+        letter-spacing: 18px;
+        margin-right: -18px;
+      }
+
+      &.long {
+        letter-spacing: normal;
+        margin-right: 0;
+
+        &.very-long {
+          font-size: 75%;
+        }
+      }
+    }
+
+    & rt {
+      font-weight: bold;
+
+      &.hide-ruby {
+        display: none;
+      }
     }
   }
 

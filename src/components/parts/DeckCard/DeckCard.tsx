@@ -71,7 +71,8 @@ export const DeckCard = memo(function Component({
     }
   }, [prevIndex, index]);
 
-  const generalNameClasses = classNames(['name'], {
+  const generalNameClasses = classNames(['general-name'], {
+    short: general.name.length < 3,
     long: general.name.length > 5,
     ['very-long']: general.name.length > 8,
   });
@@ -142,7 +143,7 @@ export const DeckCard = memo(function Component({
           >
             {general.uniqueId}
           </span>
-          <span className={generalNameClasses}>
+          <span className="name">
             <span
               className={classNames(
                 'rarity-area',
@@ -152,7 +153,7 @@ export const DeckCard = memo(function Component({
             >
               {general.rarity.shortName}
             </span>
-            {general.name}
+            <span className={generalNameClasses}>{general.name}</span>
           </span>
           <span className="unit-type" data-label="兵種">
             <img
