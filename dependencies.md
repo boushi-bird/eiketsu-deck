@@ -688,9 +688,9 @@
     - license: (AFL-2.1 OR BSD-3-Clause)
  - **[json-stable-stringify-without-jsonify@1.0.1](https://github.com/samn/json-stable-stringify)**
     - license: MIT
- - **[json5@1.0.1](https://github.com/json5/json5)**
+ - **[json5@1.0.2](https://github.com/json5/json5)**
     - license: MIT
- - **[json5@2.2.1](https://github.com/json5/json5)**
+ - **[json5@2.2.3](https://github.com/json5/json5)**
     - license: MIT
  - **[jsonfile@6.1.0](https://github.com/jprichardson/node-jsonfile)**
     - license: MIT
