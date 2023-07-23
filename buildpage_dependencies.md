@@ -118,7 +118,7 @@
     - license: ISC
  - **[resolve@1.22.0](https://github.com/browserify/resolve)**
     - license: MIT
- - **[semver@5.7.1](https://github.com/npm/node-semver)**
+ - **[semver@5.7.2](https://github.com/npm/node-semver)**
     - license: ISC
  - **[slide@1.1.6](https://github.com/isaacs/slide-flow-control)**
     - license: ISC
