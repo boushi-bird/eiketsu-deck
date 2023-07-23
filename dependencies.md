@@ -1058,7 +1058,7 @@
     - license: MIT
  - **[vite-plugin-radar@0.6.0](https://github.com/stafyniaksacha/vite-plugin-radar)**
     - license: MIT
- - **[vite@4.0.2](https://github.com/vitejs/vite)**
+ - **[vite@4.0.5](https://github.com/vitejs/vite)**
     - license: MIT
  - **[webidl-conversions@4.0.2](https://github.com/jsdom/webidl-conversions)**
     - license: BSD-2-Clause
