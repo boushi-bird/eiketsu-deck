@@ -37,6 +37,12 @@
       }
     }
 
+    & .search-about-general {
+      width: 100%;
+      padding: 10px 6px;
+      font-size: 20px;
+    }
+
     & .creator-info {
       width: 100%;
       max-width: var(--general-card-width);
