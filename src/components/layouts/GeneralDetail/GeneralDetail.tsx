@@ -25,6 +25,13 @@ export const GeneralDetail = ({ generalIdx, onClose }: Props) => {
     return <div className="general-detail">見つかりません。</div>;
   }
 
+  const searchQueryText = `英傑大戦 ${general.uniqueId}${general.name}`;
+
+  const generalSearchLink = new URL('http://www.google.co.jp/search');
+  generalSearchLink.search = new URLSearchParams({
+    q: searchQueryText,
+  }).toString();
+
   return (
     <div className="general-detail">
       <div className="general-detail-inner">
@@ -65,6 +72,20 @@ export const GeneralDetail = ({ generalIdx, onClose }: Props) => {
             </a>
           </span>
         </GeneralCard>
+        <div className="search-about-general">
+          <a
+            className="search-about-general-link"
+            href={generalSearchLink.toString()}
+            target="_blank"
+            rel="noreferrer"
+          >
+            「{searchQueryText}」でGoogle検索
+            <FontAwesomeIcon
+              className="external-link-icon"
+              icon={faExternalLinkAlt}
+            />
+          </a>
+        </div>
         <div className="creator-info">
           <span className="name">{general.illust.displayName}</span>
           <span className="name">CV:{general.cv.name}</span>
