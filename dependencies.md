@@ -1070,7 +1070,7 @@
     - license: ISC
  - **[which@2.0.2](https://github.com/isaacs/node-which)**
     - license: ISC
- - **[word-wrap@1.2.3](https://github.com/jonschlinkert/word-wrap)**
+ - **[word-wrap@1.2.4](https://github.com/jonschlinkert/word-wrap)**
     - license: MIT
  - **[workbox-background-sync@6.5.4](https://github.com/googlechrome/workbox)**
     - license: MIT
