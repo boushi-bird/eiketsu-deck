@@ -742,7 +742,7 @@
     - license: MIT
  - **[ms@2.1.2](https://github.com/zeit/ms)**
     - license: MIT
- - **[nanoid@3.3.4](https://github.com/ai/nanoid)**
+ - **[nanoid@3.3.6](https://github.com/ai/nanoid)**
     - license: MIT
  - **[natural-compare-lite@1.4.0](https://github.com/litejs/natural-compare-lite)**
     - license: MIT
@@ -834,7 +834,7 @@
     - license: MIT
  - **[postcss-value-parser@4.2.0](https://github.com/TrySound/postcss-value-parser)**
     - license: MIT
- - **[postcss@8.4.20](https://github.com/postcss/postcss)**
+ - **[postcss@8.4.31](https://github.com/postcss/postcss)**
     - license: MIT
  - **[prelude-ls@1.2.1](https://github.com/gkz/prelude-ls)**
     - license: MIT
