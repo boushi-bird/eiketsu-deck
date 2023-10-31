@@ -2,13 +2,13 @@
     - license: Apache-2.0
  - **[@apideck/better-ajv-errors@0.3.6](https://github.com/apideck-libraries/better-ajv-errors)**
     - license: MIT
- - **[@babel/code-frame@7.18.6](https://github.com/babel/babel)**
+ - **[@babel/code-frame@7.22.13](https://github.com/babel/babel)**
     - license: MIT
  - **[@babel/compat-data@7.20.0](https://github.com/babel/babel)**
     - license: MIT
  - **[@babel/core@7.20.5](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/generator@7.20.5](https://github.com/babel/babel)**
+ - **[@babel/generator@7.23.0](https://github.com/babel/babel)**
     - license: MIT
  - **[@babel/helper-annotate-as-pure@7.18.6](https://github.com/babel/babel)**
     - license: MIT
@@ -22,13 +22,13 @@
     - license: MIT
  - **[@babel/helper-define-polyfill-provider@0.3.3](https://github.com/babel/babel-polyfills)**
     - license: MIT
- - **[@babel/helper-environment-visitor@7.18.9](https://github.com/babel/babel)**
+ - **[@babel/helper-environment-visitor@7.22.20](https://github.com/babel/babel)**
     - license: MIT
  - **[@babel/helper-explode-assignable-expression@7.18.6](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/helper-function-name@7.19.0](https://github.com/babel/babel)**
+ - **[@babel/helper-function-name@7.23.0](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/helper-hoist-variables@7.18.6](https://github.com/babel/babel)**
+ - **[@babel/helper-hoist-variables@7.22.5](https://github.com/babel/babel)**
     - license: MIT
  - **[@babel/helper-member-expression-to-functions@7.18.9](https://github.com/babel/babel)**
     - license: MIT
@@ -48,11 +48,11 @@
     - license: MIT
  - **[@babel/helper-skip-transparent-expression-wrappers@7.20.0](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/helper-split-export-declaration@7.18.6](https://github.com/babel/babel)**
+ - **[@babel/helper-split-export-declaration@7.22.6](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/helper-string-parser@7.19.4](https://github.com/babel/babel)**
+ - **[@babel/helper-string-parser@7.22.5](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/helper-validator-identifier@7.19.1](https://github.com/babel/babel)**
+ - **[@babel/helper-validator-identifier@7.22.20](https://github.com/babel/babel)**
     - license: MIT
  - **[@babel/helper-validator-option@7.18.6](https://github.com/babel/babel)**
     - license: MIT
@@ -60,9 +60,9 @@
     - license: MIT
  - **[@babel/helpers@7.20.6](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/highlight@7.18.6](https://github.com/babel/babel)**
+ - **[@babel/highlight@7.22.20](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/parser@7.20.5](https://github.com/babel/babel)**
+ - **[@babel/parser@7.23.0](https://github.com/babel/babel)**
     - license: MIT
  - **[@babel/plugin-bugfix-safari-id-destructuring-collision-in-function-expression@7.18.6](https://github.com/babel/babel)**
     - license: MIT
@@ -202,11 +202,11 @@
     - license: MIT
  - **[@babel/runtime@7.20.0](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/template@7.18.10](https://github.com/babel/babel)**
+ - **[@babel/template@7.22.15](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/traverse@7.20.5](https://github.com/babel/babel)**
+ - **[@babel/traverse@7.23.2](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/types@7.20.5](https://github.com/babel/babel)**
+ - **[@babel/types@7.23.0](https://github.com/babel/babel)**
     - license: MIT
  - **[@boushi-bird/eiketsu-taisen-net-datalist@0.1.0](https://github.com/boushi-bird/eiketsu-taisen-net-datalist)**
     - license: MIT
