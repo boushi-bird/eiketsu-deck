@@ -24,7 +24,6 @@ const INJECT_METADATA = {
 export default defineConfig({
   base: './',
   server: {
-    base: APP_PATH,
     host: '0.0.0.0',
   },
   define: {
