@@ -7,10 +7,6 @@
   display: none;
   animation: fadeIn 1s ease 0s 1 normal;
 
-  @nest .ready & {
-    display: flex;
-  }
-
   & .card-area {
     flex: 1;
     min-width: var(--app-min-width);
@@ -25,6 +21,10 @@
       overflow: hidden;
     }
   }
+}
+
+.ready .main {
+  display: flex;
 }
 
 @media (--middle-screen) {
