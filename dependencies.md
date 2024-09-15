@@ -178,9 +178,9 @@
     - license: MIT
  - **[@babel/plugin-transform-property-literals@7.24.7](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/plugin-transform-react-jsx-self@7.18.6](https://github.com/babel/babel)**
+ - **[@babel/plugin-transform-react-jsx-self@7.24.7](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/plugin-transform-react-jsx-source@7.19.6](https://github.com/babel/babel)**
+ - **[@babel/plugin-transform-react-jsx-source@7.24.7](https://github.com/babel/babel)**
     - license: MIT
  - **[@babel/plugin-transform-regenerator@7.24.7](https://github.com/babel/babel)**
     - license: MIT
@@ -220,19 +220,29 @@
     - license: MIT
  - **[@boushi-bird/eiketsu-taisen-net-datalist@0.1.0](https://github.com/boushi-bird/eiketsu-taisen-net-datalist)**
     - license: MIT
- - **[@csstools/selector-specificity@2.0.2](https://github.com/csstools/postcss-plugins)**
-    - license: CC0-1.0
+ - **[@csstools/cascade-layer-name-parser@2.0.1](https://github.com/csstools/postcss-plugins)**
+    - license: MIT
+ - **[@csstools/css-parser-algorithms@3.0.1](https://github.com/csstools/postcss-plugins)**
+    - license: MIT
+ - **[@csstools/css-tokenizer@3.0.1](https://github.com/csstools/postcss-plugins)**
+    - license: MIT
+ - **[@csstools/selector-resolve-nested@2.0.0](https://github.com/csstools/postcss-plugins)**
+    - license: MIT-0
+ - **[@csstools/selector-specificity@4.0.0](https://github.com/csstools/postcss-plugins)**
+    - license: MIT-0
+ - **[@csstools/utilities@2.0.0](https://github.com/csstools/postcss-plugins)**
+    - license: MIT-0
  - **[@esbuild/linux-x64@0.18.20](https://github.com/evanw/esbuild)**
     - license: MIT
  - **[@eslint/eslintrc@1.4.0](https://github.com/eslint/eslintrc)**
     - license: MIT
- - **[@fortawesome/fontawesome-common-types@6.2.1](https://github.com/FortAwesome/Font-Awesome)**
+ - **[@fortawesome/fontawesome-common-types@6.6.0](https://github.com/FortAwesome/Font-Awesome)**
     - license: MIT
- - **[@fortawesome/fontawesome-svg-core@6.2.1](https://github.com/FortAwesome/Font-Awesome)**
+ - **[@fortawesome/fontawesome-svg-core@6.6.0](https://github.com/FortAwesome/Font-Awesome)**
     - license: MIT
- - **[@fortawesome/free-solid-svg-icons@6.2.1](https://github.com/FortAwesome/Font-Awesome)**
+ - **[@fortawesome/free-solid-svg-icons@6.6.0](https://github.com/FortAwesome/Font-Awesome)**
     - license: (CC-BY-4.0 AND MIT)
- - **[@fortawesome/react-fontawesome@0.2.0](https://github.com/FortAwesome/react-fontawesome)**
+ - **[@fortawesome/react-fontawesome@0.2.2](https://github.com/FortAwesome/react-fontawesome)**
     - license: MIT
  - **[@humanwhocodes/config-array@0.11.8](https://github.com/humanwhocodes/config-array)**
     - license: Apache-2.0
@@ -260,7 +270,7 @@
     - license: MIT
  - **[@nodelib/fs.walk@1.2.8](https://github.com/nodelib/nodelib/tree/master/packages/fs/fs.walk)**
     - license: MIT
- - **[@reduxjs/toolkit@1.9.1](https://github.com/reduxjs/redux-toolkit)**
+ - **[@reduxjs/toolkit@2.2.7](https://github.com/reduxjs/redux-toolkit)**
     - license: MIT
  - **[@rollup/plugin-babel@5.3.1](https://github.com/rollup/plugins)**
     - license: MIT
@@ -278,11 +288,17 @@
     - license: MIT
  - **[@surma/rollup-plugin-off-main-thread@2.2.3](https://github.com/surma/rollup-plugin-off-main-thread)**
     - license: Apache-2.0
+ - **[@types/babel__core@7.20.5](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+    - license: MIT
+ - **[@types/babel__generator@7.6.8](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+    - license: MIT
+ - **[@types/babel__template@7.4.4](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+    - license: MIT
+ - **[@types/babel__traverse@7.20.6](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+    - license: MIT
  - **[@types/estree@0.0.39](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
  - **[@types/estree@1.0.5](https://github.com/DefinitelyTyped/DefinitelyTyped)**
-    - license: MIT
- - **[@types/hoist-non-react-statics@3.3.1](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
  - **[@types/json-schema@7.0.11](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
@@ -292,13 +308,11 @@
     - license: MIT
  - **[@types/prop-types@15.7.5](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
- - **[@types/react-dom@18.0.9](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/react-dom@18.3.0](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
- - **[@types/react@18.0.26](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/react@18.3.5](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
  - **[@types/resolve@1.20.2](https://github.com/DefinitelyTyped/DefinitelyTyped)**
-    - license: MIT
- - **[@types/scheduler@0.16.2](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
  - **[@types/semver@7.3.13](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
@@ -324,7 +338,7 @@
     - license: MIT
  - **[@ungap/url-search-params@0.1.4](https://github.com/ungap/url-search-params)**
     - license: ISC
- - **[@vitejs/plugin-react@3.0.0](https://github.com/vitejs/vite-plugin-react)**
+ - **[@vitejs/plugin-react@4.3.1](https://github.com/vitejs/vite-plugin-react)**
     - license: MIT
  - **[acorn-jsx@5.3.2](https://github.com/acornjs/acorn-jsx)**
     - license: MIT
@@ -356,7 +370,7 @@
     - license: MIT
  - **[at-least-node@1.0.0](https://github.com/RyanZim/at-least-node)**
     - license: ISC
- - **[autoprefixer@10.4.13](https://github.com/postcss/autoprefixer)**
+ - **[autoprefixer@10.4.20](https://github.com/postcss/autoprefixer)**
     - license: MIT
  - **[babel-plugin-polyfill-corejs2@0.4.11](https://github.com/babel/babel-polyfills)**
     - license: MIT
@@ -392,7 +406,7 @@
     - license: MIT
  - **[chalk@4.1.2](https://github.com/chalk/chalk)**
     - license: MIT
- - **[classnames@2.3.2](https://github.com/JedWatson/classnames)**
+ - **[classnames@2.5.1](https://github.com/JedWatson/classnames)**
     - license: MIT
  - **[clean-css@5.3.1](https://github.com/clean-css/clean-css)**
     - license: MIT
@@ -466,7 +480,7 @@
     - license: MIT
  - **[dotenv-expand@8.0.3](https://github.com/motdotla/dotenv-expand)**
     - license: BSD-2-Clause
- - **[dotenv@16.0.3](https://github.com/motdotla/dotenv)**
+ - **[dotenv@16.4.5](https://github.com/motdotla/dotenv)**
     - license: BSD-2-Clause
  - **[ejs@3.1.10](https://github.com/mde/ejs)**
     - license: Apache-2.0
@@ -556,7 +570,7 @@
     - license: MIT
  - **[flatted@3.2.7](https://github.com/WebReflection/flatted)**
     - license: ISC
- - **[fraction.js@4.2.0](https://github.com/infusion/Fraction.js)**
+ - **[fraction.js@4.3.7](https://github.com/rawify/Fraction.js)**
     - license: MIT
  - **[fs-extra@10.1.0](https://github.com/jprichardson/node-fs-extra)**
     - license: MIT
@@ -612,8 +626,6 @@
     - license: MIT
  - **[history@4.10.1](https://github.com/ReactTraining/history)**
     - license: MIT
- - **[hoist-non-react-statics@3.3.2](https://github.com/mridgway/hoist-non-react-statics)**
-    - license: BSD-3-Clause
  - **[hosted-git-info@2.8.9](https://github.com/npm/hosted-git-info)**
     - license: ISC
  - **[html-minifier-terser@6.1.0](https://github.com/terser/html-minifier-terser)**
@@ -622,7 +634,7 @@
     - license: ISC
  - **[ignore@5.2.0](https://github.com/kaelzhang/node-ignore)**
     - license: MIT
- - **[immer@9.0.16](https://github.com/immerjs/immer)**
+ - **[immer@10.1.1](https://github.com/immerjs/immer)**
     - license: MIT
  - **[import-fresh@3.3.0](https://github.com/sindresorhus/import-fresh)**
     - license: MIT
@@ -738,8 +750,6 @@
     - license: ISC
  - **[magic-string@0.25.9](https://github.com/rich-harris/magic-string)**
     - license: MIT
- - **[magic-string@0.27.0](https://github.com/rich-harris/magic-string)**
-    - license: MIT
  - **[memorystream@0.3.1](https://github.com/JSBizon/node-memorystream)**
     - license: 
  - **[merge2@1.4.1](https://github.com/teambition/merge2)**
@@ -756,7 +766,7 @@
     - license: MIT
  - **[ms@2.1.3](https://github.com/vercel/ms)**
     - license: MIT
- - **[nanoid@3.3.6](https://github.com/ai/nanoid)**
+ - **[nanoid@3.3.7](https://github.com/ai/nanoid)**
     - license: MIT
  - **[natural-compare-lite@1.4.0](https://github.com/litejs/natural-compare-lite)**
     - license: MIT
@@ -840,17 +850,17 @@
     - license: MIT
  - **[postcss-custom-media@8.0.2](https://github.com/csstools/postcss-plugins)**
     - license: MIT
- - **[postcss-custom-properties@12.1.11](https://github.com/csstools/postcss-plugins)**
+ - **[postcss-custom-properties@14.0.1](https://github.com/csstools/postcss-plugins)**
     - license: MIT
- - **[postcss-import@15.1.0](https://github.com/postcss/postcss-import)**
+ - **[postcss-import@16.1.0](https://github.com/postcss/postcss-import)**
     - license: MIT
- - **[postcss-nesting@10.2.0](https://github.com/csstools/postcss-plugins)**
-    - license: CC0-1.0
- - **[postcss-selector-parser@6.0.10](https://github.com/postcss/postcss-selector-parser)**
+ - **[postcss-nesting@13.0.0](https://github.com/csstools/postcss-plugins)**
+    - license: MIT-0
+ - **[postcss-selector-parser@6.1.2](https://github.com/postcss/postcss-selector-parser)**
     - license: MIT
  - **[postcss-value-parser@4.2.0](https://github.com/TrySound/postcss-value-parser)**
     - license: MIT
- - **[postcss@8.4.31](https://github.com/postcss/postcss)**
+ - **[postcss@8.4.47](https://github.com/postcss/postcss)**
     - license: MIT
  - **[prelude-ls@1.2.1](https://github.com/gkz/prelude-ls)**
     - license: MIT
@@ -868,17 +878,15 @@
     - license: MIT
  - **[randombytes@2.1.0](https://github.com/crypto-browserify/randombytes)**
     - license: MIT
- - **[react-dom@18.2.0](https://github.com/facebook/react)**
+ - **[react-dom@18.3.1](https://github.com/facebook/react)**
     - license: MIT
  - **[react-is@16.13.1](https://github.com/facebook/react)**
     - license: MIT
- - **[react-is@18.2.0](https://github.com/facebook/react)**
+ - **[react-redux@9.1.2](https://github.com/reduxjs/react-redux)**
     - license: MIT
- - **[react-redux@8.0.5](https://github.com/reduxjs/react-redux)**
+ - **[react-refresh@0.14.2](https://github.com/facebook/react)**
     - license: MIT
- - **[react-refresh@0.14.0](https://github.com/facebook/react)**
-    - license: MIT
- - **[react@18.2.0](https://github.com/facebook/react)**
+ - **[react@18.3.1](https://github.com/facebook/react)**
     - license: MIT
  - **[read-cache@1.0.0](https://github.com/TrySound/read-cache)**
     - license: MIT
@@ -886,9 +894,9 @@
     - license: MIT
  - **[redux-query-sync@0.1.10](https://github.com/Treora/redux-query-sync)**
     - license: Unlicense
- - **[redux-thunk@2.4.2](https://github.com/reduxjs/redux-thunk)**
+ - **[redux-thunk@3.1.0](https://github.com/reduxjs/redux-thunk)**
     - license: MIT
- - **[redux@4.2.0](https://github.com/reduxjs/redux)**
+ - **[redux@5.0.1](https://github.com/reduxjs/redux)**
     - license: MIT
  - **[regenerate-unicode-properties@10.2.0](https://github.com/mathiasbynens/regenerate-unicode-properties)**
     - license: MIT
@@ -910,7 +918,7 @@
     - license: MIT
  - **[require-from-string@2.0.2](https://github.com/floatdrop/require-from-string)**
     - license: MIT
- - **[reselect@4.1.7](https://github.com/reduxjs/reselect)**
+ - **[reselect@5.1.1](https://github.com/reduxjs/reselect)**
     - license: MIT
  - **[resolve-from@4.0.0](https://github.com/sindresorhus/resolve-from)**
     - license: MIT
@@ -934,7 +942,7 @@
     - license: MIT
  - **[safe-regex-test@1.0.0](https://github.com/ljharb/safe-regex-test)**
     - license: MIT
- - **[scheduler@0.23.0](https://github.com/facebook/react)**
+ - **[scheduler@0.23.2](https://github.com/facebook/react)**
     - license: MIT
  - **[semver@5.7.1](https://github.com/npm/node-semver)**
     - license: ISC
@@ -962,7 +970,7 @@
     - license: MIT
  - **[smob@1.5.0](https://github.com/Tada5hi/smob)**
     - license: MIT
- - **[source-map-js@1.0.2](https://github.com/7rulnik/source-map-js)**
+ - **[source-map-js@1.2.1](https://github.com/7rulnik/source-map-js)**
     - license: BSD-3-Clause
  - **[source-map-support@0.5.21](https://github.com/evanw/node-source-map-support)**
     - license: MIT
