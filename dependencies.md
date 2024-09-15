@@ -810,7 +810,7 @@
     - license: 
  - **[merge2@1.4.1](https://github.com/teambition/merge2)**
     - license: MIT
- - **[micromatch@4.0.5](https://github.com/micromatch/micromatch)**
+ - **[micromatch@4.0.8](https://github.com/micromatch/micromatch)**
     - license: MIT
  - **[minimatch@3.1.2](https://github.com/isaacs/minimatch)**
     - license: ISC
@@ -1004,7 +1004,7 @@
     - license: MIT
  - **[scheduler@0.23.2](https://github.com/facebook/react)**
     - license: MIT
- - **[semver@5.7.1](https://github.com/npm/node-semver)**
+ - **[semver@5.7.2](https://github.com/npm/node-semver)**
     - license: ISC
  - **[semver@6.3.1](https://github.com/npm/node-semver)**
     - license: ISC
