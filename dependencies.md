@@ -226,6 +226,8 @@
     - license: MIT
  - **[@csstools/css-tokenizer@3.0.1](https://github.com/csstools/postcss-plugins)**
     - license: MIT
+ - **[@csstools/media-query-list-parser@3.0.1](https://github.com/csstools/postcss-plugins)**
+    - license: MIT
  - **[@csstools/selector-resolve-nested@2.0.0](https://github.com/csstools/postcss-plugins)**
     - license: MIT-0
  - **[@csstools/selector-specificity@4.0.0](https://github.com/csstools/postcss-plugins)**
@@ -902,7 +904,7 @@
     - license: MIT
  - **[possible-typed-array-names@1.0.0](https://github.com/ljharb/possible-typed-array-names)**
     - license: MIT
- - **[postcss-custom-media@8.0.2](https://github.com/csstools/postcss-plugins)**
+ - **[postcss-custom-media@11.0.1](https://github.com/csstools/postcss-plugins)**
     - license: MIT
  - **[postcss-custom-properties@14.0.1](https://github.com/csstools/postcss-plugins)**
     - license: MIT
