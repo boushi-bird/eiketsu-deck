@@ -1,6 +1,10 @@
- - **[@cspotcode/source-map-consumer@0.8.0](https://github.com/cspotcode/source-map)**
-    - license: BSD-3-Clause
- - **[@cspotcode/source-map-support@0.7.0](https://github.com/cspotcode/node-source-map-support)**
+ - **[@cspotcode/source-map-support@0.8.1](https://github.com/cspotcode/node-source-map-support)**
+    - license: MIT
+ - **[@jridgewell/resolve-uri@3.1.2](https://github.com/jridgewell/resolve-uri)**
+    - license: MIT
+ - **[@jridgewell/sourcemap-codec@1.5.0](https://github.com/jridgewell/sourcemap-codec)**
+    - license: MIT
+ - **[@jridgewell/trace-mapping@0.3.9](https://github.com/jridgewell/trace-mapping)**
     - license: MIT
  - **[@tsconfig/node10@1.0.8](https://github.com/tsconfig/bases)**
     - license: MIT
@@ -10,9 +14,9 @@
     - license: MIT
  - **[@tsconfig/node16@1.0.2](https://github.com/tsconfig/bases)**
     - license: MIT
- - **[@types/js-yaml@4.0.5](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/js-yaml@4.0.9](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
- - **[@types/node@16.11.33](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/node@22.5.5](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
  - **[abbrev@1.1.1](https://github.com/isaacs/abbrev-js)**
     - license: ISC
@@ -52,7 +56,7 @@
     - license: ISC
  - **[diff@4.0.2](https://github.com/kpdecker/jsdiff)**
     - license: BSD-3-Clause
- - **[dotenv@16.0.0](https://github.com/motdotla/dotenv)**
+ - **[dotenv@16.4.5](https://github.com/motdotla/dotenv)**
     - license: BSD-2-Clause
  - **[escape-string-regexp@1.0.5](https://github.com/sindresorhus/escape-string-regexp)**
     - license: MIT
@@ -142,13 +146,15 @@
     - license: MIT
  - **[treeify@1.1.0](https://github.com/notatestuser/treeify)**
     - license: MIT
- - **[ts-node@10.7.0](https://github.com/TypeStrong/ts-node)**
+ - **[ts-node@10.9.2](https://github.com/TypeStrong/ts-node)**
     - license: MIT
  - **[typescript@4.6.3](https://github.com/Microsoft/TypeScript)**
     - license: Apache-2.0
+ - **[undici-types@6.19.8](https://github.com/nodejs/undici)**
+    - license: MIT
  - **[util-extend@1.0.3](https://github.com/isaacs/util-extend)**
     - license: MIT
- - **[v8-compile-cache-lib@3.0.0](https://github.com/cspotcode/v8-compile-cache-lib)**
+ - **[v8-compile-cache-lib@3.0.1](https://github.com/cspotcode/v8-compile-cache-lib)**
     - license: MIT
  - **[validate-npm-package-license@3.0.4](https://github.com/kemitchell/validate-npm-package-license.js)**
     - license: Apache-2.0
