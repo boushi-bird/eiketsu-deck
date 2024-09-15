@@ -7,7 +7,7 @@ import { windowActions } from '@/modules/window';
 
 export const toastMessageSelector = createSelector(
   windowSelector,
-  ({ toastMessage }) => toastMessage
+  ({ toastMessage }) => toastMessage,
 );
 
 export const Toast = () => {

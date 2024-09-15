@@ -17,7 +17,7 @@ const selector = createSelector(
   ({ currentModal, generalIdxForDetail }) => ({
     currentModal,
     generalIdxForDetail,
-  })
+  }),
 );
 
 export const Modal = () => {

@@ -58,13 +58,13 @@ function isGeneralMatchFilterCondition(
   {
     hasBelongCards,
     belongCards,
-  }: { hasBelongCards: boolean; belongCards?: BelongCards }
+  }: { hasBelongCards: boolean; belongCards?: BelongCards },
 ): boolean {
   return (
     filterMenuItems
       .filter((item) => item.enabled({ filter, hasBelongCards }))
       .every((item) =>
-        item.filter(general, filter, { hasBelongCards, belongCards })
+        item.filter(general, filter, { hasBelongCards, belongCards }),
       ) &&
     filterMenuStratItems
       .filter((item) => item.enabled({ filter }))
@@ -85,7 +85,7 @@ export const CardList = () => {
   const [readingCardsAll, setReadingCardsAll] = useState(0);
 
   const [prevBelongFilter, setPrevBelongFilter] = useState<string | undefined>(
-    undefined
+    undefined,
   );
   const [localBelongCards, setLocalBelongCards] = useState<
     { [key: string]: number } | undefined
@@ -119,12 +119,12 @@ export const CardList = () => {
   const { searchedOffset, hasPrev, hasNext, start, end } = page(
     currentPage,
     allCount,
-    PAGE_LIMIT
+    PAGE_LIMIT,
   );
 
   const displaySearchedGenerals = searchedGenerals.slice(
     searchedOffset,
-    searchedOffset + PAGE_LIMIT
+    searchedOffset + PAGE_LIMIT,
   );
 
   useEffect(() => {
@@ -157,10 +157,10 @@ export const CardList = () => {
                 isGeneralMatchFilterCondition(general, deferredFilter, {
                   hasBelongCards,
                   belongCards: localBelongCards,
-                })
+                }),
               )
-              .map(({ idx }) => idx)
-          )
+              .map(({ idx }) => idx),
+          ),
         );
         setCurrentPage(1);
       });
@@ -171,7 +171,7 @@ export const CardList = () => {
     (e) => {
       e.stopPropagation();
     },
-    []
+    [],
   );
 
   const generalCards = useMemo(
@@ -200,7 +200,7 @@ export const CardList = () => {
       displaySearchedGenerals,
       handleEtcAreaClick,
       dispatch,
-    ]
+    ],
   );
 
   return (

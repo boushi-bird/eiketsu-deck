@@ -44,7 +44,7 @@ export const BelongImport = ({ onImport }: Props) => {
         alert('ファイル読み込みに失敗しました');
       }
     },
-    []
+    [],
   );
 
   return (
@@ -112,7 +112,7 @@ export const BelongImport = ({ onImport }: Props) => {
             const belong = lines.every((l) => !l.includes('[未所持]'));
 
             const filteredGenerals = generals.filter(
-              (g) => !useFilter || searchedGenerals.includes(g.idx)
+              (g) => !useFilter || searchedGenerals.includes(g.idx),
             );
 
             const importUniqueIds = lines

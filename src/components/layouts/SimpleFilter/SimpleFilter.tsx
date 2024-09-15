@@ -16,7 +16,7 @@ import { windowActions } from '@/modules/window';
 
 const datalistSelectorCurrent = createSelector(
   datalistSelector,
-  (datalist) => datalist.generalColors
+  (datalist) => datalist.generalColors,
 );
 
 const filterSelectorCurrent = createSelector(
@@ -25,7 +25,7 @@ const filterSelectorCurrent = createSelector(
     selectionMode,
     generalColors,
     belongFilter,
-  })
+  }),
 );
 
 export const SimpleFilter = () => {
@@ -44,10 +44,10 @@ export const SimpleFilter = () => {
         filterActions.setCondition({
           itemName,
           value,
-        })
+        }),
       );
     },
-    [dispatch]
+    [dispatch],
   );
 
   const openFilter = useCallback(() => {
@@ -85,14 +85,14 @@ export const SimpleFilter = () => {
               belongFilter == null || belongFilter == 'all'
                 ? 'belong'
                 : belongFilter === 'belong'
-                ? 'not_belong'
-                : undefined;
+                  ? 'not_belong'
+                  : undefined;
 
             dispatch(
               filterActions.setCondition({
                 itemName: 'belongFilter',
                 value,
-              })
+              }),
             );
           }, [belongFilter, dispatch])}
         >

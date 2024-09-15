@@ -78,9 +78,9 @@ const numberItemNames = [
   'generalStrategyMp',
 ] as const;
 function isNumberItem(
-  itemName: FilterItemName
-): itemName is typeof numberItemNames[number] {
-  return numberItemNames.includes(itemName as typeof numberItemNames[number]);
+  itemName: FilterItemName,
+): itemName is (typeof numberItemNames)[number] {
+  return numberItemNames.includes(itemName as (typeof numberItemNames)[number]);
 }
 
 const stringArrayItemNames = [
@@ -89,10 +89,10 @@ const stringArrayItemNames = [
   'generalStrategyCaptionSearch',
 ] as const;
 function isStringArrayItem(
-  itemName: FilterItemName
-): itemName is typeof stringArrayItemNames[number] {
+  itemName: FilterItemName,
+): itemName is (typeof stringArrayItemNames)[number] {
   return stringArrayItemNames.includes(
-    itemName as typeof stringArrayItemNames[number]
+    itemName as (typeof stringArrayItemNames)[number],
   );
 }
 
@@ -104,14 +104,16 @@ const booleanItemNames = [
   'generalStrategyCaptionSearchAnd',
 ] as const;
 function isBooleanItem(
-  itemName: FilterItemName
-): itemName is typeof booleanItemNames[number] {
-  return booleanItemNames.includes(itemName as typeof booleanItemNames[number]);
+  itemName: FilterItemName,
+): itemName is (typeof booleanItemNames)[number] {
+  return booleanItemNames.includes(
+    itemName as (typeof booleanItemNames)[number],
+  );
 }
 
 export type FilterMenuItemName = Exclude<
   FilterItemName,
-  'selectionMode' | typeof booleanItemNames[number]
+  'selectionMode' | (typeof booleanItemNames)[number]
 >;
 
 const slice = createSlice({
@@ -125,13 +127,13 @@ const slice = createSlice({
       }: PayloadAction<{
         itemName: K;
         value: FilterState[K];
-      }>
+      }>,
     ) => {
       state[itemName] = value;
     },
     resetCondition: (
       state: FilterState,
-      { payload }: PayloadAction<FilterItemName>
+      { payload }: PayloadAction<FilterItemName>,
     ) => {
       const itemName = payload;
       // number

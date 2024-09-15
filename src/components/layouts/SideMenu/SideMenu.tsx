@@ -18,7 +18,7 @@ import { localStorageAvailable } from '@/utils/storageAvailable';
 
 const selectorContainer = createSelector(
   windowSelector,
-  (window) => window.openedSideMenu
+  (window) => window.openedSideMenu,
 );
 
 const lsAvailable = localStorageAvailable();
@@ -114,7 +114,7 @@ export const SideMenu = () => {
                   }
                   dispatch(windowActions.clearInstallPromptEvent());
                 },
-                [pwaInstallEnabled, dispatch]
+                [pwaInstallEnabled, dispatch],
               )}
               className={classNames({
                 disabled: !pwaInstallEnabled,

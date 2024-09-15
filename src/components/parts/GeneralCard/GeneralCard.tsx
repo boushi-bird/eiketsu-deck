@@ -25,7 +25,7 @@ export const GeneralCard = memo(function Component({
     skills.push(
       <span className="no-skill" key={0}>
         特技なし
-      </span>
+      </span>,
     );
   }
   const stratCategories = general.strat.categories.map((c) => (
@@ -66,7 +66,7 @@ export const GeneralCard = memo(function Component({
           className={classNames(
             'rarity-area',
             'rarity-bg',
-            `rarity-bg-${general.rarity.shortName.toLocaleLowerCase()}`
+            `rarity-bg-${general.rarity.shortName.toLocaleLowerCase()}`,
           )}
         >
           {general.rarity.shortName}

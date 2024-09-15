@@ -38,7 +38,7 @@ export const BelongExport = () => {
         return exportBelong ? has : !has;
       })
       .map((g) =>
-        showName ? `${g.uniqueId} ${g.rarity.shortName}${g.name}` : g.uniqueId
+        showName ? `${g.uniqueId} ${g.rarity.shortName}${g.name}` : g.uniqueId,
       )
       .join('\n');
 

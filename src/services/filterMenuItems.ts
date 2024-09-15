@@ -12,7 +12,7 @@ interface FilterMenuItem {
   filter: (
     general: General,
     filter: FilterState,
-    belong: { hasBelongCards: boolean; belongCards?: BelongCards }
+    belong: { hasBelongCards: boolean; belongCards?: BelongCards },
   ) => boolean;
   label: (datalist: DatalistState, filter: FilterState) => string;
 }
@@ -178,8 +178,8 @@ export const filterMenuItems: Readonly<FilterMenuItem[]> = [
       belongFilter === 'all'
         ? 'すべて'
         : belongFilter === 'belong'
-        ? '所持'
-        : '未所持',
+          ? '所持'
+          : '未所持',
   },
   {
     filterItemName: 'strong',
@@ -233,7 +233,7 @@ export const filterMenuItems: Readonly<FilterMenuItem[]> = [
         .map((idx) =>
           generalAppearVersions
             .flatMap((v) => v.details)
-            .find((v) => v.idx === idx)
+            .find((v) => v.idx === idx),
         )
         .filter(excludeUndef)
         .sort(sortByIdx)
@@ -375,6 +375,6 @@ export const normalizeFilterValue = (value: string) =>
   value
     .replace(/[ァ-ン]/g, (v) => String.fromCharCode(v.charCodeAt(0) - 0x60))
     .replace(/[０-９ａ-ｚＡ-Ｚ]/g, (v) =>
-      String.fromCharCode(v.charCodeAt(0) - 0xfee0)
+      String.fromCharCode(v.charCodeAt(0) - 0xfee0),
     )
     .toLowerCase();

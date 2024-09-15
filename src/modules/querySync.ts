@@ -92,7 +92,7 @@ function numberParamsOptions(
     max: number;
     defaultValue: number;
     step?: number;
-  }
+  },
 ): ParamsOptions<RootState, number> {
   return {
     ...options,
@@ -117,7 +117,7 @@ const costParam: ParamsOptions<RootState, number> = numberParamsOptions(
       return constraints.costLimit || DECK_COST_LIMIT.defaultValue;
     },
   },
-  DECK_COST_LIMIT
+  DECK_COST_LIMIT,
 );
 
 const sameCardParam: ParamsOptions<RootState, SameCardConstraint> = {

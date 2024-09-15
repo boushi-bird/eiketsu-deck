@@ -37,10 +37,10 @@ export interface DeckState {
 // personal: 同名武将不可(通常ルール)
 // personal-strategy: 同名武将かつ同計略不可
 const sameCardConstraints = ['personal', 'personal-strategy'] as const;
-export type SameCardConstraint = typeof sameCardConstraints[number];
+export type SameCardConstraint = (typeof sameCardConstraints)[number];
 
 export const isSameCardConstraints = (
-  value: string
+  value: string,
 ): value is SameCardConstraint =>
   sameCardConstraints.includes(value as SameCardConstraint);
 
@@ -88,7 +88,7 @@ const slice = createSlice({
   reducers: {
     addDeckGeneral(
       state: DeckState,
-      action: PayloadAction<{ card: DeckCard; tabIndex: number }>
+      action: PayloadAction<{ card: DeckCard; tabIndex: number }>,
     ) {
       const current = state.deckTabs[action.payload.tabIndex];
       if (!current) {
@@ -124,7 +124,7 @@ const slice = createSlice({
     },
     setDecksWithKey(
       state: DeckState,
-      action: PayloadAction<{ cards: DeckCardWithKey[]; tabIndex: number }>
+      action: PayloadAction<{ cards: DeckCardWithKey[]; tabIndex: number }>,
     ) {
       const current = state.deckTabs[action.payload.tabIndex];
       if (!current) {
@@ -135,7 +135,7 @@ const slice = createSlice({
     },
     removeDeckGeneral(
       state: DeckState,
-      action: PayloadAction<{ generalIdx: number; tabIndex: number }>
+      action: PayloadAction<{ generalIdx: number; tabIndex: number }>,
     ) {
       const current = state.deckTabs[action.payload.tabIndex];
       if (!current) {
@@ -143,7 +143,7 @@ const slice = createSlice({
       }
       const generalIdx = action.payload.generalIdx;
       const deckCards = current.cards.filter(
-        (v) => v.generalIdx !== generalIdx
+        (v) => v.generalIdx !== generalIdx,
       );
       current.cards = deckCards;
       current.cardsSaved = false;
@@ -188,7 +188,7 @@ const slice = createSlice({
     },
     setConstraintCostLimit(
       state: DeckState,
-      { payload }: PayloadAction<number>
+      { payload }: PayloadAction<number>,
     ) {
       const current = state.deckTabs[state.activeTabIndex];
       if (!current) {
@@ -198,7 +198,7 @@ const slice = createSlice({
     },
     setConstraintSameCard(
       state: DeckState,
-      { payload }: PayloadAction<SameCardConstraint>
+      { payload }: PayloadAction<SameCardConstraint>,
     ) {
       const current = state.deckTabs[state.activeTabIndex];
       if (!current) {

@@ -28,7 +28,7 @@ const selectorDeckConstraints = createSelector(
   ({ constraints: { sameCard, generalCardLimit } }) => ({
     sameCard,
     generalCardLimit,
-  })
+  }),
 );
 
 // デッキに含まれている武将名idxと計略idxの配列を返す
@@ -45,7 +45,7 @@ const selectorDeckPersonals = createSelector(
       .map(({ personalIdx, strat }) => {
         return { personalIdx, stratIdx: strat.idx };
       });
-  }
+  },
 );
 
 export const CardListCtrl = memo(function Component({ general }: Props) {
@@ -54,7 +54,7 @@ export const CardListCtrl = memo(function Component({ general }: Props) {
   const generalIdx = general.idx;
 
   const { sameCard, generalCardLimit } = useAppSelector(
-    selectorDeckConstraints
+    selectorDeckConstraints,
   );
   const activeDeckTabIndex = useAppSelector(activeDeckTabIndexSelector);
   const deckCards = useAppSelector(deckCardsSelector);
@@ -87,7 +87,7 @@ export const CardListCtrl = memo(function Component({ general }: Props) {
           !deckPersonals.some(
             (r) =>
               r.personalIdx === general.personalIdx &&
-              r.stratIdx === general.strat.idx
+              r.stratIdx === general.strat.idx,
           ) || '同名同計略武将 追加済み'
         );
       }
@@ -108,18 +108,18 @@ export const CardListCtrl = memo(function Component({ general }: Props) {
           deckActions.addDeckGeneral({
             card: { generalIdx },
             tabIndex: activeDeckTabIndex,
-          })
+          }),
         );
       } else {
         dispatch(
           deckActions.removeDeckGeneral({
             generalIdx,
             tabIndex: activeDeckTabIndex,
-          })
+          }),
         );
       }
     },
-    [activeDeckTabIndex, dispatch]
+    [activeDeckTabIndex, dispatch],
   );
 
   const handleAddBelongClick = useCallback(
@@ -127,7 +127,7 @@ export const CardListCtrl = memo(function Component({ general }: Props) {
       const count = targetChecked ? 1 : 0;
       dispatch(belongActions.updateBelongCard({ generalUniqueId, count }));
     },
-    [dispatch]
+    [dispatch],
   );
 
   return (

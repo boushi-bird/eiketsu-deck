@@ -87,7 +87,7 @@ const slice = createSlice({
     },
     openBelongCtrl: (
       state: WindowState,
-      action: PayloadAction<'belong-export' | 'belong-import'>
+      action: PayloadAction<'belong-export' | 'belong-import'>,
     ) => {
       state.currentModal = action.payload;
     },

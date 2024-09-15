@@ -40,7 +40,7 @@ const filterBasicSelector = createSelector(
     generalStrategyNameSearchAnd,
     generalStrategyCaptionSearch,
     generalStrategyCaptionSearchAnd,
-  })
+  }),
 );
 
 export const FilterTabBodyStrat = () => {
@@ -54,10 +54,10 @@ export const FilterTabBodyStrat = () => {
         filterActions.setCondition({
           itemName,
           value,
-        })
+        }),
       );
     },
-    [dispatch]
+    [dispatch],
   );
 
   const changeSelectedStringItem = useCallback(
@@ -66,10 +66,10 @@ export const FilterTabBodyStrat = () => {
         filterActions.setCondition({
           itemName,
           value,
-        })
+        }),
       );
     },
-    [dispatch]
+    [dispatch],
   );
 
   return (
@@ -86,10 +86,10 @@ export const FilterTabBodyStrat = () => {
                 filterActions.setCondition({
                   itemName: 'generalStrategyMp',
                   value,
-                })
+                }),
               );
             },
-            [dispatch]
+            [dispatch],
           )}
         />
       </section>
@@ -106,10 +106,10 @@ export const FilterTabBodyStrat = () => {
                   filterActions.setCondition({
                     itemName: 'generalStrategyNameSearchAnd',
                     value,
-                  })
+                  }),
                 );
               },
-              [dispatch]
+              [dispatch],
             )}
             isOn={filter.generalStrategyNameSearchAnd}
             labelOff="OR"
@@ -139,10 +139,10 @@ export const FilterTabBodyStrat = () => {
                   filterActions.setCondition({
                     itemName: 'generalStrategyCaptionSearchAnd',
                     value,
-                  })
+                  }),
                 );
               },
-              [dispatch]
+              [dispatch],
             )}
             isOn={filter.generalStrategyCaptionSearchAnd}
             labelOff="OR"
@@ -172,10 +172,10 @@ export const FilterTabBodyStrat = () => {
                   filterActions.setCondition({
                     itemName: 'generalStrategyCategoriesAnd',
                     value,
-                  })
+                  }),
                 );
               },
-              [dispatch]
+              [dispatch],
             )}
             isOn={filter.generalStrategyCategoriesAnd}
             labelOff="OR"

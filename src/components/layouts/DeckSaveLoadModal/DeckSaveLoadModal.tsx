@@ -34,7 +34,7 @@ interface Props {
 }
 
 const SAVE_PARAMS: Readonly<string[]> = Object.keys(queryParamsOptions).filter(
-  (v) => v !== 'dev'
+  (v) => v !== 'dev',
 );
 
 const KEY_NAME = 'saved_decks';
@@ -52,7 +52,7 @@ const queryToSavedDeckRecord =
   (query: string, index: number): SavedDeckRecords => {
     const search = new URLSearchParams(query);
     const deckCards = queryParamsOptions.deck.stringToValue(
-      search.get('deck') || ''
+      search.get('deck') || '',
     );
     const cards = deckCards
       .map((card) => generals.find((g) => g.idx === card.generalIdx))
@@ -79,7 +79,7 @@ const queryToSavedDeckRecord =
 
 const selectorDeckTabCount = createSelector(
   deckSelector,
-  ({ deckTabs }) => deckTabs.length
+  ({ deckTabs }) => deckTabs.length,
 );
 
 export const DeckSaveLoadModal = ({ tab, onClose }: Props) => {
@@ -117,7 +117,7 @@ export const DeckSaveLoadModal = ({ tab, onClose }: Props) => {
     localStorage.setItem(KEY_NAME, JSON.stringify(newQueryStrings));
     dispatch(deckActions.currentDeckToSaved());
     const cachedSavedDecks = newQueryStrings.map(
-      queryToSavedDeckRecord(generals)
+      queryToSavedDeckRecord(generals),
     );
     setSavedDecks(cachedSavedDecks);
     dispatch(windowActions.showToast('デッキをセーブしました。'));
@@ -188,7 +188,7 @@ export const DeckSaveLoadModal = ({ tab, onClose }: Props) => {
               'new-saved-deck-record',
               {
                 disabled: !enableNewSave,
-              }
+              },
             )}
             onClick={() => {
               if (!enableNewSave) {
@@ -271,12 +271,12 @@ export const DeckSaveLoadModal = ({ tab, onClose }: Props) => {
                     return;
                   }
                   const newSavedDecks = savedDecks.filter(
-                    (d) => d !== savedDeck
+                    (d) => d !== savedDeck,
                   );
                   const newQueryStrings = newSavedDecks.map((d) => d.query);
                   localStorage.setItem(
                     KEY_NAME,
-                    JSON.stringify(newQueryStrings)
+                    JSON.stringify(newQueryStrings),
                   );
                   setSavedDecks(newSavedDecks);
                 }}

@@ -48,7 +48,7 @@ export const createDatalist = (data: EiketsuDeckData): DatalistState => {
       code,
       name,
       details: generalAppearFilterGroups.filter(({ idx }) =>
-        child_idx_list.includes(idx)
+        child_idx_list.includes(idx),
       ),
     }));
 
@@ -59,18 +59,18 @@ export const createDatalist = (data: EiketsuDeckData): DatalistState => {
     const appearDetailVersion = findOrError(
       generalAppearFilterGroups,
       general,
-      'appear_filter_idx'
+      'appear_filter_idx',
     );
     const indexInitial = findOrError(
       indexInitials,
       general,
-      'index_initial_idx'
+      'index_initial_idx',
     );
     const cost = findOrError(propItems.generalCosts, general, 'cost_idx');
     const rarity = findOrError(
       propItems.generalRarities,
       general,
-      'rarity_idx'
+      'rarity_idx',
     );
     const unitType = findOrError(propItems.unitTypes, general, 'unit_type_idx');
     const skills = [
@@ -81,7 +81,7 @@ export const createDatalist = (data: EiketsuDeckData): DatalistState => {
     const strat = findOrError(
       propItems.generalStrategies,
       general,
-      'strat_idx'
+      'strat_idx',
     );
     const illust = findOrError(propItems.illusts, general, 'illust_idx');
     const cv = findOrError(propItems.characterVoices, general, 'cv_idx');
@@ -165,7 +165,7 @@ const createPropItems = (data: EiketsuDeckData): PropItems => ({
       code,
       name,
       shortName,
-    })
+    }),
   ),
   generalCosts: data.cost.map(({ idx, code, name }) => ({
     idx,
@@ -179,7 +179,7 @@ const createPropItems = (data: EiketsuDeckData): PropItems => ({
       code,
       name,
       shortName,
-    })
+    }),
   ),
   unitTypes: data.unitType.map(({ idx, code, name }) => ({
     idx,
@@ -196,7 +196,7 @@ const createPropItems = (data: EiketsuDeckData): PropItems => ({
         name,
         shortName,
         caption,
-      })
+      }),
     ),
   ],
   illusts: data.illust.map(({ idx, code, name, view_idx }) => {
@@ -217,7 +217,7 @@ const createPropItems = (data: EiketsuDeckData): PropItems => ({
 });
 
 const createGeneralStrategyPropItems = (
-  data: EiketsuDeckData
+  data: EiketsuDeckData,
 ): GeneralStrategyPropItems => {
   const generalStrategyCategories = [...data.stratCategory];
   const generalStrategyRanges = [...data.stratRange];
@@ -236,7 +236,7 @@ const createGeneralStrategyPropItems = (
     } = strat;
     const categories = category_idx_list
       .map((categoryIdx) =>
-        generalStrategyCategories.find(({ idx }) => idx === categoryIdx)
+        generalStrategyCategories.find(({ idx }) => idx === categoryIdx),
       )
       .filter(excludeUndef);
     const range = findOrError(generalStrategyRanges, strat, 'range_idx');
@@ -271,7 +271,7 @@ const createGeneralStrategyPropItems = (
 function findOrError<T extends { idx: number }, D>(
   array: T[],
   general: D,
-  idxName: keyof D
+  idxName: keyof D,
 ): T {
   const targetIdx = general[idxName] as unknown;
   const result = array.find(({ idx }) => idx === targetIdx);
