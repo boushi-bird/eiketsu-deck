@@ -13,8 +13,8 @@
 .loading-bg {
   display: flex;
   z-index: var(--z-index-loading);
+}
 
-  @nest .ready & {
-    display: none;
-  }
+.ready .loading-bg {
+  display: none;
 }

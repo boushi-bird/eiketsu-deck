@@ -27,10 +27,10 @@
       display: block;
     }
   }
+}
 
-  @nest .ready & {
-    display: block;
-  }
+.ready .side-menu-container {
+  display: block;
 }
 
 .side-menu {
