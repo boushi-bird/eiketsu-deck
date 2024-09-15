@@ -48,7 +48,11 @@ jobs:
           git config user.name "eiketsu-taisen-data BOT"
           git config user.email "eiketsu-taisen-data@example.com"
           git add .
-          git commit -m "Built from commit $(cd .. && git log -n 1 --format=%h)"
+          if git diff-index --quiet HEAD --; then
+            echo "No changes to commit."
+          else
+            git commit -m "Built from commit $(cd .. && git log -n 1 --format=%h)"
+          fi
       - name: Push
         working-directory: dist
         run: git push
