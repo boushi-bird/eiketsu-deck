@@ -2,101 +2,69 @@
     - license: Apache-2.0
  - **[@apideck/better-ajv-errors@0.3.6](https://github.com/apideck-libraries/better-ajv-errors)**
     - license: MIT
- - **[@babel/code-frame@7.22.13](https://github.com/babel/babel)**
+ - **[@babel/code-frame@7.24.7](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/compat-data@7.20.0](https://github.com/babel/babel)**
+ - **[@babel/compat-data@7.25.4](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/core@7.20.5](https://github.com/babel/babel)**
+ - **[@babel/core@7.25.2](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/generator@7.23.0](https://github.com/babel/babel)**
+ - **[@babel/generator@7.25.6](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/helper-annotate-as-pure@7.18.6](https://github.com/babel/babel)**
+ - **[@babel/helper-annotate-as-pure@7.24.7](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/helper-builder-binary-assignment-operator-visitor@7.18.9](https://github.com/babel/babel)**
+ - **[@babel/helper-builder-binary-assignment-operator-visitor@7.24.7](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/helper-compilation-targets@7.20.0](https://github.com/babel/babel)**
+ - **[@babel/helper-compilation-targets@7.25.2](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/helper-create-class-features-plugin@7.19.0](https://github.com/babel/babel)**
+ - **[@babel/helper-create-class-features-plugin@7.25.4](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/helper-create-regexp-features-plugin@7.19.0](https://github.com/babel/babel)**
+ - **[@babel/helper-create-regexp-features-plugin@7.25.2](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/helper-define-polyfill-provider@0.3.3](https://github.com/babel/babel-polyfills)**
+ - **[@babel/helper-define-polyfill-provider@0.6.2](https://github.com/babel/babel-polyfills)**
     - license: MIT
- - **[@babel/helper-environment-visitor@7.22.20](https://github.com/babel/babel)**
+ - **[@babel/helper-member-expression-to-functions@7.24.8](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/helper-explode-assignable-expression@7.18.6](https://github.com/babel/babel)**
+ - **[@babel/helper-module-imports@7.24.7](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/helper-function-name@7.23.0](https://github.com/babel/babel)**
+ - **[@babel/helper-module-transforms@7.25.2](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/helper-hoist-variables@7.22.5](https://github.com/babel/babel)**
+ - **[@babel/helper-optimise-call-expression@7.24.7](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/helper-member-expression-to-functions@7.18.9](https://github.com/babel/babel)**
+ - **[@babel/helper-plugin-utils@7.24.8](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/helper-module-imports@7.18.6](https://github.com/babel/babel)**
+ - **[@babel/helper-remap-async-to-generator@7.25.0](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/helper-module-transforms@7.20.2](https://github.com/babel/babel)**
+ - **[@babel/helper-replace-supers@7.25.0](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/helper-optimise-call-expression@7.18.6](https://github.com/babel/babel)**
+ - **[@babel/helper-simple-access@7.24.7](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/helper-plugin-utils@7.19.0](https://github.com/babel/babel)**
+ - **[@babel/helper-skip-transparent-expression-wrappers@7.24.7](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/helper-remap-async-to-generator@7.18.9](https://github.com/babel/babel)**
+ - **[@babel/helper-string-parser@7.24.8](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/helper-replace-supers@7.19.1](https://github.com/babel/babel)**
+ - **[@babel/helper-validator-identifier@7.24.7](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/helper-simple-access@7.20.2](https://github.com/babel/babel)**
+ - **[@babel/helper-validator-option@7.24.8](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/helper-skip-transparent-expression-wrappers@7.20.0](https://github.com/babel/babel)**
+ - **[@babel/helper-wrap-function@7.25.0](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/helper-split-export-declaration@7.22.6](https://github.com/babel/babel)**
+ - **[@babel/helpers@7.25.6](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/helper-string-parser@7.22.5](https://github.com/babel/babel)**
+ - **[@babel/highlight@7.24.7](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/helper-validator-identifier@7.22.20](https://github.com/babel/babel)**
+ - **[@babel/parser@7.25.6](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/helper-validator-option@7.18.6](https://github.com/babel/babel)**
+ - **[@babel/plugin-bugfix-firefox-class-in-computed-class-key@7.25.3](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/helper-wrap-function@7.19.0](https://github.com/babel/babel)**
+ - **[@babel/plugin-bugfix-safari-class-field-initializer-scope@7.25.0](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/helpers@7.20.6](https://github.com/babel/babel)**
+ - **[@babel/plugin-bugfix-safari-id-destructuring-collision-in-function-expression@7.25.0](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/highlight@7.22.20](https://github.com/babel/babel)**
+ - **[@babel/plugin-bugfix-v8-spread-parameters-in-optional-chaining@7.24.7](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/parser@7.23.0](https://github.com/babel/babel)**
+ - **[@babel/plugin-bugfix-v8-static-class-fields-redefine-readonly@7.25.0](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/plugin-bugfix-safari-id-destructuring-collision-in-function-expression@7.18.6](https://github.com/babel/babel)**
-    - license: MIT
- - **[@babel/plugin-bugfix-v8-spread-parameters-in-optional-chaining@7.18.9](https://github.com/babel/babel)**
-    - license: MIT
- - **[@babel/plugin-proposal-async-generator-functions@7.19.1](https://github.com/babel/babel)**
-    - license: MIT
- - **[@babel/plugin-proposal-class-properties@7.18.6](https://github.com/babel/babel)**
-    - license: MIT
- - **[@babel/plugin-proposal-class-static-block@7.18.6](https://github.com/babel/babel)**
-    - license: MIT
- - **[@babel/plugin-proposal-dynamic-import@7.18.6](https://github.com/babel/babel)**
-    - license: MIT
- - **[@babel/plugin-proposal-export-namespace-from@7.18.9](https://github.com/babel/babel)**
-    - license: MIT
- - **[@babel/plugin-proposal-json-strings@7.18.6](https://github.com/babel/babel)**
-    - license: MIT
- - **[@babel/plugin-proposal-logical-assignment-operators@7.18.9](https://github.com/babel/babel)**
-    - license: MIT
- - **[@babel/plugin-proposal-nullish-coalescing-operator@7.18.6](https://github.com/babel/babel)**
-    - license: MIT
- - **[@babel/plugin-proposal-numeric-separator@7.18.6](https://github.com/babel/babel)**
-    - license: MIT
- - **[@babel/plugin-proposal-object-rest-spread@7.19.4](https://github.com/babel/babel)**
-    - license: MIT
- - **[@babel/plugin-proposal-optional-catch-binding@7.18.6](https://github.com/babel/babel)**
-    - license: MIT
- - **[@babel/plugin-proposal-optional-chaining@7.18.9](https://github.com/babel/babel)**
-    - license: MIT
- - **[@babel/plugin-proposal-private-methods@7.18.6](https://github.com/babel/babel)**
-    - license: MIT
- - **[@babel/plugin-proposal-private-property-in-object@7.18.6](https://github.com/babel/babel)**
-    - license: MIT
- - **[@babel/plugin-proposal-unicode-property-regex@7.18.6](https://github.com/babel/babel)**
+ - **[@babel/plugin-proposal-private-property-in-object@7.21.0-placeholder-for-preset-env.2](https://github.com/babel/babel-plugin-proposal-private-property-in-object)**
     - license: MIT
  - **[@babel/plugin-syntax-async-generators@7.8.4](https://github.com/babel/babel/tree/master/packages/babel-plugin-syntax-async-generators)**
     - license: MIT
@@ -108,7 +76,11 @@
     - license: MIT
  - **[@babel/plugin-syntax-export-namespace-from@7.8.3](https://github.com/babel/babel/tree/master/packages/babel-plugin-syntax-export-namespace-from)**
     - license: MIT
- - **[@babel/plugin-syntax-import-assertions@7.20.0](https://github.com/babel/babel)**
+ - **[@babel/plugin-syntax-import-assertions@7.25.6](https://github.com/babel/babel)**
+    - license: MIT
+ - **[@babel/plugin-syntax-import-attributes@7.25.6](https://github.com/babel/babel)**
+    - license: MIT
+ - **[@babel/plugin-syntax-import-meta@7.10.4](https://github.com/babel/babel)**
     - license: MIT
  - **[@babel/plugin-syntax-json-strings@7.8.3](https://github.com/babel/babel/tree/master/packages/babel-plugin-syntax-json-strings)**
     - license: MIT
@@ -128,85 +100,123 @@
     - license: MIT
  - **[@babel/plugin-syntax-top-level-await@7.14.5](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/plugin-transform-arrow-functions@7.18.6](https://github.com/babel/babel)**
+ - **[@babel/plugin-syntax-unicode-sets-regex@7.18.6](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/plugin-transform-async-to-generator@7.18.6](https://github.com/babel/babel)**
+ - **[@babel/plugin-transform-arrow-functions@7.24.7](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/plugin-transform-block-scoped-functions@7.18.6](https://github.com/babel/babel)**
+ - **[@babel/plugin-transform-async-generator-functions@7.25.4](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/plugin-transform-block-scoping@7.20.0](https://github.com/babel/babel)**
+ - **[@babel/plugin-transform-async-to-generator@7.24.7](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/plugin-transform-classes@7.19.0](https://github.com/babel/babel)**
+ - **[@babel/plugin-transform-block-scoped-functions@7.24.7](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/plugin-transform-computed-properties@7.18.9](https://github.com/babel/babel)**
+ - **[@babel/plugin-transform-block-scoping@7.25.0](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/plugin-transform-destructuring@7.20.0](https://github.com/babel/babel)**
+ - **[@babel/plugin-transform-class-properties@7.25.4](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/plugin-transform-dotall-regex@7.18.6](https://github.com/babel/babel)**
+ - **[@babel/plugin-transform-class-static-block@7.24.7](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/plugin-transform-duplicate-keys@7.18.9](https://github.com/babel/babel)**
+ - **[@babel/plugin-transform-classes@7.25.4](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/plugin-transform-exponentiation-operator@7.18.6](https://github.com/babel/babel)**
+ - **[@babel/plugin-transform-computed-properties@7.24.7](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/plugin-transform-for-of@7.18.8](https://github.com/babel/babel)**
+ - **[@babel/plugin-transform-destructuring@7.24.8](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/plugin-transform-function-name@7.18.9](https://github.com/babel/babel)**
+ - **[@babel/plugin-transform-dotall-regex@7.24.7](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/plugin-transform-literals@7.18.9](https://github.com/babel/babel)**
+ - **[@babel/plugin-transform-duplicate-keys@7.24.7](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/plugin-transform-member-expression-literals@7.18.6](https://github.com/babel/babel)**
+ - **[@babel/plugin-transform-duplicate-named-capturing-groups-regex@7.25.0](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/plugin-transform-modules-amd@7.19.6](https://github.com/babel/babel)**
+ - **[@babel/plugin-transform-dynamic-import@7.24.7](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/plugin-transform-modules-commonjs@7.19.6](https://github.com/babel/babel)**
+ - **[@babel/plugin-transform-exponentiation-operator@7.24.7](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/plugin-transform-modules-systemjs@7.19.6](https://github.com/babel/babel)**
+ - **[@babel/plugin-transform-export-namespace-from@7.24.7](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/plugin-transform-modules-umd@7.18.6](https://github.com/babel/babel)**
+ - **[@babel/plugin-transform-for-of@7.24.7](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/plugin-transform-named-capturing-groups-regex@7.19.1](https://github.com/babel/babel)**
+ - **[@babel/plugin-transform-function-name@7.25.1](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/plugin-transform-new-target@7.18.6](https://github.com/babel/babel)**
+ - **[@babel/plugin-transform-json-strings@7.24.7](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/plugin-transform-object-super@7.18.6](https://github.com/babel/babel)**
+ - **[@babel/plugin-transform-literals@7.25.2](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/plugin-transform-parameters@7.18.8](https://github.com/babel/babel)**
+ - **[@babel/plugin-transform-logical-assignment-operators@7.24.7](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/plugin-transform-property-literals@7.18.6](https://github.com/babel/babel)**
+ - **[@babel/plugin-transform-member-expression-literals@7.24.7](https://github.com/babel/babel)**
+    - license: MIT
+ - **[@babel/plugin-transform-modules-amd@7.24.7](https://github.com/babel/babel)**
+    - license: MIT
+ - **[@babel/plugin-transform-modules-commonjs@7.24.8](https://github.com/babel/babel)**
+    - license: MIT
+ - **[@babel/plugin-transform-modules-systemjs@7.25.0](https://github.com/babel/babel)**
+    - license: MIT
+ - **[@babel/plugin-transform-modules-umd@7.24.7](https://github.com/babel/babel)**
+    - license: MIT
+ - **[@babel/plugin-transform-named-capturing-groups-regex@7.24.7](https://github.com/babel/babel)**
+    - license: MIT
+ - **[@babel/plugin-transform-new-target@7.24.7](https://github.com/babel/babel)**
+    - license: MIT
+ - **[@babel/plugin-transform-nullish-coalescing-operator@7.24.7](https://github.com/babel/babel)**
+    - license: MIT
+ - **[@babel/plugin-transform-numeric-separator@7.24.7](https://github.com/babel/babel)**
+    - license: MIT
+ - **[@babel/plugin-transform-object-rest-spread@7.24.7](https://github.com/babel/babel)**
+    - license: MIT
+ - **[@babel/plugin-transform-object-super@7.24.7](https://github.com/babel/babel)**
+    - license: MIT
+ - **[@babel/plugin-transform-optional-catch-binding@7.24.7](https://github.com/babel/babel)**
+    - license: MIT
+ - **[@babel/plugin-transform-optional-chaining@7.24.8](https://github.com/babel/babel)**
+    - license: MIT
+ - **[@babel/plugin-transform-parameters@7.24.7](https://github.com/babel/babel)**
+    - license: MIT
+ - **[@babel/plugin-transform-private-methods@7.25.4](https://github.com/babel/babel)**
+    - license: MIT
+ - **[@babel/plugin-transform-private-property-in-object@7.24.7](https://github.com/babel/babel)**
+    - license: MIT
+ - **[@babel/plugin-transform-property-literals@7.24.7](https://github.com/babel/babel)**
     - license: MIT
  - **[@babel/plugin-transform-react-jsx-self@7.18.6](https://github.com/babel/babel)**
     - license: MIT
  - **[@babel/plugin-transform-react-jsx-source@7.19.6](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/plugin-transform-regenerator@7.18.6](https://github.com/babel/babel)**
+ - **[@babel/plugin-transform-regenerator@7.24.7](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/plugin-transform-reserved-words@7.18.6](https://github.com/babel/babel)**
+ - **[@babel/plugin-transform-reserved-words@7.24.7](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/plugin-transform-shorthand-properties@7.18.6](https://github.com/babel/babel)**
+ - **[@babel/plugin-transform-shorthand-properties@7.24.7](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/plugin-transform-spread@7.19.0](https://github.com/babel/babel)**
+ - **[@babel/plugin-transform-spread@7.24.7](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/plugin-transform-sticky-regex@7.18.6](https://github.com/babel/babel)**
+ - **[@babel/plugin-transform-sticky-regex@7.24.7](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/plugin-transform-template-literals@7.18.9](https://github.com/babel/babel)**
+ - **[@babel/plugin-transform-template-literals@7.24.7](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/plugin-transform-typeof-symbol@7.18.9](https://github.com/babel/babel)**
+ - **[@babel/plugin-transform-typeof-symbol@7.24.8](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/plugin-transform-unicode-escapes@7.18.10](https://github.com/babel/babel)**
+ - **[@babel/plugin-transform-unicode-escapes@7.24.7](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/plugin-transform-unicode-regex@7.18.6](https://github.com/babel/babel)**
+ - **[@babel/plugin-transform-unicode-property-regex@7.24.7](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/preset-env@7.19.4](https://github.com/babel/babel)**
+ - **[@babel/plugin-transform-unicode-regex@7.24.7](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/preset-modules@0.1.5](https://github.com/babel/preset-modules)**
+ - **[@babel/plugin-transform-unicode-sets-regex@7.25.4](https://github.com/babel/babel)**
+    - license: MIT
+ - **[@babel/preset-env@7.25.4](https://github.com/babel/babel)**
+    - license: MIT
+ - **[@babel/preset-modules@0.1.6-no-external-plugins](https://github.com/babel/preset-modules)**
+    - license: MIT
+ - **[@babel/regjsgen@0.8.0](https://github.com/bnjmnt4n/regjsgen)**
     - license: MIT
  - **[@babel/runtime@7.20.0](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/template@7.22.15](https://github.com/babel/babel)**
+ - **[@babel/template@7.25.0](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/traverse@7.23.2](https://github.com/babel/babel)**
+ - **[@babel/traverse@7.25.6](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/types@7.23.0](https://github.com/babel/babel)**
+ - **[@babel/types@7.25.6](https://github.com/babel/babel)**
     - license: MIT
  - **[@boushi-bird/eiketsu-taisen-net-datalist@0.1.0](https://github.com/boushi-bird/eiketsu-taisen-net-datalist)**
     - license: MIT
@@ -232,17 +242,17 @@
     - license: BSD-3-Clause
  - **[@jridgewell/gen-mapping@0.1.1](https://github.com/jridgewell/gen-mapping)**
     - license: MIT
- - **[@jridgewell/gen-mapping@0.3.2](https://github.com/jridgewell/gen-mapping)**
+ - **[@jridgewell/gen-mapping@0.3.5](https://github.com/jridgewell/gen-mapping)**
     - license: MIT
  - **[@jridgewell/resolve-uri@3.1.0](https://github.com/jridgewell/resolve-uri)**
     - license: MIT
- - **[@jridgewell/set-array@1.1.2](https://github.com/jridgewell/set-array)**
+ - **[@jridgewell/set-array@1.2.1](https://github.com/jridgewell/set-array)**
     - license: MIT
- - **[@jridgewell/source-map@0.3.2](https://github.com/jridgewell/source-map)**
+ - **[@jridgewell/source-map@0.3.6](https://github.com/jridgewell/source-map)**
     - license: MIT
  - **[@jridgewell/sourcemap-codec@1.4.14](https://github.com/jridgewell/sourcemap-codec)**
     - license: MIT
- - **[@jridgewell/trace-mapping@0.3.17](https://github.com/jridgewell/trace-mapping)**
+ - **[@jridgewell/trace-mapping@0.3.25](https://github.com/jridgewell/trace-mapping)**
     - license: MIT
  - **[@nodelib/fs.scandir@2.1.5](https://github.com/nodelib/nodelib/tree/master/packages/fs/fs.scandir)**
     - license: MIT
@@ -254,23 +264,23 @@
     - license: MIT
  - **[@rollup/plugin-babel@5.3.1](https://github.com/rollup/plugins)**
     - license: MIT
- - **[@rollup/plugin-node-resolve@11.2.1](https://github.com/rollup/plugins)**
+ - **[@rollup/plugin-node-resolve@15.2.3](https://github.com/rollup/plugins)**
     - license: MIT
  - **[@rollup/plugin-replace@2.4.2](https://github.com/rollup/plugins)**
     - license: MIT
- - **[@rollup/plugin-replace@5.0.2](https://github.com/rollup/plugins)**
+ - **[@rollup/plugin-terser@0.4.4](https://github.com/rollup/plugins)**
     - license: MIT
  - **[@rollup/pluginutils@3.1.0](https://github.com/rollup/plugins)**
     - license: MIT
  - **[@rollup/pluginutils@4.2.1](https://github.com/rollup/plugins)**
     - license: MIT
- - **[@rollup/pluginutils@5.0.2](https://github.com/rollup/plugins)**
+ - **[@rollup/pluginutils@5.1.0](https://github.com/rollup/plugins)**
     - license: MIT
  - **[@surma/rollup-plugin-off-main-thread@2.2.3](https://github.com/surma/rollup-plugin-off-main-thread)**
     - license: Apache-2.0
  - **[@types/estree@0.0.39](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
- - **[@types/estree@1.0.0](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/estree@1.0.5](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
  - **[@types/hoist-non-react-statics@3.3.1](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
@@ -278,7 +288,7 @@
     - license: MIT
  - **[@types/json5@0.0.29](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
- - **[@types/node@18.11.17](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/node@22.5.5](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
  - **[@types/prop-types@15.7.5](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
@@ -286,13 +296,13 @@
     - license: MIT
  - **[@types/react@18.0.26](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
- - **[@types/resolve@1.17.1](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/resolve@1.20.2](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
  - **[@types/scheduler@0.16.2](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
  - **[@types/semver@7.3.13](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
- - **[@types/trusted-types@2.0.2](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/trusted-types@2.0.7](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
  - **[@types/use-sync-external-store@0.0.3](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
@@ -318,11 +328,11 @@
     - license: MIT
  - **[acorn-jsx@5.3.2](https://github.com/acornjs/acorn-jsx)**
     - license: MIT
- - **[acorn@8.8.1](https://github.com/acornjs/acorn)**
+ - **[acorn@8.12.1](https://github.com/acornjs/acorn)**
     - license: MIT
  - **[ajv@6.12.6](https://github.com/ajv-validator/ajv)**
     - license: MIT
- - **[ajv@8.11.0](https://github.com/ajv-validator/ajv)**
+ - **[ajv@8.17.1](https://github.com/ajv-validator/ajv)**
     - license: MIT
  - **[ansi-regex@5.0.1](https://github.com/chalk/ansi-regex)**
     - license: MIT
@@ -348,11 +358,11 @@
     - license: ISC
  - **[autoprefixer@10.4.13](https://github.com/postcss/autoprefixer)**
     - license: MIT
- - **[babel-plugin-polyfill-corejs2@0.3.3](https://github.com/babel/babel-polyfills)**
+ - **[babel-plugin-polyfill-corejs2@0.4.11](https://github.com/babel/babel-polyfills)**
     - license: MIT
- - **[babel-plugin-polyfill-corejs3@0.6.0](https://github.com/babel/babel-polyfills)**
+ - **[babel-plugin-polyfill-corejs3@0.10.6](https://github.com/babel/babel-polyfills)**
     - license: MIT
- - **[babel-plugin-polyfill-regenerator@0.4.1](https://github.com/babel/babel-polyfills)**
+ - **[babel-plugin-polyfill-regenerator@0.6.2](https://github.com/babel/babel-polyfills)**
     - license: MIT
  - **[balanced-match@1.0.2](https://github.com/juliangruber/balanced-match)**
     - license: MIT
@@ -364,7 +374,7 @@
     - license: MIT
  - **[braces@3.0.3](https://github.com/micromatch/braces)**
     - license: MIT
- - **[browserslist@4.21.4](https://github.com/browserslist/browserslist)**
+ - **[browserslist@4.23.3](https://github.com/browserslist/browserslist)**
     - license: MIT
  - **[buffer-from@1.1.2](https://github.com/LinusU/buffer-from)**
     - license: MIT
@@ -376,7 +386,7 @@
     - license: MIT
  - **[camel-case@4.1.2](https://github.com/blakeembrey/change-case)**
     - license: MIT
- - **[caniuse-lite@1.0.30001427](https://github.com/browserslist/caniuse-lite)**
+ - **[caniuse-lite@1.0.30001660](https://github.com/browserslist/caniuse-lite)**
     - license: CC-BY-4.0
  - **[chalk@2.4.2](https://github.com/chalk/chalk)**
     - license: MIT
@@ -408,9 +418,9 @@
     - license: MIT
  - **[consola@2.15.3](https://github.com/nuxt/consola)**
     - license: MIT
- - **[convert-source-map@1.9.0](https://github.com/thlorenz/convert-source-map)**
+ - **[convert-source-map@2.0.0](https://github.com/thlorenz/convert-source-map)**
     - license: MIT
- - **[core-js-compat@3.26.0](https://github.com/zloirock/core-js)**
+ - **[core-js-compat@3.38.1](https://github.com/zloirock/core-js)**
     - license: MIT
  - **[cross-spawn@6.0.5](https://github.com/moxystudio/node-cross-spawn)**
     - license: MIT
@@ -430,11 +440,11 @@
     - license: MIT
  - **[debug@3.2.7](https://github.com/visionmedia/debug)**
     - license: MIT
- - **[debug@4.3.4](https://github.com/debug-js/debug)**
+ - **[debug@4.3.7](https://github.com/debug-js/debug)**
     - license: MIT
  - **[deep-is@0.1.4](https://github.com/thlorenz/deep-is)**
     - license: MIT
- - **[deepmerge@4.2.2](https://github.com/TehShrike/deepmerge)**
+ - **[deepmerge@4.3.1](https://github.com/TehShrike/deepmerge)**
     - license: MIT
  - **[define-properties@1.1.4](https://github.com/ljharb/define-properties)**
     - license: MIT
@@ -460,7 +470,7 @@
     - license: BSD-2-Clause
  - **[ejs@3.1.10](https://github.com/mde/ejs)**
     - license: Apache-2.0
- - **[electron-to-chromium@1.4.284](https://github.com/kilian/electron-to-chromium)**
+ - **[electron-to-chromium@1.5.23](https://github.com/kilian/electron-to-chromium)**
     - license: ISC
  - **[entities@2.2.0](https://github.com/fb55/entities)**
     - license: BSD-2-Clause
@@ -474,7 +484,7 @@
     - license: MIT
  - **[esbuild@0.18.20](https://github.com/evanw/esbuild)**
     - license: MIT
- - **[escalade@3.1.1](https://github.com/lukeed/escalade)**
+ - **[escalade@3.2.0](https://github.com/lukeed/escalade)**
     - license: MIT
  - **[escape-string-regexp@1.0.5](https://github.com/sindresorhus/escape-string-regexp)**
     - license: MIT
@@ -522,14 +532,18 @@
     - license: BSD-2-Clause
  - **[fast-deep-equal@3.1.3](https://github.com/epoberezkin/fast-deep-equal)**
     - license: MIT
- - **[fast-glob@3.2.12](https://github.com/mrmlnc/fast-glob)**
+ - **[fast-glob@3.3.2](https://github.com/mrmlnc/fast-glob)**
     - license: MIT
  - **[fast-json-stable-stringify@2.1.0](https://github.com/epoberezkin/fast-json-stable-stringify)**
     - license: MIT
  - **[fast-levenshtein@2.0.6](https://github.com/hiddentao/fast-levenshtein)**
     - license: MIT
+ - **[fast-uri@3.0.1](https://github.com/fastify/fast-uri)**
+    - license: MIT
  - **[fastq@1.13.0](https://github.com/mcollina/fastq)**
     - license: ISC
+ - **[fdir@6.3.0](https://github.com/thecodrr/fdir)**
+    - license: MIT
  - **[file-entry-cache@6.0.1](https://github.com/royriojas/file-entry-cache)**
     - license: MIT
  - **[filelist@1.0.4](https://github.com/mde/filelist)**
@@ -604,7 +618,7 @@
     - license: ISC
  - **[html-minifier-terser@6.1.0](https://github.com/terser/html-minifier-terser)**
     - license: MIT
- - **[idb@7.1.0](https://github.com/jakearchibald/idb)**
+ - **[idb@7.1.1](https://github.com/jakearchibald/idb)**
     - license: ISC
  - **[ignore@5.2.0](https://github.com/kaelzhang/node-ignore)**
     - license: MIT
@@ -625,6 +639,8 @@
  - **[is-bigint@1.0.4](https://github.com/inspect-js/is-bigint)**
     - license: MIT
  - **[is-boolean-object@1.1.2](https://github.com/inspect-js/is-boolean-object)**
+    - license: MIT
+ - **[is-builtin-module@3.2.1](https://github.com/sindresorhus/is-builtin-module)**
     - license: MIT
  - **[is-callable@1.2.7](https://github.com/inspect-js/is-callable)**
     - license: MIT
@@ -666,8 +682,6 @@
     - license: ISC
  - **[jake@10.8.5](https://github.com/jakejs/jake)**
     - license: Apache-2.0
- - **[jest-worker@26.6.2](https://github.com/facebook/jest)**
-    - license: MIT
  - **[js-sdsl@4.1.5](https://github.com/js-sdsl/js-sdsl)**
     - license: MIT
  - **[js-tokens@4.0.0](https://github.com/lydell/js-tokens)**
@@ -718,6 +732,8 @@
     - license: MIT
  - **[lower-case@2.0.2](https://github.com/blakeembrey/change-case)**
     - license: MIT
+ - **[lru-cache@5.1.1](https://github.com/isaacs/node-lru-cache)**
+    - license: ISC
  - **[lru-cache@6.0.0](https://github.com/isaacs/node-lru-cache)**
     - license: ISC
  - **[magic-string@0.25.9](https://github.com/rich-harris/magic-string)**
@@ -726,8 +742,6 @@
     - license: MIT
  - **[memorystream@0.3.1](https://github.com/JSBizon/node-memorystream)**
     - license: 
- - **[merge-stream@2.0.0](https://github.com/grncdr/merge-stream)**
-    - license: MIT
  - **[merge2@1.4.1](https://github.com/teambition/merge2)**
     - license: MIT
  - **[micromatch@4.0.5](https://github.com/micromatch/micromatch)**
@@ -740,7 +754,7 @@
     - license: MIT
  - **[ms@2.0.0](https://github.com/zeit/ms)**
     - license: MIT
- - **[ms@2.1.2](https://github.com/zeit/ms)**
+ - **[ms@2.1.3](https://github.com/vercel/ms)**
     - license: MIT
  - **[nanoid@3.3.6](https://github.com/ai/nanoid)**
     - license: MIT
@@ -754,7 +768,7 @@
     - license: MIT
  - **[node-html-parser@5.4.2](https://github.com/taoqf/node-fast-html-parser)**
     - license: MIT
- - **[node-releases@2.0.6](https://github.com/chicoxyzzy/node-releases)**
+ - **[node-releases@2.0.18](https://github.com/chicoxyzzy/node-releases)**
     - license: MIT
  - **[normalize-package-data@2.5.0](https://github.com/npm/normalize-package-data)**
     - license: BSD-2-Clause
@@ -812,9 +826,11 @@
     - license: MIT
  - **[pathe@0.2.0](https://github.com/unjs/pathe)**
     - license: MIT
- - **[picocolors@1.0.0](https://github.com/alexeyraspopov/picocolors)**
+ - **[picocolors@1.1.0](https://github.com/alexeyraspopov/picocolors)**
     - license: ISC
  - **[picomatch@2.3.1](https://github.com/micromatch/picomatch)**
+    - license: MIT
+ - **[picomatch@4.0.2](https://github.com/micromatch/picomatch)**
     - license: MIT
  - **[pidtree@0.3.1](https://github.com/simonepri/pidtree)**
     - license: MIT
@@ -842,7 +858,7 @@
     - license: MIT
  - **[pretty-bytes@5.6.0](https://github.com/sindresorhus/pretty-bytes)**
     - license: MIT
- - **[pretty-bytes@6.0.0](https://github.com/sindresorhus/pretty-bytes)**
+ - **[pretty-bytes@6.1.1](https://github.com/sindresorhus/pretty-bytes)**
     - license: MIT
  - **[prop-types@15.8.1](https://github.com/facebook/prop-types)**
     - license: MIT
@@ -874,21 +890,19 @@
     - license: MIT
  - **[redux@4.2.0](https://github.com/reduxjs/redux)**
     - license: MIT
- - **[regenerate-unicode-properties@10.1.0](https://github.com/mathiasbynens/regenerate-unicode-properties)**
+ - **[regenerate-unicode-properties@10.2.0](https://github.com/mathiasbynens/regenerate-unicode-properties)**
     - license: MIT
  - **[regenerate@1.4.2](https://github.com/mathiasbynens/regenerate)**
     - license: MIT
  - **[regenerator-runtime@0.13.10](https://github.com/facebook/regenerator/tree/master/packages/runtime)**
     - license: MIT
- - **[regenerator-transform@0.15.0](https://github.com/facebook/regenerator/tree/master/packages/transform)**
+ - **[regenerator-transform@0.15.2](https://github.com/facebook/regenerator/tree/main/packages/transform)**
     - license: MIT
  - **[regexp.prototype.flags@1.4.3](https://github.com/es-shims/RegExp.prototype.flags)**
     - license: MIT
  - **[regexpp@3.2.0](https://github.com/mysticatea/regexpp)**
     - license: MIT
- - **[regexpu-core@5.2.1](https://github.com/mathiasbynens/regexpu-core)**
-    - license: MIT
- - **[regjsgen@0.7.1](https://github.com/bnjmnt4n/regjsgen)**
+ - **[regexpu-core@5.3.2](https://github.com/mathiasbynens/regexpu-core)**
     - license: MIT
  - **[regjsparser@0.9.1](https://github.com/jviereck/regjsparser)**
     - license: BSD-2-Clause
@@ -910,13 +924,9 @@
     - license: MIT
  - **[rimraf@3.0.2](https://github.com/isaacs/rimraf)**
     - license: ISC
- - **[rollup-plugin-terser@7.0.2](https://github.com/TrySound/rollup-plugin-terser)**
-    - license: MIT
  - **[rollup@2.79.1](https://github.com/rollup/rollup)**
     - license: MIT
  - **[rollup@3.29.4](https://github.com/rollup/rollup)**
-    - license: MIT
- - **[rollup@3.7.5](https://github.com/rollup/rollup)**
     - license: MIT
  - **[run-parallel@1.2.0](https://github.com/feross/run-parallel)**
     - license: MIT
@@ -930,9 +940,11 @@
     - license: ISC
  - **[semver@6.3.0](https://github.com/npm/node-semver)**
     - license: ISC
+ - **[semver@6.3.1](https://github.com/npm/node-semver)**
+    - license: ISC
  - **[semver@7.3.8](https://github.com/npm/node-semver)**
     - license: ISC
- - **[serialize-javascript@4.0.0](https://github.com/yahoo/serialize-javascript)**
+ - **[serialize-javascript@6.0.2](https://github.com/yahoo/serialize-javascript)**
     - license: BSD-3-Clause
  - **[shebang-command@1.2.0](https://github.com/kevva/shebang-command)**
     - license: MIT
@@ -947,6 +959,8 @@
  - **[side-channel@1.0.4](https://github.com/ljharb/side-channel)**
     - license: MIT
  - **[slash@3.0.0](https://github.com/sindresorhus/slash)**
+    - license: MIT
+ - **[smob@1.5.0](https://github.com/Tada5hi/smob)**
     - license: MIT
  - **[source-map-js@1.0.2](https://github.com/7rulnik/source-map-js)**
     - license: BSD-3-Clause
@@ -994,7 +1008,7 @@
     - license: MIT
  - **[tempy@0.6.0](https://github.com/sindresorhus/tempy)**
     - license: MIT
- - **[terser@5.15.1](https://github.com/terser/terser)**
+ - **[terser@5.32.0](https://github.com/terser/terser)**
     - license: BSD-2-Clause
  - **[text-table@0.2.0](https://github.com/substack/text-table)**
     - license: MIT
@@ -1002,6 +1016,8 @@
     - license: MIT
  - **[tiny-warning@1.0.3](https://github.com/alexreardon/tiny-warning)**
     - license: MIT
+ - **[tinyglobby@0.2.6](https://github.com/SuperchupuDev/tinyglobby)**
+    - license: ISC
  - **[to-fast-properties@2.0.0](https://github.com/sindresorhus/to-fast-properties)**
     - license: MIT
  - **[to-regex-range@5.0.1](https://github.com/micromatch/to-regex-range)**
@@ -1022,17 +1038,21 @@
     - license: (MIT OR CC0-1.0)
  - **[type-fest@0.20.2](https://github.com/sindresorhus/type-fest)**
     - license: (MIT OR CC0-1.0)
- - **[type-fest@3.4.0](https://github.com/sindresorhus/type-fest)**
+ - **[type-fest@3.13.1](https://github.com/sindresorhus/type-fest)**
     - license: (MIT OR CC0-1.0)
- - **[typescript@4.9.4](https://github.com/Microsoft/TypeScript)**
+ - **[type-fest@4.26.1](https://github.com/sindresorhus/type-fest)**
+    - license: (MIT OR CC0-1.0)
+ - **[typescript@5.6.2](https://github.com/microsoft/TypeScript)**
     - license: Apache-2.0
  - **[unbox-primitive@1.0.2](https://github.com/ljharb/unbox-primitive)**
     - license: MIT
- - **[unicode-canonical-property-names-ecmascript@2.0.0](https://github.com/mathiasbynens/unicode-canonical-property-names-ecmascript)**
+ - **[undici-types@6.19.8](https://github.com/nodejs/undici)**
+    - license: MIT
+ - **[unicode-canonical-property-names-ecmascript@2.0.1](https://github.com/mathiasbynens/unicode-canonical-property-names-ecmascript)**
     - license: MIT
  - **[unicode-match-property-ecmascript@2.0.0](https://github.com/mathiasbynens/unicode-match-property-ecmascript)**
     - license: MIT
- - **[unicode-match-property-value-ecmascript@2.0.0](https://github.com/mathiasbynens/unicode-match-property-value-ecmascript)**
+ - **[unicode-match-property-value-ecmascript@2.2.0](https://github.com/mathiasbynens/unicode-match-property-value-ecmascript)**
     - license: MIT
  - **[unicode-property-aliases-ecmascript@2.1.0](https://github.com/mathiasbynens/unicode-property-aliases-ecmascript)**
     - license: MIT
@@ -1042,7 +1062,7 @@
     - license: MIT
  - **[upath@1.2.0](https://github.com/anodynos/upath)**
     - license: MIT
- - **[update-browserslist-db@1.0.10](https://github.com/browserslist/update-db)**
+ - **[update-browserslist-db@1.1.0](https://github.com/browserslist/update-db)**
     - license: MIT
  - **[uri-js@4.4.1](https://github.com/garycourt/uri-js)**
     - license: BSD-2-Clause
@@ -1054,11 +1074,11 @@
     - license: Apache-2.0
  - **[value-equal@1.0.1](https://github.com/mjackson/value-equal)**
     - license: MIT
- - **[vite-plugin-html@3.2.0](https://github.com/vbenjs/vite-plugin-html)**
+ - **[vite-plugin-html@3.2.2](https://github.com/vbenjs/vite-plugin-html)**
     - license: MIT
- - **[vite-plugin-pwa@0.14.0](https://github.com/antfu/vite-plugin-pwa)**
+ - **[vite-plugin-pwa@0.20.5](https://github.com/vite-pwa/vite-plugin-pwa)**
     - license: MIT
- - **[vite-plugin-radar@0.6.0](https://github.com/stafyniaksacha/vite-plugin-radar)**
+ - **[vite-plugin-radar@0.9.6](https://github.com/stafyniaksacha/vite-plugin-radar)**
     - license: MIT
  - **[vite@4.5.3](https://github.com/vitejs/vite)**
     - license: MIT
@@ -1074,39 +1094,41 @@
     - license: ISC
  - **[word-wrap@1.2.4](https://github.com/jonschlinkert/word-wrap)**
     - license: MIT
- - **[workbox-background-sync@6.5.4](https://github.com/googlechrome/workbox)**
+ - **[workbox-background-sync@7.1.0](https://github.com/googlechrome/workbox)**
     - license: MIT
- - **[workbox-broadcast-update@6.5.4](https://github.com/googlechrome/workbox)**
+ - **[workbox-broadcast-update@7.1.0](https://github.com/googlechrome/workbox)**
     - license: MIT
- - **[workbox-build@6.5.4](https://github.com/googlechrome/workbox)**
+ - **[workbox-build@7.1.1](https://github.com/googlechrome/workbox)**
     - license: MIT
- - **[workbox-cacheable-response@6.5.4](https://github.com/googlechrome/workbox)**
+ - **[workbox-cacheable-response@7.1.0](https://github.com/googlechrome/workbox)**
     - license: MIT
- - **[workbox-core@6.5.4](https://github.com/googlechrome/workbox)**
+ - **[workbox-core@7.1.0](https://github.com/googlechrome/workbox)**
     - license: MIT
- - **[workbox-expiration@6.5.4](https://github.com/googlechrome/workbox)**
+ - **[workbox-expiration@7.1.0](https://github.com/googlechrome/workbox)**
     - license: MIT
- - **[workbox-google-analytics@6.5.4](https://github.com/googlechrome/workbox)**
+ - **[workbox-google-analytics@7.1.0](https://github.com/googlechrome/workbox)**
     - license: MIT
- - **[workbox-navigation-preload@6.5.4](https://github.com/googlechrome/workbox)**
+ - **[workbox-navigation-preload@7.1.0](https://github.com/googlechrome/workbox)**
     - license: MIT
- - **[workbox-precaching@6.5.4](https://github.com/googlechrome/workbox)**
+ - **[workbox-precaching@7.1.0](https://github.com/googlechrome/workbox)**
     - license: MIT
- - **[workbox-range-requests@6.5.4](https://github.com/googlechrome/workbox)**
+ - **[workbox-range-requests@7.1.0](https://github.com/googlechrome/workbox)**
     - license: MIT
- - **[workbox-recipes@6.5.4](https://github.com/googlechrome/workbox)**
+ - **[workbox-recipes@7.1.0](https://github.com/googlechrome/workbox)**
     - license: MIT
- - **[workbox-routing@6.5.4](https://github.com/googlechrome/workbox)**
+ - **[workbox-routing@7.1.0](https://github.com/googlechrome/workbox)**
     - license: MIT
- - **[workbox-strategies@6.5.4](https://github.com/googlechrome/workbox)**
+ - **[workbox-strategies@7.1.0](https://github.com/googlechrome/workbox)**
     - license: MIT
- - **[workbox-streams@6.5.4](https://github.com/googlechrome/workbox)**
+ - **[workbox-streams@7.1.0](https://github.com/googlechrome/workbox)**
     - license: MIT
- - **[workbox-sw@6.5.4](https://github.com/googlechrome/workbox)**
+ - **[workbox-sw@7.1.0](https://github.com/googlechrome/workbox)**
     - license: MIT
- - **[workbox-window@6.5.4](https://github.com/googlechrome/workbox)**
+ - **[workbox-window@7.1.0](https://github.com/googlechrome/workbox)**
     - license: MIT
  - **[wrappy@1.0.2](https://github.com/npm/wrappy)**
+    - license: ISC
+ - **[yallist@3.1.1](https://github.com/isaacs/yallist)**
     - license: ISC
  - **[yallist@4.0.0](https://github.com/isaacs/yallist)**
     - license: ISC
