@@ -132,12 +132,12 @@
 
 @custom-media --vertical-screen-w screen and (max-width: 1050px);
 @custom-media --vertical-screen-h screen and (max-height: 620px);
-@custom-media --vertical-screen --vertical-screen-w,
-  --vertical-screen-h; /* 縦長の主にスマホ画面表示 */
+@custom-media --vertical-screen (--vertical-screen-w),
+  (--vertical-screen-h); /* 縦長の主にスマホ画面表示 */
 @custom-media --middle-screen screen and (min-width: 1080px) and (max-height: 620px); /* 縦が小さめ画面 */
 @custom-media --large-screen screen and (min-width: 1500px) and (min-height: 700px); /* 幅・高さが大きい画面表示 */
-@custom-media --modal-filter-style --middle-screen,
-  --vertical-screen; /* 絞り込みメニューがモーダルの場合 */
+@custom-media --modal-filter-style (--middle-screen),
+  (--vertical-screen); /* 絞り込みメニューがモーダルの場合 */
 @custom-media --short-vertical screen and (max-height: 900px);
 @custom-media --long-vertical screen and (min-height: 1080px);
 
