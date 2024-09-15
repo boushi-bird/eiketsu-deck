@@ -19,7 +19,7 @@ interface Props {
 function totalize<K>(
   deckGenerals: General[],
   data: K[],
-  getItem: (g: General) => K
+  getItem: (g: General) => K,
 ): { item: K; count: number; cost: number }[] {
   const m = deckGenerals.reduce((v, g) => {
     const item = getItem(g);
@@ -39,7 +39,7 @@ function totalize<K>(
 function totalizeArray<K>(
   deckGenerals: General[],
   data: K[],
-  getItems: (g: General) => K[]
+  getItems: (g: General) => K[],
 ): { item: K; count: number; cost: number }[] {
   const m = deckGenerals.reduce((v, g) => {
     const items = getItems(g);
@@ -60,7 +60,7 @@ function totalizeArray<K>(
 
 function totalizeByMap<K>(
   m: Map<K, { count: number; cost: number }>,
-  data: K[]
+  data: K[],
 ): { item: K; count: number; cost: number }[] {
   return data
     .map((d) => {
@@ -85,20 +85,20 @@ export const DeckTotal = memo(function Component({
   const totalStrong = deckGenerals.reduce((total, g) => total + g.strong, 0);
   const totalIntelligence = deckGenerals.reduce(
     (total, g) => total + g.intelligence,
-    0
+    0,
   );
 
   const sumSkills = totalizeArray(
     deckGenerals,
     skills.filter((s) => s.idx !== NO_SKILL.idx),
-    (g) => g.skills
+    (g) => g.skills,
   );
 
   // 時代勢力コスト集計
   const periodsCostDetails = totalize(
     deckGenerals,
     periods,
-    (g) => g.period
+    (g) => g.period,
   ).map((v) => ({
     key: `${v.item.idx}`,
     name: v.item.name,
@@ -109,7 +109,7 @@ export const DeckTotal = memo(function Component({
   const generalColorCostDetails = totalize(
     deckGenerals,
     generalColors,
-    (g) => g.color
+    (g) => g.color,
   ).map((v) => ({
     key: `${v.item.idx}`,
     name: v.item.name,

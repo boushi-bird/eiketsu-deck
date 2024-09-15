@@ -43,7 +43,7 @@ const filterBasicSelector = createSelector(
     cardTypes,
     illustrations,
     characterVoices,
-  })
+  }),
 );
 
 export const FilterTabBodyDetail = () => {
@@ -58,10 +58,10 @@ export const FilterTabBodyDetail = () => {
         filterActions.setCondition({
           itemName,
           value,
-        })
+        }),
       );
     },
-    [dispatch]
+    [dispatch],
   );
 
   return (
@@ -85,7 +85,7 @@ export const FilterTabBodyDetail = () => {
                 value: 'not_belong',
               },
             ],
-            []
+            [],
           )}
           selectionMode={filter.selectionMode}
           selectedItems={useMemo(() => {
@@ -103,13 +103,13 @@ export const FilterTabBodyDetail = () => {
                 value.length === 0
                   ? undefined
                   : value.length === 1
-                  ? value[0]
-                  : 'all';
+                    ? value[0]
+                    : 'all';
               dispatch(
-                filterActions.setCondition({ itemName, value: belongFilter })
+                filterActions.setCondition({ itemName, value: belongFilter }),
               );
             },
-            [dispatch]
+            [dispatch],
           )}
         />
       </section>
@@ -126,10 +126,10 @@ export const FilterTabBodyDetail = () => {
                 filterActions.setCondition({
                   itemName: 'strong',
                   value,
-                })
+                }),
               );
             },
-            [dispatch]
+            [dispatch],
           )}
         />
       </section>
@@ -146,10 +146,10 @@ export const FilterTabBodyDetail = () => {
                 filterActions.setCondition({
                   itemName: 'intelligence',
                   value,
-                })
+                }),
               );
             },
-            [dispatch]
+            [dispatch],
           )}
         />
       </section>

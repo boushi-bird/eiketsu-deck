@@ -43,7 +43,7 @@ const createButtonChild = (name: string, imageUrl?: string): ReactNode => {
 
 export const FilterButtonList = genericMemo(function Component<
   T extends string,
-  V
+  V,
 >({
   itemName,
   buttonItems,
@@ -93,15 +93,15 @@ export const FilterButtonList = genericMemo(function Component<
             const items = selected
               ? selectedItems.filter((item) => item !== value)
               : selectionMode === 'multiple'
-              ? [...selectedItems, value]
-              : [value];
+                ? [...selectedItems, value]
+                : [value];
             onSelectItems(itemName, items);
           }}
         >
           {children}
         </FilterButton>
       );
-    }
+    },
   );
 
   const style: CSSProperties = {

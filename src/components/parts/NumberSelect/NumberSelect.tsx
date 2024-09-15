@@ -28,7 +28,7 @@ export const NumberSelect = ({
     options.push(
       <option key={i} value={i}>
         {text}
-      </option>
+      </option>,
     );
   }
 
@@ -37,7 +37,7 @@ export const NumberSelect = ({
       const value = parseFloat(event.currentTarget.value);
       onChangeValue(value === defaultValue ? undefined : value);
     },
-    [defaultValue, onChangeValue]
+    [defaultValue, onChangeValue],
   );
 
   const value = currentValue == null ? defaultValue : currentValue;

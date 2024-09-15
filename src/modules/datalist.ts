@@ -83,7 +83,7 @@ const slice = createSlice({
   reducers: {
     setDatalist(
       _: DatalistState,
-      action: PayloadAction<DatalistState>
+      action: PayloadAction<DatalistState>,
     ): DatalistState {
       return {
         ...action.payload,

@@ -9,6 +9,6 @@ export function setupRoot(el: HTMLElement) {
   root.render(
     <Provider store={store}>
       <App />
-    </Provider>
+    </Provider>,
   );
 }

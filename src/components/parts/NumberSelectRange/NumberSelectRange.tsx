@@ -9,7 +9,7 @@ interface Props {
   min: number;
   current?: RequireAtLeastOne<{ max?: number; min?: number }>;
   onChangeValue: (
-    value?: RequireAtLeastOne<{ max?: number; min?: number }>
+    value?: RequireAtLeastOne<{ max?: number; min?: number }>,
   ) => void;
 }
 
@@ -25,7 +25,7 @@ export const NumberSelectRange = memo(function Component({
         max != null ? { max, min } : min != null ? { max, min } : undefined;
       onChangeValue(value);
     },
-    [onChangeValue]
+    [onChangeValue],
   );
   return (
     <div className="number-select-range">
@@ -40,7 +40,7 @@ export const NumberSelectRange = memo(function Component({
             const min = currentValue;
             handleOnChangeBase({ max, min });
           },
-          [handleOnChangeBase, current]
+          [handleOnChangeBase, current],
         )}
       />
       -
@@ -55,7 +55,7 @@ export const NumberSelectRange = memo(function Component({
             const min = current?.min;
             handleOnChangeBase({ max, min });
           },
-          [handleOnChangeBase, current]
+          [handleOnChangeBase, current],
         )}
       />
     </div>

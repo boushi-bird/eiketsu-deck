@@ -40,7 +40,7 @@ const filterBasicSelector = createSelector(
     skillsAnd,
     generalNameSearch,
     generalNameSearchAnd,
-  })
+  }),
 );
 
 export const FilterTabBodyBasic = () => {
@@ -54,10 +54,10 @@ export const FilterTabBodyBasic = () => {
         filterActions.setCondition({
           itemName,
           value,
-        })
+        }),
       );
     },
-    [dispatch]
+    [dispatch],
   );
 
   const changeSelectedStringItem = useCallback(
@@ -66,10 +66,10 @@ export const FilterTabBodyBasic = () => {
         filterActions.setCondition({
           itemName,
           value,
-        })
+        }),
       );
     },
-    [dispatch]
+    [dispatch],
   );
 
   return (
@@ -181,10 +181,10 @@ export const FilterTabBodyBasic = () => {
                   filterActions.setCondition({
                     itemName: 'skillsAnd',
                     value,
-                  })
+                  }),
                 );
               },
-              [dispatch]
+              [dispatch],
             )}
             isOn={filter.skillsAnd}
             labelOff="OR"
@@ -220,10 +220,10 @@ export const FilterTabBodyBasic = () => {
                   filterActions.setCondition({
                     itemName: 'generalNameSearchAnd',
                     value,
-                  })
+                  }),
                 );
               },
-              [dispatch]
+              [dispatch],
             )}
             isOn={filter.generalNameSearchAnd}
             labelOff="OR"

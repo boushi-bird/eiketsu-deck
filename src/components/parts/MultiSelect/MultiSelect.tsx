@@ -89,14 +89,14 @@ export const MultiSelect = genericMemo(function Component<N extends string, V>({
     setPendingSelectedItems(
       checked
         ? [...pendingSelectedItems, value]
-        : pendingSelectedItems.filter((item) => item !== value)
+        : pendingSelectedItems.filter((item) => item !== value),
     );
   };
 
   const onRemoveSelectItem = (value: V) => {
     onSelectItems(
       itemName,
-      selectedItems.filter((item) => item !== value)
+      selectedItems.filter((item) => item !== value),
     );
   };
 
@@ -130,7 +130,7 @@ export const MultiSelect = genericMemo(function Component<N extends string, V>({
               .filter(
                 (item) =>
                   !filterName ||
-                  item.searchName.includes(normalizeFilterValue(filterName))
+                  item.searchName.includes(normalizeFilterValue(filterName)),
               )
               .map((item) => (
                 <div className="selection-item" key={item.key}>

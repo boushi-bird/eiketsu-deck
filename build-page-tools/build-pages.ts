@@ -4,7 +4,7 @@ import fs from 'fs';
 import path from 'path';
 
 import dotenv from 'dotenv';
-import jsYaml from 'js-yaml';
+import { dump as yamlDump, load as yamlLoad } from 'js-yaml';
 
 dotenv.config({ path: path.resolve(__dirname, '../.env') });
 
@@ -18,7 +18,7 @@ const srcRobotsPath = path.resolve(srcDir, 'robots.txt');
 const distRobotsPath = path.resolve(distDir, 'robots.txt');
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const conf = jsYaml.load(fs.readFileSync(srcConfigPath, 'utf8')) as any;
+const conf = yamlLoad(fs.readFileSync(srcConfigPath, 'utf8')) as any;
 
 if (process.env.GH_PAGES_URL) {
   conf['url'] = process.env.GH_PAGES_URL;
@@ -39,7 +39,7 @@ if (process.env.GOOGLE_SITE_VERIFICATION) {
   fs.writeFileSync(
     distSiteVerification,
     `google-site-verification: ${siteVerificationFileName}`,
-    'utf8'
+    'utf8',
   );
   console.info(`output ${distSiteVerification}`);
 
@@ -50,5 +50,5 @@ if (process.env.GOOGLE_SITE_VERIFICATION) {
   });
 }
 
-fs.writeFileSync(distConfigPath, jsYaml.dump(conf), 'utf8');
+fs.writeFileSync(distConfigPath, yamlDump(conf), 'utf8');
 console.info(`output ${distConfigPath}`);

@@ -28,7 +28,7 @@ export const BelongImportConfirm = ({
 
   // 読み込み対象
   const targetUniqueIds = importUniqueIds.filter((uniqueId) =>
-    filteredGenerals.some((g) => g.uniqueId === uniqueId)
+    filteredGenerals.some((g) => g.uniqueId === uniqueId),
   );
 
   // 所持条件
@@ -39,12 +39,12 @@ export const BelongImportConfirm = ({
 
   // 所持になる武将
   const belongs = filteredGenerals.filter(
-    (g) => isBelong(g) && !belongUniqueIds.includes(g.uniqueId)
+    (g) => isBelong(g) && !belongUniqueIds.includes(g.uniqueId),
   );
 
   // 未所持になる武将
   const notBelongs = filteredGenerals.filter(
-    (g) => !isBelong(g) && belongUniqueIds.includes(g.uniqueId)
+    (g) => !isBelong(g) && belongUniqueIds.includes(g.uniqueId),
   );
 
   // 各集計数
@@ -119,11 +119,11 @@ export const BelongImportConfirm = ({
                     notBelongs.map((g) => ({
                       generalUniqueId: g.uniqueId,
                       count: 0,
-                    }))
+                    })),
                   );
                 dispatch(belongActions.updateBelongCards(updateBelongs));
                 dispatch(
-                  windowActions.showToast('所持状態をインポートしました。')
+                  windowActions.showToast('所持状態をインポートしました。'),
                 );
                 dispatch(windowActions.closeModal());
               }}

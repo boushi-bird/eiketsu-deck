@@ -33,7 +33,7 @@ export const DeckBoard = () => {
   const [showOtherDeckCardActions, setShowOtherDeckCardActions] =
     useState(false);
   const [selectedUniqueId, setSelectedUniqueId] = useState<string | undefined>(
-    undefined
+    undefined,
   );
 
   const datalistState = useAppSelector(datalistSelector);
@@ -75,17 +75,17 @@ export const DeckBoard = () => {
         deckActions.removeDeckGeneral({
           generalIdx: deckCards[index].generalIdx,
           tabIndex: activeDeckTabIndex,
-        })
+        }),
       );
     },
-    [deckCards, activeDeckTabIndex, dispatch]
+    [deckCards, activeDeckTabIndex, dispatch],
   );
 
   const handleShowDetail = useCallback(
     (generalIdx: number) => {
       dispatch(windowActions.openGenerailDetail(generalIdx));
     },
-    [dispatch]
+    [dispatch],
   );
 
   const handleMove = useCallback(
@@ -109,10 +109,10 @@ export const DeckBoard = () => {
         deckActions.setDecksWithKey({
           cards: newDeckCards,
           tabIndex: activeDeckTabIndex,
-        })
+        }),
       );
     },
-    [deckCards, activeDeckTabIndex, dispatch]
+    [deckCards, activeDeckTabIndex, dispatch],
   );
 
   const handleSwitchSmaller = useCallback(() => {
@@ -178,7 +178,7 @@ export const DeckBoard = () => {
       .filter(excludeUndef);
     const costTotal = deckGenerals.reduce(
       (total, g) => total + g.cost.value,
-      0
+      0,
     );
     return { deckGenerals, costTotal };
   }, [deckCards, generals]);
@@ -261,7 +261,7 @@ export const DeckBoard = () => {
                 'switch-deckboard-down',
                 {
                   'show-button': showDownButton,
-                }
+                },
               )}
               onClick={handleSwitchLarger}
             >

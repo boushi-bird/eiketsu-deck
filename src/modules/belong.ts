@@ -23,7 +23,7 @@ const slice = createSlice({
   reducers: {
     updateBelongCard: (
       state: BelongState,
-      action: PayloadAction<UpdateBelong>
+      action: PayloadAction<UpdateBelong>,
     ) => {
       const { generalUniqueId, count } = action.payload;
       const belongCards = { ...state.belongCards };
@@ -36,7 +36,7 @@ const slice = createSlice({
     },
     updateBelongCards: (
       state: BelongState,
-      action: PayloadAction<UpdateBelong[]>
+      action: PayloadAction<UpdateBelong[]>,
     ) => {
       const updateBelongs = action.payload;
       const belongCards = { ...state.belongCards };
@@ -51,7 +51,7 @@ const slice = createSlice({
     },
     setBelongCards: (
       state: BelongState,
-      action: PayloadAction<{ [key: string]: number }>
+      action: PayloadAction<{ [key: string]: number }>,
     ) => {
       state.belongCards = action.payload;
     },

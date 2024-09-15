@@ -22,7 +22,7 @@ const EIKETSU_DECK_DATA_KEYS = [
 declare module 'eiketsu-deck' {
   import type { BaseData } from '@boushi-bird/eiketsu-taisen-net-datalist';
 
-  type EiketsuDeckDataKeys = typeof EIKETSU_DECK_DATA_KEYS[number];
+  type EiketsuDeckDataKeys = (typeof EIKETSU_DECK_DATA_KEYS)[number];
 
   type EiketsuDeckData = Pick<BaseData, EiketsuDeckDataKeys>;
 

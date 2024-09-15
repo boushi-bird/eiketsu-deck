@@ -39,7 +39,7 @@ window.addEventListener('beforeunload', (ev) => {
   const hasNotSave =
     deckTabs.length > 1 &&
     deckTabs.some(
-      (d, i) => activeTabIndex !== i && d.cards.length !== 0 && !d.cardsSaved
+      (d, i) => activeTabIndex !== i && d.cards.length !== 0 && !d.cardsSaved,
     );
   if (hasNotSave) {
     ev.preventDefault();

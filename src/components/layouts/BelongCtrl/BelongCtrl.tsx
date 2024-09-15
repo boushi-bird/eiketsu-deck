@@ -67,7 +67,7 @@ export const BelongCtrl = () => {
                     .filter(
                       (g) =>
                         searchedGenerals.includes(g.idx) &&
-                        belongCards[g.uniqueId] == null
+                        belongCards[g.uniqueId] == null,
                     )
                     .map((g) => ({ generalUniqueId: g.uniqueId, count: 1 }));
                   dispatch(belongActions.updateBelongCards(updateBelongs));
@@ -80,7 +80,7 @@ export const BelongCtrl = () => {
                 onClick={useCallback(() => {
                   if (
                     !confirm(
-                      '現在絞り込んでいる武将をすべて未所持状態にします。'
+                      '現在絞り込んでいる武将をすべて未所持状態にします。',
                     )
                   ) {
                     return;
@@ -89,7 +89,7 @@ export const BelongCtrl = () => {
                     (generalUniqueId) => ({
                       generalUniqueId,
                       count: 0,
-                    })
+                    }),
                   );
                   dispatch(belongActions.updateBelongCards(updateBelongs));
                 }, [belongCards, dispatch])}

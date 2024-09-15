@@ -14,7 +14,7 @@ export const useAppDispatch = () => useDispatch<AppDispatch>();
 export const useSelector: TypedUseSelectorHook<RootState> = useReduxSelector;
 export const useAppSelector: TypedUseSelectorHook<RootState> = (
   selector,
-  equalityFn?
+  equalityFn?,
 ) => {
   return useReduxSelector(selector, equalityFn || shallowEqual);
 };
@@ -28,12 +28,12 @@ export const windowSelector = (state: RootState) => state.window;
 
 export const generalsSelector = createSelector(
   datalistSelector,
-  (datalist) => datalist.generals
+  (datalist) => datalist.generals,
 );
 
 export const activeDeckTabIndexSelector = createSelector(
   deckSelector,
-  ({ activeTabIndex }) => activeTabIndex
+  ({ activeTabIndex }) => activeTabIndex,
 );
 
 export const deckCurrentSelector = createSelector(
@@ -43,30 +43,30 @@ export const deckCurrentSelector = createSelector(
       name: '',
       cards: [],
       constraints: { ...DEFAULT_DECK_CONSTRAINTS },
-    }
+    },
 );
 
 export const deckCardsSelector = createSelector(
   deckCurrentSelector,
-  (current) => current.cards
+  (current) => current.cards,
 );
 
 export const editModeSelector = createSelector(
   windowSelector,
-  ({ editMode }) => editMode
+  ({ editMode }) => editMode,
 );
 
 export const belongCardsSelector = createSelector(
   belongSelector,
-  ({ belongCards }) => belongCards
+  ({ belongCards }) => belongCards,
 );
 
 export const searchedGeneralsSelector = createSelector(
   cardlistSelector,
-  ({ searchedGenerals }) => searchedGenerals
+  ({ searchedGenerals }) => searchedGenerals,
 );
 
 export const hasBelongCardsSelector = createSelector(
   belongCardsSelector,
-  (belongCards) => Object.keys(belongCards).length > 0
+  (belongCards) => Object.keys(belongCards).length > 0,
 );

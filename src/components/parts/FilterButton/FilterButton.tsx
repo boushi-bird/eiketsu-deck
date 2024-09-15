@@ -30,7 +30,7 @@ export const FilterButton = ({
       addtionalClasses
         ? [...defaultClasses, ...addtionalClasses]
         : defaultClasses,
-    [addtionalClasses]
+    [addtionalClasses],
   );
 
   const onClickFilterItem = useCallback(() => {

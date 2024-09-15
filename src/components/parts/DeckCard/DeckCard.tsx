@@ -93,7 +93,7 @@ export const DeckCard = memo(function Component({
     skills.push(
       <span className="no-skill" key={0}>
         特技なし
-      </span>
+      </span>,
     );
   }
 
@@ -148,7 +148,7 @@ export const DeckCard = memo(function Component({
               className={classNames(
                 'rarity-area',
                 'rarity-bg',
-                `rarity-bg-${general.rarity.shortName.toLocaleLowerCase()}`
+                `rarity-bg-${general.rarity.shortName.toLocaleLowerCase()}`,
               )}
             >
               {general.rarity.shortName}

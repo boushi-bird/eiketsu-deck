@@ -30,7 +30,7 @@ const selector = createSelector(
     showNotice,
     offline,
     updateReady,
-  })
+  }),
 );
 
 const selectorDeckTabs = createSelector(deckSelector, ({ deckTabs }) =>
@@ -38,7 +38,7 @@ const selectorDeckTabs = createSelector(deckSelector, ({ deckTabs }) =>
     key: deckTab.key,
     cards: deckTab.cards,
     saved: deckTab.cards.length === 0 || deckTab.cardsSaved,
-  }))
+  })),
 );
 
 const createTabName = (generals: General[], cards: DeckCard[]) => {

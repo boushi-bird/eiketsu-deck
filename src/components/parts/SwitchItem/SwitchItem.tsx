@@ -27,8 +27,8 @@ export const SwitchItem = ({
             addtionalClasses
               ? [...defaultClasses, ...addtionalClasses]
               : defaultClasses,
-          [addtionalClasses]
-        )
+          [addtionalClasses],
+        ),
       )}
       onClick={useCallback(() => {
         onChange(!isOn);

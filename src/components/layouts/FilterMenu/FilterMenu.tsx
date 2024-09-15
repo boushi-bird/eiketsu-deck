@@ -30,7 +30,7 @@ type FilterTab = keyof typeof FILTER_TAB_NAMES;
 
 const selectorContainer = createSelector(
   windowSelector,
-  (window) => window.openedFilter
+  (window) => window.openedFilter,
 );
 
 interface Props {
@@ -48,7 +48,7 @@ export const FilterMenuContainer: FC<Props> = ({ children }) => {
 
 const filterMenuSelector = createSelector(
   filterSelector,
-  ({ selectionMode }) => selectionMode
+  ({ selectionMode }) => selectionMode,
 );
 
 export const FilterMenu = () => {
@@ -96,10 +96,10 @@ export const FilterMenu = () => {
                     filterActions.setCondition({
                       itemName: 'selectionMode',
                       value: isOn ? 'single' : 'multiple',
-                    })
+                    }),
                   );
                 },
-                [dispatch]
+                [dispatch],
               )}
               addtionalClasses={useMemo(() => ['selection-mode'], [])}
               isOn={selectionMode === 'multiple' ? false : true}
