@@ -2,7 +2,9 @@ import { useCallback, useMemo } from 'react';
 
 import { createSelector } from '@reduxjs/toolkit';
 
+import { FilterButton } from '@/components/parts/FilterButton';
 import { FilterButtonList } from '@/components/parts/FilterButtonList';
+import { NumberSelectRange } from '@/components/parts/NumberSelectRange';
 import { SwitchItem } from '@/components/parts/SwitchItem';
 import { TextSearch } from '@/components/parts/TextSearch';
 import {
@@ -27,6 +29,8 @@ const filterBasicSelector = createSelector(
     generalRarities,
     skills,
     skillsAnd,
+    skillsCount,
+    hasSameSkills,
     generalNameSearch,
     generalNameSearchAnd,
   }) => ({
@@ -38,6 +42,8 @@ const filterBasicSelector = createSelector(
     generalRarities,
     skills,
     skillsAnd,
+    skillsCount,
+    hasSameSkills,
     generalNameSearch,
     generalNameSearchAnd,
   }),
@@ -208,6 +214,41 @@ export const FilterTabBodyBasic = () => {
           square={true}
           onSelectItems={changeSelectedItem}
         />
+      </section>
+
+      <section className="filter-section">
+        <h2 className="title">{filterMenuItemNames['skillsCount']}</h2>
+        <div className="filter-items">
+          <NumberSelectRange
+            max={datalist.skillsCount.max}
+            min={datalist.skillsCount.min}
+            current={filter.skillsCount}
+            onChangeValue={useCallback(
+              (value) => {
+                dispatch(
+                  filterActions.setCondition({
+                    itemName: 'skillsCount',
+                    value,
+                  }),
+                );
+              },
+              [dispatch],
+            )}
+          />
+          <FilterButton
+            selected={filter.hasSameSkills}
+            onClick={useCallback(() => {
+              dispatch(
+                filterActions.setCondition({
+                  itemName: 'hasSameSkills',
+                  value: !filter.hasSameSkills,
+                }),
+              );
+            }, [dispatch, filter.hasSameSkills])}
+          >
+            {filterMenuItemNames['hasSameSkills']}
+          </FilterButton>
+        </div>
       </section>
 
       <section className="filter-section">
