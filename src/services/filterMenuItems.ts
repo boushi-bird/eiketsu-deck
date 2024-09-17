@@ -36,6 +36,8 @@ export const filterMenuItemNames: { [key in FilterMenuItemName]: string } = {
   strong: '武力',
   intelligence: '知力',
   skills: '特技',
+  skillsCount: '特技数',
+  hasSameSkills: '同特技複数持ち',
   belongFilter: '所持状態',
   generalRarities: 'レアリティ',
   appearDetailVersions: '登場弾',
@@ -139,6 +141,51 @@ export const filterMenuItems: Readonly<FilterMenuItem[]> = [
         .map((v) => v.shortName)
         .join(',');
       return filter.skillsAnd ? `And(${tmp})` : tmp;
+    },
+  },
+  {
+    filterItemName: 'skillsCount',
+    enabled: ({ filter }) => filter.skillsCount != null || filter.hasSameSkills,
+    filter: (general, filter) => {
+      return (
+        (() => {
+          if (!filter.hasSameSkills) {
+            return true;
+          }
+          if (general.skills.length < 2) {
+            return false;
+          }
+          return (
+            new Set(general.skills.map((s) => s.idx)).size !==
+            general.skills.length
+          );
+        })() &&
+        (() => {
+          const max = filter.skillsCount?.max;
+          const min = filter.skillsCount?.min;
+          const skillsCount = general.skills.length;
+          if (max != null && skillsCount > max) {
+            return false;
+          }
+          if (min != null && skillsCount < min) {
+            return false;
+          }
+          return true;
+        })()
+      );
+    },
+    label: ({ skillsCount }, filter) => {
+      const labels: string[] = [];
+      if (filter.skillsCount) {
+        const max = filter.skillsCount.max ?? skillsCount.max;
+        const min = filter.skillsCount.min ?? skillsCount.min;
+        labels.push(`${min} - ${max}`);
+      }
+      if (filter.hasSameSkills) {
+        labels.push(filterMenuItemNames['hasSameSkills']);
+      }
+
+      return labels.join(', ');
     },
   },
   {

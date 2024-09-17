@@ -26,6 +26,10 @@ export interface DatalistState {
   generalRarities: GeneralRarity[];
   unitTypes: UnitType[];
   skills: Skill[];
+  skillsCount: {
+    max: number;
+    min: number;
+  };
   generalStrategies: GeneralStrategy[];
   generalStrategyCategories: GeneralStrategyCategory[];
   generalStrategyRanges: GeneralStrategyRange[];
@@ -56,23 +60,27 @@ const initialState: DatalistState = {
   generalRarities: [],
   unitTypes: [],
   skills: [],
+  skillsCount: {
+    max: 1,
+    min: 0,
+  },
   generalStrategies: [],
   generalStrategyCategories: [],
   generalStrategyRanges: [],
   generalStrategyTimes: [],
   generalStrategyMp: {
-    max: 12,
+    max: 1,
     min: 1,
   },
   illusts: [],
   characterVoices: [],
   generals: [],
   strong: {
-    max: 12,
+    max: 1,
     min: 1,
   },
   intelligence: {
-    max: 12,
+    max: 1,
     min: 1,
   },
 };

@@ -19,6 +19,8 @@ export interface FilterState {
   unitTypes: number[];
   skills: number[];
   skillsAnd: boolean;
+  skillsCount?: RequireAtLeastOne<{ max?: number; min?: number }>;
+  hasSameSkills: boolean;
   generalStrategyMp?: RequireAtLeastOne<{ max?: number; min?: number }>;
   generalStrategyCategories: number[];
   generalStrategyCategoriesAnd: boolean;
@@ -45,6 +47,7 @@ const initialState: FilterState = {
   unitTypes: [],
   skills: [],
   skillsAnd: false,
+  hasSameSkills: false,
   generalStrategyCategories: [],
   generalStrategyCategoriesAnd: false,
   generalStrategyTimes: [],
@@ -148,6 +151,12 @@ const slice = createSlice({
       }
       if (itemName === 'belongFilter') {
         state[itemName] = initialState[itemName];
+        return;
+      }
+      // custom
+      if (itemName === 'skillsCount' || itemName === 'hasSameSkills') {
+        state.skillsCount = undefined;
+        state.hasSameSkills = false;
         return;
       }
       // string[]

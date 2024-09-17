@@ -10,7 +10,11 @@ import { excludeUndef } from '@/utils/excludeUndef';
 
 type PropItems = Omit<
   DatalistState,
-  'generals' | 'strong' | 'intelligence' | 'generalAppearVersions'
+  | 'generals'
+  | 'strong'
+  | 'intelligence'
+  | 'skillsCount'
+  | 'generalAppearVersions'
 >;
 type GeneralStrategyPropItems = Pick<
   PropItems,
@@ -35,6 +39,7 @@ export const createDatalist = (data: EiketsuDeckData): DatalistState => {
 
   const strongRange = { max: 1, min: 1 };
   const intelligenceRange = { max: 1, min: 1 };
+  const skillsCountRange = { max: 1, min: 0 };
 
   const generalAppearFilterGroups: GeneralAppearDetailVersion[] =
     data.generalAppearFilterGroup.map(({ idx, code, name }) => ({
@@ -109,6 +114,9 @@ export const createDatalist = (data: EiketsuDeckData): DatalistState => {
     if (intelligence > intelligenceRange.max) {
       intelligenceRange.max = intelligence;
     }
+    if (skills.length > skillsCountRange.max) {
+      skillsCountRange.max = skills.length;
+    }
     const numberPart = `${cardNumber}`.padStart(3, '0');
     const uniqueId = `${indexInitial.name}${numberPart}`;
 
@@ -146,6 +154,7 @@ export const createDatalist = (data: EiketsuDeckData): DatalistState => {
     generals,
     strong: strongRange,
     intelligence: intelligenceRange,
+    skillsCount: skillsCountRange,
   };
 };
 
