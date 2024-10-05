@@ -292,9 +292,9 @@
     - license: MIT
  - **[@rollup/pluginutils@5.1.0](https://github.com/rollup/plugins)**
     - license: MIT
- - **[@rollup/rollup-linux-x64-gnu@4.21.3](https://github.com/rollup/rollup)**
+ - **[@rollup/rollup-linux-x64-gnu@4.22.5](https://github.com/rollup/rollup)**
     - license: MIT
- - **[@rollup/rollup-linux-x64-musl@4.21.3](https://github.com/rollup/rollup)**
+ - **[@rollup/rollup-linux-x64-musl@4.22.5](https://github.com/rollup/rollup)**
     - license: MIT
  - **[@rtsao/scc@1.1.0](https://github.com/rtsao/scc)**
     - license: MIT
@@ -310,7 +310,7 @@
     - license: MIT
  - **[@types/estree@0.0.39](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
- - **[@types/estree@1.0.5](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/estree@1.0.6](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
  - **[@types/json5@0.0.29](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
@@ -984,9 +984,9 @@
     - license: MIT
  - **[rimraf@3.0.2](https://github.com/isaacs/rimraf)**
     - license: ISC
- - **[rollup@2.79.1](https://github.com/rollup/rollup)**
+ - **[rollup@2.79.2](https://github.com/rollup/rollup)**
     - license: MIT
- - **[rollup@4.21.3](https://github.com/rollup/rollup)**
+ - **[rollup@4.22.5](https://github.com/rollup/rollup)**
     - license: MIT
  - **[run-parallel@1.2.0](https://github.com/feross/run-parallel)**
     - license: MIT
