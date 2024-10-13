@@ -8,6 +8,7 @@ interface Props {
   max: number;
   min: number;
   current?: RequireAtLeastOne<{ max?: number; min?: number }>;
+  displayText?: (value: number, isDefault: boolean) => string;
   onChangeValue: (
     value?: RequireAtLeastOne<{ max?: number; min?: number }>,
   ) => void;
@@ -17,6 +18,7 @@ export const NumberSelectRange = memo(function Component({
   max,
   min,
   current,
+  displayText,
   onChangeValue,
 }: Props) {
   const handleOnChangeBase = useCallback(
@@ -34,6 +36,7 @@ export const NumberSelectRange = memo(function Component({
         min={min}
         defaultValue={min}
         currentValue={current?.min}
+        displayText={displayText}
         onChangeValue={useCallback(
           (currentValue) => {
             const max = current?.max;
@@ -49,6 +52,7 @@ export const NumberSelectRange = memo(function Component({
         min={min}
         defaultValue={max}
         currentValue={current?.max}
+        displayText={displayText}
         onChangeValue={useCallback(
           (currentValue) => {
             const max = currentValue;

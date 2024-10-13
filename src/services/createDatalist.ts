@@ -13,6 +13,7 @@ type PropItems = Omit<
   | 'generals'
   | 'strong'
   | 'intelligence'
+  | 'strongIntelligenceDiff'
   | 'skillsCount'
   | 'generalAppearVersions'
 >;
@@ -39,6 +40,7 @@ export const createDatalist = (data: EiketsuDeckData): DatalistState => {
 
   const strongRange = { max: 1, min: 1 };
   const intelligenceRange = { max: 1, min: 1 };
+  const strongIntelligenceDiffRange = { max: 0, min: 0 };
   const skillsCountRange = { max: 1, min: 0 };
 
   const generalAppearFilterGroups: GeneralAppearDetailVersion[] =
@@ -114,6 +116,12 @@ export const createDatalist = (data: EiketsuDeckData): DatalistState => {
     if (intelligence > intelligenceRange.max) {
       intelligenceRange.max = intelligence;
     }
+    const strongIntelligenceDiff = strong - intelligence;
+    if (strongIntelligenceDiff > strongIntelligenceDiffRange.max) {
+      strongIntelligenceDiffRange.max = strong - intelligence;
+    } else if (strongIntelligenceDiff < strongIntelligenceDiffRange.min) {
+      strongIntelligenceDiffRange.min = strongIntelligenceDiff;
+    }
     if (skills.length > skillsCountRange.max) {
       skillsCountRange.max = skills.length;
     }
@@ -154,6 +162,7 @@ export const createDatalist = (data: EiketsuDeckData): DatalistState => {
     generals,
     strong: strongRange,
     intelligence: intelligenceRange,
+    strongIntelligenceDiff: strongIntelligenceDiffRange,
     skillsCount: skillsCountRange,
   };
 };
