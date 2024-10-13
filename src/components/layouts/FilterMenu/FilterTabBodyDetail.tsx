@@ -30,6 +30,7 @@ const filterBasicSelector = createSelector(
     belongFilter,
     strong,
     intelligence,
+    strongIntelligenceDiff,
     appearDetailVersions,
     cardTypes,
     illustrations,
@@ -39,6 +40,7 @@ const filterBasicSelector = createSelector(
     belongFilter,
     strong,
     intelligence,
+    strongIntelligenceDiff,
     appearDetailVersions,
     cardTypes,
     illustrations,
@@ -114,37 +116,65 @@ export const FilterTabBodyDetail = () => {
         />
       </section>
 
-      <section className="filter-section">
-        <h2 className="title">{filterMenuItemNames['strong']}</h2>
-        <NumberSelectRange
-          max={datalist.strong.max}
-          min={datalist.strong.min}
-          current={filter.strong}
-          onChangeValue={useCallback(
-            (value) => {
-              dispatch(
-                filterActions.setCondition({
-                  itemName: 'strong',
-                  value,
-                }),
-              );
-            },
-            [dispatch],
-          )}
-        />
-      </section>
+      <div className="filter-section-group">
+        <section className="filter-section">
+          <h2 className="title">{filterMenuItemNames['strong']}</h2>
+          <NumberSelectRange
+            max={datalist.strong.max}
+            min={datalist.strong.min}
+            current={filter.strong}
+            onChangeValue={useCallback(
+              (value) => {
+                dispatch(
+                  filterActions.setCondition({
+                    itemName: 'strong',
+                    value,
+                  }),
+                );
+              },
+              [dispatch],
+            )}
+          />
+        </section>
+
+        <section className="filter-section">
+          <h2 className="title">{filterMenuItemNames['intelligence']}</h2>
+          <NumberSelectRange
+            max={datalist.intelligence.max}
+            min={datalist.intelligence.min}
+            current={filter.intelligence}
+            onChangeValue={useCallback(
+              (value) => {
+                dispatch(
+                  filterActions.setCondition({
+                    itemName: 'intelligence',
+                    value,
+                  }),
+                );
+              },
+              [dispatch],
+            )}
+          />
+        </section>
+      </div>
 
       <section className="filter-section">
-        <h2 className="title">{filterMenuItemNames['intelligence']}</h2>
+        <h2 className="title">
+          {filterMenuItemNames['strongIntelligenceDiff']} (武力 - 知力)
+        </h2>
         <NumberSelectRange
-          max={datalist.intelligence.max}
-          min={datalist.intelligence.min}
-          current={filter.intelligence}
+          max={datalist.strongIntelligenceDiff.max}
+          min={datalist.strongIntelligenceDiff.min}
+          current={filter.strongIntelligenceDiff}
+          displayText={useCallback(
+            (i: number) => (i > 0 ? `+${i}` : `${i}`),
+            [],
+          )}
           onChangeValue={useCallback(
             (value) => {
               dispatch(
                 filterActions.setCondition({
-                  itemName: 'intelligence',
+                  itemName: 'strongIntelligenceDiff',
                   value,
                 }),
               );
@@ -193,41 +223,43 @@ export const FilterTabBodyDetail = () => {
         />
       </section>
 
-      <section className="filter-section">
-        <h2 className="title">{filterMenuItemNames['illustrations']}</h2>
-        <MultiSelect
-          itemName="illustrations"
-          items={useMemo(() => {
-            return datalist.illusts.map((r) => ({
-              key: `${r.idx}`,
-              name: r.name,
-              value: r.idx,
-              searchName: normalizeFilterValue(r.name),
-            }));
-          }, [datalist.illusts])}
-          title={filterMenuItemNames['illustrations']}
-          selectedItems={filter.illustrations}
-          onSelectItems={changeSelectedItem}
-        />
-      </section>
+      <div className="filter-section-group">
+        <section className="filter-section">
+          <h2 className="title">{filterMenuItemNames['illustrations']}</h2>
+          <MultiSelect
+            itemName="illustrations"
+            items={useMemo(() => {
+              return datalist.illusts.map((r) => ({
+                key: `${r.idx}`,
+                name: r.name,
+                value: r.idx,
+                searchName: normalizeFilterValue(r.name),
+              }));
+            }, [datalist.illusts])}
+            title={filterMenuItemNames['illustrations']}
+            selectedItems={filter.illustrations}
+            onSelectItems={changeSelectedItem}
+          />
+        </section>
 
-      <section className="filter-section">
-        <h2 className="title">{filterMenuItemNames['characterVoices']}</h2>
-        <MultiSelect
-          itemName="characterVoices"
-          items={useMemo(() => {
-            return datalist.characterVoices.map((r) => ({
-              key: `${r.idx}`,
-              name: r.name,
-              value: r.idx,
-              searchName: normalizeFilterValue(r.name),
-            }));
-          }, [datalist.characterVoices])}
-          title={filterMenuItemNames['characterVoices']}
-          selectedItems={filter.characterVoices}
-          onSelectItems={changeSelectedItem}
-        />
-      </section>
+        <section className="filter-section">
+          <h2 className="title">{filterMenuItemNames['characterVoices']}</h2>
+          <MultiSelect
+            itemName="characterVoices"
+            items={useMemo(() => {
+              return datalist.characterVoices.map((r) => ({
+                key: `${r.idx}`,
+                name: r.name,
+                value: r.idx,
+                searchName: normalizeFilterValue(r.name),
+              }));
+            }, [datalist.characterVoices])}
+            title={filterMenuItemNames['characterVoices']}
+            selectedItems={filter.characterVoices}
+            onSelectItems={changeSelectedItem}
+          />
+        </section>
+      </div>
     </div>
   );
 };

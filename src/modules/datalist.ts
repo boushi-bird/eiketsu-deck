@@ -49,6 +49,10 @@ export interface DatalistState {
     max: number;
     min: number;
   };
+  strongIntelligenceDiff: {
+    max: number;
+    min: number;
+  };
 }
 
 const initialState: DatalistState = {
@@ -82,6 +86,10 @@ const initialState: DatalistState = {
   intelligence: {
     max: 1,
     min: 1,
+  },
+  strongIntelligenceDiff: {
+    max: 0,
+    min: 0,
   },
 };
 

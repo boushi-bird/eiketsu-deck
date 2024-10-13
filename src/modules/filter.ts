@@ -10,6 +10,7 @@ export interface FilterState {
   belongFilter?: BelongFilter;
   strong?: RequireAtLeastOne<{ max?: number; min?: number }>;
   intelligence?: RequireAtLeastOne<{ max?: number; min?: number }>;
+  strongIntelligenceDiff?: RequireAtLeastOne<{ max?: number; min?: number }>;
   generalColors: number[];
   periods: number[];
   appearDetailVersions: number[];
@@ -78,6 +79,7 @@ export type SelectionFilterItemName = Exclude<
 const numberItemNames = [
   'strong',
   'intelligence',
+  'strongIntelligenceDiff',
   'generalStrategyMp',
 ] as const;
 function isNumberItem(

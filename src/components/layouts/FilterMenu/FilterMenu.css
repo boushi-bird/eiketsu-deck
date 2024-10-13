@@ -104,6 +104,10 @@
       display: flex;
     }
 
+    .filter-section-group {
+      display: flex;
+    }
+
     & .filter-section {
       animation: fadeIn 0.5s ease 0s 1 normal;
       position: relative;

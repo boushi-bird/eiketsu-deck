@@ -100,44 +100,6 @@ export const FilterTabBodyBasic = () => {
       </section>
 
       <section className="filter-section">
-        <h2 className="title">{filterMenuItemNames['generalCosts']}</h2>
-        <FilterButtonList
-          itemName="generalCosts"
-          buttonItems={useMemo(() => {
-            return datalist.generalCosts.map((r) => ({
-              key: `${r.idx}`,
-              name: r.name,
-              value: r.idx,
-            }));
-          }, [datalist.generalCosts])}
-          selectionMode={filter.selectionMode}
-          selectedItems={filter.generalCosts}
-          square={true}
-          onSelectItems={changeSelectedItem}
-        />
-      </section>
-
-      <section className="filter-section">
-        <h2 className="title">{filterMenuItemNames['unitTypes']}</h2>
-        <FilterButtonList
-          itemName="unitTypes"
-          buttonItems={useMemo(() => {
-            return datalist.unitTypes.map((r) => ({
-              key: `${r.idx}`,
-              name: r.shortName,
-              value: r.idx,
-              tooltip: r.name,
-              imageUrl: unitTypeImage(r.code),
-            }));
-          }, [datalist.unitTypes])}
-          selectionMode={filter.selectionMode}
-          selectedItems={filter.unitTypes}
-          square={true}
-          onSelectItems={changeSelectedItem}
-        />
-      </section>
-
-      <section className="filter-section">
         <h2 className="title">{filterMenuItemNames['periods']}</h2>
         <FilterButtonList
           itemName="periods"
@@ -153,6 +115,46 @@ export const FilterTabBodyBasic = () => {
           onSelectItems={changeSelectedItem}
         />
       </section>
+
+      <div className="filter-section-group">
+        <section className="filter-section">
+          <h2 className="title">{filterMenuItemNames['generalCosts']}</h2>
+          <FilterButtonList
+            itemName="generalCosts"
+            buttonItems={useMemo(() => {
+              return datalist.generalCosts.map((r) => ({
+                key: `${r.idx}`,
+                name: r.name,
+                value: r.idx,
+              }));
+            }, [datalist.generalCosts])}
+            selectionMode={filter.selectionMode}
+            selectedItems={filter.generalCosts}
+            square={true}
+            onSelectItems={changeSelectedItem}
+          />
+        </section>
+
+        <section className="filter-section">
+          <h2 className="title">{filterMenuItemNames['unitTypes']}</h2>
+          <FilterButtonList
+            itemName="unitTypes"
+            buttonItems={useMemo(() => {
+              return datalist.unitTypes.map((r) => ({
+                key: `${r.idx}`,
+                name: r.shortName,
+                value: r.idx,
+                tooltip: r.name,
+                imageUrl: unitTypeImage(r.code),
+              }));
+            }, [datalist.unitTypes])}
+            selectionMode={filter.selectionMode}
+            selectedItems={filter.unitTypes}
+            square={true}
+            onSelectItems={changeSelectedItem}
+          />
+        </section>
+      </div>
 
       <section className="filter-section">
         <h2 className="title">{filterMenuItemNames['generalRarities']}</h2>

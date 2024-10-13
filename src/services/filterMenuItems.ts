@@ -35,6 +35,7 @@ export const filterMenuItemNames: { [key in FilterMenuItemName]: string } = {
   periods: '時代勢力',
   strong: '武力',
   intelligence: '知力',
+  strongIntelligenceDiff: '武力・知力差',
   skills: '特技',
   skillsCount: '特技数',
   hasSameSkills: '同特技複数持ち',
@@ -268,6 +269,31 @@ export const filterMenuItems: Readonly<FilterMenuItem[]> = [
       const min = filter.intelligence?.min ?? intelligence.min;
 
       return `${min} - ${max}`;
+    },
+  },
+  {
+    filterItemName: 'strongIntelligenceDiff',
+    enabled: ({ filter }) => filter.strongIntelligenceDiff != null,
+    filter: (general, filter) => {
+      const max = filter.strongIntelligenceDiff?.max;
+      const min = filter.strongIntelligenceDiff?.min;
+      const strongIntelligenceDiff = general.strong - general.intelligence;
+      if (max != null && strongIntelligenceDiff > max) {
+        return false;
+      }
+      if (min != null && strongIntelligenceDiff < min) {
+        return false;
+      }
+      return true;
+    },
+    label: ({ strongIntelligenceDiff }, filter) => {
+      const max =
+        filter.strongIntelligenceDiff?.max ?? strongIntelligenceDiff.max;
+      const min =
+        filter.strongIntelligenceDiff?.min ?? strongIntelligenceDiff.min;
+
+      const display = (i: number) => (i > 0 ? `+${i}` : `${i}`);
+      return `${display(min)} - ${display(max)}`;
     },
   },
   {
