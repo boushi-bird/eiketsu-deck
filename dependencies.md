@@ -186,7 +186,7 @@
     - license: MIT
  - **[@babel/types@7.28.1](https://github.com/babel/babel)**
     - license: MIT
- - **[@boushi-bird/eiketsu-taisen-net-datalist@0.1.0](https://github.com/boushi-bird/eiketsu-taisen-net-datalist)**
+ - **[@boushi-bird/eiketsu-taisen-net-datalist@0.3.2](https://github.com/boushi-bird/eiketsu-taisen-net-datalist)**
     - license: MIT
  - **[@csstools/cascade-layer-name-parser@2.0.5](https://github.com/csstools/postcss-plugins)**
     - license: MIT
@@ -244,9 +244,9 @@
     - license: MIT
  - **[@jridgewell/resolve-uri@3.1.2](https://github.com/jridgewell/resolve-uri)**
     - license: MIT
- - **[@jridgewell/source-map@0.3.6](https://github.com/jridgewell/source-map)**
+ - **[@jridgewell/source-map@0.3.10](https://github.com/jridgewell/sourcemaps)**
     - license: MIT
- - **[@jridgewell/sourcemap-codec@1.5.0](https://github.com/jridgewell/sourcemap-codec)**
+ - **[@jridgewell/sourcemap-codec@1.5.4](https://github.com/jridgewell/sourcemaps)**
     - license: MIT
  - **[@jridgewell/trace-mapping@0.3.29](https://github.com/jridgewell/sourcemaps)**
     - license: MIT
@@ -288,11 +288,11 @@
     - license: Apache-2.0
  - **[@types/babel__core@7.20.5](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
- - **[@types/babel__generator@7.6.8](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/babel__generator@7.27.0](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
  - **[@types/babel__template@7.4.4](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
- - **[@types/babel__traverse@7.20.6](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/babel__traverse@7.20.7](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
  - **[@types/estree@0.0.39](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
@@ -304,7 +304,7 @@
     - license: MIT
  - **[@types/node@24.0.15](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
- - **[@types/prop-types@15.7.12](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/prop-types@15.7.15](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
  - **[@types/react-dom@18.3.7](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
@@ -454,7 +454,7 @@
     - license: MIT
  - **[css-select@4.3.0](https://github.com/fb55/css-select)**
     - license: BSD-2-Clause
- - **[css-what@6.1.0](https://github.com/fb55/css-what)**
+ - **[css-what@6.2.2](https://github.com/fb55/css-what)**
     - license: BSD-2-Clause
  - **[cssesc@3.0.0](https://github.com/mathiasbynens/cssesc)**
     - license: MIT
@@ -566,7 +566,7 @@
     - license: BSD-2-Clause
  - **[fast-deep-equal@3.1.3](https://github.com/epoberezkin/fast-deep-equal)**
     - license: MIT
- - **[fast-glob@3.3.2](https://github.com/mrmlnc/fast-glob)**
+ - **[fast-glob@3.3.3](https://github.com/mrmlnc/fast-glob)**
     - license: MIT
  - **[fast-json-stable-stringify@2.1.0](https://github.com/epoberezkin/fast-json-stable-stringify)**
     - license: MIT
@@ -574,7 +574,7 @@
     - license: MIT
  - **[fast-uri@3.0.6](https://github.com/fastify/fast-uri)**
     - license: BSD-3-Clause
- - **[fastq@1.17.1](https://github.com/mcollina/fastq)**
+ - **[fastq@1.19.1](https://github.com/mcollina/fastq)**
     - license: ISC
  - **[fdir@6.4.6](https://github.com/thecodrr/fdir)**
     - license: MIT
@@ -980,7 +980,7 @@
     - license: MIT
  - **[resolve@2.0.0-next.5](https://github.com/browserify/resolve)**
     - license: MIT
- - **[reusify@1.0.4](https://github.com/mcollina/reusify)**
+ - **[reusify@1.1.0](https://github.com/mcollina/reusify)**
     - license: MIT
  - **[rollup@2.79.2](https://github.com/rollup/rollup)**
     - license: MIT
@@ -1020,7 +1020,7 @@
     - license: MIT
  - **[shebang-regex@3.0.0](https://github.com/sindresorhus/shebang-regex)**
     - license: MIT
- - **[shell-quote@1.8.1](https://github.com/ljharb/shell-quote)**
+ - **[shell-quote@1.8.3](https://github.com/ljharb/shell-quote)**
     - license: MIT
  - **[side-channel-list@1.0.0](https://github.com/ljharb/side-channel-list)**
     - license: MIT
@@ -1048,7 +1048,7 @@
     - license: CC-BY-3.0
  - **[spdx-expression-parse@3.0.1](https://github.com/jslicense/spdx-expression-parse.js)**
     - license: MIT
- - **[spdx-license-ids@3.0.20](https://github.com/jslicense/spdx-license-ids)**
+ - **[spdx-license-ids@3.0.21](https://github.com/jslicense/spdx-license-ids)**
     - license: CC0-1.0
  - **[stop-iteration-iterator@1.1.0](https://github.com/ljharb/stop-iteration-iterator)**
     - license: MIT
@@ -1082,7 +1082,7 @@
     - license: MIT
  - **[tempy@0.6.0](https://github.com/sindresorhus/tempy)**
     - license: MIT
- - **[terser@5.32.0](https://github.com/terser/terser)**
+ - **[terser@5.43.1](https://github.com/terser/terser)**
     - license: BSD-2-Clause
  - **[tiny-invariant@1.3.3](https://github.com/alexreardon/tiny-invariant)**
     - license: MIT
@@ -1098,13 +1098,11 @@
     - license: MIT
  - **[tsconfig-paths@3.15.0](https://github.com/dividab/tsconfig-paths)**
     - license: MIT
- - **[tslib@2.7.0](https://github.com/Microsoft/tslib)**
+ - **[tslib@2.8.1](https://github.com/Microsoft/tslib)**
     - license: 0BSD
  - **[type-check@0.4.0](https://github.com/gkz/type-check)**
     - license: MIT
  - **[type-fest@0.16.0](https://github.com/sindresorhus/type-fest)**
-    - license: (MIT OR CC0-1.0)
- - **[type-fest@3.13.1](https://github.com/sindresorhus/type-fest)**
     - license: (MIT OR CC0-1.0)
  - **[type-fest@4.41.0](https://github.com/sindresorhus/type-fest)**
     - license: (MIT OR CC0-1.0)
