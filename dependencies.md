@@ -202,7 +202,7 @@
     - license: MIT-0
  - **[@csstools/utilities@2.0.0](https://github.com/csstools/postcss-plugins)**
     - license: MIT-0
- - **[@esbuild/linux-x64@0.21.5](https://github.com/evanw/esbuild)**
+ - **[@esbuild/linux-x64@0.25.8](https://github.com/evanw/esbuild)**
     - license: MIT
  - **[@eslint-community/eslint-utils@4.7.0](https://github.com/eslint-community/eslint-utils)**
     - license: MIT
@@ -274,9 +274,9 @@
     - license: MIT
  - **[@rollup/pluginutils@5.2.0](https://github.com/rollup/plugins)**
     - license: MIT
- - **[@rollup/rollup-linux-x64-gnu@4.22.5](https://github.com/rollup/rollup)**
+ - **[@rollup/rollup-linux-x64-gnu@4.45.1](https://github.com/rollup/rollup)**
     - license: MIT
- - **[@rollup/rollup-linux-x64-musl@4.22.5](https://github.com/rollup/rollup)**
+ - **[@rollup/rollup-linux-x64-musl@4.45.1](https://github.com/rollup/rollup)**
     - license: MIT
  - **[@rtsao/scc@1.1.0](https://github.com/rtsao/scc)**
     - license: MIT
@@ -296,7 +296,7 @@
     - license: MIT
  - **[@types/estree@0.0.39](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
- - **[@types/estree@1.0.6](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/estree@1.0.8](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
  - **[@types/json-schema@7.0.15](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
@@ -522,7 +522,7 @@
     - license: MIT
  - **[es-to-primitive@1.3.0](https://github.com/ljharb/es-to-primitive)**
     - license: MIT
- - **[esbuild@0.21.5](https://github.com/evanw/esbuild)**
+ - **[esbuild@0.25.8](https://github.com/evanw/esbuild)**
     - license: MIT
  - **[escalade@3.2.0](https://github.com/lukeed/escalade)**
     - license: MIT
@@ -984,7 +984,7 @@
     - license: MIT
  - **[rollup@2.79.2](https://github.com/rollup/rollup)**
     - license: MIT
- - **[rollup@4.22.5](https://github.com/rollup/rollup)**
+ - **[rollup@4.45.1](https://github.com/rollup/rollup)**
     - license: MIT
  - **[run-parallel@1.2.0](https://github.com/feross/run-parallel)**
     - license: MIT
@@ -1156,7 +1156,7 @@
     - license: MIT
  - **[vite-plugin-radar@0.10.0](https://github.com/stafyniaksacha/vite-plugin-radar)**
     - license: MIT
- - **[vite@5.4.19](https://github.com/vitejs/vite)**
+ - **[vite@6.3.5](https://github.com/vitejs/vite)**
     - license: MIT
  - **[webidl-conversions@4.0.2](https://github.com/jsdom/webidl-conversions)**
     - license: BSD-2-Clause
