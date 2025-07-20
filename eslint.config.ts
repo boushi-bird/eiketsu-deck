@@ -75,4 +75,10 @@ export default tseslint.config([
       ],
     },
   },
+  {
+    files: ['src/**'],
+    rules: {
+      'no-process-env': ['error'],
+    },
+  },
 ]);
