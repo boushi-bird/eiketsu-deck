@@ -30,7 +30,7 @@
     "redux-query-sync": "^0.1.10"
   },
   "devDependencies": {
-    "@boushi-bird/eiketsu-taisen-net-datalist": "github:boushi-bird/eiketsu-taisen-net-datalist#v0.3.2",
+    "@boushi-bird/eiketsu-taisen-net-datalist": "github:boushi-bird/eiketsu-taisen-net-datalist#v0.4.1",
     "@eslint/js": "^9.31.0",
     "@types/node": "^24.0.15",
     "@types/react": "^18.3.23",
