@@ -1,4 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const EIKETSU_DECK_DATA_KEYS = [
   'general',
   'color',
