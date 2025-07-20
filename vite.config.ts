@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 import { defineConfig } from 'vite';
 import { createHtmlPlugin } from 'vite-plugin-html';
 import { VitePWA } from 'vite-plugin-pwa';
-import ViteRadar from 'vite-plugin-radar';
+import { VitePluginRadar } from 'vite-plugin-radar';
 
 dotenv.config();
 
@@ -50,7 +50,7 @@ export default defineConfig({
         },
       },
     }),
-    ViteRadar({
+    VitePluginRadar({
       gtm: process.env.GOOGLE_TAG_MANAGER_CONTAINER_ID
         ? { id: process.env.GOOGLE_TAG_MANAGER_CONTAINER_ID }
         : undefined,
