@@ -302,7 +302,7 @@
     - license: MIT
  - **[@types/json5@0.0.29](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
- - **[@types/node@24.0.15](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/node@24.1.0](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
  - **[@types/prop-types@15.7.15](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
@@ -316,25 +316,25 @@
     - license: MIT
  - **[@types/use-sync-external-store@0.0.6](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
- - **[@typescript-eslint/eslint-plugin@8.37.0](https://github.com/typescript-eslint/typescript-eslint)**
+ - **[@typescript-eslint/eslint-plugin@8.38.0](https://github.com/typescript-eslint/typescript-eslint)**
     - license: MIT
- - **[@typescript-eslint/parser@8.37.0](https://github.com/typescript-eslint/typescript-eslint)**
+ - **[@typescript-eslint/parser@8.38.0](https://github.com/typescript-eslint/typescript-eslint)**
     - license: MIT
- - **[@typescript-eslint/project-service@8.37.0](https://github.com/typescript-eslint/typescript-eslint)**
+ - **[@typescript-eslint/project-service@8.38.0](https://github.com/typescript-eslint/typescript-eslint)**
     - license: MIT
- - **[@typescript-eslint/scope-manager@8.37.0](https://github.com/typescript-eslint/typescript-eslint)**
+ - **[@typescript-eslint/scope-manager@8.38.0](https://github.com/typescript-eslint/typescript-eslint)**
     - license: MIT
- - **[@typescript-eslint/tsconfig-utils@8.37.0](https://github.com/typescript-eslint/typescript-eslint)**
+ - **[@typescript-eslint/tsconfig-utils@8.38.0](https://github.com/typescript-eslint/typescript-eslint)**
     - license: MIT
- - **[@typescript-eslint/type-utils@8.37.0](https://github.com/typescript-eslint/typescript-eslint)**
+ - **[@typescript-eslint/type-utils@8.38.0](https://github.com/typescript-eslint/typescript-eslint)**
     - license: MIT
- - **[@typescript-eslint/types@8.37.0](https://github.com/typescript-eslint/typescript-eslint)**
+ - **[@typescript-eslint/types@8.38.0](https://github.com/typescript-eslint/typescript-eslint)**
     - license: MIT
- - **[@typescript-eslint/typescript-estree@8.37.0](https://github.com/typescript-eslint/typescript-eslint)**
+ - **[@typescript-eslint/typescript-estree@8.38.0](https://github.com/typescript-eslint/typescript-eslint)**
     - license: MIT
- - **[@typescript-eslint/utils@8.37.0](https://github.com/typescript-eslint/typescript-eslint)**
+ - **[@typescript-eslint/utils@8.38.0](https://github.com/typescript-eslint/typescript-eslint)**
     - license: MIT
- - **[@typescript-eslint/visitor-keys@8.37.0](https://github.com/typescript-eslint/typescript-eslint)**
+ - **[@typescript-eslint/visitor-keys@8.38.0](https://github.com/typescript-eslint/typescript-eslint)**
     - license: MIT
  - **[@ungap/url-search-params@0.1.4](https://github.com/ungap/url-search-params)**
     - license: ISC
@@ -1114,7 +1114,7 @@
     - license: MIT
  - **[typed-array-length@1.0.7](https://github.com/inspect-js/typed-array-length)**
     - license: MIT
- - **[typescript-eslint@8.37.0](https://github.com/typescript-eslint/typescript-eslint)**
+ - **[typescript-eslint@8.38.0](https://github.com/typescript-eslint/typescript-eslint)**
     - license: MIT
  - **[typescript@5.8.3](https://github.com/microsoft/TypeScript)**
     - license: Apache-2.0
@@ -1152,7 +1152,7 @@
     - license: MIT
  - **[vite-plugin-pwa@1.0.1](https://github.com/vite-pwa/vite-plugin-pwa)**
     - license: MIT
- - **[vite-plugin-radar@0.10.0](https://github.com/stafyniaksacha/vite-plugin-radar)**
+ - **[vite-plugin-radar@0.10.1](https://github.com/stafyniaksacha/vite-plugin-radar)**
     - license: MIT
  - **[vite@6.3.5](https://github.com/vitejs/vite)**
     - license: MIT
