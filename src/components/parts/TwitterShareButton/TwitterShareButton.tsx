@@ -1,6 +1,6 @@
 import { memo, useCallback } from 'react';
 
-import imgTwitter from './twitter.png';
+import imgXLogo from './x-logo/logo-white.png';
 
 import { store } from '@/store';
 import { excludeUndef } from '@/utils/excludeUndef';
@@ -8,7 +8,7 @@ import { excludeUndef } from '@/utils/excludeUndef';
 export const TwitterShareButton = memo(function Component() {
   return (
     <button
-      className="share-button"
+      className="share-button x-logo"
       onClick={useCallback(() => {
         const {
           deck: { deckTabs, activeTabIndex },
@@ -37,7 +37,7 @@ export const TwitterShareButton = memo(function Component() {
         window.open(url, '_blank');
       }, [])}
     >
-      <img className="share-button-image twitter" src={imgTwitter} />
+      <img className="share-button-image twitter" src={imgXLogo} />
     </button>
   );
 });

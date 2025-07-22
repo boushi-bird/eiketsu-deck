@@ -6,9 +6,12 @@
   margin: auto 6px;
   padding: 0;
   overflow: hidden;
-  border-radius: 6px;
-  border-width: 0;
   background-color: transparent;
+
+  &.x-logo {
+    padding: 6px;
+    background-color: #000000;
+  }
 }
 
 .share-button-image {
