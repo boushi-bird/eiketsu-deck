@@ -33,7 +33,7 @@ export const SimpleFilter = () => {
   const generalColors = useAppSelector(datalistSelectorCurrent);
   const {
     selectionMode,
-    generalColors: filterdGeneralColors,
+    generalColors: filteredGeneralColors,
     belongFilter,
   } = useAppSelector(filterSelectorCurrent);
   const hasBelongCards = useAppSelector(hasBelongCardsSelector);
@@ -58,7 +58,9 @@ export const SimpleFilter = () => {
     <div className="simple-filter">
       <div className="simple-filter-main">
         <section className="simple-filter-section">
-          <h2 className="title">勢力</h2>
+          <h2 className="title">
+            勢 <br /> 力
+          </h2>
           <FilterButtonList
             itemName="generalColors"
             buttonItems={useMemo(() => {
@@ -70,7 +72,7 @@ export const SimpleFilter = () => {
               }));
             }, [generalColors])}
             selectionMode={selectionMode}
-            selectedItems={filterdGeneralColors}
+            selectedItems={filteredGeneralColors}
             square={true}
             onSelectItems={changeSelectedItem}
           />
