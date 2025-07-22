@@ -1,8 +1,8 @@
 @import '@/defines.css';
 
 .total-cost {
-  min-width: 156px;
-  max-width: 156px;
+  min-width: 152px;
+  max-width: 152px;
   display: flex;
 
   & .total {
