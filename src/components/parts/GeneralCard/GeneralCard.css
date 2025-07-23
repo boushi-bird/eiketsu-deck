@@ -23,6 +23,10 @@
     justify-content: center;
     font-weight: bold;
     color: var(--general-state-color);
+
+    &.light-color-bg {
+      color: var(--default-color);
+    }
   }
 
   & .card-no {

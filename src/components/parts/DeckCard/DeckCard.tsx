@@ -10,6 +10,7 @@ import { General } from 'eiketsu-deck';
 
 import { GeneralCost } from '@/components/parts/GeneralCost';
 import { generalImage, unitTypeImage } from '@/utils/externalResource';
+import { isLightColor } from '@/utils/isLightColor';
 
 interface Props {
   index: number;
@@ -77,6 +78,8 @@ export const DeckCard = memo(function Component({
     ['very-long']: general.name.length > 8,
   });
 
+  const lightColorBg = isLightColor(general.color.color);
+
   const gradientBg = `linear-gradient(-60deg, ${[
     general.color.color,
     `${general.color.color} 36px`,
@@ -116,7 +119,9 @@ export const DeckCard = memo(function Component({
       }}
     >
       <div
-        className="deck-card-inner-top"
+        className={classNames('deck-card-inner-top', {
+          'light-color-bg': lightColorBg,
+        })}
         style={{
           backgroundColor: general.color.color,
         }}

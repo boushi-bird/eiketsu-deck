@@ -5,6 +5,7 @@ import { General } from 'eiketsu-deck';
 
 import { GeneralCost } from '@/components/parts/GeneralCost';
 import { generalFaceImage, unitTypeImage } from '@/utils/externalResource';
+import { isLightColor } from '@/utils/isLightColor';
 
 interface Props {
   children?: ReactNode;
@@ -40,6 +41,8 @@ export const GeneralCard = memo(function Component({
   });
   const needRuby = general.name !== general.kana;
 
+  const lightColorBg = isLightColor(general.color.color);
+
   return (
     <div
       key={general.uniqueId}
@@ -49,7 +52,9 @@ export const GeneralCard = memo(function Component({
       }}
     >
       <span
-        className="state-color"
+        className={classNames('state-color', {
+          'light-color-bg': lightColorBg,
+        })}
         style={{
           backgroundColor: general.color.color,
         }}

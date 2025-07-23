@@ -72,6 +72,10 @@
     position: relative;
     color: var(--default-light-color);
 
+    &.light-color-bg {
+      color: var(--default-color);
+    }
+
     & .thumb {
       width: 100%;
       height: var(--deck-card-inner-thumb-height);
