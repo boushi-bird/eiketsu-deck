@@ -37,7 +37,7 @@ export const DeckCard = memo(function Component({
   onRemove,
   onMove,
 }: Props) {
-  const prevIndexRef = useRef<number>();
+  const prevIndexRef = useRef<number>(undefined);
   useEffect(() => {
     prevIndexRef.current = index;
   });
