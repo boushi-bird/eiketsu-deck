@@ -216,11 +216,11 @@
     - license: Apache-2.0
  - **[@eslint/eslintrc@3.3.1](https://github.com/eslint/eslintrc)**
     - license: MIT
- - **[@eslint/js@9.31.0](https://github.com/eslint/eslint)**
+ - **[@eslint/js@9.32.0](https://github.com/eslint/eslint)**
     - license: MIT
  - **[@eslint/object-schema@2.1.6](https://github.com/eslint/rewrite)**
     - license: Apache-2.0
- - **[@eslint/plugin-kit@0.3.3](https://github.com/eslint/rewrite)**
+ - **[@eslint/plugin-kit@0.3.4](https://github.com/eslint/rewrite)**
     - license: Apache-2.0
  - **[@fortawesome/fontawesome-common-types@6.7.2](https://github.com/FortAwesome/Font-Awesome)**
     - license: MIT
@@ -304,11 +304,9 @@
     - license: MIT
  - **[@types/node@24.1.0](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
- - **[@types/prop-types@15.7.15](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/react-dom@19.1.6](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
- - **[@types/react-dom@18.3.7](https://github.com/DefinitelyTyped/DefinitelyTyped)**
-    - license: MIT
- - **[@types/react@18.3.23](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/react@19.1.8](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
  - **[@types/resolve@1.20.2](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
@@ -494,7 +492,7 @@
     - license: BSD-2-Clause
  - **[dotenv@16.6.1](https://github.com/motdotla/dotenv)**
     - license: BSD-2-Clause
- - **[dotenv@17.2.0](https://github.com/motdotla/dotenv)**
+ - **[dotenv@17.2.1](https://github.com/motdotla/dotenv)**
     - license: BSD-2-Clause
  - **[dunder-proto@1.0.1](https://github.com/es-shims/dunder-proto)**
     - license: MIT
@@ -548,7 +546,7 @@
     - license: Apache-2.0
  - **[eslint-visitor-keys@4.2.1](https://github.com/eslint/js)**
     - license: Apache-2.0
- - **[eslint@9.31.0](https://github.com/eslint/eslint)**
+ - **[eslint@9.32.0](https://github.com/eslint/eslint)**
     - license: MIT
  - **[espree@10.4.0](https://github.com/eslint/js)**
     - license: BSD-2-Clause
@@ -744,7 +742,7 @@
     - license: MIT
  - **[jake@10.9.2](https://github.com/jakejs/jake)**
     - license: Apache-2.0
- - **[jiti@2.4.2](https://github.com/unjs/jiti)**
+ - **[jiti@2.5.1](https://github.com/unjs/jiti)**
     - license: MIT
  - **[js-tokens@4.0.0](https://github.com/lydell/js-tokens)**
     - license: MIT
@@ -932,7 +930,7 @@
     - license: MIT
  - **[randombytes@2.1.0](https://github.com/crypto-browserify/randombytes)**
     - license: MIT
- - **[react-dom@18.3.1](https://github.com/facebook/react)**
+ - **[react-dom@19.1.0](https://github.com/facebook/react)**
     - license: MIT
  - **[react-is@16.13.1](https://github.com/facebook/react)**
     - license: MIT
@@ -940,7 +938,7 @@
     - license: MIT
  - **[react-refresh@0.17.0](https://github.com/facebook/react)**
     - license: MIT
- - **[react@18.3.1](https://github.com/facebook/react)**
+ - **[react@19.1.0](https://github.com/facebook/react)**
     - license: MIT
  - **[read-cache@1.0.0](https://github.com/TrySound/read-cache)**
     - license: MIT
@@ -996,7 +994,7 @@
     - license: MIT
  - **[safe-regex-test@1.1.0](https://github.com/ljharb/safe-regex-test)**
     - license: MIT
- - **[scheduler@0.23.2](https://github.com/facebook/react)**
+ - **[scheduler@0.26.0](https://github.com/facebook/react)**
     - license: MIT
  - **[semver@5.7.2](https://github.com/npm/node-semver)**
     - license: ISC
@@ -1150,11 +1148,11 @@
     - license: MIT
  - **[vite-plugin-html@3.2.2](https://github.com/vbenjs/vite-plugin-html)**
     - license: MIT
- - **[vite-plugin-pwa@1.0.1](https://github.com/vite-pwa/vite-plugin-pwa)**
+ - **[vite-plugin-pwa@1.0.2](https://github.com/vite-pwa/vite-plugin-pwa)**
     - license: MIT
  - **[vite-plugin-radar@0.10.1](https://github.com/stafyniaksacha/vite-plugin-radar)**
     - license: MIT
- - **[vite@7.0.5](https://github.com/vitejs/vite)**
+ - **[vite@7.0.6](https://github.com/vitejs/vite)**
     - license: MIT
  - **[webidl-conversions@4.0.2](https://github.com/jsdom/webidl-conversions)**
     - license: BSD-2-Clause
