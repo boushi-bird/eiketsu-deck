@@ -574,7 +574,7 @@
     - license: BSD-3-Clause
  - **[fastq@1.19.1](https://github.com/mcollina/fastq)**
     - license: ISC
- - **[fdir@6.4.6](https://github.com/thecodrr/fdir)**
+ - **[fdir@6.5.0](https://github.com/thecodrr/fdir)**
     - license: MIT
  - **[file-entry-cache@8.0.0](https://github.com/jaredwray/file-entry-cache)**
     - license: MIT
@@ -1086,7 +1086,7 @@
     - license: MIT
  - **[tiny-warning@1.0.3](https://github.com/alexreardon/tiny-warning)**
     - license: MIT
- - **[tinyglobby@0.2.14](https://github.com/SuperchupuDev/tinyglobby)**
+ - **[tinyglobby@0.2.15](https://github.com/SuperchupuDev/tinyglobby)**
     - license: MIT
  - **[to-regex-range@5.0.1](https://github.com/micromatch/to-regex-range)**
     - license: MIT
@@ -1152,7 +1152,7 @@
     - license: MIT
  - **[vite-plugin-radar@0.10.1](https://github.com/stafyniaksacha/vite-plugin-radar)**
     - license: MIT
- - **[vite@7.0.6](https://github.com/vitejs/vite)**
+ - **[vite@7.1.11](https://github.com/vitejs/vite)**
     - license: MIT
  - **[webidl-conversions@4.0.2](https://github.com/jsdom/webidl-conversions)**
     - license: BSD-2-Clause
