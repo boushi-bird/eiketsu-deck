@@ -200,7 +200,7 @@ export const DeckBoard = () => {
             title="デッキ設定"
             onClick={handleOpenDeckConfig}
           >
-            <FontAwesomeIcon icon={faGear} />
+            <FontAwesomeIcon icon={faGear} widthAuto />
           </button>
           <TwitterShareButton />
           <button
@@ -221,7 +221,7 @@ export const DeckBoard = () => {
               setShowOtherDeckCardActions(!showOtherDeckCardActions);
             }}
           >
-            <FontAwesomeIcon icon={faEllipsisVertical} />
+            <FontAwesomeIcon icon={faEllipsisVertical} widthAuto />
           </button>
         </div>
       </div>

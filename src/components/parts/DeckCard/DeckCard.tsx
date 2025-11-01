@@ -41,6 +41,8 @@ export const DeckCard = memo(function Component({
   useEffect(() => {
     prevIndexRef.current = index;
   });
+  // TODO: レンダリング中のref.current参照を避けるリファクタリングが必要
+  // eslint-disable-next-line react-hooks/refs
   const prevIndex = prevIndexRef.current;
 
   const [moveFrom, setMoveFrom] = useState<MoveDirection | null>(null);
@@ -186,14 +188,18 @@ export const DeckCard = memo(function Component({
       </div>
       <div className="tool-box">
         <button className="remove" onClick={handleRemove}>
-          <FontAwesomeIcon icon={faCircleXmark} className="circle-icon" />
+          <FontAwesomeIcon
+            icon={faCircleXmark}
+            className="circle-icon"
+            widthAuto
+          />
         </button>
         <button
           className="tool-button show-detail"
           title="武将詳細"
           onClick={handleShowDetail}
         >
-          <FontAwesomeIcon icon={faInfoCircle} />
+          <FontAwesomeIcon icon={faInfoCircle} widthAuto />
         </button>
         <button
           className={classNames('tool-button', 'move-left', {
@@ -202,7 +208,7 @@ export const DeckCard = memo(function Component({
           title="左へ移動"
           onClick={handleMoveLeft}
         >
-          <FontAwesomeIcon icon={faArrowLeft} />
+          <FontAwesomeIcon icon={faArrowLeft} widthAuto />
         </button>
         <button
           className={classNames('tool-button', 'move-right', {
@@ -211,7 +217,7 @@ export const DeckCard = memo(function Component({
           title="右へ移動"
           onClick={handleMoveRight}
         >
-          <FontAwesomeIcon icon={faArrowRight} />
+          <FontAwesomeIcon icon={faArrowRight} widthAuto />
         </button>
       </div>
     </div>

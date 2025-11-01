@@ -12,7 +12,7 @@ export default tseslint.config([
   globalIgnores(['**/node_modules/', 'dist/', 'public/']),
   js.configs.recommended,
   react.configs.flat.recommended,
-  reactHooks.configs['recommended-latest'],
+  reactHooks.configs.flat['recommended-latest'],
   tseslint.configs.recommended,
   react.configs.flat['jsx-runtime'],
   importPlugin.flatConfigs.recommended,

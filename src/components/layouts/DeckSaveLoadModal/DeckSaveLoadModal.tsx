@@ -95,6 +95,8 @@ export const DeckSaveLoadModal = ({ tab, onClose }: Props) => {
     const cached = localStorage.getItem(KEY_NAME);
     const queryStrings: string[] = cached ? JSON.parse(cached) : [];
     const cachedSavedDecks = queryStrings.map(queryToSavedDeckRecord(generals));
+    // TODO: useEffect内の同期的なsetStateを避けるリファクタリングが必要
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setSavedDecks(cachedSavedDecks);
   }, [generals]);
 

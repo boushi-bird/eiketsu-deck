@@ -129,6 +129,8 @@ export const CardList = () => {
 
   useEffect(() => {
     const genLen = generals.length;
+    // TODO: derived stateに変更してuseEffect内のsetStateを削除する
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setReadingCardsAll(genLen);
     (async () => {
       await nextTick();
