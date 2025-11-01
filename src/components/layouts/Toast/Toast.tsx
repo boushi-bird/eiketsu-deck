@@ -19,9 +19,13 @@ export const Toast = () => {
       return;
     }
 
-    setTimeout(() => {
+    const timerId = setTimeout(() => {
       dispatch(windowActions.clearToast());
     }, 2000);
+
+    return () => {
+      clearTimeout(timerId);
+    };
   }, [message, dispatch]);
 
   if (message == null) {

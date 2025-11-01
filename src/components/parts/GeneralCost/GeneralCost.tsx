@@ -15,11 +15,11 @@ export const GeneralCost = memo(function Component({ value }: Props) {
   return (
     <div className="general-cost">
       {[...Array(full)].map((_, i) => (
-        <span className="cost-circle full" key={i} />
+        <span className="cost-circle full" key={`full-${i}`} />
       ))}
       {hasHalf ? <span className="cost-circle half" /> : ''}
       {[...Array(costLess)].map((_, i) => (
-        <span className="cost-circle cost-less" key={i} />
+        <span className="cost-circle cost-less" key={`less-${i}`} />
       ))}
     </div>
   );

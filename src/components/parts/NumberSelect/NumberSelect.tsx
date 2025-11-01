@@ -1,4 +1,4 @@
-import { ChangeEvent, ReactNode, useCallback } from 'react';
+import { ChangeEvent, ReactNode } from 'react';
 
 interface Props {
   min: number;
@@ -26,19 +26,16 @@ export const NumberSelect = ({
   for (let i = min; i <= max; i += effectiveStep) {
     const text = displayText ? displayText(i, defaultValue === i) : `${i}`;
     options.push(
-      <option key={i} value={i}>
+      <option key={`option-${i}`} value={i}>
         {text}
       </option>,
     );
   }
 
-  const handleOnChange = useCallback(
-    (event: ChangeEvent<HTMLSelectElement>) => {
-      const value = parseFloat(event.currentTarget.value);
-      onChangeValue(value === defaultValue ? undefined : value);
-    },
-    [defaultValue, onChangeValue],
-  );
+  const handleOnChange = (event: ChangeEvent<HTMLSelectElement>) => {
+    const value = parseFloat(event.currentTarget.value);
+    onChangeValue(value === defaultValue ? undefined : value);
+  };
 
   const value = currentValue == null ? defaultValue : currentValue;
 

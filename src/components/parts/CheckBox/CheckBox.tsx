@@ -1,4 +1,4 @@
-import { ReactNode, useCallback } from 'react';
+import { ReactNode, memo, useCallback } from 'react';
 
 import { faCheck } from '@fortawesome/free-solid-svg-icons/faCheck';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -12,7 +12,7 @@ interface Props<V> {
   onClick?: (checked: boolean, value: V) => void;
 }
 
-export function CheckBox<V>({
+function CheckBoxInner<V>({
   checked,
   disabled,
   value,
@@ -37,3 +37,6 @@ export function CheckBox<V>({
     </div>
   );
 }
+
+// ジェネリック型を保持したままmemoでラップ
+export const CheckBox = memo(CheckBoxInner) as typeof CheckBoxInner;
