@@ -1,4 +1,4 @@
-import { CSSProperties, ReactNode } from 'react';
+import { CSSProperties, ReactNode, memo, useCallback } from 'react';
 
 import { FilterButton } from '@/components/parts/FilterButton';
 import { FilterSelectionMode } from '@/modules/filter';
@@ -41,6 +41,64 @@ const createButtonChild = (name: string, imageUrl?: string): ReactNode => {
   );
 };
 
+interface FilterButtonItemProps<V> {
+  itemKey: string;
+  name: string;
+  value: V;
+  tooltip?: string;
+  imageUrl?: string;
+  bgColor?: string;
+  addtionalClasses?: string[];
+  disabled?: boolean;
+  selected: boolean;
+  square?: boolean;
+  buttonStyle?: CSSProperties;
+  onToggle: (value: V) => void;
+}
+
+const FilterButtonItem = memo(function FilterButtonItem<V>({
+  itemKey,
+  name,
+  value,
+  tooltip,
+  imageUrl,
+  bgColor,
+  addtionalClasses,
+  disabled,
+  selected,
+  square,
+  buttonStyle,
+  onToggle,
+}: FilterButtonItemProps<V>) {
+  const handleClick = useCallback(() => {
+    onToggle(value);
+  }, [value, onToggle]);
+
+  const style: CSSProperties = {
+    ...(buttonStyle || {}),
+  };
+  if (bgColor) {
+    style.backgroundColor = bgColor;
+  }
+
+  const children: ReactNode = createButtonChild(name, imageUrl);
+
+  return (
+    <FilterButton
+      key={itemKey}
+      addtionalClasses={addtionalClasses}
+      disabled={disabled}
+      selected={selected}
+      square={square}
+      style={style}
+      tooltip={tooltip}
+      onClick={handleClick}
+    >
+      {children}
+    </FilterButton>
+  );
+}) as <V>(props: FilterButtonItemProps<V>) => ReactNode;
+
 export const FilterButtonList = genericMemo(function Component<
   T extends string,
   V,
@@ -56,6 +114,19 @@ export const FilterButtonList = genericMemo(function Component<
   style: buttonStyle,
   onSelectItems,
 }: Props<T, V>) {
+  const handleToggle = useCallback(
+    (value: V) => {
+      const selected = selectedItems.includes(value);
+      const items = selected
+        ? selectedItems.filter((item) => item !== value)
+        : selectionMode === 'multiple'
+          ? [...selectedItems, value]
+          : [value];
+      onSelectItems(itemName, items);
+    },
+    [selectedItems, selectionMode, itemName, onSelectItems],
+  );
+
   const buttons: ReactNode[] = buttonItems.map(
     ({
       key,
@@ -66,40 +137,28 @@ export const FilterButtonList = genericMemo(function Component<
       bgColor,
       addtionalClasses: buttonAddtionalClasses,
     }) => {
-      const style: CSSProperties = {
-        ...(buttonStyle || {}),
-      };
-      if (bgColor) {
-        style.backgroundColor = bgColor;
-      }
       const selected = selectedItems.includes(value);
-      const children: ReactNode = createButtonChild(name, imageUrl);
+      const mergedAddtionalClasses = [
+        ...(addtionalClasses || []),
+        ...(buttonAddtionalClasses || []),
+      ];
 
       return (
-        <FilterButton
+        <FilterButtonItem
           key={key}
-          {...{
-            addtionalClasses: [
-              ...(addtionalClasses || []),
-              ...(buttonAddtionalClasses || []),
-            ],
-            disabled,
-            selected,
-            square,
-            style,
-            tooltip,
-          }}
-          onClick={() => {
-            const items = selected
-              ? selectedItems.filter((item) => item !== value)
-              : selectionMode === 'multiple'
-                ? [...selectedItems, value]
-                : [value];
-            onSelectItems(itemName, items);
-          }}
-        >
-          {children}
-        </FilterButton>
+          itemKey={key}
+          name={name}
+          value={value}
+          tooltip={tooltip}
+          imageUrl={imageUrl}
+          bgColor={bgColor}
+          addtionalClasses={mergedAddtionalClasses}
+          disabled={disabled}
+          selected={selected}
+          square={square}
+          buttonStyle={buttonStyle}
+          onToggle={handleToggle}
+        />
       );
     },
   );

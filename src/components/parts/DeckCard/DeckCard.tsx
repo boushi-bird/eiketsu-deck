@@ -1,4 +1,4 @@
-import { memo, useCallback, useEffect, useRef, useState } from 'react';
+import { memo, useCallback, useEffect, useState } from 'react';
 
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons/faArrowLeft';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons/faArrowRight';
@@ -37,14 +37,7 @@ export const DeckCard = memo(function Component({
   onRemove,
   onMove,
 }: Props) {
-  const prevIndexRef = useRef<number>(undefined);
-  useEffect(() => {
-    prevIndexRef.current = index;
-  });
-  // TODO: レンダリング中のref.current参照を避けるリファクタリングが必要
-  // eslint-disable-next-line react-hooks/refs
-  const prevIndex = prevIndexRef.current;
-
+  const [prevIndex, setPrevIndex] = useState<number | undefined>();
   const [moveFrom, setMoveFrom] = useState<MoveDirection | null>(null);
   const indexClass = index % 2 === 0 ? 'even' : 'odd';
 
@@ -63,6 +56,10 @@ export const DeckCard = memo(function Component({
   const handleMoveRight = useCallback(() => {
     onMove(index, 'right');
   }, [index, onMove]);
+
+  useEffect(() => {
+    setPrevIndex(index);
+  }, [index]);
 
   useEffect(() => {
     if (prevIndex == null) {
@@ -90,7 +87,8 @@ export const DeckCard = memo(function Component({
   ].join(',')})`;
 
   const skills = general.skills.map((skill, i) => (
-    <span className="skill" key={i} title={skill.name}>
+    // 同じスキルを複数持つ場合があるのでkeyにindexを使う
+    <span className="skill" key={`skill-${skill.idx}-${i}`} title={skill.name}>
       {skill.shortName}
     </span>
   ));

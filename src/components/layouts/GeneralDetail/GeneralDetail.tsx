@@ -1,3 +1,5 @@
+import { useMemo } from 'react';
+
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons/faCircleXmark';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons/faExternalLinkAlt';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -21,16 +23,26 @@ export const GeneralDetail = ({ generalIdx, onClose }: Props) => {
 
   const general = generals.find((g) => g.idx == generalIdx);
 
+  // Google検索リンクをメモ化（毎回URL生成しないようにする）
+  // general が undefined の場合も考慮して、useMemoは条件分岐の前に配置
+  const { searchQueryText, generalSearchLink } = useMemo(() => {
+    if (!general) {
+      return {
+        searchQueryText: '',
+        generalSearchLink: new URL('http://www.google.co.jp/search'),
+      };
+    }
+    const searchQueryText = `英傑大戦 ${general.uniqueId}${general.name}`;
+    const generalSearchLink = new URL('http://www.google.co.jp/search');
+    generalSearchLink.search = new URLSearchParams({
+      q: searchQueryText,
+    }).toString();
+    return { searchQueryText, generalSearchLink };
+  }, [general]);
+
   if (!general) {
     return <div className="general-detail">見つかりません。</div>;
   }
-
-  const searchQueryText = `英傑大戦 ${general.uniqueId}${general.name}`;
-
-  const generalSearchLink = new URL('http://www.google.co.jp/search');
-  generalSearchLink.search = new URLSearchParams({
-    q: searchQueryText,
-  }).toString();
 
   return (
     <div className="general-detail">
@@ -122,7 +134,8 @@ export const GeneralDetail = ({ generalIdx, onClose }: Props) => {
         </div>
         <div className="skill-info" data-label="特技">
           {general.skills.map((s, i) => (
-            <div className="skill" key={i}>
+            // 同じスキルを複数持つ場合があるのでkeyにindexを使う
+            <div className="skill" key={`skill-${s.idx}-${i}`}>
               <span className="name">{s.name}</span>
               {s.caption}
             </div>

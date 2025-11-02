@@ -82,7 +82,6 @@ export const CardList = () => {
   // 現在のページ
   const [currentPage, setCurrentPage] = useState(1);
   const [readingCards, setReadingCards] = useState(0);
-  const [readingCardsAll, setReadingCardsAll] = useState(0);
 
   const [prevBelongFilter, setPrevBelongFilter] = useState<string | undefined>(
     undefined,
@@ -128,18 +127,24 @@ export const CardList = () => {
   );
 
   useEffect(() => {
+    let cancelled = false;
     const genLen = generals.length;
-    // TODO: derived stateに変更してuseEffect内のsetStateを削除する
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setReadingCardsAll(genLen);
+
     (async () => {
       await nextTick();
       for (let r = 0; r < genLen; r += 25) {
+        if (cancelled) return;
         setReadingCards(r);
         await nextTick();
       }
-      setReadingCards(genLen);
+      if (!cancelled) {
+        setReadingCards(genLen);
+      }
     })();
+
+    return () => {
+      cancelled = true;
+    };
   }, [generals]);
 
   useEffect(() => {
@@ -207,9 +212,9 @@ export const CardList = () => {
 
   return (
     <div className="card-list-container">
-      {readingCards < readingCardsAll && (
+      {readingCards < generals.length && (
         <div className="reading-cards">
-          読み込み中 {readingCards}/{readingCardsAll}
+          読み込み中 {readingCards}/{generals.length}
         </div>
       )}
       <div className="card-list-paging">

@@ -1,4 +1,10 @@
-import { useCallback, useDeferredValue, useMemo, useState } from 'react';
+import {
+  useCallback,
+  useDeferredValue,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
 
 import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons/faEllipsisVertical';
 import { faGear } from '@fortawesome/free-solid-svg-icons/faGear';
@@ -40,16 +46,17 @@ export const DeckBoard = () => {
   const activeDeckTabIndex = useAppSelector(activeDeckTabIndexSelector);
   const deckCurrent = useAppSelector(deckCurrentSelector);
   const editMode = useAppSelector(editModeSelector);
-  const [deckCount, setDeckCount] = useState(deckCurrent.cards.length);
-
-  if (deckCount !== deckCurrent.cards.length) {
-    setDeckCount(deckCurrent.cards.length);
-    setSelectedUniqueId(undefined);
-  }
 
   const { generals } = datalistState;
   const { cards: deckCards, constraints: deckConstraints } =
     useDeferredValue(deckCurrent);
+
+  // デッキカード数が変更されたら選択状態をリセット
+  // useEffect内でのsetSelectedUniqueIdを使用しているが、無限ループにはならない
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setSelectedUniqueId(undefined);
+  }, [deckCards.length]);
 
   const handleOpenDeckConfig = useCallback(() => {
     dispatch(windowActions.openDeckConfig());

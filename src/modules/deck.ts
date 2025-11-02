@@ -1,15 +1,9 @@
-import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import { PayloadAction, createSlice, nanoid } from '@reduxjs/toolkit';
 
 import { DECK_COST_LIMIT, DECK_GENERAL_CARD_COUNT } from '@/consts';
 
-// デッキのユニークIDとして使う揮発的な数値
-let currentDeckKey = 0;
-
-// デッキタブのユニークIDとして使う揮発的な数値
-let deckTabKey = 1;
-
 interface DeckCardGeneralWithKey {
-  key: number;
+  key: string;
   generalIdx: number;
 }
 
@@ -23,7 +17,7 @@ export interface Deck {
 }
 
 interface DeckTab extends Deck {
-  key: number;
+  key: string;
   cardsSaved: boolean;
   cardsConstraints: boolean;
 }
@@ -71,7 +65,7 @@ const initialState: DeckState = {
   activeTabIndex: 0,
   deckTabs: [
     {
-      key: deckTabKey++,
+      key: nanoid(),
       cards: [],
       constraints: {
         ...DEFAULT_DECK_CONSTRAINTS,
@@ -98,7 +92,7 @@ const slice = createSlice({
         ...current.cards,
         {
           ...action.payload.card,
-          key: currentDeckKey++,
+          key: nanoid(),
         },
       ];
       current.cardsSaved = false;
@@ -110,7 +104,7 @@ const slice = createSlice({
       }
       const deckCards = action.payload.map((deckCard) => ({
         ...deckCard,
-        key: currentDeckKey++,
+        key: nanoid(),
       }));
       current.cards = deckCards;
       current.cardsSaved = false;
@@ -162,7 +156,7 @@ const slice = createSlice({
       state.deckTabs = [
         ...state.deckTabs,
         {
-          key: currentDeckKey++,
+          key: nanoid(),
           cards: [],
           constraints,
           cardsSaved: true,

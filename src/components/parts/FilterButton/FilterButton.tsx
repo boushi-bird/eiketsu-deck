@@ -1,4 +1,4 @@
-import { CSSProperties, ReactNode, useCallback, useMemo } from 'react';
+import { CSSProperties, ReactNode } from 'react';
 
 import classNames from 'classnames';
 
@@ -25,17 +25,9 @@ export const FilterButton = ({
   tooltip,
   onClick,
 }: Props) => {
-  const buttonClasses = useMemo(
-    () =>
-      addtionalClasses
-        ? [...defaultClasses, ...addtionalClasses]
-        : defaultClasses,
-    [addtionalClasses],
-  );
-
-  const onClickFilterItem = useCallback(() => {
-    onClick();
-  }, [onClick]);
+  const buttonClasses = addtionalClasses
+    ? [...defaultClasses, ...addtionalClasses]
+    : defaultClasses;
 
   return (
     <span className="filter-item-wrapper">
@@ -45,7 +37,7 @@ export const FilterButton = ({
         disabled={disabled}
         style={style}
         title={tooltip}
-        onClick={onClickFilterItem}
+        onClick={onClick}
       >
         {children}
       </button>

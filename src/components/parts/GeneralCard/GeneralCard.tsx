@@ -18,7 +18,8 @@ export const GeneralCard = memo(function Component({
 }: Props) {
   const imageUrl = generalFaceImage(general);
   const skills = general.skills.map((skill, i) => (
-    <span className="skill" key={i} title={skill.name}>
+    // 同じスキルを複数持つ場合があるのでkeyにindexを使う
+    <span className="skill" key={`skill-${skill.idx}-${i}`} title={skill.name}>
       {skill.shortName}
     </span>
   ));

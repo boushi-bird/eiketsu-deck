@@ -1,5 +1,3 @@
-import { useCallback, useMemo } from 'react';
-
 import classNames from 'classnames';
 
 interface Props {
@@ -19,21 +17,16 @@ export const SwitchItem = ({
   addtionalClasses,
   onChange,
 }: Props) => {
+  const buttonClasses = addtionalClasses
+    ? [...defaultClasses, ...addtionalClasses]
+    : defaultClasses;
+
+  const handleClick = () => {
+    onChange(!isOn);
+  };
+
   return (
-    <div
-      className={classNames(
-        useMemo(
-          () =>
-            addtionalClasses
-              ? [...defaultClasses, ...addtionalClasses]
-              : defaultClasses,
-          [addtionalClasses],
-        ),
-      )}
-      onClick={useCallback(() => {
-        onChange(!isOn);
-      }, [isOn, onChange])}
-    >
+    <div className={classNames(buttonClasses)} onClick={handleClick}>
       <div className={classNames('switch-button', { active: !isOn })}>
         <button className="switch-button-child">{labelOff}</button>
       </div>

@@ -24,6 +24,8 @@ const AppContainer: FC<Props> = ({ children }) => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
+    let timerId: NodeJS.Timeout | undefined;
+
     (async () => {
       // TODO: 例外処理
       const data = await loadEiketsuDeckData();
@@ -34,12 +36,15 @@ const AppContainer: FC<Props> = ({ children }) => {
       setReady(true);
 
       // 一定時間経っていた場合、Service Worker更新時のリロードはしない。
-      setTimeout(() => {
+      timerId = setTimeout(() => {
         dispatch(windowActions.disableAutoReload());
       }, 5000);
     })();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+
+    return () => {
+      if (timerId) clearTimeout(timerId);
+    };
+  }, [dispatch]);
 
   return (
     <div className={classNames('app-container', { ready })}>{children}</div>

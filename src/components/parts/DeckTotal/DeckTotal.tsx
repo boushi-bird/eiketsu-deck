@@ -145,9 +145,9 @@ export const DeckTotal = memo(function Component({
           {totalIntelligence}
         </div>
         <div className="total total-type-counts" data-label="特技合計">
-          {sumSkills.map(({ item, count, cost }, i) => {
+          {sumSkills.map(({ item, count, cost }) => {
             return (
-              <div key={i} className="type-count">
+              <div key={item.idx} className="type-count">
                 <span className="skill">{item.shortName}</span>×{count}(
                 {cost / 10}
                 <span className="cost-label">コスト</span>)
@@ -156,9 +156,9 @@ export const DeckTotal = memo(function Component({
           })}
         </div>
         <div className="total total-type-counts" data-label="兵種合計">
-          {sumUnitTypes.map(({ item, count, cost }, i) => {
+          {sumUnitTypes.map(({ item, count, cost }) => {
             return (
-              <div key={i} className="type-count">
+              <div key={item.idx} className="type-count">
                 <span className="unit">{item.shortName}</span>×{count}(
                 {cost / 10}
                 <span className="cost-label">コスト</span>)

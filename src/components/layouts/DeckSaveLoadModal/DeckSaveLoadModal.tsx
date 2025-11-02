@@ -1,11 +1,12 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
 
 import { faCircleInfo } from '@fortawesome/free-solid-svg-icons/faCircleInfo';
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons/faCircleXmark';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { createSelector } from '@reduxjs/toolkit';
 import classNames from 'classnames';
-import { General } from 'eiketsu-deck';
+
+import { KEY_NAME, useLocalStorageDecks } from './useLocalStorageDecks';
 
 import { SavedDeck } from '@/components/parts/SavedDeck';
 import { MAX_DECK_TABS, MAX_SAVED_DECK } from '@/consts';
@@ -16,10 +17,9 @@ import {
   useAppDispatch,
   useAppSelector,
 } from '@/hooks';
-import { SameCardConstraint, deckActions } from '@/modules/deck';
+import { deckActions } from '@/modules/deck';
 import { queryParamsOptions, queryResync } from '@/modules/querySync';
 import { windowActions } from '@/modules/window';
-import { excludeUndef } from '@/utils/excludeUndef';
 
 const TAB_NAMES = {
   ['deck-save']: 'セーブ',
@@ -37,46 +37,6 @@ const SAVE_PARAMS: Readonly<string[]> = Object.keys(queryParamsOptions).filter(
   (v) => v !== 'dev',
 );
 
-const KEY_NAME = 'saved_decks';
-
-interface SavedDeckRecords {
-  key: number;
-  cards: General[];
-  costLimit: number;
-  sameCard: SameCardConstraint;
-  query: string;
-}
-
-const queryToSavedDeckRecord =
-  (generals: General[]) =>
-  (query: string, index: number): SavedDeckRecords => {
-    const search = new URLSearchParams(query);
-    const deckCards = queryParamsOptions.deck.stringToValue(
-      search.get('deck') || '',
-    );
-    const cards = deckCards
-      .map((card) => generals.find((g) => g.idx === card.generalIdx))
-      .filter(excludeUndef);
-    const cost = search.get('cost');
-    const sameCard = search.get('same_card');
-
-    const costParamOptions = queryParamsOptions.cost;
-    const sameCardParamOptions = queryParamsOptions['same_card'];
-    return {
-      key: index,
-      cards,
-      costLimit:
-        (cost
-          ? costParamOptions.stringToValue?.(cost)
-          : costParamOptions.defaultValue) || 0,
-      sameCard:
-        (sameCard
-          ? sameCardParamOptions.stringToValue?.(sameCard)
-          : sameCardParamOptions.defaultValue) || 'personal',
-      query: `?${search.toString()}`,
-    };
-  };
-
 const selectorDeckTabCount = createSelector(
   deckSelector,
   ({ deckTabs }) => deckTabs.length,
@@ -89,16 +49,11 @@ export const DeckSaveLoadModal = ({ tab, onClose }: Props) => {
 
   const dispatch = useAppDispatch();
 
-  const [savedDecks, setSavedDecks] = useState<SavedDeckRecords[]>([]);
+  // LocalStorage更新のトリガーとして使用
+  const [storageVersion, setStorageVersion] = useState(0);
 
-  useEffect(() => {
-    const cached = localStorage.getItem(KEY_NAME);
-    const queryStrings: string[] = cached ? JSON.parse(cached) : [];
-    const cachedSavedDecks = queryStrings.map(queryToSavedDeckRecord(generals));
-    // TODO: useEffect内の同期的なsetStateを避けるリファクタリングが必要
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setSavedDecks(cachedSavedDecks);
-  }, [generals]);
+  // カスタムフックを使用してLocalStorageから保存済みデッキを読み込み
+  const savedDecks = useLocalStorageDecks(generals, storageVersion);
 
   const save = (index: number) => {
     const current = new URLSearchParams(location.search);
@@ -118,10 +73,7 @@ export const DeckSaveLoadModal = ({ tab, onClose }: Props) => {
     }
     localStorage.setItem(KEY_NAME, JSON.stringify(newQueryStrings));
     dispatch(deckActions.currentDeckToSaved());
-    const cachedSavedDecks = newQueryStrings.map(
-      queryToSavedDeckRecord(generals),
-    );
-    setSavedDecks(cachedSavedDecks);
+    setStorageVersion((v) => v + 1); // useMemoを再計算させる
     dispatch(windowActions.showToast('デッキをセーブしました。'));
     onClose();
   };
@@ -280,7 +232,7 @@ export const DeckSaveLoadModal = ({ tab, onClose }: Props) => {
                     KEY_NAME,
                     JSON.stringify(newQueryStrings),
                   );
-                  setSavedDecks(newSavedDecks);
+                  setStorageVersion((v) => v + 1); // useMemoを再計算させる
                 }}
               />
             </div>

@@ -1,4 +1,4 @@
-import { ReactNode, useCallback } from 'react';
+import { ReactNode, memo, useCallback } from 'react';
 
 import { faCircle } from '@fortawesome/free-solid-svg-icons/faCircle';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -11,7 +11,7 @@ interface Props<V> {
   onClick?: (value: V) => void;
 }
 
-export function RadioButton<V = string>({
+function RadioButtonInner<V = string>({
   value,
   checked,
   children,
@@ -33,3 +33,6 @@ export function RadioButton<V = string>({
     </div>
   );
 }
+
+// ジェネリック型を保持したままmemoでラップ
+export const RadioButton = memo(RadioButtonInner) as typeof RadioButtonInner;
