@@ -6,6 +6,7 @@ import classNames from 'classnames';
 import { FilterButtonList } from '@/components/parts/FilterButtonList';
 import { MultiSelect } from '@/components/parts/MultiSelect';
 import { NumberSelectRange } from '@/components/parts/NumberSelectRange';
+import { KABUKI_RANKS, MAX_KABUKI_RANK } from '@/consts';
 import {
   datalistSelector,
   filterSelector,
@@ -31,6 +32,8 @@ const filterBasicSelector = createSelector(
     strong,
     intelligence,
     strongIntelligenceDiff,
+    kabukiPt,
+    kabukiRank,
     appearDetailVersions,
     cardTypes,
     illustrations,
@@ -41,6 +44,8 @@ const filterBasicSelector = createSelector(
     strong,
     intelligence,
     strongIntelligenceDiff,
+    kabukiPt,
+    kabukiRank,
     appearDetailVersions,
     cardTypes,
     illustrations,
@@ -183,6 +188,58 @@ export const FilterTabBodyDetail = () => {
           )}
         />
       </section>
+
+      <div
+        className={classNames('filter-section-group', {
+          hidden: !datalist.kabukiEnabled,
+        })}
+      >
+        <section className="filter-section">
+          <h2 className="title">{filterMenuItemNames['kabukiPt']}</h2>
+          <NumberSelectRange
+            max={datalist.kabukiPt.max}
+            min={datalist.kabukiPt.min}
+            current={filter.kabukiPt}
+            onChangeValue={useCallback(
+              (value) => {
+                dispatch(
+                  filterActions.setCondition({
+                    itemName: 'kabukiPt',
+                    value,
+                  }),
+                );
+              },
+              [dispatch],
+            )}
+          />
+        </section>
+
+        <section className="filter-section">
+          <h2 className="title">{filterMenuItemNames['kabukiRank']}</h2>
+          <NumberSelectRange
+            max={datalist.kabukiRank.max}
+            min={datalist.kabukiRank.min}
+            current={filter.kabukiRank}
+            displayText={useCallback(
+              (i: number) =>
+                (KABUKI_RANKS.find((k) => k.rankValue === i) ?? MAX_KABUKI_RANK)
+                  .filterLabel,
+              [],
+            )}
+            onChangeValue={useCallback(
+              (value) => {
+                dispatch(
+                  filterActions.setCondition({
+                    itemName: 'kabukiRank',
+                    value,
+                  }),
+                );
+              },
+              [dispatch],
+            )}
+          />
+        </section>
+      </div>
 
       <section className="filter-section">
         <h2 className="title">{filterMenuItemNames['appearDetailVersions']}</h2>

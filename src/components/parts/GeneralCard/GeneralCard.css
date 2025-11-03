@@ -4,13 +4,43 @@
   width: var(--general-card-width);
   height: var(--general-card-height);
   display: grid;
-  grid-template-columns: 40px 132px 60px 64px 38px 36px 36px 100px 1fr;
+  grid-template-columns: 40px 26px 106px 60px 64px 38px 36px 36px 100px 1fr;
   grid-template-rows: 26% 10% 14% 50%;
   grid-template-areas:
-    'state-color card-no period period cost      strong intelligence skills etc'
-    'state-color .       .      thumb  cost      strong intelligence skills etc'
-    'state-color .       .      thumb  cost      strat  strat        strat etc'
-    'rarity      name    name   thumb  unit-type strat  strat        strat etc';
+    'state-color card-no card-no period period cost      strong intelligence skills etc'
+    'state-color .       .       .      thumb  cost      strong intelligence skills etc'
+    'state-color .       .       .      thumb  cost      strat  strat        strat  etc'
+    'rarity      name    name    name   thumb  unit-type strat  strat        strat  etc';
+  &.general-card-kabuki {
+    grid-template-areas:
+      'state-color card-no card-no period period cost      strong intelligence skills etc'
+      'state-color .       .       .      thumb  cost      strong intelligence skills etc'
+      'state-color .       .       .      thumb  cost      strat  strat        strat  etc'
+      'kabuki      rarity  name    name   thumb  unit-type strat  strat        strat  etc';
+
+    & .kabuki {
+      display: flex;
+    }
+
+    & .name .general-name {
+      &.long {
+        font-size: 95%;
+        &.very-long {
+          font-size: 70%;
+          &.too-long {
+            font-size: 60%;
+          }
+        }
+      }
+    }
+
+    & .rarity .rarity-area {
+      font-size: var(--general-rarity-sm-font-size);
+      width: 24px;
+      height: 24px;
+      border-radius: 4px;
+    }
+  }
 
   & .state-color {
     grid-area: state-color;
@@ -36,6 +66,23 @@
     align-items: flex-end;
     justify-content: flex-start;
     padding: 0 4px;
+  }
+
+  & .kabuki {
+    grid-area: kabuki;
+
+    display: none;
+    align-items: center;
+    justify-content: flex-end;
+    flex-flow: column;
+
+    & .kabukiRank {
+      font-size: var(--general-kabuki-rank-font-size);
+    }
+
+    & .kabukiPt {
+      font-size: var(--general-kabuki-pt-font-size);
+    }
   }
 
   & .rarity {
@@ -64,6 +111,7 @@
     align-items: center;
     justify-content: flex-start;
     padding: 0 4px;
+    width: 100%;
 
     & .general-name {
       font-weight: bold;
@@ -82,6 +130,9 @@
 
         &.very-long {
           font-size: 75%;
+          &.too-long {
+            font-size: 60%;
+          }
         }
       }
     }

@@ -1,5 +1,6 @@
 import { General, GeneralStrategy } from 'eiketsu-deck';
 
+import { KABUKI_RANKS } from '@/consts';
 import { BelongCards } from '@/modules/belong';
 import { DatalistState } from '@/modules/datalist';
 import { FilterMenuItemName, FilterState } from '@/modules/filter';
@@ -36,6 +37,8 @@ export const filterMenuItemNames: { [key in FilterMenuItemName]: string } = {
   strong: '武力',
   intelligence: '知力',
   strongIntelligenceDiff: '武力・知力差',
+  kabukiPt: '傾奇pt',
+  kabukiRank: '傾奇ランク',
   skills: '特技',
   skillsCount: '特技数',
   hasSameSkills: '同特技複数持ち',
@@ -294,6 +297,59 @@ export const filterMenuItems: Readonly<FilterMenuItem[]> = [
 
       const display = (i: number) => (i > 0 ? `+${i}` : `${i}`);
       return `${display(min)} - ${display(max)}`;
+    },
+  },
+  {
+    filterItemName: 'kabukiPt',
+    enabled: ({ filter }) => filter.kabukiPt != null,
+    filter: (general, filter) => {
+      const max = filter.kabukiPt?.max;
+      const min = filter.kabukiPt?.min;
+      if (max != null && (general.kabuki == null || general.kabuki > max)) {
+        return false;
+      }
+      if (min != null && (general.kabuki == null || general.kabuki < min)) {
+        return false;
+      }
+      return true;
+    },
+    label: ({ kabukiPt }, filter) => {
+      const max = filter.kabukiPt?.max ?? kabukiPt.max;
+      const min = filter.kabukiPt?.min ?? kabukiPt.min;
+
+      return `${min} - ${max}`;
+    },
+  },
+  {
+    filterItemName: 'kabukiRank',
+    enabled: ({ filter }) => filter.kabukiRank != null,
+    filter: (general, filter) => {
+      const max = filter.kabukiRank?.max;
+      const min = filter.kabukiRank?.min;
+      if (
+        max != null &&
+        (general.kabukiRank == null || general.kabukiRank.rankValue > max)
+      ) {
+        return false;
+      }
+      if (
+        min != null &&
+        (general.kabukiRank == null || general.kabukiRank.rankValue < min)
+      ) {
+        return false;
+      }
+      return true;
+    },
+    label: ({ kabukiRank }, filter) => {
+      const max = filter.kabukiRank?.max ?? kabukiRank.max;
+      const min = filter.kabukiRank?.min ?? kabukiRank.min;
+
+      const maxLabel =
+        KABUKI_RANKS.find((k) => k.rankValue === max)?.label || `Rank${max}`;
+      const minLabel =
+        KABUKI_RANKS.find((k) => k.rankValue === min)?.label || `Rank${min}`;
+
+      return `${minLabel} - ${maxLabel}`;
     },
   },
   {

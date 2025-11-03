@@ -20,6 +20,19 @@
     & .total-cost {
       min-width: 118px;
       max-width: 118px;
+      height: 100%;
+    }
+
+    &.show-kabuki-total {
+      & .total-cost {
+        max-height: 50%;
+      }
+
+      & .total-kabuki {
+        min-width: 118px;
+        max-width: 118px;
+        max-height: 50%;
+      }
     }
 
     & .cost-graph {

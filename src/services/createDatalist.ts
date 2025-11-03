@@ -1,10 +1,12 @@
 import {
   EiketsuDeckData,
+  EiketsuDeckDataKabuki,
   General,
   GeneralAppearDetailVersion,
   GeneralAppearVersion,
 } from 'eiketsu-deck';
 
+import { KABUKI_RANKS, MAX_KABUKI_RANK } from '@/consts';
 import { DatalistState } from '@/modules/datalist';
 import { excludeUndef } from '@/utils/excludeUndef';
 
@@ -14,6 +16,9 @@ type PropItems = Omit<
   | 'strong'
   | 'intelligence'
   | 'strongIntelligenceDiff'
+  | 'kabukiPt'
+  | 'kabukiRank'
+  | 'kabukiEnabled'
   | 'skillsCount'
   | 'generalAppearVersions'
 >;
@@ -34,14 +39,32 @@ export const NO_SKILL = {
   caption: '特技なし',
 };
 
-export const createDatalist = (data: EiketsuDeckData): DatalistState => {
-  const propItems = createPropItems(data);
+function selectKabukiRank(
+  cost: General['cost'],
+  kabukiPt: number,
+): (typeof KABUKI_RANKS)[number] {
+  // cost.value= 10 -> 2, 15 -> 3, 20 -> 4, 25 -> 6, 30 -> 8, 35 -> 10, 40 -> 12
+  const baseValue =
+    cost.value > 20
+      ? Math.round(cost.value / 5) * 2 - 4
+      : Math.round(cost.value / 5);
+  const rankValue = Math.round(kabukiPt / baseValue);
+  return KABUKI_RANKS.find((k) => k.rankValue === rankValue) || MAX_KABUKI_RANK;
+}
+
+export const createDatalist = (
+  data: EiketsuDeckData,
+  kabukiData: EiketsuDeckDataKabuki | null,
+): DatalistState => {
+  const propItems = createPropItems(data, kabukiData);
   const indexInitials = [...data.indexInitial];
 
   const strongRange = { max: 1, min: 1 };
   const intelligenceRange = { max: 1, min: 1 };
   const strongIntelligenceDiffRange = { max: 0, min: 0 };
   const skillsCountRange = { max: 1, min: 0 };
+  const kabukiPtRange = { max: 0, min: 0 };
+  const kabukiRankRange = { max: 0, min: 0 };
 
   const generalAppearFilterGroups: GeneralAppearDetailVersion[] =
     data.generalAppearFilterGroup.map(({ idx, code, name }) => ({
@@ -58,6 +81,22 @@ export const createDatalist = (data: EiketsuDeckData): DatalistState => {
         child_idx_list.includes(idx),
       ),
     }));
+  // kabukiData から uniqueIdをキーとした 傾奇pt オブジェクト作成
+  const kabukiGenerals = kabukiData
+    ? Object.fromEntries(
+        kabukiData.general.map((general) => {
+          const indexInitial = findOrError(
+            indexInitials,
+            general,
+            'index_initial_idx',
+          );
+          const numberPart = `${general.card_number}`.padStart(3, '0');
+          const uniqueId = `${indexInitial.name}${numberPart}`;
+          const point = kabukiData.kabuki[0]?.point[general.idx] || 0;
+          return [uniqueId, point];
+        }),
+      )
+    : null;
 
   const generals = data.general.map((general): General => {
     const color = findOrError(propItems.generalColors, general, 'color_idx');
@@ -127,6 +166,21 @@ export const createDatalist = (data: EiketsuDeckData): DatalistState => {
     }
     const numberPart = `${cardNumber}`.padStart(3, '0');
     const uniqueId = `${indexInitial.name}${numberPart}`;
+    const kabuki = kabukiGenerals ? kabukiGenerals[uniqueId] : undefined;
+    const kabukiRank =
+      kabuki != null && kabukiData ? selectKabukiRank(cost, kabuki) : undefined;
+    if (kabuki != null && kabukiRank != null) {
+      if (kabuki > kabukiPtRange.max) {
+        kabukiPtRange.max = kabuki;
+      } else if (kabuki < kabukiPtRange.min) {
+        kabukiPtRange.min = kabuki;
+      }
+      if (kabukiRank.rankValue > kabukiRankRange.max) {
+        kabukiRankRange.max = kabukiRank.rankValue;
+      } else if (kabukiRank.rankValue < kabukiRankRange.min) {
+        kabukiRankRange.min = kabukiRank.rankValue;
+      }
+    }
 
     return {
       uniqueId,
@@ -153,8 +207,12 @@ export const createDatalist = (data: EiketsuDeckData): DatalistState => {
       strat,
       illust,
       cv,
+      kabuki: kabukiRank ? kabuki : undefined,
+      kabukiRank,
     };
   });
+
+  const kabukiEnabled = kabukiPtRange.max > 0 && kabukiRankRange.max > 0;
 
   return {
     ...propItems,
@@ -163,11 +221,17 @@ export const createDatalist = (data: EiketsuDeckData): DatalistState => {
     strong: strongRange,
     intelligence: intelligenceRange,
     strongIntelligenceDiff: strongIntelligenceDiffRange,
+    kabukiPt: kabukiPtRange,
+    kabukiRank: kabukiRankRange,
     skillsCount: skillsCountRange,
+    kabukiEnabled,
   };
 };
 
-const createPropItems = (data: EiketsuDeckData): PropItems => ({
+const createPropItems = (
+  data: EiketsuDeckData,
+  kabukiData: EiketsuDeckDataKabuki | null,
+): PropItems => ({
   ...createGeneralStrategyPropItems(data),
   generalColors: data.color.map(({ idx, code, name, red, blue, green }) => ({
     idx,
@@ -232,6 +296,7 @@ const createPropItems = (data: EiketsuDeckData): PropItems => ({
     };
   }),
   characterVoices: [...data.cv],
+  deckKabukiRanks: kabukiData?.kabukiRank,
 });
 
 const createGeneralStrategyPropItems = (

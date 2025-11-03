@@ -1,9 +1,11 @@
 import { memo } from 'react';
 
+import classNames from 'classnames';
 import { General } from 'eiketsu-deck';
 
 import { TotalCost } from '@/components/parts/TotalCost';
 import { TotalCostGraph } from '@/components/parts/TotalCostGraph';
+import { TotalKabuki } from '@/components/parts/TotalKabuki';
 import { DatalistState } from '@/modules/datalist';
 import { Deck } from '@/modules/deck';
 import { NO_SKILL } from '@/services/createDatalist';
@@ -79,7 +81,14 @@ function totalizeByMap<K>(
 export const DeckTotal = memo(function Component({
   deckGenerals,
   costTotal,
-  datalistState: { skills, periods, generalColors, unitTypes },
+  datalistState: {
+    skills,
+    periods,
+    generalColors,
+    unitTypes,
+    kabukiEnabled,
+    deckKabukiRanks,
+  },
   deckConstraints: { costLimit },
 }: Props) {
   const totalStrong = deckGenerals.reduce((total, g) => total + g.strong, 0);
@@ -120,10 +129,50 @@ export const DeckTotal = memo(function Component({
 
   const sumUnitTypes = totalize(deckGenerals, unitTypes, (g) => g.unitType);
 
+  const totalKabukiPt = deckGenerals.reduce((t, g) => t + (g.kabuki ?? 0), 0);
+
+  // deckKabukiRanks から totalKabukiPt に応じたランクを取得
+  const getCurrentRank = () => {
+    if (!deckKabukiRanks || deckKabukiRanks.length === 0) {
+      return { label: '', nextPt: 0 };
+    }
+
+    // lowの値でソート(昇順)
+    const sortedRanks = [...deckKabukiRanks].sort((a, b) => a.low - b.low);
+
+    // totalKabukiPt 以下で最も高いランクを検索
+    const currentRank =
+      sortedRanks.findLast((rank) => rank.low <= totalKabukiPt) ||
+      sortedRanks[0];
+
+    // 次のランクまでの必要ポイント数を計算(次がなければ nextPt = 0)
+    const nextRank = sortedRanks.find((rank) => rank.low > totalKabukiPt);
+    const nextPt = nextRank ? nextRank.low - totalKabukiPt : 0;
+
+    return { label: currentRank.name, nextPt };
+  };
+
+  const { label: kabukiRankLabel, nextPt: nextKabukiPt } = getCurrentRank();
+
   return (
     <div className="deck-total">
-      <div className="total-costs-area">
-        <TotalCost {...{ costTotal, costLimit }} />
+      <div
+        className={classNames('total-costs-area', {
+          ['show-kabuki-total']: kabukiEnabled,
+        })}
+      >
+        <div className="total-area">
+          <TotalCost {...{ costTotal, costLimit }} />
+          {kabukiEnabled && (
+            <TotalKabuki
+              {...{
+                kabukiPt: totalKabukiPt,
+                kabukiRankLabel,
+                nextKabukiPt,
+              }}
+            />
+          )}
+        </div>
         <div className="cost-graph">
           <TotalCostGraph
             costTotal={Math.max(costTotal, costLimit)}

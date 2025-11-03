@@ -31,6 +31,10 @@ export default defineConfig({
       process.env.BASE_DATA_URL ||
         '/eiketsu-taisen-data/eiketsu_deck_data.json',
     ),
+    BASE_DATA_KABUKI_URL: JSON.stringify(
+      process.env.BASE_DATA_KABUKI_URL ||
+        '/eiketsu-taisen-data/eiketsu_deck_data_kabuki.json',
+    ),
   },
   resolve: {
     alias: [{ find: '@', replacement: '/src' }],
