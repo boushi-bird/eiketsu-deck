@@ -346,7 +346,7 @@
     visibility: hidden;
   }
 
-  & .deck-card-list {
+  & .deck-card-list.show-kabuki {
     height: calc(var(--deck-board-card-list-height-large));
 
     & .deck-card {
@@ -379,7 +379,7 @@
       visibility: visible;
     }
 
-    & .deck-card-list {
+    & .deck-card-list.show-kabuki {
       height: var(--deck-board-card-list-height);
 
       & .deck-card {
@@ -412,7 +412,7 @@
     visibility: hidden;
   }
 
-  & .deck-card-list {
+  & .deck-card-list.show-kabuki {
     height: calc(var(--deck-board-card-list-height-large));
 
     & .deck-card {
@@ -453,7 +453,7 @@
       visibility: hidden;
     }
 
-    & .deck-card-list {
+    & .deck-card-list.show-kabuki {
       height: calc(var(--deck-board-card-list-height-large));
 
       & .deck-card {
