@@ -136,7 +136,7 @@
   font-size: 42px;
   margin-left: 2px;
   color: var(--app-header-bg-color);
-  background-color: ffeddf;
+  background-color: white;
   width: var(--side-menu-button-size);
   height: var(--side-menu-button-size);
   border-radius: 4px;
