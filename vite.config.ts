@@ -92,6 +92,11 @@ export default defineConfig({
         ],
         globIgnores: ['_includes/**', '_layouts/**', 'updateinfo.html'],
         runtimeCaching: [
+          // robots.txt は常にネットワークから取得（キャッシュしない）
+          {
+            urlPattern: /\/robots\.txt$/i,
+            handler: 'NetworkOnly',
+          },
           {
             urlPattern: /\.md5$/i,
             handler: 'NetworkFirst',
