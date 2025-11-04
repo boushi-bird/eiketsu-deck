@@ -17,6 +17,7 @@ import {
   loadEiketsuDeckData,
   loadEiketsuDeckDataKabuki,
 } from '@/services/loadData';
+import { serverSideDate } from '@/utils/serverSideDate';
 
 interface Props {
   children?: ReactNode;
@@ -31,11 +32,12 @@ const AppContainer: FC<Props> = ({ children }) => {
 
     (async () => {
       // TODO: 例外処理
-      const [data, kabukiData] = await Promise.all([
+      const [data, kabukiData, now] = await Promise.all([
         loadEiketsuDeckData(),
         loadEiketsuDeckDataKabuki(),
+        serverSideDate(),
       ]);
-      const datalist = createDatalist(data, kabukiData);
+      const datalist = createDatalist(data, kabukiData, now);
       dispatch(datalistActions.setDatalist(datalist));
       querySync();
       localStorageSync();

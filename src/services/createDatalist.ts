@@ -52,10 +52,36 @@ function selectKabukiRank(
   return KABUKI_RANKS.find((k) => k.rankValue === rankValue) || MAX_KABUKI_RANK;
 }
 
+/**
+ * 有効な傾奇データを取得する
+ * 以下のいずれかに当てはまればnullを返す:
+ * - srcKabukiDataがnull
+ * - kabukiExpiredAtが存在しない
+ * - kabukiExpiredAtが無効な日付形式
+ * - 有効期限切れ（expiredAt < now）
+ */
+function getValidKabukiData(
+  srcKabukiData: EiketsuDeckDataKabuki | null,
+  now: Date,
+): EiketsuDeckDataKabuki | null {
+  if (!srcKabukiData?.kabukiExpiredAt) {
+    return null;
+  }
+
+  const expiredAt = new Date(srcKabukiData.kabukiExpiredAt);
+  if (isNaN(expiredAt.getTime()) || expiredAt < now) {
+    return null;
+  }
+
+  return srcKabukiData;
+}
+
 export const createDatalist = (
   data: EiketsuDeckData,
-  kabukiData: EiketsuDeckDataKabuki | null,
+  srcKabukiData: EiketsuDeckDataKabuki | null,
+  now: Date,
 ): DatalistState => {
+  const kabukiData = getValidKabukiData(srcKabukiData, now);
   const propItems = createPropItems(data, kabukiData);
   const indexInitials = [...data.indexInitial];
 

@@ -33,6 +33,7 @@ declare module 'eiketsu-deck' {
       BaseData['general'][number],
       'idx' | 'index_initial_idx' | 'card_number'
     >[];
+    kabukiExpiredAt?: string;
   }
 
   interface General {
