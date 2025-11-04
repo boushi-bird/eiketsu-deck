@@ -75,6 +75,7 @@ export const DeckCard = memo(function Component({
     short: general.name.length < 3,
     long: general.name.length > 5,
     ['very-long']: general.name.length > 8,
+    ['too-long']: general.name.length > 10,
   });
 
   const lightColorBg = isLightColor(general.color.color);
@@ -184,6 +185,9 @@ export const DeckCard = memo(function Component({
         </span>
         <span className="skills">{skills}</span>
       </div>
+      {general.kabuki != null && (
+        <div className="kabuki-pt">{general.kabuki}pt</div>
+      )}
       <div className="tool-box">
         <button className="remove" onClick={handleRemove}>
           <FontAwesomeIcon

@@ -346,6 +346,22 @@
     visibility: hidden;
   }
 
+  & .deck-card-list.show-kabuki {
+    height: calc(var(--deck-board-card-list-height-large));
+
+    & .deck-card {
+      height: var(--deck-card-height-large);
+
+      & .kabuki-pt {
+        display: flex;
+      }
+    }
+
+    & .no-deck {
+      height: var(--deck-card-height-large);
+    }
+  }
+
   & .deck-info {
     min-height: var(--deck-board-deck-info-height-normal);
 
@@ -363,6 +379,22 @@
       visibility: visible;
     }
 
+    & .deck-card-list.show-kabuki {
+      height: var(--deck-board-card-list-height);
+
+      & .deck-card {
+        height: var(--deck-card-height);
+
+        & .kabuki-pt {
+          display: none;
+        }
+      }
+
+      & .no-deck {
+        height: var(--deck-card-height);
+      }
+    }
+
     & .deck-info {
       min-height: var(--deck-board-deck-info-height-small);
 
@@ -378,6 +410,22 @@
 .deck-board.ex-large {
   & .simple-deck-info {
     visibility: hidden;
+  }
+
+  & .deck-card-list.show-kabuki {
+    height: calc(var(--deck-board-card-list-height-large));
+
+    & .deck-card {
+      height: var(--deck-card-height-large);
+
+      & .kabuki-pt {
+        display: flex;
+      }
+    }
+
+    & .no-deck {
+      height: var(--deck-card-height-large);
+    }
   }
 
   & .deck-info {
@@ -403,6 +451,18 @@
   .deck-board.large {
     & .simple-deck-info {
       visibility: hidden;
+    }
+
+    & .deck-card-list.show-kabuki {
+      height: calc(var(--deck-board-card-list-height-large));
+
+      & .deck-card {
+        height: var(--deck-card-height-large);
+
+        & .kabuki-pt {
+          display: flex;
+        }
+      }
     }
 
     & .deck-info {

@@ -106,6 +106,10 @@
 
     .filter-section-group {
       display: flex;
+
+      &.hidden {
+        display: none;
+      }
     }
 
     & .filter-section {

@@ -8,9 +8,11 @@
   --general-card-width: 600px;
   --general-card-height: 92px;
   --deck-card-width: 72px;
-  --deck-card-height: 250px;
+  --deck-card-height: 240px;
+  --deck-card-height-large: 258px;
   --deck-card-inner-thumb-height: 118px;
-  --deck-board-card-list-height: 274px;
+  --deck-board-card-list-height: 264px;
+  --deck-board-card-list-height-large: 282px;
 
   --checkbox-check-size: 22px;
   --app-header-size: 66px;
@@ -32,8 +34,6 @@
   --deck-board-rarity-font-size: 16px;
   --deck-board-unit-type-font-size: 16px;
   --deck-board-name-font-size: 20px;
-  --deck-board-long-name-font-size: 16px;
-  --deck-board-very-long-name-font-size: 12px;
   --deck-board-period-font-size: 14px;
   --filter-tab-font-size: 18px;
   --filter-menu-title-font-size: 26px;
@@ -45,7 +45,10 @@
   --general-strat-param-font-size: 12px;
   --general-param-font-size: 20px;
   --general-state-color-font-size: 28px;
+  --general-kabuki-rank-font-size: 12px;
+  --general-kabuki-pt-font-size: 14px;
   --general-rarity-font-size: 26px;
+  --general-rarity-sm-font-size: 18px;
   --general-cost-font-size: 16px;
   --general-skill-font-size: 18px;
   --general-creator-font-size: 18px;

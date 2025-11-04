@@ -17,6 +17,7 @@ const EIKETSU_DECK_DATA_KEYS = [
   'illust',
   'illustView',
   'cv',
+  'kabuki',
 ] as const;
 
 declare module 'eiketsu-deck' {
@@ -25,6 +26,15 @@ declare module 'eiketsu-deck' {
   type EiketsuDeckDataKeys = (typeof EIKETSU_DECK_DATA_KEYS)[number];
 
   type EiketsuDeckData = Pick<BaseData, EiketsuDeckDataKeys>;
+
+  interface EiketsuDeckDataKabuki
+    extends Pick<BaseData, 'indexInitial' | 'kabuki' | 'kabukiRank'> {
+    general: Pick<
+      BaseData['general'][number],
+      'idx' | 'index_initial_idx' | 'card_number'
+    >[];
+    kabukiExpiredAt?: string;
+  }
 
   interface General {
     readonly uniqueId: string;
@@ -51,6 +61,8 @@ declare module 'eiketsu-deck' {
     readonly strat: GeneralStrategy;
     readonly illust: Illust;
     readonly cv: CharacterVoice;
+    readonly kabuki: number | undefined;
+    readonly kabukiRank: { label: string; rankValue: number } | undefined;
   }
 
   interface GeneralAppearVersion {

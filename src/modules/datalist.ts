@@ -2,6 +2,7 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import {
   CardType,
   CharacterVoice,
+  EiketsuDeckDataKabuki,
   General,
   GeneralAppearVersion,
   GeneralColor,
@@ -53,6 +54,16 @@ export interface DatalistState {
     max: number;
     min: number;
   };
+  kabukiPt: {
+    max: number;
+    min: number;
+  };
+  kabukiRank: {
+    max: number;
+    min: number;
+  };
+  kabukiEnabled: boolean;
+  deckKabukiRanks: EiketsuDeckDataKabuki['kabukiRank'] | undefined;
 }
 
 const initialState: DatalistState = {
@@ -91,6 +102,16 @@ const initialState: DatalistState = {
     max: 0,
     min: 0,
   },
+  kabukiPt: {
+    max: 0,
+    min: 0,
+  },
+  kabukiRank: {
+    max: 0,
+    min: 0,
+  },
+  kabukiEnabled: false,
+  deckKabukiRanks: undefined,
 };
 
 const slice = createSlice({

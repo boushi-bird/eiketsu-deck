@@ -47,7 +47,7 @@ export const DeckBoard = () => {
   const deckCurrent = useAppSelector(deckCurrentSelector);
   const editMode = useAppSelector(editModeSelector);
 
-  const { generals } = datalistState;
+  const { generals, kabukiEnabled } = datalistState;
   const { cards: deckCards, constraints: deckConstraints } =
     useDeferredValue(deckCurrent);
 
@@ -232,7 +232,11 @@ export const DeckBoard = () => {
           </button>
         </div>
       </div>
-      <div className="deck-card-list">
+      <div
+        className={classNames('deck-card-list', {
+          ['show-kabuki']: kabukiEnabled,
+        })}
+      >
         {cards.length === 0 ? (
           <div className="no-deck">カードを登録してください。</div>
         ) : (

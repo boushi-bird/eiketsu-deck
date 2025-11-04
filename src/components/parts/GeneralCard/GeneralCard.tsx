@@ -35,10 +35,15 @@ export const GeneralCard = memo(function Component({
       {c.name}
     </span>
   ));
+  const generalClasses = classNames(['general-card'], {
+    ['general-card-kabuki']:
+      general.kabuki != null && general.kabukiRank != null,
+  });
   const generalNameClasses = classNames(['general-name'], {
     short: general.name.length < 3,
     long: general.name.length > 5,
     ['very-long']: general.name.length > 7,
+    ['too-long']: general.name.length > 9,
   });
   const needRuby = general.name !== general.kana;
 
@@ -47,7 +52,7 @@ export const GeneralCard = memo(function Component({
   return (
     <div
       key={general.uniqueId}
-      className="general-card"
+      className={generalClasses}
       style={{
         backgroundColor: general.color.thincolor,
       }}
@@ -67,6 +72,14 @@ export const GeneralCard = memo(function Component({
           {general.uniqueId} {general.appear}
         </span>
       </span>
+      {general.kabuki != null && general.kabukiRank ? (
+        <span className="kabuki" data-label="傾奇">
+          <span className="kabukiPt">{`${general.kabuki}pt`}</span>
+          <span className="kabukiRank">{general.kabukiRank.label}</span>
+        </span>
+      ) : (
+        <></>
+      )}
       <span className="rarity">
         <span
           className={classNames(

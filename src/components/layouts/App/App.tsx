@@ -13,7 +13,11 @@ import { localStorageSync } from '@/modules/localStorageSync';
 import { querySync } from '@/modules/querySync';
 import { windowActions } from '@/modules/window';
 import { createDatalist } from '@/services/createDatalist';
-import { loadEiketsuDeckData } from '@/services/loadData';
+import {
+  loadEiketsuDeckData,
+  loadEiketsuDeckDataKabuki,
+} from '@/services/loadData';
+import { serverSideDate } from '@/utils/serverSideDate';
 
 interface Props {
   children?: ReactNode;
@@ -28,8 +32,12 @@ const AppContainer: FC<Props> = ({ children }) => {
 
     (async () => {
       // TODO: 例外処理
-      const data = await loadEiketsuDeckData();
-      const datalist = createDatalist(data);
+      const [data, kabukiData, now] = await Promise.all([
+        loadEiketsuDeckData(),
+        loadEiketsuDeckDataKabuki(),
+        serverSideDate(),
+      ]);
+      const datalist = createDatalist(data, kabukiData, now);
       dispatch(datalistActions.setDatalist(datalist));
       querySync();
       localStorageSync();

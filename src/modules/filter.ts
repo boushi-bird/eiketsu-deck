@@ -11,6 +11,8 @@ export interface FilterState {
   strong?: RequireAtLeastOne<{ max?: number; min?: number }>;
   intelligence?: RequireAtLeastOne<{ max?: number; min?: number }>;
   strongIntelligenceDiff?: RequireAtLeastOne<{ max?: number; min?: number }>;
+  kabukiPt?: RequireAtLeastOne<{ max?: number; min?: number }>;
+  kabukiRank?: RequireAtLeastOne<{ max?: number; min?: number }>;
   generalColors: number[];
   periods: number[];
   appearDetailVersions: number[];
@@ -80,6 +82,8 @@ const numberItemNames = [
   'strong',
   'intelligence',
   'strongIntelligenceDiff',
+  'kabukiPt',
+  'kabukiRank',
   'generalStrategyMp',
 ] as const;
 function isNumberItem(

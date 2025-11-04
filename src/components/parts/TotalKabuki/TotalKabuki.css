@@ -1,0 +1,84 @@
+@import '@/defines.css';
+
+.total-kabuki {
+  width: 100%;
+  height: 100%;
+  display: flex;
+
+  & .total {
+    width: calc(100% - 4px);
+    height: calc(100% - 4px);
+    font-size: 18px;
+    font-weight: bold;
+    border: 1px solid var(--default-dark-border-color);
+    margin: 2px 1px;
+    padding: 5px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+
+    &[data-label]::before {
+      font-size: 12px;
+      font-weight: bold;
+      position: absolute;
+      top: 2px;
+      left: 2px;
+    }
+
+    & .cost-values {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      grid-template-columns: 22% 36% 42%;
+      grid-template-rows: 55% 45%;
+      grid-template-areas:
+        '.                kabuki-rank      kabuki-point    '
+        'next-kabuki-rank next-kabuki-rank next-kabuki-rank';
+
+      & .kabuki-rank {
+        grid-area: kabuki-rank;
+
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        font-size: 12px;
+
+        & .kabuki-rank-value {
+          margin: 0 1px;
+          font-size: 18px;
+          font-weight: bold;
+          color: var(--main-color);
+        }
+      }
+
+      & .kabuki-point {
+        grid-area: kabuki-point;
+
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        font-size: 12px;
+        font-weight: bold;
+
+        & .kabuki-point-value {
+          font-size: 16px;
+          font-weight: bold;
+        }
+      }
+
+      & .next-kabuki-rank {
+        grid-area: next-kabuki-rank;
+
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+        font-size: 10px;
+
+        & .kabuki-point-value {
+          font-size: 12px;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
