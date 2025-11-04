@@ -13,5 +13,10 @@ async function _serverSideDate(url: string): Promise<Date | null> {
 export async function serverSideDate(
   url: string = '/robots.txt',
 ): Promise<Date> {
-  return (await _serverSideDate(url)) || new Date();
+  try {
+    return (await _serverSideDate(url)) || new Date();
+  } catch (e) {
+    console.warn(e);
+    return new Date();
+  }
 }
