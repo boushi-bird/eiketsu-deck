@@ -17,7 +17,7 @@ export const baseDataKabukiUrl = BASE_DATA_KABUKI_URL;
 export const MAX_DECK_TABS = 3 as const;
 
 /** デッキ最大保存数 */
-export const MAX_SAVED_DECK = 20 as const;
+export const MAX_SAVED_DECK = 30 as const;
 
 /** デッキのコスト */
 export const DECK_COST_LIMIT: RangeValue = {
