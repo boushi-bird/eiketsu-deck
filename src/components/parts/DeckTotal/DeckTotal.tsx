@@ -142,8 +142,10 @@ export const DeckTotal = memo(function Component({
 
     // totalKabukiPt 以下で最も高いランクを検索
     const currentRank =
-      sortedRanks.findLast((rank) => rank.low <= totalKabukiPt) ||
-      sortedRanks[0];
+      sortedRanks
+        .slice()
+        .reverse()
+        .find((rank) => rank.low <= totalKabukiPt) || sortedRanks[0];
 
     // 次のランクまでの必要ポイント数を計算(次がなければ nextPt = 0)
     const nextRank = sortedRanks.find((rank) => rank.low > totalKabukiPt);
