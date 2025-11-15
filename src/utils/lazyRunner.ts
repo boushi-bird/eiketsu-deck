@@ -19,7 +19,7 @@ const createLazyRunnerDefault = (delayTime = 500) => {
   };
 };
 
-const createLazyRunnerUseSetTimeourt = (delayTime = 500) => {
+const createLazyRunnerUseSetTimeout = (delayTime = 500) => {
   let handleId: NodeJS.Timeout;
 
   return {
@@ -33,4 +33,4 @@ const createLazyRunnerUseSetTimeourt = (delayTime = 500) => {
 export const createLazyRunner =
   'requestIdleCallback' in window
     ? createLazyRunnerDefault
-    : createLazyRunnerUseSetTimeourt;
+    : createLazyRunnerUseSetTimeout;
