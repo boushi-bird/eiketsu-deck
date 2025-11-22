@@ -200,7 +200,7 @@
     - license: MIT-0
  - **[@csstools/utilities@2.0.0](https://github.com/csstools/postcss-plugins)**
     - license: MIT-0
- - **[@esbuild/linux-x64@0.25.11](https://github.com/evanw/esbuild)**
+ - **[@esbuild/linux-x64@0.25.12](https://github.com/evanw/esbuild)**
     - license: MIT
  - **[@eslint-community/eslint-utils@4.9.0](https://github.com/eslint-community/eslint-utils)**
     - license: MIT
@@ -214,7 +214,7 @@
     - license: Apache-2.0
  - **[@eslint/eslintrc@3.3.1](https://github.com/eslint/eslintrc)**
     - license: MIT
- - **[@eslint/js@9.39.0](https://github.com/eslint/eslint)**
+ - **[@eslint/js@9.39.1](https://github.com/eslint/eslint)**
     - license: MIT
  - **[@eslint/object-schema@2.1.7](https://github.com/eslint/rewrite)**
     - license: Apache-2.0
@@ -236,6 +236,12 @@
     - license: Apache-2.0
  - **[@humanwhocodes/retry@0.4.3](https://github.com/humanwhocodes/retry)**
     - license: Apache-2.0
+ - **[@isaacs/balanced-match@4.0.1](https://github.com/isaacs/balanced-match)**
+    - license: MIT
+ - **[@isaacs/brace-expansion@5.0.0](undefined)**
+    - license: MIT
+ - **[@isaacs/cliui@8.0.2](https://github.com/yargs/cliui)**
+    - license: ISC
  - **[@jridgewell/gen-mapping@0.3.13](https://github.com/jridgewell/sourcemaps)**
     - license: MIT
  - **[@jridgewell/remapping@2.3.5](https://github.com/jridgewell/sourcemaps)**
@@ -254,9 +260,9 @@
     - license: MIT
  - **[@nodelib/fs.walk@1.2.8](https://github.com/nodelib/nodelib/tree/master/packages/fs/fs.walk)**
     - license: MIT
- - **[@reduxjs/toolkit@2.9.2](https://github.com/reduxjs/redux-toolkit)**
+ - **[@reduxjs/toolkit@2.10.1](https://github.com/reduxjs/redux-toolkit)**
     - license: MIT
- - **[@rolldown/pluginutils@1.0.0-beta.43](https://github.com/rolldown/rolldown)**
+ - **[@rolldown/pluginutils@1.0.0-beta.47](https://github.com/rolldown/rolldown)**
     - license: MIT
  - **[@rollup/plugin-babel@5.3.1](https://github.com/rollup/plugins)**
     - license: MIT
@@ -272,9 +278,9 @@
     - license: MIT
  - **[@rollup/pluginutils@5.3.0](https://github.com/rollup/plugins)**
     - license: MIT
- - **[@rollup/rollup-linux-x64-gnu@4.52.5](https://github.com/rollup/rollup)**
+ - **[@rollup/rollup-linux-x64-gnu@4.53.3](https://github.com/rollup/rollup)**
     - license: MIT
- - **[@rollup/rollup-linux-x64-musl@4.52.5](https://github.com/rollup/rollup)**
+ - **[@rollup/rollup-linux-x64-musl@4.53.3](https://github.com/rollup/rollup)**
     - license: MIT
  - **[@rtsao/scc@1.1.0](https://github.com/rtsao/scc)**
     - license: MIT
@@ -300,11 +306,11 @@
     - license: MIT
  - **[@types/json5@0.0.29](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
- - **[@types/node@24.9.2](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/node@24.10.1](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
- - **[@types/react-dom@19.2.2](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/react-dom@19.2.3](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
- - **[@types/react@19.2.2](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/react@19.2.6](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
  - **[@types/resolve@1.20.2](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
@@ -312,29 +318,29 @@
     - license: MIT
  - **[@types/use-sync-external-store@0.0.6](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
- - **[@typescript-eslint/eslint-plugin@8.46.2](https://github.com/typescript-eslint/typescript-eslint)**
+ - **[@typescript-eslint/eslint-plugin@8.47.0](https://github.com/typescript-eslint/typescript-eslint)**
     - license: MIT
- - **[@typescript-eslint/parser@8.46.2](https://github.com/typescript-eslint/typescript-eslint)**
+ - **[@typescript-eslint/parser@8.47.0](https://github.com/typescript-eslint/typescript-eslint)**
     - license: MIT
- - **[@typescript-eslint/project-service@8.46.2](https://github.com/typescript-eslint/typescript-eslint)**
+ - **[@typescript-eslint/project-service@8.47.0](https://github.com/typescript-eslint/typescript-eslint)**
     - license: MIT
- - **[@typescript-eslint/scope-manager@8.46.2](https://github.com/typescript-eslint/typescript-eslint)**
+ - **[@typescript-eslint/scope-manager@8.47.0](https://github.com/typescript-eslint/typescript-eslint)**
     - license: MIT
- - **[@typescript-eslint/tsconfig-utils@8.46.2](https://github.com/typescript-eslint/typescript-eslint)**
+ - **[@typescript-eslint/tsconfig-utils@8.47.0](https://github.com/typescript-eslint/typescript-eslint)**
     - license: MIT
- - **[@typescript-eslint/type-utils@8.46.2](https://github.com/typescript-eslint/typescript-eslint)**
+ - **[@typescript-eslint/type-utils@8.47.0](https://github.com/typescript-eslint/typescript-eslint)**
     - license: MIT
- - **[@typescript-eslint/types@8.46.2](https://github.com/typescript-eslint/typescript-eslint)**
+ - **[@typescript-eslint/types@8.47.0](https://github.com/typescript-eslint/typescript-eslint)**
     - license: MIT
- - **[@typescript-eslint/typescript-estree@8.46.2](https://github.com/typescript-eslint/typescript-eslint)**
+ - **[@typescript-eslint/typescript-estree@8.47.0](https://github.com/typescript-eslint/typescript-eslint)**
     - license: MIT
- - **[@typescript-eslint/utils@8.46.2](https://github.com/typescript-eslint/typescript-eslint)**
+ - **[@typescript-eslint/utils@8.47.0](https://github.com/typescript-eslint/typescript-eslint)**
     - license: MIT
- - **[@typescript-eslint/visitor-keys@8.46.2](https://github.com/typescript-eslint/typescript-eslint)**
+ - **[@typescript-eslint/visitor-keys@8.47.0](https://github.com/typescript-eslint/typescript-eslint)**
     - license: MIT
  - **[@ungap/url-search-params@0.1.4](https://github.com/ungap/url-search-params)**
     - license: ISC
- - **[@vitejs/plugin-react@5.1.0](https://github.com/vitejs/vite-plugin-react)**
+ - **[@vitejs/plugin-react@5.1.1](https://github.com/vitejs/vite-plugin-react)**
     - license: MIT
  - **[acorn-jsx@5.3.2](https://github.com/acornjs/acorn-jsx)**
     - license: MIT
@@ -344,9 +350,15 @@
     - license: MIT
  - **[ajv@8.17.1](https://github.com/ajv-validator/ajv)**
     - license: MIT
+ - **[ansi-regex@5.0.1](https://github.com/chalk/ansi-regex)**
+    - license: MIT
+ - **[ansi-regex@6.2.2](https://github.com/chalk/ansi-regex)**
+    - license: MIT
  - **[ansi-styles@3.2.1](https://github.com/chalk/ansi-styles)**
     - license: MIT
  - **[ansi-styles@4.3.0](https://github.com/chalk/ansi-styles)**
+    - license: MIT
+ - **[ansi-styles@6.2.3](https://github.com/chalk/ansi-styles)**
     - license: MIT
  - **[argparse@2.0.1](https://github.com/nodeca/argparse)**
     - license: Python-2.0
@@ -372,7 +384,7 @@
     - license: MIT
  - **[at-least-node@1.0.0](https://github.com/RyanZim/at-least-node)**
     - license: ISC
- - **[autoprefixer@10.4.21](https://github.com/postcss/autoprefixer)**
+ - **[autoprefixer@10.4.22](https://github.com/postcss/autoprefixer)**
     - license: MIT
  - **[available-typed-arrays@1.0.7](https://github.com/inspect-js/available-typed-arrays)**
     - license: MIT
@@ -384,7 +396,7 @@
     - license: MIT
  - **[balanced-match@1.0.2](https://github.com/juliangruber/balanced-match)**
     - license: MIT
- - **[baseline-browser-mapping@2.8.22](https://github.com/web-platform-dx/baseline-browser-mapping)**
+ - **[baseline-browser-mapping@2.8.30](https://github.com/web-platform-dx/baseline-browser-mapping)**
     - license: Apache-2.0
  - **[boolbase@1.0.0](https://github.com/fb55/boolbase)**
     - license: ISC
@@ -394,7 +406,7 @@
     - license: MIT
  - **[braces@3.0.3](https://github.com/micromatch/braces)**
     - license: MIT
- - **[browserslist@4.27.0](https://github.com/browserslist/browserslist)**
+ - **[browserslist@4.28.0](https://github.com/browserslist/browserslist)**
     - license: MIT
  - **[buffer-from@1.1.2](https://github.com/LinusU/buffer-from)**
     - license: MIT
@@ -408,7 +420,7 @@
     - license: MIT
  - **[camel-case@4.1.2](https://github.com/blakeembrey/change-case)**
     - license: MIT
- - **[caniuse-lite@1.0.30001752](https://github.com/browserslist/caniuse-lite)**
+ - **[caniuse-lite@1.0.30001756](https://github.com/browserslist/caniuse-lite)**
     - license: CC-BY-4.0
  - **[chalk@2.4.2](https://github.com/chalk/chalk)**
     - license: MIT
@@ -442,7 +454,7 @@
     - license: MIT
  - **[convert-source-map@2.0.0](https://github.com/thlorenz/convert-source-map)**
     - license: MIT
- - **[core-js-compat@3.46.0](https://github.com/zloirock/core-js)**
+ - **[core-js-compat@3.47.0](https://github.com/zloirock/core-js)**
     - license: MIT
  - **[cross-spawn@6.0.6](https://github.com/moxystudio/node-cross-spawn)**
     - license: MIT
@@ -456,7 +468,7 @@
     - license: BSD-2-Clause
  - **[cssesc@3.0.0](https://github.com/mathiasbynens/cssesc)**
     - license: MIT
- - **[csstype@3.1.3](https://github.com/frenic/csstype)**
+ - **[csstype@3.2.3](https://github.com/frenic/csstype)**
     - license: MIT
  - **[data-view-buffer@1.0.2](https://github.com/inspect-js/data-view-buffer)**
     - license: MIT
@@ -496,10 +508,16 @@
     - license: BSD-2-Clause
  - **[dunder-proto@1.0.1](https://github.com/es-shims/dunder-proto)**
     - license: MIT
+ - **[eastasianwidth@0.2.0](https://github.com/komagata/eastasianwidth)**
+    - license: MIT
  - **[ejs@3.1.10](https://github.com/mde/ejs)**
     - license: Apache-2.0
- - **[electron-to-chromium@1.5.244](https://github.com/kilian/electron-to-chromium)**
+ - **[electron-to-chromium@1.5.259](https://github.com/kilian/electron-to-chromium)**
     - license: ISC
+ - **[emoji-regex@8.0.0](https://github.com/mathiasbynens/emoji-regex)**
+    - license: MIT
+ - **[emoji-regex@9.2.2](https://github.com/mathiasbynens/emoji-regex)**
+    - license: MIT
  - **[entities@2.2.0](https://github.com/fb55/entities)**
     - license: BSD-2-Clause
  - **[error-ex@1.3.4](https://github.com/qix-/node-error-ex)**
@@ -520,7 +538,7 @@
     - license: MIT
  - **[es-to-primitive@1.3.0](https://github.com/ljharb/es-to-primitive)**
     - license: MIT
- - **[esbuild@0.25.11](https://github.com/evanw/esbuild)**
+ - **[esbuild@0.25.12](https://github.com/evanw/esbuild)**
     - license: MIT
  - **[escalade@3.2.0](https://github.com/lukeed/escalade)**
     - license: MIT
@@ -546,7 +564,7 @@
     - license: Apache-2.0
  - **[eslint-visitor-keys@4.2.1](https://github.com/eslint/js)**
     - license: Apache-2.0
- - **[eslint@9.39.0](https://github.com/eslint/eslint)**
+ - **[eslint@9.39.1](https://github.com/eslint/eslint)**
     - license: MIT
  - **[espree@10.4.0](https://github.com/eslint/js)**
     - license: BSD-2-Clause
@@ -590,14 +608,14 @@
     - license: ISC
  - **[for-each@0.3.5](https://github.com/Raynos/for-each)**
     - license: MIT
- - **[fraction.js@4.3.7](https://github.com/rawify/Fraction.js)**
+ - **[foreground-child@3.3.1](https://github.com/tapjs/foreground-child)**
+    - license: ISC
+ - **[fraction.js@5.3.4](https://github.com/rawify/Fraction.js)**
     - license: MIT
  - **[fs-extra@10.1.0](https://github.com/jprichardson/node-fs-extra)**
     - license: MIT
  - **[fs-extra@9.1.0](https://github.com/jprichardson/node-fs-extra)**
     - license: MIT
- - **[fs.realpath@1.0.0](https://github.com/isaacs/fs.realpath)**
-    - license: ISC
  - **[function-bind@1.1.2](https://github.com/Raynos/function-bind)**
     - license: MIT
  - **[function.prototype.name@1.1.8](https://github.com/es-shims/Function.prototype.name)**
@@ -620,11 +638,11 @@
     - license: ISC
  - **[glob-parent@6.0.2](https://github.com/gulpjs/glob-parent)**
     - license: ISC
- - **[glob@7.2.3](https://github.com/isaacs/node-glob)**
-    - license: ISC
+ - **[glob@11.1.0](https://github.com/isaacs/node-glob)**
+    - license: BlueOak-1.0.0
  - **[globals@14.0.0](https://github.com/sindresorhus/globals)**
     - license: MIT
- - **[globals@16.4.0](https://github.com/sindresorhus/globals)**
+ - **[globals@16.5.0](https://github.com/sindresorhus/globals)**
     - license: MIT
  - **[globalthis@1.0.4](https://github.com/ljharb/System.global)**
     - license: MIT
@@ -674,10 +692,6 @@
     - license: MIT
  - **[imurmurhash@0.1.4](https://github.com/jensyt/imurmurhash-js)**
     - license: MIT
- - **[inflight@1.0.6](https://github.com/npm/inflight)**
-    - license: ISC
- - **[inherits@2.0.4](https://github.com/isaacs/inherits)**
-    - license: ISC
  - **[internal-slot@1.1.0](https://github.com/ljharb/internal-slot)**
     - license: MIT
  - **[is-array-buffer@3.0.5](https://github.com/inspect-js/is-array-buffer)**
@@ -701,6 +715,8 @@
  - **[is-extglob@2.1.1](https://github.com/jonschlinkert/is-extglob)**
     - license: MIT
  - **[is-finalizationregistry@1.1.1](https://github.com/inspect-js/is-finalizationregistry)**
+    - license: MIT
+ - **[is-fullwidth-code-point@3.0.0](https://github.com/sindresorhus/is-fullwidth-code-point)**
     - license: MIT
  - **[is-generator-function@1.1.2](https://github.com/inspect-js/is-generator-function)**
     - license: MIT
@@ -746,6 +762,8 @@
     - license: ISC
  - **[iterator.prototype@1.1.5](https://github.com/ljharb/Iterator.prototype)**
     - license: MIT
+ - **[jackspeak@4.1.1](https://github.com/isaacs/jackspeak)**
+    - license: BlueOak-1.0.0
  - **[jake@10.9.4](https://github.com/jakejs/jake)**
     - license: Apache-2.0
  - **[jiti@2.6.1](https://github.com/unjs/jiti)**
@@ -800,6 +818,8 @@
     - license: MIT
  - **[lower-case@2.0.2](https://github.com/blakeembrey/change-case)**
     - license: MIT
+ - **[lru-cache@11.2.2](https://github.com/isaacs/node-lru-cache)**
+    - license: ISC
  - **[lru-cache@5.1.1](https://github.com/isaacs/node-lru-cache)**
     - license: ISC
  - **[magic-string@0.25.9](https://github.com/rich-harris/magic-string)**
@@ -812,6 +832,8 @@
     - license: MIT
  - **[micromatch@4.0.8](https://github.com/micromatch/micromatch)**
     - license: MIT
+ - **[minimatch@10.1.1](https://github.com/isaacs/minimatch)**
+    - license: BlueOak-1.0.0
  - **[minimatch@3.1.2](https://github.com/isaacs/minimatch)**
     - license: ISC
  - **[minimatch@5.1.6](https://github.com/isaacs/minimatch)**
@@ -820,6 +842,8 @@
     - license: ISC
  - **[minimist@1.2.8](https://github.com/minimistjs/minimist)**
     - license: MIT
+ - **[minipass@7.1.2](https://github.com/isaacs/minipass)**
+    - license: ISC
  - **[ms@2.1.3](https://github.com/vercel/ms)**
     - license: MIT
  - **[nanoid@3.3.11](https://github.com/ai/nanoid)**
@@ -858,8 +882,6 @@
     - license: MIT
  - **[object.values@1.2.1](https://github.com/es-shims/Object.values)**
     - license: MIT
- - **[once@1.4.0](https://github.com/isaacs/once)**
-    - license: ISC
  - **[optionator@0.9.4](https://github.com/gkz/optionator)**
     - license: MIT
  - **[own-keys@1.0.1](https://github.com/ljharb/own-keys)**
@@ -868,6 +890,8 @@
     - license: MIT
  - **[p-locate@5.0.0](https://github.com/sindresorhus/p-locate)**
     - license: MIT
+ - **[package-json-from-dist@1.0.1](https://github.com/isaacs/package-json-from-dist)**
+    - license: BlueOak-1.0.0
  - **[param-case@3.0.4](https://github.com/blakeembrey/change-case)**
     - license: MIT
  - **[parent-module@1.0.1](https://github.com/sindresorhus/parent-module)**
@@ -878,14 +902,14 @@
     - license: MIT
  - **[path-exists@4.0.0](https://github.com/sindresorhus/path-exists)**
     - license: MIT
- - **[path-is-absolute@1.0.1](https://github.com/sindresorhus/path-is-absolute)**
-    - license: MIT
  - **[path-key@2.0.1](https://github.com/sindresorhus/path-key)**
     - license: MIT
  - **[path-key@3.1.1](https://github.com/sindresorhus/path-key)**
     - license: MIT
  - **[path-parse@1.0.7](https://github.com/jbgutierrez/path-parse)**
     - license: MIT
+ - **[path-scurry@2.0.1](https://github.com/isaacs/path-scurry)**
+    - license: BlueOak-1.0.0
  - **[path-type@3.0.0](https://github.com/sindresorhus/path-type)**
     - license: MIT
  - **[pathe@0.2.0](https://github.com/unjs/pathe)**
@@ -986,7 +1010,7 @@
     - license: MIT
  - **[rollup@2.79.2](https://github.com/rollup/rollup)**
     - license: MIT
- - **[rollup@4.52.5](https://github.com/rollup/rollup)**
+ - **[rollup@4.53.3](https://github.com/rollup/rollup)**
     - license: MIT
  - **[run-parallel@1.2.0](https://github.com/feross/run-parallel)**
     - license: MIT
@@ -1032,6 +1056,8 @@
     - license: MIT
  - **[side-channel@1.1.0](https://github.com/ljharb/side-channel)**
     - license: MIT
+ - **[signal-exit@4.1.0](https://github.com/tapjs/signal-exit)**
+    - license: ISC
  - **[smob@1.5.0](https://github.com/Tada5hi/smob)**
     - license: MIT
  - **[source-map-js@1.2.1](https://github.com/7rulnik/source-map-js)**
@@ -1054,6 +1080,10 @@
     - license: CC0-1.0
  - **[stop-iteration-iterator@1.1.0](https://github.com/ljharb/stop-iteration-iterator)**
     - license: MIT
+ - **[string-width@4.2.3](https://github.com/sindresorhus/string-width)**
+    - license: MIT
+ - **[string-width@5.1.2](https://github.com/sindresorhus/string-width)**
+    - license: MIT
  - **[string.prototype.matchall@4.0.12](https://github.com/es-shims/String.prototype.matchAll)**
     - license: MIT
  - **[string.prototype.padend@3.1.6](https://github.com/es-shims/String.prototype.padEnd)**
@@ -1068,6 +1098,10 @@
     - license: MIT
  - **[stringify-object@3.3.0](https://github.com/yeoman/stringify-object)**
     - license: BSD-2-Clause
+ - **[strip-ansi@6.0.1](https://github.com/chalk/strip-ansi)**
+    - license: MIT
+ - **[strip-ansi@7.1.2](https://github.com/chalk/strip-ansi)**
+    - license: MIT
  - **[strip-bom@3.0.0](https://github.com/sindresorhus/strip-bom)**
     - license: MIT
  - **[strip-comments@2.0.1](https://github.com/jonschlinkert/strip-comments)**
@@ -1086,7 +1120,7 @@
     - license: MIT
  - **[tempy@0.6.0](https://github.com/sindresorhus/tempy)**
     - license: MIT
- - **[terser@5.44.0](https://github.com/terser/terser)**
+ - **[terser@5.44.1](https://github.com/terser/terser)**
     - license: BSD-2-Clause
  - **[tiny-invariant@1.3.3](https://github.com/alexreardon/tiny-invariant)**
     - license: MIT
@@ -1110,7 +1144,7 @@
     - license: (MIT OR CC0-1.0)
  - **[type-fest@4.41.0](https://github.com/sindresorhus/type-fest)**
     - license: (MIT OR CC0-1.0)
- - **[type-fest@5.1.0](https://github.com/sindresorhus/type-fest)**
+ - **[type-fest@5.2.0](https://github.com/sindresorhus/type-fest)**
     - license: (MIT OR CC0-1.0)
  - **[typed-array-buffer@1.0.3](https://github.com/inspect-js/typed-array-buffer)**
     - license: MIT
@@ -1120,7 +1154,7 @@
     - license: MIT
  - **[typed-array-length@1.0.7](https://github.com/inspect-js/typed-array-length)**
     - license: MIT
- - **[typescript-eslint@8.46.2](https://github.com/typescript-eslint/typescript-eslint)**
+ - **[typescript-eslint@8.47.0](https://github.com/typescript-eslint/typescript-eslint)**
     - license: MIT
  - **[typescript@5.9.3](https://github.com/microsoft/TypeScript)**
     - license: Apache-2.0
@@ -1160,7 +1194,7 @@
     - license: MIT
  - **[vite-plugin-radar@0.10.1](https://github.com/stafyniaksacha/vite-plugin-radar)**
     - license: MIT
- - **[vite@7.1.12](https://github.com/vitejs/vite)**
+ - **[vite@7.2.4](https://github.com/vitejs/vite)**
     - license: MIT
  - **[webidl-conversions@4.0.2](https://github.com/jsdom/webidl-conversions)**
     - license: BSD-2-Clause
@@ -1180,40 +1214,42 @@
     - license: ISC
  - **[word-wrap@1.2.5](https://github.com/jonschlinkert/word-wrap)**
     - license: MIT
- - **[workbox-background-sync@7.3.0](https://github.com/googlechrome/workbox)**
+ - **[workbox-background-sync@7.4.0](https://github.com/googlechrome/workbox)**
     - license: MIT
- - **[workbox-broadcast-update@7.3.0](https://github.com/googlechrome/workbox)**
+ - **[workbox-broadcast-update@7.4.0](https://github.com/googlechrome/workbox)**
     - license: MIT
- - **[workbox-build@7.3.0](https://github.com/googlechrome/workbox)**
+ - **[workbox-build@7.4.0](https://github.com/googlechrome/workbox)**
     - license: MIT
- - **[workbox-cacheable-response@7.3.0](https://github.com/googlechrome/workbox)**
+ - **[workbox-cacheable-response@7.4.0](https://github.com/googlechrome/workbox)**
     - license: MIT
- - **[workbox-core@7.3.0](https://github.com/googlechrome/workbox)**
+ - **[workbox-core@7.4.0](https://github.com/googlechrome/workbox)**
     - license: MIT
- - **[workbox-expiration@7.3.0](https://github.com/googlechrome/workbox)**
+ - **[workbox-expiration@7.4.0](https://github.com/googlechrome/workbox)**
     - license: MIT
- - **[workbox-google-analytics@7.3.0](https://github.com/googlechrome/workbox)**
+ - **[workbox-google-analytics@7.4.0](https://github.com/googlechrome/workbox)**
     - license: MIT
- - **[workbox-navigation-preload@7.3.0](https://github.com/googlechrome/workbox)**
+ - **[workbox-navigation-preload@7.4.0](https://github.com/googlechrome/workbox)**
     - license: MIT
- - **[workbox-precaching@7.3.0](https://github.com/googlechrome/workbox)**
+ - **[workbox-precaching@7.4.0](https://github.com/googlechrome/workbox)**
     - license: MIT
- - **[workbox-range-requests@7.3.0](https://github.com/googlechrome/workbox)**
+ - **[workbox-range-requests@7.4.0](https://github.com/googlechrome/workbox)**
     - license: MIT
- - **[workbox-recipes@7.3.0](https://github.com/googlechrome/workbox)**
+ - **[workbox-recipes@7.4.0](https://github.com/googlechrome/workbox)**
     - license: MIT
- - **[workbox-routing@7.3.0](https://github.com/googlechrome/workbox)**
+ - **[workbox-routing@7.4.0](https://github.com/googlechrome/workbox)**
     - license: MIT
- - **[workbox-strategies@7.3.0](https://github.com/googlechrome/workbox)**
+ - **[workbox-strategies@7.4.0](https://github.com/googlechrome/workbox)**
     - license: MIT
- - **[workbox-streams@7.3.0](https://github.com/googlechrome/workbox)**
+ - **[workbox-streams@7.4.0](https://github.com/googlechrome/workbox)**
     - license: MIT
- - **[workbox-sw@7.3.0](https://github.com/googlechrome/workbox)**
+ - **[workbox-sw@7.4.0](https://github.com/googlechrome/workbox)**
     - license: MIT
- - **[workbox-window@7.3.0](https://github.com/googlechrome/workbox)**
+ - **[workbox-window@7.4.0](https://github.com/googlechrome/workbox)**
     - license: MIT
- - **[wrappy@1.0.2](https://github.com/npm/wrappy)**
-    - license: ISC
+ - **[wrap-ansi@7.0.0](https://github.com/chalk/wrap-ansi)**
+    - license: MIT
+ - **[wrap-ansi@8.1.0](https://github.com/chalk/wrap-ansi)**
+    - license: MIT
  - **[yallist@3.1.1](https://github.com/isaacs/yallist)**
     - license: ISC
  - **[yocto-queue@0.1.0](https://github.com/sindresorhus/yocto-queue)**
