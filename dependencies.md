@@ -752,7 +752,7 @@
     - license: MIT
  - **[js-tokens@4.0.0](https://github.com/lydell/js-tokens)**
     - license: MIT
- - **[js-yaml@4.1.0](https://github.com/nodeca/js-yaml)**
+ - **[js-yaml@4.1.1](https://github.com/nodeca/js-yaml)**
     - license: MIT
  - **[jsesc@3.1.0](https://github.com/mathiasbynens/jsesc)**
     - license: MIT
