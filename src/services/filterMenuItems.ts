@@ -444,7 +444,18 @@ export const filterMenuStratItems: Readonly<FilterMenuStratItem[]> = [
     filter: (strat, filter) => {
       const valid = (search: string) => strat.caption.includes(search);
       return filter.generalStrategyCaptionSearchAnd
-        ? filter.generalStrategyCaptionSearch.every(valid)
+        ? filter.generalStrategyCaptionSearch.every((search: string) => {
+            // "-"だけの場合は何も入力していないのと同じ扱い
+            if (search === '-') {
+              return true;
+            }
+            // 先頭が-の場合は除外検索
+            if (search.startsWith('-')) {
+              const excludeWord = search.substring(1);
+              return !valid(excludeWord);
+            }
+            return valid(search);
+          })
         : filter.generalStrategyCaptionSearch.some(valid);
     },
     label: (_, filter) => {

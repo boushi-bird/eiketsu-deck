@@ -155,8 +155,9 @@ export const FilterTabBodyStrat = () => {
           onSelectItems={changeSelectedStringItem}
         />
         <div className="search-caption">
-          スペース区切りで
-          {filter.generalStrategyCaptionSearchAnd ? 'AND' : 'OR'}検索
+          {filter.generalStrategyCaptionSearchAnd
+            ? 'スペース区切りで AND検索、各ワードの先頭に-を付けると除外検索'
+            : 'スペース区切りで OR検索'}
         </div>
       </section>
 
