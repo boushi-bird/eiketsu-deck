@@ -236,10 +236,6 @@
     - license: Apache-2.0
  - **[@humanwhocodes/retry@0.4.3](https://github.com/humanwhocodes/retry)**
     - license: Apache-2.0
- - **[@isaacs/balanced-match@4.0.1](https://github.com/isaacs/balanced-match)**
-    - license: MIT
- - **[@isaacs/brace-expansion@5.0.0](undefined)**
-    - license: MIT
  - **[@isaacs/cliui@8.0.2](https://github.com/yargs/cliui)**
     - license: ISC
  - **[@jridgewell/gen-mapping@0.3.13](https://github.com/jridgewell/sourcemaps)**
@@ -396,6 +392,8 @@
     - license: MIT
  - **[balanced-match@1.0.2](https://github.com/juliangruber/balanced-match)**
     - license: MIT
+ - **[balanced-match@4.0.4](https://github.com/juliangruber/balanced-match)**
+    - license: MIT
  - **[baseline-browser-mapping@2.8.30](https://github.com/web-platform-dx/baseline-browser-mapping)**
     - license: Apache-2.0
  - **[boolbase@1.0.0](https://github.com/fb55/boolbase)**
@@ -403,6 +401,8 @@
  - **[brace-expansion@1.1.12](https://github.com/juliangruber/brace-expansion)**
     - license: MIT
  - **[brace-expansion@2.0.2](https://github.com/juliangruber/brace-expansion)**
+    - license: MIT
+ - **[brace-expansion@5.0.3](https://github.com/juliangruber/brace-expansion)**
     - license: MIT
  - **[braces@3.0.3](https://github.com/micromatch/braces)**
     - license: MIT
@@ -832,13 +832,13 @@
     - license: MIT
  - **[micromatch@4.0.8](https://github.com/micromatch/micromatch)**
     - license: MIT
- - **[minimatch@10.1.1](https://github.com/isaacs/minimatch)**
+ - **[minimatch@10.2.4](https://github.com/isaacs/minimatch)**
     - license: BlueOak-1.0.0
- - **[minimatch@3.1.2](https://github.com/isaacs/minimatch)**
+ - **[minimatch@3.1.5](https://github.com/isaacs/minimatch)**
     - license: ISC
- - **[minimatch@5.1.6](https://github.com/isaacs/minimatch)**
+ - **[minimatch@5.1.9](https://github.com/isaacs/minimatch)**
     - license: ISC
- - **[minimatch@9.0.5](https://github.com/isaacs/minimatch)**
+ - **[minimatch@9.0.9](https://github.com/isaacs/minimatch)**
     - license: ISC
  - **[minimist@1.2.8](https://github.com/minimistjs/minimist)**
     - license: MIT
