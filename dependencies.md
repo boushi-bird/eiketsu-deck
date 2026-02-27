@@ -274,9 +274,9 @@
     - license: MIT
  - **[@rollup/pluginutils@5.3.0](https://github.com/rollup/plugins)**
     - license: MIT
- - **[@rollup/rollup-linux-x64-gnu@4.53.3](https://github.com/rollup/rollup)**
+ - **[@rollup/rollup-linux-x64-gnu@4.59.0](https://github.com/rollup/rollup)**
     - license: MIT
- - **[@rollup/rollup-linux-x64-musl@4.53.3](https://github.com/rollup/rollup)**
+ - **[@rollup/rollup-linux-x64-musl@4.59.0](https://github.com/rollup/rollup)**
     - license: MIT
  - **[@rtsao/scc@1.1.0](https://github.com/rtsao/scc)**
     - license: MIT
@@ -1008,9 +1008,9 @@
     - license: MIT
  - **[reusify@1.1.0](https://github.com/mcollina/reusify)**
     - license: MIT
- - **[rollup@2.79.2](https://github.com/rollup/rollup)**
+ - **[rollup@2.80.0](https://github.com/rollup/rollup)**
     - license: MIT
- - **[rollup@4.53.3](https://github.com/rollup/rollup)**
+ - **[rollup@4.59.0](https://github.com/rollup/rollup)**
     - license: MIT
  - **[run-parallel@1.2.0](https://github.com/feross/run-parallel)**
     - license: MIT
