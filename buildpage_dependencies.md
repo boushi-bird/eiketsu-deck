@@ -54,7 +54,7 @@
     - license: MIT
  - **[dezalgo@1.0.4](https://github.com/npm/dezalgo)**
     - license: ISC
- - **[diff@4.0.2](https://github.com/kpdecker/jsdiff)**
+ - **[diff@4.0.4](https://github.com/kpdecker/jsdiff)**
     - license: BSD-3-Clause
  - **[dotenv@17.2.0](https://github.com/motdotla/dotenv)**
     - license: BSD-2-Clause
