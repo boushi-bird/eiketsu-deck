@@ -812,7 +812,7 @@
     - license: MIT
  - **[lodash.sortby@4.7.0](https://github.com/lodash/lodash)**
     - license: MIT
- - **[lodash@4.17.21](https://github.com/lodash/lodash)**
+ - **[lodash@4.17.23](https://github.com/lodash/lodash)**
     - license: MIT
  - **[loose-envify@1.4.0](https://github.com/zertosh/loose-envify)**
     - license: MIT
