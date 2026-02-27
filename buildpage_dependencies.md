@@ -88,7 +88,7 @@
     - license: BSD-3-Clause
  - **[make-error@1.3.6](https://github.com/JsCommunity/make-error)**
     - license: ISC
- - **[minimatch@3.1.2](https://github.com/isaacs/minimatch)**
+ - **[minimatch@3.1.4](https://github.com/isaacs/minimatch)**
     - license: ISC
  - **[minimist@1.2.8](https://github.com/minimistjs/minimist)**
     - license: MIT
