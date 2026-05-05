@@ -131,26 +131,6 @@
         justify-content: flex-end;
         font-size: var(--deck-board-name-font-size);
 
-        & .general-name {
-          &.short {
-            white-space: nowrap;
-            letter-spacing: 8px;
-            margin-bottom: -8px;
-          }
-
-          &.long {
-            font-size: 80%;
-
-            &.very-long {
-              font-size: 60%;
-
-              &.too-long {
-                font-size: 58%;
-              }
-            }
-          }
-        }
-
         & .rarity-area {
           writing-mode: horizontal-tb;
           font-size: var(--deck-board-rarity-font-size);

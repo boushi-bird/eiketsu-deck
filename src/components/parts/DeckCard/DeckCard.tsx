@@ -1,4 +1,4 @@
-import { memo, useCallback, useEffect, useState } from 'react';
+import { CSSProperties, memo, useCallback, useEffect, useState } from 'react';
 
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons/faArrowLeft';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons/faArrowRight';
@@ -10,6 +10,7 @@ import { General } from 'eiketsu-deck';
 
 import { GeneralCost } from '@/components/parts/GeneralCost';
 import { generalImage, unitTypeImage } from '@/utils/externalResource';
+import { insertWordBreaks } from '@/utils/insertWordBreaks';
 import { isLightColor } from '@/utils/isLightColor';
 
 interface Props {
@@ -25,6 +26,34 @@ interface Props {
 }
 
 type MoveDirection = 'left' | 'right';
+
+function generateNameStyle(nameLength: number): CSSProperties {
+  if (nameLength >= 12) {
+    return {
+      fontSize: '75%',
+      lineHeight: 'normal',
+      overflowWrap: 'anywhere',
+      wordBreak: 'keep-all',
+    };
+  }
+  if (nameLength >= 11) {
+    return { fontSize: '58%' };
+  }
+  if (nameLength >= 9) {
+    return { fontSize: '60%' };
+  }
+  if (nameLength >= 6) {
+    return { fontSize: '80%' };
+  }
+  if (nameLength < 3) {
+    return {
+      whiteSpace: 'nowrap',
+      letterSpacing: '8px',
+      marginBottom: '-8px',
+    };
+  }
+  return {};
+}
 
 export const DeckCard = memo(function Component({
   index,
@@ -71,12 +100,7 @@ export const DeckCard = memo(function Component({
     }
   }, [prevIndex, index]);
 
-  const generalNameClasses = classNames(['general-name'], {
-    short: general.name.length < 3,
-    long: general.name.length > 5,
-    ['very-long']: general.name.length > 8,
-    ['too-long']: general.name.length > 10,
-  });
+  const generalNameStyle = generateNameStyle(general.name.length);
 
   const lightColorBg = isLightColor(general.color.color);
 
@@ -159,7 +183,9 @@ export const DeckCard = memo(function Component({
             >
               {general.rarity.shortName}
             </span>
-            <span className={generalNameClasses}>{general.name}</span>
+            <span className="general-name" style={generalNameStyle}>
+              {insertWordBreaks(general.name)}
+            </span>
           </span>
           <span className="unit-type" data-label="兵種">
             <img
