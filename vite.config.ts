@@ -1,11 +1,11 @@
 import react from '@vitejs/plugin-react';
-import dotenv from 'dotenv';
+import { config as dotenvConfig } from 'dotenv';
 import { defineConfig } from 'vite';
 import { createHtmlPlugin } from 'vite-plugin-html';
 import { VitePWA } from 'vite-plugin-pwa';
 import { VitePluginRadar } from 'vite-plugin-radar';
 
-dotenv.config();
+dotenvConfig();
 
 const APP_PATH = process.env.APP_PATH || '/';
 
