@@ -1,22 +1,22 @@
 import js from '@eslint/js';
 import tsParser from '@typescript-eslint/parser';
-import { globalIgnores } from 'eslint/config';
+import { defineConfig, globalIgnores } from 'eslint/config';
 import eslintConfigPrettier from 'eslint-config-prettier/flat';
-import importPlugin from 'eslint-plugin-import-x';
+import { flatConfigs as importFlatConfigs } from 'eslint-plugin-import-x';
 import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 import globals from 'globals';
-import tseslint from 'typescript-eslint';
+import { configs } from 'typescript-eslint';
 
-export default tseslint.config([
+export default defineConfig([
   globalIgnores(['**/node_modules/', 'dist/', 'public/']),
   js.configs.recommended,
   react.configs.flat.recommended,
   reactHooks.configs.flat['recommended-latest'],
-  tseslint.configs.recommended,
+  configs.recommended,
   react.configs.flat['jsx-runtime'],
-  importPlugin.flatConfigs.recommended,
-  importPlugin.flatConfigs.typescript,
+  importFlatConfigs.recommended,
+  importFlatConfigs.typescript,
   eslintConfigPrettier,
   {
     files: ['**/*.js', '**/*.ts', '**/*.tsx'],

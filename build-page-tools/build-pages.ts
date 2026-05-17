@@ -3,10 +3,10 @@
 import fs from 'fs';
 import path from 'path';
 
-import dotenv from 'dotenv';
+import { config as dotenvConfig } from 'dotenv';
 import { dump as yamlDump, load as yamlLoad } from 'js-yaml';
 
-dotenv.config({ path: path.resolve(__dirname, '../.env') });
+dotenvConfig({ path: path.resolve(__dirname, '../.env') });
 
 const srcDir = path.resolve(__dirname, '../public');
 const distDir = path.resolve(__dirname, '../dist');
