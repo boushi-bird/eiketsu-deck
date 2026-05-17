@@ -1124,7 +1124,7 @@
     - license: MIT
  - **[typescript-eslint@8.59.3](https://github.com/typescript-eslint/typescript-eslint)**
     - license: MIT
- - **[typescript@5.9.3](https://github.com/microsoft/TypeScript)**
+ - **[typescript@6.0.3](https://github.com/microsoft/TypeScript)**
     - license: Apache-2.0
  - **[unbox-primitive@1.1.0](https://github.com/ljharb/unbox-primitive)**
     - license: MIT
