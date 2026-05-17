@@ -1,15 +1,65 @@
-import { ReactNode, memo } from 'react';
+import { CSSProperties, ReactNode, memo } from 'react';
 
 import classNames from 'classnames';
 import { General } from 'eiketsu-deck';
 
 import { GeneralCost } from '@/components/parts/GeneralCost';
 import { generalFaceImage, unitTypeImage } from '@/utils/externalResource';
+import { insertWordBreaks } from '@/utils/insertWordBreaks';
 import { isLightColor } from '@/utils/isLightColor';
 
 interface Props {
   children?: ReactNode;
   general: General;
+}
+
+function generateNameStyle(
+  nameLength: number,
+  isKabuki: boolean,
+  needRuby: boolean,
+): CSSProperties {
+  if (nameLength >= 12) {
+    return {
+      letterSpacing: 'normal',
+      marginRight: '0',
+      fontSize: needRuby ? '60%' : '70%',
+      whiteSpace: 'normal',
+      overflowWrap: 'anywhere',
+      wordBreak: 'keep-all',
+    };
+  }
+  if (nameLength >= 10) {
+    return {
+      letterSpacing: 'normal',
+      marginRight: '0',
+      fontSize: '60%',
+    };
+  }
+  if (nameLength >= 9) {
+    return {
+      letterSpacing: 'normal',
+      marginRight: '0',
+      fontSize: isKabuki ? '70%' : '75%',
+    };
+  }
+  if (nameLength >= 8) {
+    return {
+      letterSpacing: 'normal',
+      marginRight: '0',
+      fontSize: isKabuki ? '80%' : '85%',
+    };
+  }
+  if (nameLength >= 6) {
+    return {
+      letterSpacing: 'normal',
+      marginRight: '0',
+      fontSize: isKabuki ? '95%' : undefined,
+    };
+  }
+  if (nameLength < 3) {
+    return { letterSpacing: '18px', marginRight: '-18px' };
+  }
+  return {};
 }
 
 export const GeneralCard = memo(function Component({
@@ -35,17 +85,12 @@ export const GeneralCard = memo(function Component({
       {c.name}
     </span>
   ));
+  const isKabuki = general.kabuki != null && general.kabukiRank != null;
   const generalClasses = classNames(['general-card'], {
-    ['general-card-kabuki']:
-      general.kabuki != null && general.kabukiRank != null,
-  });
-  const generalNameClasses = classNames(['general-name'], {
-    short: general.name.length < 3,
-    long: general.name.length > 5,
-    ['very-long']: general.name.length > 7,
-    ['too-long']: general.name.length > 9,
+    ['general-card-kabuki']: isKabuki,
   });
   const needRuby = general.name !== general.kana;
+  const nameStyle = generateNameStyle(general.name.length, isKabuki, needRuby);
 
   const lightColorBg = isLightColor(general.color.color);
 
@@ -93,7 +138,9 @@ export const GeneralCard = memo(function Component({
       </span>
       <span className="name">
         <ruby>
-          <span className={generalNameClasses}>{general.name}</span>
+          <span className="general-name" style={nameStyle}>
+            {insertWordBreaks(general.name)}
+          </span>
           <rt className={classNames({ 'hide-ruby': !needRuby })}>
             {general.kana}
           </rt>

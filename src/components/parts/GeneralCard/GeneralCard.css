@@ -22,18 +22,6 @@
       display: flex;
     }
 
-    & .name .general-name {
-      &.long {
-        font-size: 95%;
-        &.very-long {
-          font-size: 70%;
-          &.too-long {
-            font-size: 60%;
-          }
-        }
-      }
-    }
-
     & .rarity .rarity-area {
       font-size: var(--general-rarity-sm-font-size);
       width: 24px;
@@ -110,31 +98,15 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    padding: 0 4px;
+    padding: 0 4px 4px;
     width: 100%;
+    line-height: normal;
 
     & .general-name {
       font-weight: bold;
       letter-spacing: 6px;
       margin-right: -6px;
       white-space: nowrap;
-
-      &.short {
-        letter-spacing: 18px;
-        margin-right: -18px;
-      }
-
-      &.long {
-        letter-spacing: normal;
-        margin-right: 0;
-
-        &.very-long {
-          font-size: 75%;
-          &.too-long {
-            font-size: 60%;
-          }
-        }
-      }
     }
 
     & rt {
