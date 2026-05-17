@@ -2,11 +2,11 @@
     - license: MIT
  - **[@jridgewell/resolve-uri@3.1.2](https://github.com/jridgewell/resolve-uri)**
     - license: MIT
- - **[@jridgewell/sourcemap-codec@1.5.4](https://github.com/jridgewell/sourcemaps)**
+ - **[@jridgewell/sourcemap-codec@1.5.5](https://github.com/jridgewell/sourcemaps)**
     - license: MIT
  - **[@jridgewell/trace-mapping@0.3.9](https://github.com/jridgewell/trace-mapping)**
     - license: MIT
- - **[@tsconfig/node10@1.0.11](https://github.com/tsconfig/bases)**
+ - **[@tsconfig/node10@1.0.12](https://github.com/tsconfig/bases)**
     - license: MIT
  - **[@tsconfig/node12@1.0.11](https://github.com/tsconfig/bases)**
     - license: MIT
@@ -16,13 +16,13 @@
     - license: MIT
  - **[@types/js-yaml@4.0.9](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
- - **[@types/node@24.0.15](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/node@24.12.4](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
  - **[abbrev@1.1.1](https://github.com/isaacs/abbrev-js)**
     - license: ISC
- - **[acorn-walk@8.3.4](https://github.com/acornjs/acorn)**
+ - **[acorn-walk@8.3.5](https://github.com/acornjs/acorn)**
     - license: MIT
- - **[acorn@8.15.0](https://github.com/acornjs/acorn)**
+ - **[acorn@8.16.0](https://github.com/acornjs/acorn)**
     - license: MIT
  - **[ansi-styles@3.2.1](https://github.com/chalk/ansi-styles)**
     - license: MIT
@@ -36,7 +36,7 @@
     - license: MIT
  - **[balanced-match@1.0.2](https://github.com/juliangruber/balanced-match)**
     - license: MIT
- - **[brace-expansion@1.1.12](https://github.com/juliangruber/brace-expansion)**
+ - **[brace-expansion@1.1.14](https://github.com/juliangruber/brace-expansion)**
     - license: MIT
  - **[chalk@2.4.2](https://github.com/chalk/chalk)**
     - license: MIT
@@ -56,8 +56,10 @@
     - license: ISC
  - **[diff@4.0.4](https://github.com/kpdecker/jsdiff)**
     - license: BSD-3-Clause
- - **[dotenv@17.2.0](https://github.com/motdotla/dotenv)**
+ - **[dotenv@17.4.2](https://github.com/motdotla/dotenv)**
     - license: BSD-2-Clause
+ - **[es-errors@1.3.0](https://github.com/ljharb/es-errors)**
+    - license: MIT
  - **[escape-string-regexp@1.0.5](https://github.com/sindresorhus/escape-string-regexp)**
     - license: MIT
  - **[fs.realpath@1.0.0](https://github.com/isaacs/fs.realpath)**
@@ -70,7 +72,7 @@
     - license: ISC
  - **[has-flag@3.0.0](https://github.com/sindresorhus/has-flag)**
     - license: MIT
- - **[hasown@2.0.2](https://github.com/inspect-js/hasOwn)**
+ - **[hasown@2.0.3](https://github.com/inspect-js/hasOwn)**
     - license: MIT
  - **[hosted-git-info@2.8.9](https://github.com/npm/hosted-git-info)**
     - license: ISC
@@ -78,7 +80,7 @@
     - license: ISC
  - **[inherits@2.0.4](https://github.com/isaacs/inherits)**
     - license: ISC
- - **[is-core-module@2.16.1](https://github.com/inspect-js/is-core-module)**
+ - **[is-core-module@2.16.2](https://github.com/inspect-js/is-core-module)**
     - license: MIT
  - **[js-yaml@4.1.1](https://github.com/nodeca/js-yaml)**
     - license: MIT
@@ -88,7 +90,7 @@
     - license: BSD-3-Clause
  - **[make-error@1.3.6](https://github.com/JsCommunity/make-error)**
     - license: ISC
- - **[minimatch@3.1.4](https://github.com/isaacs/minimatch)**
+ - **[minimatch@3.1.5](https://github.com/isaacs/minimatch)**
     - license: ISC
  - **[minimist@1.2.8](https://github.com/minimistjs/minimist)**
     - license: MIT
@@ -120,7 +122,7 @@
     - license: ISC
  - **[readdir-scoped-modules@1.1.0](https://github.com/npm/readdir-scoped-modules)**
     - license: ISC
- - **[resolve@1.22.10](https://github.com/browserify/resolve)**
+ - **[resolve@1.22.12](https://github.com/browserify/resolve)**
     - license: MIT
  - **[semver@5.7.2](https://github.com/npm/node-semver)**
     - license: ISC
@@ -134,7 +136,7 @@
     - license: CC-BY-3.0
  - **[spdx-expression-parse@3.0.1](https://github.com/jslicense/spdx-expression-parse.js)**
     - license: MIT
- - **[spdx-license-ids@3.0.21](https://github.com/jslicense/spdx-license-ids)**
+ - **[spdx-license-ids@3.0.23](https://github.com/jslicense/spdx-license-ids)**
     - license: CC0-1.0
  - **[spdx-ranges@2.1.1](https://github.com/kemitchell/spdx-ranges.js)**
     - license: (MIT AND CC-BY-3.0)
@@ -148,9 +150,9 @@
     - license: MIT
  - **[ts-node@10.9.2](https://github.com/TypeStrong/ts-node)**
     - license: MIT
- - **[typescript@5.8.3](https://github.com/microsoft/TypeScript)**
+ - **[typescript@6.0.3](https://github.com/microsoft/TypeScript)**
     - license: Apache-2.0
- - **[undici-types@7.8.0](https://github.com/nodejs/undici)**
+ - **[undici-types@7.16.0](https://github.com/nodejs/undici)**
     - license: MIT
  - **[util-extend@1.0.3](https://github.com/isaacs/util-extend)**
     - license: MIT

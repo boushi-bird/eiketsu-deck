@@ -178,7 +178,7 @@
     - license: MIT
  - **[@babel/preset-modules@0.1.6-no-external-plugins](https://github.com/babel/preset-modules)**
     - license: MIT
- - **[@babel/runtime@7.28.4](https://github.com/babel/babel)**
+ - **[@babel/runtime@7.29.2](https://github.com/babel/babel)**
     - license: MIT
  - **[@babel/template@7.28.6](https://github.com/babel/babel)**
     - license: MIT
@@ -188,19 +188,19 @@
     - license: MIT
  - **[@boushi-bird/eiketsu-taisen-net-datalist@0.4.1](https://github.com/boushi-bird/eiketsu-taisen-net-datalist)**
     - license: MIT
- - **[@csstools/cascade-layer-name-parser@2.0.5](https://github.com/csstools/postcss-plugins)**
+ - **[@csstools/cascade-layer-name-parser@3.0.0](https://github.com/csstools/postcss-plugins)**
     - license: MIT
- - **[@csstools/css-parser-algorithms@3.0.5](https://github.com/csstools/postcss-plugins)**
+ - **[@csstools/css-parser-algorithms@4.0.0](https://github.com/csstools/postcss-plugins)**
     - license: MIT
- - **[@csstools/css-tokenizer@3.0.4](https://github.com/csstools/postcss-plugins)**
+ - **[@csstools/css-tokenizer@4.0.0](https://github.com/csstools/postcss-plugins)**
     - license: MIT
- - **[@csstools/media-query-list-parser@4.0.3](https://github.com/csstools/postcss-plugins)**
+ - **[@csstools/media-query-list-parser@5.0.0](https://github.com/csstools/postcss-plugins)**
     - license: MIT
- - **[@csstools/selector-resolve-nested@3.1.0](https://github.com/csstools/postcss-plugins)**
+ - **[@csstools/selector-resolve-nested@4.0.0](https://github.com/csstools/postcss-plugins)**
     - license: MIT-0
- - **[@csstools/selector-specificity@5.0.0](https://github.com/csstools/postcss-plugins)**
+ - **[@csstools/selector-specificity@6.0.0](https://github.com/csstools/postcss-plugins)**
     - license: MIT-0
- - **[@csstools/utilities@2.0.0](https://github.com/csstools/postcss-plugins)**
+ - **[@csstools/utilities@3.0.0](https://github.com/csstools/postcss-plugins)**
     - license: MIT-0
  - **[@esbuild/linux-x64@0.27.7](https://github.com/evanw/esbuild)**
     - license: MIT
@@ -222,17 +222,19 @@
     - license: Apache-2.0
  - **[@eslint/plugin-kit@0.4.1](https://github.com/eslint/rewrite)**
     - license: Apache-2.0
- - **[@fortawesome/fontawesome-common-types@7.1.0](https://github.com/FortAwesome/Font-Awesome)**
+ - **[@fortawesome/fontawesome-common-types@7.2.0](https://github.com/FortAwesome/Font-Awesome)**
     - license: MIT
- - **[@fortawesome/fontawesome-svg-core@7.1.0](https://github.com/FortAwesome/Font-Awesome)**
+ - **[@fortawesome/fontawesome-svg-core@7.2.0](https://github.com/FortAwesome/Font-Awesome)**
     - license: MIT
- - **[@fortawesome/free-solid-svg-icons@7.1.0](https://github.com/FortAwesome/Font-Awesome)**
+ - **[@fortawesome/free-solid-svg-icons@7.2.0](https://github.com/FortAwesome/Font-Awesome)**
     - license: (CC-BY-4.0 AND MIT)
- - **[@fortawesome/react-fontawesome@3.1.0](https://github.com/FortAwesome/react-fontawesome)**
+ - **[@fortawesome/react-fontawesome@3.3.1](https://github.com/FortAwesome/react-fontawesome)**
     - license: MIT
- - **[@humanfs/core@0.19.1](https://github.com/humanwhocodes/humanfs)**
+ - **[@humanfs/core@0.19.2](https://github.com/humanwhocodes/humanfs)**
     - license: Apache-2.0
- - **[@humanfs/node@0.16.7](https://github.com/humanwhocodes/humanfs)**
+ - **[@humanfs/node@0.16.8](https://github.com/humanwhocodes/humanfs)**
+    - license: Apache-2.0
+ - **[@humanfs/types@0.15.0](https://github.com/humanwhocodes/humanfs)**
     - license: Apache-2.0
  - **[@humanwhocodes/module-importer@1.0.1](https://github.com/humanwhocodes/module-importer)**
     - license: Apache-2.0
@@ -258,7 +260,9 @@
     - license: MIT
  - **[@nodelib/fs.walk@1.2.8](https://github.com/nodelib/nodelib/tree/master/packages/fs/fs.walk)**
     - license: MIT
- - **[@reduxjs/toolkit@2.10.1](https://github.com/reduxjs/redux-toolkit)**
+ - **[@package-json/types@0.0.12](https://github.com/importantimport/package-json)**
+    - license: MIT
+ - **[@reduxjs/toolkit@2.12.0](https://github.com/reduxjs/redux-toolkit)**
     - license: MIT
  - **[@rolldown/pluginutils@1.0.0-rc.3](https://github.com/rolldown/rolldown)**
     - license: MIT
@@ -274,13 +278,11 @@
     - license: MIT
  - **[@rollup/pluginutils@5.3.0](https://github.com/rollup/plugins)**
     - license: MIT
- - **[@rollup/rollup-linux-x64-gnu@4.59.0](https://github.com/rollup/rollup)**
+ - **[@rollup/rollup-linux-x64-gnu@4.60.4](https://github.com/rollup/rollup)**
     - license: MIT
- - **[@rollup/rollup-linux-x64-musl@4.59.0](https://github.com/rollup/rollup)**
+ - **[@rollup/rollup-linux-x64-musl@4.60.4](https://github.com/rollup/rollup)**
     - license: MIT
- - **[@rtsao/scc@1.1.0](https://github.com/rtsao/scc)**
-    - license: MIT
- - **[@standard-schema/spec@1.0.0](https://github.com/standard-schema/standard-schema)**
+ - **[@standard-schema/spec@1.1.0](https://github.com/standard-schema/standard-schema)**
     - license: MIT
  - **[@standard-schema/utils@0.3.0](https://github.com/standard-schema/standard-schema)**
     - license: MIT
@@ -296,15 +298,15 @@
     - license: MIT
  - **[@types/estree@1.0.8](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
- - **[@types/json-schema@7.0.15](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/estree@1.0.9](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
- - **[@types/json5@0.0.29](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/json-schema@7.0.15](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
  - **[@types/node@24.12.4](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
  - **[@types/react-dom@19.2.3](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
- - **[@types/react@19.2.6](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/react@19.2.14](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
  - **[@types/resolve@1.20.2](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
@@ -334,11 +336,15 @@
     - license: MIT
  - **[@ungap/url-search-params@0.1.4](https://github.com/ungap/url-search-params)**
     - license: ISC
+ - **[@unrs/resolver-binding-linux-x64-gnu@1.11.1](https://github.com/unrs/unrs-resolver)**
+    - license: MIT
+ - **[@unrs/resolver-binding-linux-x64-musl@1.11.1](https://github.com/unrs/unrs-resolver)**
+    - license: MIT
  - **[@vitejs/plugin-react@5.2.0](https://github.com/vitejs/vite-plugin-react)**
     - license: MIT
  - **[acorn-jsx@5.3.2](https://github.com/acornjs/acorn-jsx)**
     - license: MIT
- - **[acorn@8.15.0](https://github.com/acornjs/acorn)**
+ - **[acorn@8.16.0](https://github.com/acornjs/acorn)**
     - license: MIT
  - **[ajv@6.15.0](https://github.com/ajv-validator/ajv)**
     - license: MIT
@@ -355,8 +361,6 @@
  - **[array-includes@3.1.9](https://github.com/es-shims/array-includes)**
     - license: MIT
  - **[array.prototype.findlast@1.2.5](https://github.com/es-shims/Array.prototype.findLast)**
-    - license: MIT
- - **[array.prototype.findlastindex@1.2.6](https://github.com/es-shims/Array.prototype.findLastIndex)**
     - license: MIT
  - **[array.prototype.flat@1.3.3](https://github.com/es-shims/Array.prototype.flat)**
     - license: MIT
@@ -404,7 +408,7 @@
     - license: MIT
  - **[call-bind-apply-helpers@1.0.2](https://github.com/ljharb/call-bind-apply-helpers)**
     - license: MIT
- - **[call-bind@1.0.8](https://github.com/ljharb/call-bind)**
+ - **[call-bind@1.0.9](https://github.com/ljharb/call-bind)**
     - license: MIT
  - **[call-bound@1.0.4](https://github.com/ljharb/call-bound)**
     - license: MIT
@@ -435,6 +439,8 @@
  - **[commander@2.20.3](https://github.com/tj/commander.js)**
     - license: MIT
  - **[commander@8.3.0](https://github.com/tj/commander.js)**
+    - license: MIT
+ - **[comment-parser@1.4.6](https://github.com/yavorskiy/comment-parser)**
     - license: MIT
  - **[common-tags@1.8.2](https://github.com/zspecza/common-tags)**
     - license: MIT
@@ -467,8 +473,6 @@
  - **[data-view-byte-length@1.0.2](https://github.com/inspect-js/data-view-byte-length)**
     - license: MIT
  - **[data-view-byte-offset@1.0.1](https://github.com/inspect-js/data-view-byte-offset)**
-    - license: MIT
- - **[debug@3.2.7](https://github.com/visionmedia/debug)**
     - license: MIT
  - **[debug@4.4.3](https://github.com/debug-js/debug)**
     - license: MIT
@@ -508,13 +512,13 @@
     - license: BSD-2-Clause
  - **[error-ex@1.3.4](https://github.com/qix-/node-error-ex)**
     - license: MIT
- - **[es-abstract@1.24.0](https://github.com/ljharb/es-abstract)**
+ - **[es-abstract@1.24.2](https://github.com/ljharb/es-abstract)**
     - license: MIT
  - **[es-define-property@1.0.1](https://github.com/ljharb/es-define-property)**
     - license: MIT
  - **[es-errors@1.3.0](https://github.com/ljharb/es-errors)**
     - license: MIT
- - **[es-iterator-helpers@1.2.1](https://github.com/es-shims/iterator-helpers)**
+ - **[es-iterator-helpers@1.3.2](https://github.com/es-shims/iterator-helpers)**
     - license: MIT
  - **[es-object-atoms@1.1.1](https://github.com/ljharb/es-object-atoms)**
     - license: MIT
@@ -534,11 +538,11 @@
     - license: MIT
  - **[eslint-config-prettier@10.1.8](https://github.com/prettier/eslint-config-prettier)**
     - license: MIT
- - **[eslint-import-resolver-node@0.3.9](https://github.com/import-js/eslint-plugin-import)**
+ - **[eslint-import-context@0.1.9](https://github.com/un-ts/eslint-import-context)**
     - license: MIT
- - **[eslint-module-utils@2.12.1](https://github.com/import-js/eslint-plugin-import)**
-    - license: MIT
- - **[eslint-plugin-import@2.32.0](https://github.com/import-js/eslint-plugin-import)**
+ - **[eslint-import-resolver-typescript@4.4.4](https://github.com/import-js/eslint-import-resolver-typescript)**
+    - license: ISC
+ - **[eslint-plugin-import-x@4.16.2](https://github.com/un-ts/eslint-plugin-import-x)**
     - license: MIT
  - **[eslint-plugin-react-hooks@7.1.1](https://github.com/facebook/react)**
     - license: MIT
@@ -556,7 +560,7 @@
     - license: MIT
  - **[espree@10.4.0](https://github.com/eslint/js)**
     - license: BSD-2-Clause
- - **[esquery@1.6.0](https://github.com/estools/esquery)**
+ - **[esquery@1.7.0](https://github.com/estools/esquery)**
     - license: BSD-3-Clause
  - **[esrecurse@4.3.0](https://github.com/estools/esrecurse)**
     - license: BSD-2-Clause
@@ -578,13 +582,13 @@
     - license: MIT
  - **[fast-uri@3.1.2](https://github.com/fastify/fast-uri)**
     - license: BSD-3-Clause
- - **[fastq@1.19.1](https://github.com/mcollina/fastq)**
+ - **[fastq@1.20.1](https://github.com/mcollina/fastq)**
     - license: ISC
  - **[fdir@6.5.0](https://github.com/thecodrr/fdir)**
     - license: MIT
  - **[file-entry-cache@8.0.0](https://github.com/jaredwray/file-entry-cache)**
     - license: MIT
- - **[filelist@1.0.4](https://github.com/mde/filelist)**
+ - **[filelist@1.0.6](https://github.com/mde/filelist)**
     - license: Apache-2.0
  - **[fill-range@7.1.1](https://github.com/jonschlinkert/fill-range)**
     - license: MIT
@@ -622,6 +626,8 @@
     - license: MIT
  - **[get-symbol-description@1.1.0](https://github.com/inspect-js/get-symbol-description)**
     - license: MIT
+ - **[get-tsconfig@4.14.0](https://github.com/privatenumber/get-tsconfig)**
+    - license: MIT
  - **[glob-parent@5.1.2](https://github.com/gulpjs/glob-parent)**
     - license: ISC
  - **[glob-parent@6.0.2](https://github.com/gulpjs/glob-parent)**
@@ -630,7 +636,7 @@
     - license: BlueOak-1.0.0
  - **[globals@14.0.0](https://github.com/sindresorhus/globals)**
     - license: MIT
- - **[globals@16.5.0](https://github.com/sindresorhus/globals)**
+ - **[globals@17.6.0](https://github.com/sindresorhus/globals)**
     - license: MIT
  - **[globalthis@1.0.4](https://github.com/ljharb/System.global)**
     - license: MIT
@@ -652,7 +658,7 @@
     - license: MIT
  - **[has-tostringtag@1.0.2](https://github.com/inspect-js/has-tostringtag)**
     - license: MIT
- - **[hasown@2.0.2](https://github.com/inspect-js/hasOwn)**
+ - **[hasown@2.0.3](https://github.com/inspect-js/hasOwn)**
     - license: MIT
  - **[he@1.2.0](https://github.com/mathiasbynens/he)**
     - license: MIT
@@ -672,7 +678,7 @@
     - license: MIT
  - **[ignore@7.0.5](https://github.com/kaelzhang/node-ignore)**
     - license: MIT
- - **[immer@10.2.0](https://github.com/immerjs/immer)**
+ - **[immer@11.1.8](https://github.com/immerjs/immer)**
     - license: MIT
  - **[import-fresh@3.3.1](https://github.com/sindresorhus/import-fresh)**
     - license: MIT
@@ -690,9 +696,11 @@
     - license: MIT
  - **[is-boolean-object@1.2.2](https://github.com/inspect-js/is-boolean-object)**
     - license: MIT
+ - **[is-bun-module@2.0.0](https://github.com/SunsetTechuila/is-bun-module)**
+    - license: MIT
  - **[is-callable@1.2.7](https://github.com/inspect-js/is-callable)**
     - license: MIT
- - **[is-core-module@2.16.1](https://github.com/inspect-js/is-core-module)**
+ - **[is-core-module@2.16.2](https://github.com/inspect-js/is-core-module)**
     - license: MIT
  - **[is-data-view@1.0.2](https://github.com/inspect-js/is-data-view)**
     - license: MIT
@@ -768,11 +776,9 @@
     - license: MIT
  - **[json-stable-stringify-without-jsonify@1.0.1](https://github.com/samn/json-stable-stringify)**
     - license: MIT
- - **[json5@1.0.2](https://github.com/json5/json5)**
-    - license: MIT
  - **[json5@2.2.3](https://github.com/json5/json5)**
     - license: MIT
- - **[jsonfile@6.2.0](https://github.com/jprichardson/node-jsonfile)**
+ - **[jsonfile@6.2.1](https://github.com/jprichardson/node-jsonfile)**
     - license: MIT
  - **[jsonpointer@5.0.1](https://github.com/janl/node-jsonpointer)**
     - license: MIT
@@ -818,19 +824,21 @@
     - license: ISC
  - **[minimatch@5.1.9](https://github.com/isaacs/minimatch)**
     - license: ISC
- - **[minimist@1.2.8](https://github.com/minimistjs/minimist)**
-    - license: MIT
  - **[minipass@7.1.3](https://github.com/isaacs/minipass)**
     - license: BlueOak-1.0.0
  - **[ms@2.1.3](https://github.com/vercel/ms)**
     - license: MIT
- - **[nanoid@3.3.11](https://github.com/ai/nanoid)**
+ - **[nanoid@3.3.12](https://github.com/ai/nanoid)**
+    - license: MIT
+ - **[napi-postinstall@0.3.4](https://github.com/un-ts/napi-postinstall)**
     - license: MIT
  - **[natural-compare@1.4.0](https://github.com/litejs/natural-compare-lite)**
     - license: MIT
  - **[nice-try@1.0.5](https://github.com/electerious/nice-try)**
     - license: MIT
  - **[no-case@3.0.4](https://github.com/blakeembrey/change-case)**
+    - license: MIT
+ - **[node-exports-info@1.6.0](https://github.com/inspect-js/node-exports-info)**
     - license: MIT
  - **[node-html-parser@5.4.2](https://github.com/taoqf/node-fast-html-parser)**
     - license: MIT
@@ -853,8 +861,6 @@
  - **[object.entries@1.1.9](https://github.com/es-shims/Object.entries)**
     - license: MIT
  - **[object.fromentries@2.0.8](https://github.com/es-shims/Object.fromEntries)**
-    - license: MIT
- - **[object.groupby@1.0.3](https://github.com/es-shims/Object.groupBy)**
     - license: MIT
  - **[object.values@1.2.1](https://github.com/es-shims/Object.values)**
     - license: MIT
@@ -904,15 +910,15 @@
     - license: MIT
  - **[possible-typed-array-names@1.1.0](https://github.com/ljharb/possible-typed-array-names)**
     - license: MIT
- - **[postcss-custom-media@11.0.6](https://github.com/csstools/postcss-plugins)**
+ - **[postcss-custom-media@12.0.1](https://github.com/csstools/postcss-plugins)**
     - license: MIT
- - **[postcss-custom-properties@14.0.6](https://github.com/csstools/postcss-plugins)**
+ - **[postcss-custom-properties@15.0.1](https://github.com/csstools/postcss-plugins)**
     - license: MIT
  - **[postcss-import@16.1.1](https://github.com/postcss/postcss-import)**
     - license: MIT
- - **[postcss-nesting@13.0.2](https://github.com/csstools/postcss-plugins)**
+ - **[postcss-nesting@14.0.0](https://github.com/csstools/postcss-plugins)**
     - license: MIT-0
- - **[postcss-selector-parser@7.1.0](https://github.com/postcss/postcss-selector-parser)**
+ - **[postcss-selector-parser@7.1.1](https://github.com/postcss/postcss-selector-parser)**
     - license: MIT
  - **[postcss-value-parser@4.2.0](https://github.com/TrySound/postcss-value-parser)**
     - license: MIT
@@ -932,15 +938,15 @@
     - license: MIT
  - **[queue-microtask@1.2.3](https://github.com/feross/queue-microtask)**
     - license: MIT
- - **[react-dom@19.2.0](https://github.com/facebook/react)**
+ - **[react-dom@19.2.6](https://github.com/facebook/react)**
     - license: MIT
  - **[react-is@16.13.1](https://github.com/facebook/react)**
     - license: MIT
- - **[react-redux@9.2.0](https://github.com/reduxjs/react-redux)**
+ - **[react-redux@9.3.0](https://github.com/reduxjs/react-redux)**
     - license: MIT
  - **[react-refresh@0.18.0](https://github.com/facebook/react)**
     - license: MIT
- - **[react@19.2.0](https://github.com/facebook/react)**
+ - **[react@19.2.6](https://github.com/facebook/react)**
     - license: MIT
  - **[read-cache@1.0.0](https://github.com/TrySound/read-cache)**
     - license: MIT
@@ -970,23 +976,25 @@
     - license: MIT
  - **[require-from-string@2.0.2](https://github.com/floatdrop/require-from-string)**
     - license: MIT
- - **[reselect@5.1.1](https://github.com/reduxjs/reselect)**
+ - **[reselect@5.2.0](https://github.com/reduxjs/reselect)**
     - license: MIT
  - **[resolve-from@4.0.0](https://github.com/sindresorhus/resolve-from)**
     - license: MIT
  - **[resolve-pathname@3.0.0](https://github.com/mjackson/resolve-pathname)**
     - license: MIT
- - **[resolve@1.22.11](https://github.com/browserify/resolve)**
+ - **[resolve-pkg-maps@1.0.0](https://github.com/privatenumber/resolve-pkg-maps)**
     - license: MIT
- - **[resolve@2.0.0-next.5](https://github.com/browserify/resolve)**
+ - **[resolve@1.22.12](https://github.com/browserify/resolve)**
+    - license: MIT
+ - **[resolve@2.0.0-next.7](https://github.com/browserify/resolve)**
     - license: MIT
  - **[reusify@1.1.0](https://github.com/mcollina/reusify)**
     - license: MIT
- - **[rollup@4.59.0](https://github.com/rollup/rollup)**
+ - **[rollup@4.60.4](https://github.com/rollup/rollup)**
     - license: MIT
  - **[run-parallel@1.2.0](https://github.com/feross/run-parallel)**
     - license: MIT
- - **[safe-array-concat@1.1.3](https://github.com/ljharb/safe-array-concat)**
+ - **[safe-array-concat@1.1.4](https://github.com/ljharb/safe-array-concat)**
     - license: MIT
  - **[safe-push-apply@1.0.0](https://github.com/ljharb/safe-push-apply)**
     - license: MIT
@@ -1018,7 +1026,7 @@
     - license: MIT
  - **[shell-quote@1.8.3](https://github.com/ljharb/shell-quote)**
     - license: MIT
- - **[side-channel-list@1.0.0](https://github.com/ljharb/side-channel-list)**
+ - **[side-channel-list@1.0.1](https://github.com/ljharb/side-channel-list)**
     - license: MIT
  - **[side-channel-map@1.0.1](https://github.com/ljharb/side-channel-map)**
     - license: MIT
@@ -1044,8 +1052,10 @@
     - license: CC-BY-3.0
  - **[spdx-expression-parse@3.0.1](https://github.com/jslicense/spdx-expression-parse.js)**
     - license: MIT
- - **[spdx-license-ids@3.0.22](https://github.com/jslicense/spdx-license-ids)**
+ - **[spdx-license-ids@3.0.23](https://github.com/jslicense/spdx-license-ids)**
     - license: CC0-1.0
+ - **[stable-hash-x@0.2.0](https://github.com/un-ts/stable-hash-x)**
+    - license: MIT
  - **[stop-iteration-iterator@1.1.0](https://github.com/ljharb/stop-iteration-iterator)**
     - license: MIT
  - **[string.prototype.matchall@4.0.12](https://github.com/es-shims/String.prototype.matchAll)**
@@ -1080,21 +1090,19 @@
     - license: MIT
  - **[tempy@0.6.0](https://github.com/sindresorhus/tempy)**
     - license: MIT
- - **[terser@5.44.1](https://github.com/terser/terser)**
+ - **[terser@5.47.1](https://github.com/terser/terser)**
     - license: BSD-2-Clause
  - **[tiny-invariant@1.3.3](https://github.com/alexreardon/tiny-invariant)**
     - license: MIT
  - **[tiny-warning@1.0.3](https://github.com/alexreardon/tiny-warning)**
     - license: MIT
- - **[tinyglobby@0.2.15](https://github.com/SuperchupuDev/tinyglobby)**
+ - **[tinyglobby@0.2.16](https://github.com/SuperchupuDev/tinyglobby)**
     - license: MIT
  - **[to-regex-range@5.0.1](https://github.com/micromatch/to-regex-range)**
     - license: MIT
  - **[tr46@1.0.1](https://github.com/Sebmaster/tr46.js)**
     - license: MIT
  - **[ts-api-utils@2.5.0](https://github.com/JoshuaKGoldberg/ts-api-utils)**
-    - license: MIT
- - **[tsconfig-paths@3.15.0](https://github.com/dividab/tsconfig-paths)**
     - license: MIT
  - **[tslib@2.8.1](https://github.com/Microsoft/tslib)**
     - license: 0BSD
@@ -1134,6 +1142,8 @@
     - license: MIT
  - **[universalify@2.0.1](https://github.com/RyanZim/universalify)**
     - license: MIT
+ - **[unrs-resolver@1.11.1](https://github.com/unrs/unrs-resolver)**
+    - license: MIT
  - **[upath@1.2.0](https://github.com/anodynos/upath)**
     - license: MIT
  - **[update-browserslist-db@1.2.3](https://github.com/browserslist/update-db)**
@@ -1166,7 +1176,7 @@
     - license: MIT
  - **[which-collection@1.0.2](https://github.com/inspect-js/which-collection)**
     - license: MIT
- - **[which-typed-array@1.1.19](https://github.com/inspect-js/which-typed-array)**
+ - **[which-typed-array@1.1.20](https://github.com/inspect-js/which-typed-array)**
     - license: MIT
  - **[which@1.3.1](https://github.com/isaacs/node-which)**
     - license: ISC
@@ -1212,5 +1222,5 @@
     - license: MIT
  - **[zod-validation-error@4.0.2](https://github.com/causaly/zod-validation-error)**
     - license: MIT
- - **[zod@4.1.12](https://github.com/colinhacks/zod)**
+ - **[zod@4.4.3](https://github.com/colinhacks/zod)**
     - license: MIT
