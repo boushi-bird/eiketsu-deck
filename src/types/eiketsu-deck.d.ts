@@ -27,8 +27,10 @@ declare module 'eiketsu-deck' {
 
   type EiketsuDeckData = Pick<BaseData, EiketsuDeckDataKeys>;
 
-  interface EiketsuDeckDataKabuki
-    extends Pick<BaseData, 'indexInitial' | 'kabuki' | 'kabukiRank'> {
+  interface EiketsuDeckDataKabuki extends Pick<
+    BaseData,
+    'indexInitial' | 'kabuki' | 'kabukiRank'
+  > {
     general: Pick<
       BaseData['general'][number],
       'idx' | 'index_initial_idx' | 'card_number'
