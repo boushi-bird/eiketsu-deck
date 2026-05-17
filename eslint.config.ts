@@ -2,7 +2,7 @@ import js from '@eslint/js';
 import tsParser from '@typescript-eslint/parser';
 import { globalIgnores } from 'eslint/config';
 import eslintConfigPrettier from 'eslint-config-prettier/flat';
-import importPlugin from 'eslint-plugin-import';
+import importPlugin from 'eslint-plugin-import-x';
 import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 import globals from 'globals';
@@ -49,11 +49,11 @@ export default tseslint.config([
         },
       ],
 
-      'import/no-unresolved': ['off'],
-      'import/no-commonjs': ['warn'],
-      'import/newline-after-import': ['warn'],
+      'import-x/no-unresolved': ['off'],
+      'import-x/no-commonjs': ['warn'],
+      'import-x/newline-after-import': ['warn'],
 
-      'import/order': [
+      'import-x/order': [
         'warn',
         {
           alphabetize: {
