@@ -15,9 +15,8 @@
     "isolatedModules": true,
     "skipLibCheck": true,
     "useDefineForClassFields": true,
-    "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["./src/*"]
     },
     "types": ["vite-plugin-pwa/client"],
     "jsx": "react-jsx"
