@@ -28,14 +28,6 @@ interface Props {
 type MoveDirection = 'left' | 'right';
 
 function generateNameStyle(nameLength: number): CSSProperties {
-  if (nameLength >= 12) {
-    return {
-      fontSize: '75%',
-      lineHeight: 'normal',
-      overflowWrap: 'anywhere',
-      wordBreak: 'keep-all',
-    };
-  }
   if (nameLength >= 11) {
     return { fontSize: '58%' };
   }
