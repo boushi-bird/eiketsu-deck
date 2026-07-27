@@ -16,7 +16,7 @@
   "private": true,
   "dependencies": {
     "dotenv": "^17.4.2",
-    "js-yaml": "^4.1.1",
+    "js-yaml": "^4.3.0",
     "license-checker": "^25.0.1",
     "ts-node": "^10.9.2"
   },
