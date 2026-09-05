@@ -11,7 +11,8 @@ import {
   searchedGeneralsSelector,
   useAppSelector,
 } from '@/hooks';
-import { excludeUndef } from '@/utils/excludeUndef';
+import { parseBelongImportText } from '@/utils/belongImportParser';
+import { openTextFile } from '@/utils/filePicker';
 
 interface Props {
   onImport: (props: BelongImportConfirmProps) => void;
@@ -24,28 +25,19 @@ export const BelongImport = ({ onImport }: Props) => {
   const generals = useAppSelector(generalsSelector);
   const searchedGenerals = useAppSelector(searchedGeneralsSelector);
 
-  const handleImportFileChanged = useCallback(
-    async (e: ChangeEvent<HTMLInputElement>) => {
-      const files = e.target.files;
-      if (!files || files.length === 0) {
+  const handleLoadFileClick = useCallback(async () => {
+    try {
+      const file = await openTextFile();
+      if (!file) {
+        // キャンセル時は何もしない
         return;
       }
-      const file = files[0];
-      e.target.value = '';
-      if (file.type !== 'text/plain') {
-        alert('テキストファイルではありません。');
-        return;
-      }
-      try {
-        const text = await file.text();
-        setImportText(text);
-      } catch (e) {
-        console.error(e);
-        alert('ファイル読み込みに失敗しました');
-      }
-    },
-    [],
-  );
+      setImportText(await file.text());
+    } catch (e) {
+      console.error(e);
+      alert('ファイル読み込みに失敗しました');
+    }
+  }, []);
 
   return (
     <div className="belong-modal-content-inner">
@@ -80,15 +72,9 @@ export const BelongImport = ({ onImport }: Props) => {
         >
           クリア
         </button>
-        <label className="belong-modal-action button-style-label">
+        <button className="belong-modal-action" onClick={handleLoadFileClick}>
           ファイルを読み込む
-          <input
-            className="button-style-input-file"
-            type="file"
-            onChange={handleImportFileChanged}
-            accept="text/plain"
-          />
-        </label>
+        </button>
       </div>
       <h1 className="belong-label">インポート内容</h1>
       <textarea
@@ -104,33 +90,51 @@ export const BelongImport = ({ onImport }: Props) => {
           className="belong-modal-action run-import"
           disabled={importText.length === 0}
           onClick={useCallback(() => {
-            const lines = importText
-              .trim()
-              .split(/\r\n*|\n/g)
-              .filter((l) => l.trim().length > 0);
+            const parsed = parseBelongImportText(importText);
 
-            const belong = lines.every((l) => !l.includes('[未所持]'));
+            if (!parsed) {
+              alert('インポートできる形式ではありません');
+              return;
+            }
 
             const filteredGenerals = generals.filter(
               (g) => !useFilter || searchedGenerals.includes(g.idx),
             );
 
-            const importUniqueIds = lines
-              .map((line) => {
-                const [readId] = line.trim().split(' ');
-                return generals.find((g) => g.uniqueId === readId);
-              })
-              .filter(excludeUndef)
-              .map((g) => g.uniqueId);
+            // 存在するuniqueIdのみに絞り込む
+            const toValidUniqueIds = (uniqueIds: string[]) =>
+              uniqueIds.filter((uniqueId) =>
+                generals.some((g) => g.uniqueId === uniqueId),
+              );
+            const toValidCounts = (counts: { [uniqueId: string]: number }) =>
+              Object.fromEntries(
+                Object.entries(counts).filter(([uniqueId]) =>
+                  generals.some((g) => g.uniqueId === uniqueId),
+                ),
+              );
 
-            if (importUniqueIds.length === 0) {
+            const importUniqueIds = toValidUniqueIds(
+              parsed.ownedStateUniqueIds,
+            );
+            const kizunaCounts = toValidCounts(parsed.kizunaCounts);
+            const kokumeiCounts = toValidCounts(parsed.kokumeiCounts);
+
+            // 反映できる内容が1件もない場合はエラーとする
+            if (
+              importUniqueIds.length === 0 &&
+              Object.keys(kizunaCounts).length === 0 &&
+              Object.keys(kokumeiCounts).length === 0
+            ) {
               alert('インポートできる形式ではありません');
               return;
             }
 
             onImport({
-              importType: belong ? 'belong' : 'not_belong',
+              importType: parsed.belong ? 'belong' : 'not_belong',
+              hasOwnedState: parsed.hasOwnedState,
               importUniqueIds,
+              kizunaCounts,
+              kokumeiCounts,
               filteredGenerals,
             });
           }, [useFilter, importText, generals, searchedGenerals, onImport])}

@@ -2,6 +2,7 @@ import { useCallback, useMemo, useState } from 'react';
 
 import { faCircleInfo } from '@fortawesome/free-solid-svg-icons/faCircleInfo';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { General } from 'eiketsu-deck';
 
 import { CheckBox } from '@/components/parts/CheckBox';
 import { SwitchItem } from '@/components/parts/SwitchItem';
@@ -12,8 +13,9 @@ import {
   useAppDispatch,
   useAppSelector,
 } from '@/hooks';
-import { isOwned } from '@/modules/belong';
+import { CardCountKey, isOwned } from '@/modules/belong';
 import { windowActions } from '@/modules/window';
+import { saveTextFile } from '@/utils/filePicker';
 
 export const BelongExport = () => {
   const dispatch = useAppDispatch();
@@ -30,18 +32,41 @@ export const BelongExport = () => {
     .filter(([, cardCounts]) => isOwned(cardCounts))
     .map(([uniqueId]) => uniqueId);
 
-  const exportText =
-    (exportBelong ? '' : '[未所持]\n') +
-    generals
-      .filter((g) => !useFilter || searchedGenerals.includes(g.idx))
+  const exportGenerals = generals.filter(
+    (g) => !useFilter || searchedGenerals.includes(g.idx),
+  );
+
+  const generalLabel = (g: General) =>
+    showName ? `${g.uniqueId} ${g.rarity.shortName}${g.name}` : g.uniqueId;
+
+  // 通常カードの所持 or 未所持セクション
+  const ownedSection =
+    (exportBelong ? '[所持]\n' : '[未所持]\n') +
+    exportGenerals
       .filter((g) => {
         const has = belongGeneralUniqueIds.includes(g.uniqueId);
         return exportBelong ? has : !has;
       })
-      .map((g) =>
-        showName ? `${g.uniqueId} ${g.rarity.shortName}${g.name}` : g.uniqueId,
-      )
+      .map(generalLabel)
       .join('\n');
+
+  // 絆・刻銘のセクション。枚数が入力されている武将のみ出力する
+  // (未所持相当のエクスポートは行わない)
+  const cardCountSection = (header: string, key: CardCountKey) => {
+    const lines = exportGenerals
+      .map((g) => ({ g, count: belongCards[g.uniqueId]?.[key] }))
+      .filter(({ count }) => count != null && count > 0)
+      .map(({ g, count }) => `${generalLabel(g)}\t${count}`);
+    return lines.length > 0 ? `${header}\n${lines.join('\n')}` : '';
+  };
+
+  const exportText = [
+    ownedSection,
+    cardCountSection('[絆所持]', 'kizuna'),
+    cardCountSection('[刻銘所持]', 'kokumei'),
+  ]
+    .filter((v) => v !== '')
+    .join('\n\n');
 
   return (
     <div className="belong-modal-content-inner">
@@ -95,15 +120,14 @@ export const BelongExport = () => {
         </button>
         <button
           className="belong-modal-action"
-          onClick={useCallback(() => {
-            const blob = new Blob([exportText], {
-              type: 'text/plain;charset=utf-8',
-            });
-            const a = document.createElement('a');
-            a.download = 'eiketsu-deck-cards.txt';
-            a.href = URL.createObjectURL(blob);
-            a.click();
-          }, [exportText])}
+          onClick={useCallback(async () => {
+            try {
+              await saveTextFile(exportText, 'eiketsu-deck-cards.txt');
+            } catch (e) {
+              console.error(e);
+              dispatch(windowActions.showToast('ファイル保存に失敗しました'));
+            }
+          }, [exportText, dispatch])}
         >
           ファイルとしてダウンロード
         </button>
