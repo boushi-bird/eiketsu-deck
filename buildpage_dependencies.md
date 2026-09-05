@@ -14,9 +14,7 @@
     - license: MIT
  - **[@tsconfig/node16@1.0.4](https://github.com/tsconfig/bases)**
     - license: MIT
- - **[@types/js-yaml@4.0.9](https://github.com/DefinitelyTyped/DefinitelyTyped)**
-    - license: MIT
- - **[@types/node@24.12.4](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/node@24.13.3](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
  - **[abbrev@1.1.1](https://github.com/isaacs/abbrev-js)**
     - license: ISC
@@ -82,7 +80,7 @@
     - license: ISC
  - **[is-core-module@2.16.2](https://github.com/inspect-js/is-core-module)**
     - license: MIT
- - **[js-yaml@4.3.1](https://github.com/nodeca/js-yaml)**
+ - **[js-yaml@5.4.1](https://github.com/nodeca/js-yaml)**
     - license: MIT
  - **[json-parse-even-better-errors@2.3.1](https://github.com/npm/json-parse-even-better-errors)**
     - license: MIT
@@ -152,7 +150,7 @@
     - license: MIT
  - **[typescript@6.0.3](https://github.com/microsoft/TypeScript)**
     - license: Apache-2.0
- - **[undici-types@7.16.0](https://github.com/nodejs/undici)**
+ - **[undici-types@7.18.2](https://github.com/nodejs/undici)**
     - license: MIT
  - **[util-extend@1.0.3](https://github.com/isaacs/util-extend)**
     - license: MIT
