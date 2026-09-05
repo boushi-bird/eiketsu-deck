@@ -133,6 +133,53 @@
       justify-content: space-around;
       flex-direction: column;
 
+      /* 絆・刻銘の枚数入力欄。カード高さが固定のため横並びで省スペースに配置する */
+      & .card-list-ctrl-card-count-area {
+        width: calc(100% - 4px);
+        margin: 0 2px 2px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 2px;
+
+        & .card-count-item {
+          flex: 1 1 0;
+          min-width: 0;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: flex-start;
+          gap: 1px;
+          font-size: 9px;
+          line-height: 1;
+          white-space: nowrap;
+          color: var(--default-color);
+
+          & .card-count-input {
+            width: 100%;
+            min-width: 0;
+            height: 18px;
+            font-size: 11px;
+            padding: 0 1px;
+            text-align: right;
+            color: var(--default-color);
+            background-color: var(--default-light-bg-color);
+            border: 1px solid var(--default-border-color);
+            border-radius: 2px;
+
+            /* 数値入力のスピナーは幅を圧迫するため非表示にする */
+            appearance: textfield;
+
+            &::-webkit-outer-spin-button,
+            &::-webkit-inner-spin-button {
+              appearance: none;
+              margin: 0;
+            }
+          }
+        }
+      }
+
       & .card-list-ctrl-item {
         width: calc(100% - 4px);
         height: 30px;
