@@ -9,6 +9,14 @@ interface Props {
   min: number;
   current?: RequireAtLeastOne<{ max?: number; min?: number }>;
   displayText?: (value: number, isDefault: boolean) => string;
+  /**
+   * 上限側で上限値を選んだときに `50+` のように表示する。
+   *
+   * 上限値を選んだ場合は上限なし(その値以上すべてが対象)として扱われるため、
+   * その挙動を表示にも反映するためのオプション。
+   * 下限側は通常の値として扱われるため `+` は付かない。
+   */
+  unlimitedMax?: boolean;
   onChangeValue: (
     value?: RequireAtLeastOne<{ max?: number; min?: number }>,
   ) => void;
@@ -19,8 +27,16 @@ export const NumberSelectRange = memo(function Component({
   min,
   current,
   displayText,
+  unlimitedMax,
   onChangeValue,
 }: Props) {
+  const maxDisplayText = useCallback(
+    (value: number, isDefault: boolean) => {
+      const text = displayText ? displayText(value, isDefault) : `${value}`;
+      return unlimitedMax && value >= max ? `${text}+` : text;
+    },
+    [displayText, unlimitedMax, max],
+  );
   const handleOnChangeBase = useCallback(
     ({ max, min }: { max?: number; min?: number }) => {
       const value =
@@ -52,7 +68,7 @@ export const NumberSelectRange = memo(function Component({
         min={min}
         defaultValue={max}
         currentValue={current?.max}
-        displayText={displayText}
+        displayText={maxDisplayText}
         onChangeValue={useCallback(
           (currentValue) => {
             const max = currentValue;

@@ -61,15 +61,6 @@ const filterBasicSelector = createSelector(
   }),
 );
 
-/**
- * 絆・刻銘の枚数フィルタの表示テキスト。
- * 上限値は「上限なし(それ以上すべて)」を意味するため `50+` のように表示する。
- */
-const cardCountDisplayText = (value: number) =>
-  value >= CARD_COUNT_FILTER_RANGE.max
-    ? `${CARD_COUNT_FILTER_RANGE.max}+`
-    : `${value}`;
-
 export const FilterTabBodyDetail = () => {
   const dispatch = useAppDispatch();
   const datalist = useAppSelector(datalistSelector);
@@ -149,7 +140,7 @@ export const FilterTabBodyDetail = () => {
             max={CARD_COUNT_FILTER_RANGE.max}
             min={CARD_COUNT_FILTER_RANGE.min}
             current={filter.kizunaCount}
-            displayText={cardCountDisplayText}
+            unlimitedMax
             onChangeValue={useCallback(
               (value) => {
                 dispatch(
@@ -170,7 +161,7 @@ export const FilterTabBodyDetail = () => {
             max={CARD_COUNT_FILTER_RANGE.max}
             min={CARD_COUNT_FILTER_RANGE.min}
             current={filter.kokumeiCount}
-            displayText={cardCountDisplayText}
+            unlimitedMax
             onChangeValue={useCallback(
               (value) => {
                 dispatch(
