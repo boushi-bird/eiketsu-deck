@@ -12,6 +12,7 @@ import {
   useAppDispatch,
   useAppSelector,
 } from '@/hooks';
+import { isOwned } from '@/modules/belong';
 import { windowActions } from '@/modules/window';
 
 export const BelongExport = () => {
@@ -26,7 +27,7 @@ export const BelongExport = () => {
   const belongCards = useAppSelector(belongCardsSelector);
 
   const belongGeneralUniqueIds = Object.entries(belongCards)
-    .filter(([, count]) => count > 0)
+    .filter(([, cardCounts]) => isOwned(cardCounts))
     .map(([uniqueId]) => uniqueId);
 
   const exportText =

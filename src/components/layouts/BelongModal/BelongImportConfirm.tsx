@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { General } from 'eiketsu-deck';
 
 import { belongCardsSelector, useAppDispatch, useAppSelector } from '@/hooks';
-import { belongActions } from '@/modules/belong';
+import { belongActions, isOwned } from '@/modules/belong';
 import { windowActions } from '@/modules/window';
 
 interface Props {
@@ -24,7 +24,10 @@ export const BelongImportConfirm = ({
   const dispatch = useAppDispatch();
 
   const belongCards = useAppSelector(belongCardsSelector);
-  const belongUniqueIds = Object.keys(belongCards);
+  // 絆・刻銘のみ入力された武将も belongCards に含まれるため、通常カード所持のみを対象にする
+  const belongUniqueIds = Object.entries(belongCards)
+    .filter(([, cardCounts]) => isOwned(cardCounts))
+    .map(([uniqueId]) => uniqueId);
 
   // 読み込み対象
   const targetUniqueIds = importUniqueIds.filter((uniqueId) =>
@@ -113,12 +116,12 @@ export const BelongImportConfirm = ({
                 const updateBelongs = belongs
                   .map((g) => ({
                     generalUniqueId: g.uniqueId,
-                    count: 1,
+                    owned: true,
                   }))
                   .concat(
                     notBelongs.map((g) => ({
                       generalUniqueId: g.uniqueId,
-                      count: 0,
+                      owned: false,
                     })),
                   );
                 dispatch(belongActions.updateBelongCards(updateBelongs));

@@ -109,10 +109,47 @@ function ReduxLocalStorageSync<S>({ store, params, storage }: Options<S>) {
   });
 }
 
+/**
+ * LocalStorage保存用の短縮キー形式。
+ * `o`: 通常カード所持(所持していれば1)、`b`: 絆カード枚数、`c`: 刻銘カード枚数。
+ * 値がないキーは出力しない。
+ */
+interface StoredCardCounts {
+  o?: number;
+  b?: number;
+  c?: number;
+}
+
+function toStoredValue(cards: BelongCards): string {
+  const compact: { [key: string]: StoredCardCounts } = {};
+  for (const [uniqueId, { owned, kizuna, kokumei }] of Object.entries(cards)) {
+    const entry: StoredCardCounts = {};
+    if (owned) {
+      entry.o = 1;
+    }
+    if (kizuna != null) {
+      entry.b = kizuna;
+    }
+    if (kokumei != null) {
+      entry.c = kokumei;
+    }
+    compact[uniqueId] = entry;
+  }
+  return JSON.stringify(compact);
+}
+
+/** 保存値から枚数を読み取る。1以上の整数以外は未入力(undefined)扱い */
+function toCount(value: unknown): number | undefined {
+  return typeof value === 'number' && Number.isInteger(value) && value > 0
+    ? value
+    : undefined;
+}
+
 const belongParams: ParamsOptions<RootState, BelongCards> = {
   action: belongActions.setBelongCards,
   selector: (state) => state.belong.belongCards,
   defaultValue: {},
+  valueToString: toStoredValue,
   stringToValue: (q) => {
     const values = JSON.parse(q);
     const keys = Object.keys(values);
@@ -125,14 +162,29 @@ const belongParams: ParamsOptions<RootState, BelongCards> = {
 
     return keys.reduce((belongCards, k) => {
       const v = values[k];
-      if (
-        v != null &&
-        Number.isInteger(v) &&
-        v > 0 &&
-        generals.some((g) => g.uniqueId === k)
-      ) {
-        // 存在するuniqueIdの場合のみ追加
-        belongCards[k] = v;
+      // 存在するuniqueIdの場合のみ追加
+      if (v == null || !generals.some((g) => g.uniqueId === k)) {
+        return belongCards;
+      }
+      // 旧形式(値が数値そのもの)の互換読み込み。所持のみ設定する
+      if (typeof v === 'number') {
+        if (toCount(v) != null) {
+          belongCards[k] = {
+            owned: true,
+            kizuna: undefined,
+            kokumei: undefined,
+          };
+        }
+        return belongCards;
+      }
+      if (typeof v === 'object') {
+        const owned = toCount(v.o) != null;
+        const kizuna = toCount(v.b);
+        const kokumei = toCount(v.c);
+        // すべて未設定の場合は保持しない
+        if (owned || kizuna != null || kokumei != null) {
+          belongCards[k] = { owned, kizuna, kokumei };
+        }
       }
       return belongCards;
     }, {} as BelongCards);

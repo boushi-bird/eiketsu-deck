@@ -16,7 +16,7 @@ import {
   useAppDispatch,
   useAppSelector,
 } from '@/hooks';
-import { belongActions } from '@/modules/belong';
+import { belongActions, isOwned } from '@/modules/belong';
 import { deckActions } from '@/modules/deck';
 
 interface Props {
@@ -69,8 +69,7 @@ export const CardListCtrl = memo(function Component({ general }: Props) {
   const deckCardCount = deckCards.length;
   const deckChecked = deckCards.some((d) => d.generalIdx === general.idx);
 
-  const belongCount = belongCards[general.uniqueId] || 0;
-  const belongChecked = belongCount > 0;
+  const belongChecked = isOwned(belongCards[general.uniqueId]);
 
   // クリック可能であるか判別
   const clickable =
@@ -124,8 +123,12 @@ export const CardListCtrl = memo(function Component({ general }: Props) {
 
   const handleAddBelongClick = useCallback(
     (targetChecked: boolean, generalUniqueId: string) => {
-      const count = targetChecked ? 1 : 0;
-      dispatch(belongActions.updateBelongCard({ generalUniqueId, count }));
+      dispatch(
+        belongActions.updateBelongCard({
+          generalUniqueId,
+          owned: targetChecked,
+        }),
+      );
     },
     [dispatch],
   );

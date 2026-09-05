@@ -1,7 +1,7 @@
 import { General, GeneralStrategy } from 'eiketsu-deck';
 
 import { KABUKI_RANKS } from '@/consts';
-import { BelongCards } from '@/modules/belong';
+import { BelongCards, isOwned } from '@/modules/belong';
 import { DatalistState } from '@/modules/datalist';
 import { FilterMenuItemName, FilterState } from '@/modules/filter';
 import { NO_SKILL } from '@/services/createDatalist';
@@ -221,8 +221,7 @@ export const filterMenuItems: Readonly<FilterMenuItem[]> = [
       if (filter.belongFilter == null || filter.belongFilter === 'all') {
         return true;
       }
-      const value = belongCards[general.uniqueId];
-      const belongGeneral = value !== null && value > 0;
+      const belongGeneral = isOwned(belongCards[general.uniqueId]);
       return filter.belongFilter === 'belong' ? belongGeneral : !belongGeneral;
     },
     label: (_, { belongFilter }) =>
