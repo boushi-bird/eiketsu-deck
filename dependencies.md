@@ -146,10 +146,6 @@
     - license: MIT
  - **[@babel/plugin-transform-property-literals@7.29.7](https://github.com/babel/babel)**
     - license: MIT
- - **[@babel/plugin-transform-react-jsx-self@7.29.7](https://github.com/babel/babel)**
-    - license: MIT
- - **[@babel/plugin-transform-react-jsx-source@7.29.7](https://github.com/babel/babel)**
-    - license: MIT
  - **[@babel/plugin-transform-regenerator@7.29.8](https://github.com/babel/babel)**
     - license: MIT
  - **[@babel/plugin-transform-regexp-modifiers@7.29.7](https://github.com/babel/babel)**
@@ -202,8 +198,6 @@
     - license: MIT-0
  - **[@csstools/utilities@3.0.0](https://github.com/csstools/postcss-plugins)**
     - license: MIT-0
- - **[@esbuild/linux-x64@0.28.2](https://github.com/evanw/esbuild)**
-    - license: MIT
  - **[@eslint-community/eslint-utils@4.10.1](https://github.com/eslint-community/eslint-utils)**
     - license: MIT
  - **[@eslint-community/regexpp@4.12.2](https://github.com/eslint-community/regexpp)**
@@ -262,9 +256,15 @@
     - license: MIT
  - **[@nodelib/fs.walk@1.2.8](https://github.com/nodelib/nodelib/tree/master/packages/fs/fs.walk)**
     - license: MIT
+ - **[@oxc-project/types@0.148.0](https://github.com/oxc-project/oxc)**
+    - license: MIT
  - **[@reduxjs/toolkit@2.12.0](https://github.com/reduxjs/redux-toolkit)**
     - license: MIT
- - **[@rolldown/pluginutils@1.0.0-rc.3](https://github.com/rolldown/rolldown)**
+ - **[@rolldown/binding-linux-x64-gnu@1.2.7](https://github.com/rolldown/rolldown)**
+    - license: MIT
+ - **[@rolldown/binding-linux-x64-musl@1.2.7](https://github.com/rolldown/rolldown)**
+    - license: MIT
+ - **[@rolldown/pluginutils@1.0.1](https://github.com/rolldown/plugins)**
     - license: MIT
  - **[@rollup/plugin-babel@6.1.0](https://github.com/rollup/plugins)**
     - license: MIT
@@ -288,14 +288,6 @@
     - license: MIT
  - **[@trickfilm400/rollup-plugin-off-main-thread@3.0.0-pre1](https://github.com/Trickfilm400/rollup-plugin-off-main-thread)**
     - license: Apache-2.0
- - **[@types/babel__core@7.20.5](https://github.com/DefinitelyTyped/DefinitelyTyped)**
-    - license: MIT
- - **[@types/babel__generator@7.27.0](https://github.com/DefinitelyTyped/DefinitelyTyped)**
-    - license: MIT
- - **[@types/babel__template@7.4.4](https://github.com/DefinitelyTyped/DefinitelyTyped)**
-    - license: MIT
- - **[@types/babel__traverse@7.28.0](https://github.com/DefinitelyTyped/DefinitelyTyped)**
-    - license: MIT
  - **[@types/estree@1.0.9](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
  - **[@types/json-schema@7.0.15](https://github.com/DefinitelyTyped/DefinitelyTyped)**
@@ -338,7 +330,7 @@
     - license: MIT
  - **[@unrs/resolver-binding-linux-x64-musl@1.12.2](https://github.com/unrs/unrs-resolver)**
     - license: MIT
- - **[@vitejs/plugin-react@5.2.0](https://github.com/vitejs/vite-plugin-react)**
+ - **[@vitejs/plugin-react@6.1.1](https://github.com/vitejs/vite-plugin-react)**
     - license: MIT
  - **[acorn-jsx@5.3.2](https://github.com/acornjs/acorn-jsx)**
     - license: MIT
@@ -482,6 +474,8 @@
     - license: MIT
  - **[define-properties@1.2.1](https://github.com/ljharb/define-properties)**
     - license: MIT
+ - **[detect-libc@2.1.2](https://github.com/lovell/detect-libc)**
+    - license: Apache-2.0
  - **[doctrine@2.1.0](https://github.com/eslint/doctrine)**
     - license: Apache-2.0
  - **[dom-serializer@1.4.1](https://github.com/cheeriojs/dom-renderer)**
@@ -527,8 +521,6 @@
  - **[es-shim-unscopables@1.1.0](https://github.com/ljharb/es-shim-unscopables)**
     - license: MIT
  - **[es-to-primitive@1.3.4](https://github.com/ljharb/es-to-primitive)**
-    - license: MIT
- - **[esbuild@0.28.2](https://github.com/evanw/esbuild)**
     - license: MIT
  - **[escalade@3.2.0](https://github.com/lukeed/escalade)**
     - license: MIT
@@ -792,6 +784,12 @@
     - license: MIT
  - **[levn@0.4.1](https://github.com/gkz/levn)**
     - license: MIT
+ - **[lightningcss-linux-x64-gnu@1.33.0](https://github.com/parcel-bundler/lightningcss)**
+    - license: MPL-2.0
+ - **[lightningcss-linux-x64-musl@1.33.0](https://github.com/parcel-bundler/lightningcss)**
+    - license: MPL-2.0
+ - **[lightningcss@1.33.0](https://github.com/parcel-bundler/lightningcss)**
+    - license: MPL-2.0
  - **[load-json-file@4.0.0](https://github.com/sindresorhus/load-json-file)**
     - license: MIT
  - **[locate-path@6.0.0](https://github.com/sindresorhus/locate-path)**
@@ -942,8 +940,6 @@
     - license: MIT
  - **[react-redux@9.3.0](https://github.com/reduxjs/react-redux)**
     - license: MIT
- - **[react-refresh@0.18.0](https://github.com/facebook/react)**
-    - license: MIT
  - **[react@19.2.8](https://github.com/react/react)**
     - license: MIT
  - **[read-cache@1.0.2](https://github.com/TrySound/read-cache)**
@@ -987,6 +983,8 @@
  - **[resolve@2.0.0-next.7](https://github.com/browserify/resolve)**
     - license: MIT
  - **[reusify@1.1.0](https://github.com/mcollina/reusify)**
+    - license: MIT
+ - **[rolldown@1.2.7](https://github.com/rolldown/rolldown)**
     - license: MIT
  - **[rollup@4.63.1](https://github.com/rollup/rollup)**
     - license: MIT
@@ -1158,9 +1156,9 @@
     - license: MIT
  - **[vite-plugin-pwa@1.3.0](https://github.com/vite-pwa/vite-plugin-pwa)**
     - license: MIT
- - **[vite-plugin-radar@0.10.1](https://github.com/stafyniaksacha/vite-plugin-radar)**
+ - **[vite-plugin-radar@0.11.0](https://github.com/stafyniaksacha/vite-plugin-radar)**
     - license: MIT
- - **[vite@7.3.6](https://github.com/vitejs/vite)**
+ - **[vite@8.2.2](https://github.com/vitejs/vite)**
     - license: MIT
  - **[which-boxed-primitive@1.1.1](https://github.com/inspect-js/which-boxed-primitive)**
     - license: MIT
