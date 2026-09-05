@@ -182,7 +182,7 @@
     - license: MIT
  - **[@babel/types@7.29.8](https://github.com/babel/babel)**
     - license: MIT
- - **[@boushi-bird/eiketsu-taisen-net-datalist@0.4.1](https://github.com/boushi-bird/eiketsu-taisen-net-datalist)**
+ - **[@boushi-bird/eiketsu-taisen-net-datalist@0.5.1](https://github.com/boushi-bird/eiketsu-taisen-net-datalist)**
     - license: MIT
  - **[@csstools/cascade-layer-name-parser@3.0.0](https://github.com/csstools/postcss-plugins)**
     - license: MIT
@@ -1080,8 +1080,6 @@
     - license: MIT
  - **[supports-preserve-symlinks-flag@1.0.0](https://github.com/inspect-js/node-supports-preserve-symlinks-flag)**
     - license: MIT
- - **[tagged-tag@1.0.0](https://github.com/sindresorhus/tagged-tag)**
-    - license: MIT
  - **[temp-dir@2.0.0](https://github.com/sindresorhus/temp-dir)**
     - license: MIT
  - **[tempy@0.6.0](https://github.com/sindresorhus/tempy)**
@@ -1103,10 +1101,6 @@
  - **[type-check@0.4.0](https://github.com/gkz/type-check)**
     - license: MIT
  - **[type-fest@0.16.0](https://github.com/sindresorhus/type-fest)**
-    - license: (MIT OR CC0-1.0)
- - **[type-fest@4.41.0](https://github.com/sindresorhus/type-fest)**
-    - license: (MIT OR CC0-1.0)
- - **[type-fest@5.9.0](https://github.com/sindresorhus/type-fest)**
     - license: (MIT OR CC0-1.0)
  - **[typed-array-buffer@1.0.3](https://github.com/inspect-js/typed-array-buffer)**
     - license: MIT
