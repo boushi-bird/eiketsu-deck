@@ -94,9 +94,11 @@ const cardCountFilterMenuItems: FilterMenuItem[] = (
     return true;
   },
   label: (_, filter) => {
-    const max = filter[filterItemName]?.max ?? CARD_COUNT_FILTER_RANGE.max;
     const min = filter[filterItemName]?.min ?? CARD_COUNT_FILTER_RANGE.min;
-    return `${min} - ${max}`;
+    const max = filter[filterItemName]?.max;
+    // max未指定は上限なしのため「50+」と表示する
+    const maxText = max == null ? `${CARD_COUNT_FILTER_RANGE.max}+` : `${max}`;
+    return `${min} - ${maxText}`;
   },
 }));
 

@@ -34,10 +34,17 @@ export const DECK_GENERAL_CARD_COUNT: RangeValue = {
   defaultValue: 8,
 };
 
-/** 絆・刻銘カードの枚数フィルタの範囲 */
+/** 絆・刻銘カードの枚数の入力上限 */
+export const MAX_CARD_COUNT = 99 as const;
+
+/**
+ * 絆・刻銘カードの枚数フィルタの範囲。
+ * 実用上は50枚程度までが現実的なため、上限は50としている。
+ * 上限値を選んだ場合は「50+」と表示し、上限なし(51枚以上も対象)として扱う。
+ */
 export const CARD_COUNT_FILTER_RANGE = {
   min: 0,
-  max: 20,
+  max: 50,
 } as const;
 
 export const MAX_KABUKI_RANK = {

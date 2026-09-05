@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import { General } from 'eiketsu-deck';
 
 import { CheckBox } from '@/components/parts/CheckBox';
+import { MAX_CARD_COUNT } from '@/consts';
 import {
   activeDeckTabIndexSelector,
   belongCardsSelector,
@@ -58,9 +59,6 @@ const CARD_COUNT_ITEMS = [
   label: string;
   canHave: (general: General) => boolean;
 }[];
-
-/** 枚数入力欄の最大値 */
-const MAX_CARD_COUNT = 9999;
 
 export const CardListCtrl = memo(function Component({ general }: Props) {
   const dispatch = useAppDispatch();
