@@ -36,7 +36,7 @@
     - license: MIT
  - **[balanced-match@1.0.2](https://github.com/juliangruber/balanced-match)**
     - license: MIT
- - **[brace-expansion@1.1.14](https://github.com/juliangruber/brace-expansion)**
+ - **[brace-expansion@1.1.18](https://github.com/juliangruber/brace-expansion)**
     - license: MIT
  - **[chalk@2.4.2](https://github.com/chalk/chalk)**
     - license: MIT
