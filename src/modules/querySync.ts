@@ -16,6 +16,15 @@ import { DECK_COST_LIMIT } from '@/consts';
 import { RootState, store } from '@/store';
 import { excludeUndef } from '@/utils/excludeUndef';
 
+/**
+ * redux-query-sync はESMビルドを持たないCJSパッケージ。
+ * バンドラによっては default が { default: fn } の形で解決されるため、
+ * 実体の関数を取り出して使う。
+ */
+const reduxQuerySyncFn = ((
+  reduxQuerySync as unknown as { default?: typeof reduxQuerySync }
+).default ?? reduxQuerySync) as typeof reduxQuerySync;
+
 // defaultValue と=== 比較で一致する場合にparameterがなくなるので空を同一インスタンスに
 const emptyDecks: DeckCard[] = [];
 
@@ -145,7 +154,7 @@ export const querySync = () => {
   if (unsubscribe) {
     return;
   }
-  unsubscribe = reduxQuerySync<RootState>({
+  unsubscribe = reduxQuerySyncFn<RootState>({
     store,
     params: queryParamsOptions,
     initialTruth: 'location',
