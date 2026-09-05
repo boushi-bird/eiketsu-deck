@@ -12,7 +12,7 @@ import {
   useAppDispatch,
   useAppSelector,
 } from '@/hooks';
-import { belongActions } from '@/modules/belong';
+import { belongActions, isOwned } from '@/modules/belong';
 import { windowActions } from '@/modules/window';
 
 export const BelongCtrl = () => {
@@ -67,9 +67,9 @@ export const BelongCtrl = () => {
                     .filter(
                       (g) =>
                         searchedGenerals.includes(g.idx) &&
-                        belongCards[g.uniqueId] == null,
+                        !isOwned(belongCards[g.uniqueId]),
                     )
-                    .map((g) => ({ generalUniqueId: g.uniqueId, count: 1 }));
+                    .map((g) => ({ generalUniqueId: g.uniqueId, owned: true }));
                   dispatch(belongActions.updateBelongCards(updateBelongs));
                 }, [generals, searchedGenerals, belongCards, dispatch])}
               >
@@ -88,7 +88,7 @@ export const BelongCtrl = () => {
                   const updateBelongs = Object.keys(belongCards).map(
                     (generalUniqueId) => ({
                       generalUniqueId,
-                      count: 0,
+                      owned: false,
                     }),
                   );
                   dispatch(belongActions.updateBelongCards(updateBelongs));

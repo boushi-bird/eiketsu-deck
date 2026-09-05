@@ -6,6 +6,7 @@ import {
   useSelector as useReduxSelector,
 } from 'react-redux';
 
+import { isOwned } from './modules/belong';
 import { DEFAULT_DECK_CONSTRAINTS } from './modules/deck';
 
 import type { AppDispatch, RootState } from '@/store';
@@ -68,5 +69,6 @@ export const searchedGeneralsSelector = createSelector(
 
 export const hasBelongCardsSelector = createSelector(
   belongCardsSelector,
-  (belongCards) => Object.keys(belongCards).length > 0,
+  // 絆・刻銘のみ入力された武将も belongCards に含まれるため、通常カード所持の有無で判定する
+  (belongCards) => Object.values(belongCards).some(isOwned),
 );

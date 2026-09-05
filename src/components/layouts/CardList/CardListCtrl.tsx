@@ -1,10 +1,11 @@
-import { memo, useCallback } from 'react';
+import { ChangeEvent, memo, useCallback } from 'react';
 
 import { createSelector } from '@reduxjs/toolkit';
 import classNames from 'classnames';
 import { General } from 'eiketsu-deck';
 
 import { CheckBox } from '@/components/parts/CheckBox';
+import { MAX_CARD_COUNT } from '@/consts';
 import {
   activeDeckTabIndexSelector,
   belongCardsSelector,
@@ -16,8 +17,9 @@ import {
   useAppDispatch,
   useAppSelector,
 } from '@/hooks';
-import { belongActions } from '@/modules/belong';
+import { CardCountKey, belongActions, isOwned } from '@/modules/belong';
 import { deckActions } from '@/modules/deck';
+import { canHaveKizuna, canHaveKokumei } from '@/utils/ownedCardRules';
 
 interface Props {
   general: General;
@@ -48,6 +50,16 @@ const selectorDeckPersonals = createSelector(
   },
 );
 
+/** 枚数入力欄の定義。表示可否は canHave 判定で出し分ける */
+const CARD_COUNT_ITEMS = [
+  { key: 'kizuna', label: '絆', canHave: canHaveKizuna },
+  { key: 'kokumei', label: '刻銘', canHave: canHaveKokumei },
+] as const satisfies {
+  key: CardCountKey;
+  label: string;
+  canHave: (general: General) => boolean;
+}[];
+
 export const CardListCtrl = memo(function Component({ general }: Props) {
   const dispatch = useAppDispatch();
 
@@ -69,8 +81,12 @@ export const CardListCtrl = memo(function Component({ general }: Props) {
   const deckCardCount = deckCards.length;
   const deckChecked = deckCards.some((d) => d.generalIdx === general.idx);
 
-  const belongCount = belongCards[general.uniqueId] || 0;
-  const belongChecked = belongCount > 0;
+  const belongValue = belongCards[general.uniqueId];
+  const belongChecked = isOwned(belongValue);
+
+  // 所持編集モード中のみ枚数入力欄を表示する
+  // 絆・刻銘は所持フラグとは独立しているため、所持チェックの有無では出し分けない
+  const showCardCounts = editMode === 'belong';
 
   // クリック可能であるか判別
   const clickable =
@@ -124,10 +140,32 @@ export const CardListCtrl = memo(function Component({ general }: Props) {
 
   const handleAddBelongClick = useCallback(
     (targetChecked: boolean, generalUniqueId: string) => {
-      const count = targetChecked ? 1 : 0;
-      dispatch(belongActions.updateBelongCard({ generalUniqueId, count }));
+      dispatch(
+        belongActions.updateBelongCard({
+          generalUniqueId,
+          owned: targetChecked,
+        }),
+      );
     },
     [dispatch],
+  );
+
+  const handleChangeCardCount = useCallback(
+    (key: CardCountKey) => (e: ChangeEvent<HTMLInputElement>) => {
+      const raw = e.target.value;
+      const value =
+        raw === ''
+          ? undefined
+          : Math.min(MAX_CARD_COUNT, Math.max(0, Math.trunc(Number(raw))));
+      dispatch(
+        belongActions.updateBelongCardCount({
+          generalUniqueId: general.uniqueId,
+          key,
+          value,
+        }),
+      );
+    },
+    [dispatch, general.uniqueId],
   );
 
   return (
@@ -161,6 +199,30 @@ export const CardListCtrl = memo(function Component({ general }: Props) {
           >
             所持
           </CheckBox>
+        </div>
+      )}
+      {showCardCounts && (
+        <div className="card-list-ctrl-card-count-area">
+          <div
+            className="card-list-ctrl-card-count"
+            style={{ backgroundColor: general.color.thincolor }}
+          >
+            {CARD_COUNT_ITEMS.filter(({ canHave }) => canHave(general)).map(
+              ({ key, label }) => (
+                <label key={key} className="card-count-item">
+                  {label}
+                  <input
+                    className="card-count-input"
+                    type="number"
+                    max={MAX_CARD_COUNT}
+                    min={0}
+                    value={belongValue?.[key] ?? ''}
+                    onChange={handleChangeCardCount(key)}
+                  />
+                </label>
+              ),
+            )}
+          </div>
         </div>
       )}
     </div>

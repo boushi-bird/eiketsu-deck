@@ -1,11 +1,12 @@
 import { General, GeneralStrategy } from 'eiketsu-deck';
 
-import { KABUKI_RANKS } from '@/consts';
-import { BelongCards } from '@/modules/belong';
+import { CARD_COUNT_FILTER_RANGE, KABUKI_RANKS } from '@/consts';
+import { BelongCards, isOwned } from '@/modules/belong';
 import { DatalistState } from '@/modules/datalist';
 import { FilterMenuItemName, FilterState } from '@/modules/filter';
 import { NO_SKILL } from '@/services/createDatalist';
 import { excludeUndef } from '@/utils/excludeUndef';
+import { canHaveKizuna, canHaveKokumei } from '@/utils/ownedCardRules';
 
 interface FilterMenuItem {
   filterItemName: FilterMenuItemName;
@@ -43,6 +44,8 @@ export const filterMenuItemNames: { [key in FilterMenuItemName]: string } = {
   skillsCount: '特技数',
   hasSameSkills: '同特技複数持ち',
   belongFilter: '所持状態',
+  kizunaCount: '絆カード枚数',
+  kokumeiCount: '刻銘カード枚数',
   generalRarities: 'レアリティ',
   appearDetailVersions: '登場弾',
   cardTypes: 'カード種別',
@@ -58,6 +61,46 @@ export const filterMenuItemNames: { [key in FilterMenuItemName]: string } = {
 } as const;
 
 const sortByIdx = (a: HasIdx, b: HasIdx) => a.idx - b.idx;
+
+/**
+ * 絆・刻銘の枚数フィルタ。
+ * 枚数未入力(undefined)は0枚として扱うため、min=0 を指定すれば未所持も絞り込める。
+ * そのカードが該当種別を持ちえない場合(PLの絆など)は常に対象外とする。
+ */
+const cardCountFilterMenuItems: FilterMenuItem[] = (
+  [
+    { filterItemName: 'kizunaCount', key: 'kizuna', canHave: canHaveKizuna },
+    { filterItemName: 'kokumeiCount', key: 'kokumei', canHave: canHaveKokumei },
+  ] as const
+).map(({ filterItemName, key, canHave }) => ({
+  filterItemName,
+  enabled: ({ filter }) => filter[filterItemName] != null,
+  filter: (general, filter, { belongCards }) => {
+    const condition = filter[filterItemName];
+    if (condition == null) {
+      return true;
+    }
+    if (!canHave(general)) {
+      return false;
+    }
+    const count = belongCards?.[general.uniqueId]?.[key] ?? 0;
+    const { max, min } = condition;
+    if (max != null && count > max) {
+      return false;
+    }
+    if (min != null && count < min) {
+      return false;
+    }
+    return true;
+  },
+  label: (_, filter) => {
+    const min = filter[filterItemName]?.min ?? CARD_COUNT_FILTER_RANGE.min;
+    const max = filter[filterItemName]?.max;
+    // max未指定は上限なしのため「50+」と表示する
+    const maxText = max == null ? `${CARD_COUNT_FILTER_RANGE.max}+` : `${max}`;
+    return `${min} - ${maxText}`;
+  },
+}));
 
 export const filterMenuItems: Readonly<FilterMenuItem[]> = [
   {
@@ -221,8 +264,7 @@ export const filterMenuItems: Readonly<FilterMenuItem[]> = [
       if (filter.belongFilter == null || filter.belongFilter === 'all') {
         return true;
       }
-      const value = belongCards[general.uniqueId];
-      const belongGeneral = value !== null && value > 0;
+      const belongGeneral = isOwned(belongCards[general.uniqueId]);
       return filter.belongFilter === 'belong' ? belongGeneral : !belongGeneral;
     },
     label: (_, { belongFilter }) =>
@@ -232,6 +274,7 @@ export const filterMenuItems: Readonly<FilterMenuItem[]> = [
           ? '所持'
           : '未所持',
   },
+  ...cardCountFilterMenuItems,
   {
     filterItemName: 'strong',
     enabled: ({ filter }) => filter.strong != null,

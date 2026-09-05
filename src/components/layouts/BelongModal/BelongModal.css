@@ -214,32 +214,61 @@
       background-color: var(--filter-menu-content-bg-color);
       padding: 4px 0;
 
-      & .belong-list-area {
+      & .count-info {
+        flex: none;
+        font-size: 18px;
+        padding: 2px 0;
+
+        & span {
+          margin: 0 6px;
+
+          &.decreased {
+            color: var(--danger-color);
+          }
+        }
+      }
+
+      & .belong-import-confirm-table-area {
         flex: auto;
         width: 100%;
-        display: flex;
-        justify-content: space-around;
-        padding: 4px 0;
+        min-height: 100px;
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+        padding: 4px;
 
-        & .belong-list {
-          height: 100%;
+        & .belong-import-confirm-table {
+          width: 100%;
+          border-collapse: collapse;
+          font-size: 16px;
+          background-color: var(--default-light-bg-color);
+          color: var(--default-color);
+
+          & th,
+          & td {
+            border: 1px solid var(--default-border-color);
+            padding: 2px 4px;
+            text-align: left;
+            white-space: nowrap;
+          }
+
+          & th {
+            position: sticky;
+            top: 0;
+            color: var(--ctrl-ui-color);
+            background-color: var(--ctrl-ui-bg-color);
+          }
+
+          & td .decreased {
+            color: var(--danger-color);
+          }
+        }
+
+        & .no-changes {
           display: flex;
           align-items: center;
-          flex-direction: column;
-
-          & .blong-text {
-            flex: auto;
-            width: calc(100% - 8px);
-            min-height: 100px;
-            height: 100%;
-            resize: none;
-            margin: 0 auto;
-            font-size: 30px;
-
-            &:read-only {
-              background-color: var(--default-disabled-color);
-            }
-          }
+          justify-content: center;
+          height: 100%;
+          font-size: 18px;
         }
       }
 

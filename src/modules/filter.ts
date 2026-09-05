@@ -8,6 +8,10 @@ export type BelongFilter = 'all' | 'belong' | 'not_belong';
 export interface FilterState {
   selectionMode: FilterSelectionMode;
   belongFilter?: BelongFilter;
+  /** 絆カードの枚数 */
+  kizunaCount?: RequireAtLeastOne<{ max?: number; min?: number }>;
+  /** 刻銘カードの枚数 */
+  kokumeiCount?: RequireAtLeastOne<{ max?: number; min?: number }>;
   strong?: RequireAtLeastOne<{ max?: number; min?: number }>;
   intelligence?: RequireAtLeastOne<{ max?: number; min?: number }>;
   strongIntelligenceDiff?: RequireAtLeastOne<{ max?: number; min?: number }>;
@@ -71,6 +75,8 @@ export type SelectionFilterItemName = Exclude<
   FilterItemName,
   | 'selectionMode'
   | 'belongFilter'
+  | 'kizunaCount'
+  | 'kokumeiCount'
   | 'strong'
   | 'intelligence'
   | 'skillsAnd'
@@ -79,6 +85,8 @@ export type SelectionFilterItemName = Exclude<
 >;
 
 const numberItemNames = [
+  'kizunaCount',
+  'kokumeiCount',
   'strong',
   'intelligence',
   'strongIntelligenceDiff',

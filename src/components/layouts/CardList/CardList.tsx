@@ -87,7 +87,7 @@ export const CardList = () => {
     undefined,
   );
   const [localBelongCards, setLocalBelongCards] = useState<
-    { [key: string]: number } | undefined
+    BelongCards | undefined
   >(undefined);
 
   const generals = useAppSelector(generalsSelector);
