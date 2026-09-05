@@ -82,7 +82,7 @@
     - license: ISC
  - **[is-core-module@2.16.2](https://github.com/inspect-js/is-core-module)**
     - license: MIT
- - **[js-yaml@4.1.1](https://github.com/nodeca/js-yaml)**
+ - **[js-yaml@4.3.1](https://github.com/nodeca/js-yaml)**
     - license: MIT
  - **[json-parse-even-better-errors@2.3.1](https://github.com/npm/json-parse-even-better-errors)**
     - license: MIT
