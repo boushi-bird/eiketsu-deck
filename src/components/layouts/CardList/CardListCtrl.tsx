@@ -51,13 +51,11 @@ const selectorDeckPersonals = createSelector(
 
 /** 枚数入力欄の定義。表示可否は canHave 判定で出し分ける */
 const CARD_COUNT_ITEMS = [
-  { key: 'kizuna', label: '絆', title: '絆カード', canHave: canHaveKizuna },
-  { key: 'kokumei', label: '刻', title: '刻銘カード', canHave: canHaveKokumei },
+  { key: 'kizuna', label: '絆', canHave: canHaveKizuna },
+  { key: 'kokumei', label: '刻銘', canHave: canHaveKokumei },
 ] as const satisfies {
   key: CardCountKey;
-  /** 表示幅が狭いため1文字。正式名称は title に持たせる */
   label: string;
-  title: string;
   canHave: (general: General) => boolean;
 }[];
 
@@ -207,21 +205,26 @@ export const CardListCtrl = memo(function Component({ general }: Props) {
       )}
       {showCardCounts && (
         <div className="card-list-ctrl-card-count-area">
-          {CARD_COUNT_ITEMS.filter(({ canHave }) => canHave(general)).map(
-            ({ key, label, title }) => (
-              <label key={key} className="card-count-item" title={title}>
-                {label}
-                <input
-                  className="card-count-input"
-                  type="number"
-                  max={MAX_CARD_COUNT}
-                  min={0}
-                  value={belongValue?.[key] ?? ''}
-                  onChange={handleChangeCardCount(key)}
-                />
-              </label>
-            ),
-          )}
+          <div
+            className="card-list-ctrl-card-count"
+            style={{ backgroundColor: general.color.thincolor }}
+          >
+            {CARD_COUNT_ITEMS.filter(({ canHave }) => canHave(general)).map(
+              ({ key, label }) => (
+                <label key={key} className="card-count-item">
+                  {label}
+                  <input
+                    className="card-count-input"
+                    type="number"
+                    max={MAX_CARD_COUNT}
+                    min={0}
+                    value={belongValue?.[key] ?? ''}
+                    onChange={handleChangeCardCount(key)}
+                  />
+                </label>
+              ),
+            )}
+          </div>
         </div>
       )}
     </div>

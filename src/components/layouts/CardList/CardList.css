@@ -132,49 +132,45 @@
       align-items: center;
       justify-content: space-around;
       flex-direction: column;
+      position: relative;
 
-      /* 絆・刻銘の枚数入力欄。カード高さが固定のため横並びで省スペースに配置する */
+      /* 絆・刻銘の枚数入力欄。カード内には収まらないためカード左隣にオーバーレイ表示する */
       & .card-list-ctrl-card-count-area {
-        width: calc(100% - 4px);
-        margin: 0 2px 2px;
         display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        gap: 2px;
+        position: absolute;
+        top: 0;
+        left: -210px;
+        width: 210px;
+        height: 100%;
+        background-color: var(--default-light-bg-color);
 
-        & .card-count-item {
-          flex: 1 1 0;
-          min-width: 0;
+        & .card-list-ctrl-card-count {
+          width: 100%;
+          height: 100%;
           display: flex;
           flex-direction: row;
+          flex-wrap: wrap;
           align-items: center;
           justify-content: flex-start;
-          gap: 1px;
-          font-size: 9px;
-          line-height: 1;
-          white-space: nowrap;
-          color: var(--default-color);
+          gap: 8px;
+          padding: 4px;
 
-          & .card-count-input {
-            width: 100%;
-            min-width: 0;
-            height: 18px;
-            font-size: 11px;
-            padding: 0 1px;
-            text-align: right;
+          & .card-count-item {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            font-size: 16px;
+            gap: 2px;
+            white-space: nowrap;
             color: var(--default-color);
-            background-color: var(--default-light-bg-color);
-            border: 1px solid var(--default-border-color);
-            border-radius: 2px;
 
-            /* 数値入力のスピナーは幅を圧迫するため非表示にする */
-            appearance: textfield;
-
-            &::-webkit-outer-spin-button,
-            &::-webkit-inner-spin-button {
-              appearance: none;
-              margin: 0;
+            & .card-count-input {
+              width: 54px;
+              font-size: 16px;
+              padding: 0 2px;
+              color: var(--default-color);
+              background-color: var(--default-light-bg-color);
+              border: 1px solid var(--default-border-color);
             }
           }
         }
