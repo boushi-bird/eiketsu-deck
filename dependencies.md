@@ -910,7 +910,7 @@
     - license: MIT
  - **[postcss-custom-properties@15.0.1](https://github.com/csstools/postcss-plugins)**
     - license: MIT
- - **[postcss-import@16.2.0](https://github.com/postcss/postcss-import)**
+ - **[postcss-import@17.0.0](https://github.com/postcss/postcss-import)**
     - license: MIT
  - **[postcss-nesting@14.0.1](https://github.com/csstools/postcss-plugins)**
     - license: MIT-0
