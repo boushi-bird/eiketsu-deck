@@ -6,7 +6,11 @@ import classNames from 'classnames';
 import { FilterButtonList } from '@/components/parts/FilterButtonList';
 import { MultiSelect } from '@/components/parts/MultiSelect';
 import { NumberSelectRange } from '@/components/parts/NumberSelectRange';
-import { KABUKI_RANKS, MAX_KABUKI_RANK } from '@/consts';
+import {
+  CARD_COUNT_FILTER_RANGE,
+  KABUKI_RANKS,
+  MAX_KABUKI_RANK,
+} from '@/consts';
 import {
   datalistSelector,
   filterSelector,
@@ -29,6 +33,8 @@ const filterBasicSelector = createSelector(
   ({
     selectionMode,
     belongFilter,
+    kizunaCount,
+    kokumeiCount,
     strong,
     intelligence,
     strongIntelligenceDiff,
@@ -41,6 +47,8 @@ const filterBasicSelector = createSelector(
   }) => ({
     selectionMode,
     belongFilter,
+    kizunaCount,
+    kokumeiCount,
     strong,
     intelligence,
     strongIntelligenceDiff,
@@ -120,6 +128,52 @@ export const FilterTabBodyDetail = () => {
           )}
         />
       </section>
+
+      <div
+        className={classNames('filter-section-group', {
+          hidden: !hasBelongCards,
+        })}
+      >
+        <section className="filter-section">
+          <h2 className="title">{filterMenuItemNames['kizunaCount']}</h2>
+          <NumberSelectRange
+            max={CARD_COUNT_FILTER_RANGE.max}
+            min={CARD_COUNT_FILTER_RANGE.min}
+            current={filter.kizunaCount}
+            onChangeValue={useCallback(
+              (value) => {
+                dispatch(
+                  filterActions.setCondition({
+                    itemName: 'kizunaCount',
+                    value,
+                  }),
+                );
+              },
+              [dispatch],
+            )}
+          />
+        </section>
+
+        <section className="filter-section">
+          <h2 className="title">{filterMenuItemNames['kokumeiCount']}</h2>
+          <NumberSelectRange
+            max={CARD_COUNT_FILTER_RANGE.max}
+            min={CARD_COUNT_FILTER_RANGE.min}
+            current={filter.kokumeiCount}
+            onChangeValue={useCallback(
+              (value) => {
+                dispatch(
+                  filterActions.setCondition({
+                    itemName: 'kokumeiCount',
+                    value,
+                  }),
+                );
+              },
+              [dispatch],
+            )}
+          />
+        </section>
+      </div>
 
       <div className="filter-section-group">
         <section className="filter-section">

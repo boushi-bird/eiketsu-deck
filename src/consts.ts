@@ -34,6 +34,12 @@ export const DECK_GENERAL_CARD_COUNT: RangeValue = {
   defaultValue: 8,
 };
 
+/** 絆・刻銘カードの枚数フィルタの範囲 */
+export const CARD_COUNT_FILTER_RANGE = {
+  min: 0,
+  max: 20,
+} as const;
+
 export const MAX_KABUKI_RANK = {
   label: 'Rank7',
   filterLabel: '7',
