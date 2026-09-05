@@ -1,13 +1,12 @@
 import { memo, useCallback } from 'react';
 
-import { RequireAtLeastOne } from 'type-fest';
-
 import { NumberSelect } from '@/components/parts/NumberSelect';
+import { NumberRange } from '@/modules/filter';
 
 interface Props {
   max: number;
   min: number;
-  current?: RequireAtLeastOne<{ max?: number; min?: number }>;
+  current?: NumberRange;
   displayText?: (value: number, isDefault: boolean) => string;
   /**
    * 上限側で上限値を選んだときに `50+` のように表示する。
@@ -17,9 +16,7 @@ interface Props {
    * 下限側は通常の値として扱われるため `+` は付かない。
    */
   unlimitedMax?: boolean;
-  onChangeValue: (
-    value?: RequireAtLeastOne<{ max?: number; min?: number }>,
-  ) => void;
+  onChangeValue: (value?: NumberRange) => void;
 }
 
 export const NumberSelectRange = memo(function Component({
