@@ -1,5 +1,8 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { RequireAtLeastOne } from 'type-fest';
+
+/** 上限・下限のどちらか一方は必須の数値範囲 */
+export type NumberRange =
+  { max: number; min?: number } | { max?: number; min: number };
 
 export type FilterSelectionMode = 'single' | 'multiple';
 
@@ -9,14 +12,14 @@ export interface FilterState {
   selectionMode: FilterSelectionMode;
   belongFilter?: BelongFilter;
   /** 絆カードの枚数 */
-  kizunaCount?: RequireAtLeastOne<{ max?: number; min?: number }>;
+  kizunaCount?: NumberRange;
   /** 刻銘カードの枚数 */
-  kokumeiCount?: RequireAtLeastOne<{ max?: number; min?: number }>;
-  strong?: RequireAtLeastOne<{ max?: number; min?: number }>;
-  intelligence?: RequireAtLeastOne<{ max?: number; min?: number }>;
-  strongIntelligenceDiff?: RequireAtLeastOne<{ max?: number; min?: number }>;
-  kabukiPt?: RequireAtLeastOne<{ max?: number; min?: number }>;
-  kabukiRank?: RequireAtLeastOne<{ max?: number; min?: number }>;
+  kokumeiCount?: NumberRange;
+  strong?: NumberRange;
+  intelligence?: NumberRange;
+  strongIntelligenceDiff?: NumberRange;
+  kabukiPt?: NumberRange;
+  kabukiRank?: NumberRange;
   generalColors: number[];
   periods: number[];
   appearDetailVersions: number[];
@@ -26,9 +29,9 @@ export interface FilterState {
   unitTypes: number[];
   skills: number[];
   skillsAnd: boolean;
-  skillsCount?: RequireAtLeastOne<{ max?: number; min?: number }>;
+  skillsCount?: NumberRange;
   hasSameSkills: boolean;
-  generalStrategyMp?: RequireAtLeastOne<{ max?: number; min?: number }>;
+  generalStrategyMp?: NumberRange;
   generalStrategyCategories: number[];
   generalStrategyCategoriesAnd: boolean;
   generalStrategyTimes: number[];
