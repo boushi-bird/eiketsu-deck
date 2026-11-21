@@ -6,7 +6,8 @@ import path from 'path';
 import { config as dotenvConfig } from 'dotenv';
 import { dump as yamlDump, load as yamlLoad } from 'js-yaml';
 
-dotenvConfig({ path: path.resolve(__dirname, '../.env') });
+// dotenv v18は成功時のログもconsole.errorへ出力するため、quietで抑制する
+dotenvConfig({ path: path.resolve(__dirname, '../.env'), quiet: true });
 
 const srcDir = path.resolve(__dirname, '../public');
 const distDir = path.resolve(__dirname, '../dist');
