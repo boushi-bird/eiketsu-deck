@@ -5,7 +5,8 @@ import { createHtmlPlugin } from 'vite-plugin-html';
 import { VitePWA } from 'vite-plugin-pwa';
 import { VitePluginRadar } from 'vite-plugin-radar';
 
-dotenvConfig();
+// dotenv v18は成功時のログもconsole.errorへ出力するため、quietで抑制する
+dotenvConfig({ quiet: true });
 
 const APP_PATH = process.env.APP_PATH || '/';
 
