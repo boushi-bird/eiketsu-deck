@@ -234,8 +234,6 @@
     - license: Apache-2.0
  - **[@humanwhocodes/retry@0.4.3](https://github.com/humanwhocodes/retry)**
     - license: Apache-2.0
- - **[@isaacs/cliui@9.0.0](https://github.com/isaacs/cliui)**
-    - license: BlueOak-1.0.0
  - **[@isaacs/nonrecursive-glob-match@1.1.0](undefined)**
     - license: BlueOak-1.0.0
  - **[@jridgewell/gen-mapping@0.3.13](https://github.com/jridgewell/sourcemaps)**
@@ -376,18 +374,12 @@
     - license: MIT
  - **[babel-plugin-polyfill-regenerator@0.6.8](https://github.com/babel/babel-polyfills)**
     - license: MIT
- - **[balanced-match@1.0.2](https://github.com/juliangruber/balanced-match)**
-    - license: MIT
  - **[balanced-match@4.0.4](https://github.com/juliangruber/balanced-match)**
     - license: MIT
  - **[baseline-browser-mapping@2.11.39](https://github.com/web-platform-dx/baseline-browser-mapping)**
     - license: Apache-2.0
  - **[boolbase@1.0.0](https://github.com/fb55/boolbase)**
     - license: ISC
- - **[brace-expansion@1.1.22](https://github.com/juliangruber/brace-expansion)**
-    - license: MIT
- - **[brace-expansion@2.1.8](https://github.com/juliangruber/brace-expansion)**
-    - license: MIT
  - **[brace-expansion@5.0.13](https://github.com/juliangruber/brace-expansion)**
     - license: MIT
  - **[braces@3.0.3](https://github.com/micromatch/braces)**
@@ -435,8 +427,6 @@
  - **[comment-parser@1.4.9](https://github.com/yavorskiy/comment-parser)**
     - license: MIT
  - **[common-tags@1.8.2](https://github.com/zspecza/common-tags)**
-    - license: MIT
- - **[concat-map@0.0.1](https://github.com/substack/node-concat-map)**
     - license: MIT
  - **[connect-history-api-fallback@1.6.0](https://github.com/bripkens/connect-history-api-fallback)**
     - license: MIT
@@ -594,8 +584,6 @@
     - license: ISC
  - **[for-each@0.3.5](https://github.com/Raynos/for-each)**
     - license: MIT
- - **[foreground-child@3.3.1](https://github.com/tapjs/foreground-child)**
-    - license: ISC
  - **[fraction.js@5.3.4](https://github.com/rawify/Fraction.js)**
     - license: MIT
  - **[fs-extra@10.1.0](https://github.com/jprichardson/node-fs-extra)**
@@ -626,7 +614,7 @@
     - license: ISC
  - **[glob-parent@6.0.2](https://github.com/gulpjs/glob-parent)**
     - license: ISC
- - **[glob@11.1.0](https://github.com/isaacs/node-glob)**
+ - **[glob@14.0.6](https://github.com/isaacs/node-glob)**
     - license: BlueOak-1.0.0
  - **[globals@14.0.0](https://github.com/sindresorhus/globals)**
     - license: MIT
@@ -750,8 +738,6 @@
     - license: ISC
  - **[iterator.prototype@1.1.5](https://github.com/ljharb/Iterator.prototype)**
     - license: MIT
- - **[jackspeak@4.2.3](https://github.com/isaacs/jackspeak)**
-    - license: BlueOak-1.0.0
  - **[jake@10.9.4](https://github.com/jakejs/jake)**
     - license: Apache-2.0
  - **[jiti@2.7.0](https://github.com/unjs/jiti)**
@@ -818,14 +804,8 @@
     - license: MIT
  - **[micromatch@4.0.8](https://github.com/micromatch/micromatch)**
     - license: MIT
- - **[minimatch@10.2.6](https://github.com/isaacs/minimatch)**
-    - license: BlueOak-1.0.0
  - **[minimatch@11.0.9](https://github.com/isaacs/minimatch)**
     - license: BlueOak-1.0.0
- - **[minimatch@3.1.5](https://github.com/isaacs/minimatch)**
-    - license: ISC
- - **[minimatch@5.1.9](https://github.com/isaacs/minimatch)**
-    - license: ISC
  - **[minipass@7.1.3](https://github.com/isaacs/minipass)**
     - license: BlueOak-1.0.0
  - **[ms@2.1.3](https://github.com/vercel/ms)**
@@ -874,8 +854,6 @@
     - license: MIT
  - **[p-locate@5.0.0](https://github.com/sindresorhus/p-locate)**
     - license: MIT
- - **[package-json-from-dist@1.0.1](https://github.com/isaacs/package-json-from-dist)**
-    - license: BlueOak-1.0.0
  - **[param-case@3.0.4](https://github.com/blakeembrey/change-case)**
     - license: MIT
  - **[parent-module@1.0.1](https://github.com/sindresorhus/parent-module)**
@@ -892,7 +870,7 @@
     - license: MIT
  - **[path-parse@1.0.7](https://github.com/jbgutierrez/path-parse)**
     - license: MIT
- - **[path-scurry@2.0.2](https://github.com/isaacs/path-scurry)**
+ - **[path-scurry@3.0.0](https://github.com/isaacs/path-scurry)**
     - license: BlueOak-1.0.0
  - **[path-type@3.0.0](https://github.com/sindresorhus/path-type)**
     - license: MIT
@@ -1034,8 +1012,6 @@
     - license: MIT
  - **[side-channel@1.1.1](https://github.com/ljharb/side-channel)**
     - license: MIT
- - **[signal-exit@4.1.0](https://github.com/tapjs/signal-exit)**
-    - license: ISC
  - **[smob@1.6.2](https://github.com/Tada5hi/smob)**
     - license: MIT
  - **[source-map-js@1.2.4](https://github.com/7rulnik/source-map-js)**
@@ -1152,7 +1128,7 @@
     - license: MIT
  - **[vite-plugin-html@3.2.2](https://github.com/vbenjs/vite-plugin-html)**
     - license: MIT
- - **[vite-plugin-pwa@1.3.0](https://github.com/vite-pwa/vite-plugin-pwa)**
+ - **[vite-plugin-pwa@2.0.0](https://github.com/vite-pwa/vite-plugin-pwa)**
     - license: MIT
  - **[vite-plugin-radar@0.11.0](https://github.com/stafyniaksacha/vite-plugin-radar)**
     - license: MIT
