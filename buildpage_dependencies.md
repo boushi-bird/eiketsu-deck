@@ -14,7 +14,7 @@
     - license: MIT
  - **[@tsconfig/node16@1.0.4](https://github.com/tsconfig/bases)**
     - license: MIT
- - **[@types/node@24.13.3](https://github.com/DefinitelyTyped/DefinitelyTyped)**
+ - **[@types/node@24.19.2](https://github.com/DefinitelyTyped/DefinitelyTyped)**
     - license: MIT
  - **[abbrev@1.1.1](https://github.com/isaacs/abbrev-js)**
     - license: ISC
@@ -26,15 +26,15 @@
     - license: MIT
  - **[arg@4.1.3](https://github.com/zeit/arg)**
     - license: MIT
- - **[argparse@2.0.1](https://github.com/nodeca/argparse)**
-    - license: Python-2.0
+ - **[argparse@3.0.4](https://github.com/nodeca/argparse)**
+    - license: PSF-2.0
  - **[array-find-index@1.0.2](https://github.com/sindresorhus/array-find-index)**
     - license: MIT
  - **[asap@2.0.6](https://github.com/kriskowal/asap)**
     - license: MIT
  - **[balanced-match@1.0.2](https://github.com/juliangruber/balanced-match)**
     - license: MIT
- - **[brace-expansion@1.1.18](https://github.com/juliangruber/brace-expansion)**
+ - **[brace-expansion@1.1.22](https://github.com/juliangruber/brace-expansion)**
     - license: MIT
  - **[chalk@2.4.2](https://github.com/chalk/chalk)**
     - license: MIT
@@ -54,7 +54,7 @@
     - license: ISC
  - **[diff@4.0.4](https://github.com/kpdecker/jsdiff)**
     - license: BSD-3-Clause
- - **[dotenv@17.4.2](https://github.com/motdotla/dotenv)**
+ - **[dotenv@18.0.10](https://github.com/motdotla/dotenv)**
     - license: BSD-2-Clause
  - **[es-errors@1.3.0](https://github.com/ljharb/es-errors)**
     - license: MIT
@@ -80,7 +80,7 @@
     - license: ISC
  - **[is-core-module@2.16.2](https://github.com/inspect-js/is-core-module)**
     - license: MIT
- - **[js-yaml@5.4.1](https://github.com/nodeca/js-yaml)**
+ - **[js-yaml@5.5.0](https://github.com/nodeca/js-yaml)**
     - license: MIT
  - **[json-parse-even-better-errors@2.3.1](https://github.com/npm/json-parse-even-better-errors)**
     - license: MIT
@@ -150,7 +150,7 @@
     - license: MIT
  - **[typescript@6.0.3](https://github.com/microsoft/TypeScript)**
     - license: Apache-2.0
- - **[undici-types@7.18.2](https://github.com/nodejs/undici)**
+ - **[undici-types@7.24.6](https://github.com/nodejs/undici)**
     - license: MIT
  - **[util-extend@1.0.3](https://github.com/isaacs/util-extend)**
     - license: MIT
